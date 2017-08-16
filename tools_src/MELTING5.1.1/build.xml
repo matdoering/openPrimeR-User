@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project default="compile" basedir="." name="MELTING">
+	
+	<target name="init">
+
+	    <property name="Name" value="MELTING Java 5"/>
+	    <property name="name" value="melting5"/>
+            <property name="GUI-name" value="melting5GUI"/>
+	    <property name="version" value="5"/>
+	    <property environment="env"/>
+	    <property name="debug" value="on"/>
+	    <property name="optimize" value="off"/>
+	    <property name="deprecation" value="false"/>
+	    <property name="depend" value="true"/>
+	    <property name="verbose" value="false"/>
+	    <property name="src.dir" value="${basedir}/src"/>
+	    <property name="build.dir" value="${basedir}/build"/>
+	    <property name="build.src" value="${basedir}/build/src"/>
+	    <property name="build.bin" value="${basedir}/build/bin"/>
+	    <property name="build.javadocs" value="${basedir}/build/javadoc"/>
+	    <property name="jars.dir" value="${basedir}/lib"/>
+		
+	</target>
+	
+	<target name="prepare" depends="init">
+	    <mkdir dir="${build.dir}"/>
+	</target>
+	
+	<target name="prepare-src" depends="prepare">
+	    <mkdir dir="${build.src}"/>
+	    <mkdir dir="${build.bin}"/>
+	    <copy todir="${build.src}" overwrite="yes">
+	        <fileset dir="${src.dir}">
+	        </fileset>
+	    </copy>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.bin}"/>
+	</target>
+	
+	<target name="compile" depends="prepare-src">   
+		<javac srcdir="${build.src}" destdir="${build.bin}" debug="${debug}" optimize="${optimize}" verbose="${verbose}" source="1.5" target="1.5">
+		</javac>      
+	</target>	
+	
+	<target name="jar" depends="compile">     
+		<copy todir="${build.bin}">
+			<fileset dir="${src.dir}" includes="**/*.png **/*.gif **/*.xsd **/*.tmpl **/data/* **/*.xml **/*.txt" > 
+			</fileset>
+		</copy>
+		<jar jarfile="${build.dir}/${name}.jar" basedir="${build.bin}">
+			<manifest>
+				<attribute name="Main-Class" value="melting.Main"/>
+			</manifest>
+		</jar>
+		<copy todir="${build.dir}/lib" preservelastmodified="true" overwrite="true" verbose="true">
+			<fileset dir="${build.dir}" includes="${name}.jar">
+		    </fileset>
+		</copy>	
+	</target>
+
+	<target name="guijar" depends="compile">     
+		<copy todir="${build.bin}">
+			<fileset dir="${src.dir}" includes="**/*.png **/*.gif **/*.xsd **/*.tmpl **/data/* **/*.xml **/*.txt" > 
+			</fileset>
+		</copy>
+		<jar jarfile="${build.dir}/${GUI-name}.jar" basedir="${build.bin}">
+			<manifest>
+				<attribute name="Main-Class" value="meltinggui.MeltingGui"/>
+			</manifest>
+		</jar>
+		<copy todir="${build.dir}/lib" preservelastmodified="true" overwrite="true" verbose="true">
+			<fileset dir="${build.dir}" includes="${name}.jar">
+		    </fileset>
+		</copy>	
+	</target>
+	
+	<target name="javadoc" depends="prepare-src">
+	    <mkdir dir="${build.javadocs}"/>
+	    <javadoc sourcepath="${build.src}" destdir="${build.javadocs}" version="true" use="true" splitindex="true" noindex="false" windowtitle="${Name} API" doctitle="${Name}" breakiterator="yes" verbose="true">
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+	   </javadoc> 	
+	</target>
+	
+</project>

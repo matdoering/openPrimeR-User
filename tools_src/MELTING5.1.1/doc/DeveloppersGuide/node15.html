@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How to add new ion and denaturing agent species</TITLE>
+<META NAME="description" CONTENT="How to add new ion and denaturing agent species">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html233"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html229"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html223"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html231"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html234"
+  HREF="node16.html">New ion species</A>
+<B> Up:</B> <A NAME="tex2html230"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html224"
+  HREF="node14.html">New DMSO and formamide</A>
+ &nbsp; <B>  <A NAME="tex2html232"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00090000000000000000">
+How to add new ion and denaturing agent species</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new method in the Environment class from the melting package. This method
+must facilitate the usage of the new ion or denaturing agent species concentration in the
+program.
+
+<P>
+<PRE>
+public double getNewSpecies() {
+		if (concentrations.containsKey("newSpecies-Name")){
+			return concentrations.get("newSpecies-Name");
+		}
+		return 0;
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> If the new species concentration is a "required ion concentration", that's to say the new
+species can be the only one species in the solution (no other ions are necessary), you have to 
+change the method <SPAN  CLASS="textit">private boolean isRequiredConcentrations()</SPAN> in the Environment class.
+
+<P>
+<PRE>
+private boolean isRequiredConcentrations(){
+		double Na = 0;
+		double Mg = 0;
+		double K = 0;
+		double Tris = 0;
+		
+		// The new species must be initialised
+		double NewSpecies = 0;
+		
+		if (concentrations.containsKey("Na")){
+			Na = concentrations.get("Na");
+		}
+		if (concentrations.containsKey("Mg")){
+			Mg = concentrations.get("Mg");
+		}
+		if (concentrations.containsKey("K")){
+			K = concentrations.get("K");
+		}
+		if (concentrations.containsKey("Tris")){
+			Tris = concentrations.get("Tris");
+		}
+		
+		// To get the concentration of the new species
+		if (concentrations.containsKey("newSpecies")){
+			Tris = concentrations.get("newSpecies");
+		}
+		
+		// the new species concentration must be strictly positive
+		if (Na &gt; 0 || K &gt; 0 || Mg &gt; 0 || Tris &gt; 0 || newSpecies &gt; 0){
+			return true;
+		}
+		return false;
+	}
+</PRE>
+
+<P>
+Now, the future steps depend on the identity of the new species you want to add.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html235"
+  HREF="node16.html">New ion species</A>
+<LI><A NAME="tex2html236"
+  HREF="node17.html">New denaturing agent species or other species</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

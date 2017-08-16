@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>what to change if you add new subnodes or new attributes</TITLE>
+<META NAME="description" CONTENT="what to change if you add new subnodes or new attributes">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="previous" HREF="node21.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node29.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html400"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html396"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html392"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html398"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html401"
+  HREF="node29.html">How to change the</A>
+<B> Up:</B> <A NAME="tex2html397"
+  HREF="node19.html">XML Files</A>
+<B> Previous:</B> <A NAME="tex2html393"
+  HREF="node27.html">Parameters for structures containing</A>
+ &nbsp; <B>  <A NAME="tex2html399"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000113000000000000000">
+what to change if you add new subnodes or new attributes</A>
+</H2>
+
+<P>
+The current Handler classes in the package melting.handlers can manage
+this type of node hierarchy :
+
+<P>
+<PRE>
+&lt;data type="strucure-type"&gt;
+	&lt;subnode attribute1="value1" attribute2="value2"&gt;
+		&lt;enthalpy&gt;xx[...]xx.x&lt;/enthalpy&gt;
+		&lt;entropy&gt;xx[...]xx.x&lt;/entropy&gt;
+	&lt;/subnode&gt; 
+	   	
+	   	[...]
+	
+	&lt;subnode sequence="AA/TT"&gt;
+		&lt;enthalpy&gt;xx[...]xx.x&lt;/enthalpy&gt;
+		&lt;entropy&gt;xx[...]xx.x&lt;/entropy&gt;
+	&lt;/subnode&gt; 	   	
+&lt;/data&gt;
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> You have to register your new attribute in the DataHandler class in the melting.handlers
+package. You need to change the method <SPAN  CLASS="textit">public void endElement(String uri, String localName, String name)</SPAN> 
+to build the matching key in the dictionnary which will contain the thermodynamic parameters :
+
+<P>
+<PRE>
+	@Override
+	public void endElement(String uri, String localName, String name)
+			throws SAXException {
+		if (subHandler != null) {
+			subHandler.endElement(uri, localName, name);
+			if (subHandler.hasCompletedNode()) {
+				ThermoHandler handler = (ThermoHandler) subHandler;
+				String key = name;
+				if (handler.getAttribut().containsKey("type")) {
+					key += handler.getAttribut().get("type");
+				}
+				[...]
+				
+				// Add your new attribute here
+			if (handler.getAttribut().containsKey("newAttribute-Name")) {
+			key += "subnode-Name" + handler.getAttribut().get("newAttribute-Name");
+			}
+				[...]
+	}
+</PRE>
+
+<P>
+The dictionnary key for each thermodynamic parameter mostly has the following syntax,
+
+<P>
+<SPAN  CLASS="textit">Subnode-nameAttribute1Value1Attribute2Value2</SPAN>
+
+<P>
+but it can be different for some attributes. (see the method in details)
+<BR>
+<BR><SPAN  CLASS="textbf">2)</SPAN> You have to create (or change) a method in the DataCollect class from the melting package
+to more easily get the thermodynamic parameters you need. See the example below :
+
+<P>
+<PRE>
+/**
+* to get the Thermodynamics object containing the parameters 
+* for the base pair (base1, base2) next to the mismatching 
+* base pair.
+* @param string base1 : from the sequence (5'3')
+* @param string base2 : from the complementary sequence (3'5')
+* @return Thermodynamics object containing the parameters for 
+* the base pair (base1, base2) next to the mismatching base pair.
+*/
+public Thermodynamics getClosureValue(String base1, String base2){
+		Thermodynamics s = data.get("closure"+"per-"+base1 + "/" 
+		                            + base2);
+		return s;
+	}
+	
+// Your method can be similar to the following method
+public Thermodynamics getNewThermodynamicParameter1(arg-1, ..., arg-n){
+	Thermodynamics s = data.get("node-name"+"attribute-1"+value-1 
+	                             +[...]+"attribute-n"+value-n);
+	return s;
+}
+</PRE>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

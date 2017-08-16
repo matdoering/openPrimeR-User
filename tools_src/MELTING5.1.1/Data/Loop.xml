@@ -1,0 +1,1526 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<hybridization type="dnadna">
+	<loop type="single_bulge">
+		<origine article="Tanaka_2004">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA bulge loops of Tanaka Fumiaki et al       */
+/* (2004). Biochemistry 43 : 7143-7150                                            */                                                    
+/******************************************************************************/-->
+			<bulge sequence="AAA/TT">
+				<enthalpy>-4000.0</enthalpy>
+				<entropy>-17.5</entropy>
+			</bulge>
+			<bulge sequence="AAT/TA">
+				<enthalpy>-13500.0</enthalpy>
+				<entropy>-44.6</entropy>
+			</bulge>
+			<bulge sequence="AAC/TG">
+				<enthalpy>10200.0</enthalpy>
+				<entropy>25.8</entropy>
+			</bulge>
+			<bulge sequence="AAG/TC">
+				<enthalpy>-200.0</enthalpy>
+				<entropy>-4.6</entropy>
+			</bulge>
+			<bulge sequence="ATA/TT">
+				<enthalpy>9800.0</enthalpy>
+				<entropy>24.7</entropy>
+			</bulge>
+			<bulge sequence="ATT/TA">
+				<enthalpy>-19500.0</enthalpy>
+				<entropy>-61.8</entropy>
+			</bulge>
+			<bulge sequence="ATC/TG">
+				<enthalpy>-4800.0</enthalpy>
+				<entropy>20.0</entropy>
+			</bulge>
+			<bulge sequence="ATG/TC">
+				<enthalpy>5600.0</enthalpy>
+				<entropy>12.9</entropy>
+			</bulge>
+			<bulge sequence="ACA/TT">
+				<enthalpy>6100.0</enthalpy>
+				<entropy>14.0</entropy>
+			</bulge>
+			<bulge sequence="ACT/TA">
+				<enthalpy>-3400.0</enthalpy>
+				<entropy>-15.3</entropy>
+			</bulge>
+			<bulge sequence="ACC/TG">
+				<enthalpy>-29100.0</enthalpy>
+				<entropy>-91.3</entropy>
+			</bulge>
+			<bulge sequence="ACG/TC">
+				<enthalpy>-1200.0</enthalpy>
+				<entropy>-7.4</entropy>
+			</bulge>
+			<bulge sequence="AGA/TT">
+				<enthalpy>15500.0</enthalpy>
+				<entropy>43.1</entropy>
+			</bulge>
+			<bulge sequence="AGT/TA">
+				<enthalpy>5300.0</enthalpy>
+				<entropy>10.6</entropy>
+			</bulge>
+			<bulge sequence="AGC/TG">
+				<enthalpy>-7200.0</enthalpy>
+				<entropy>-28.4</entropy>
+			</bulge>
+			<bulge sequence="AGG/TC">
+				<enthalpy>5700.0</enthalpy>
+				<entropy>14.4</entropy>
+			</bulge>			
+			<bulge sequence="TAA/AT">
+				<enthalpy>15300.0</enthalpy>
+				<entropy>38.5</entropy>
+			</bulge>
+			<bulge sequence="TAT/AA">
+				<enthalpy>-19800.0</enthalpy>
+				<entropy>56.7</entropy>
+			</bulge>
+			<bulge sequence="TAC/AG">
+				<enthalpy>-2300.0</enthalpy>
+				<entropy>-12.7</entropy>
+			</bulge>
+			<bulge sequence="TAG/AC">
+				<enthalpy>1500.0</enthalpy>
+				<entropy>40.4</entropy>
+			</bulge>
+			<bulge sequence="TTA/AT">
+				<enthalpy>-2700.0</enthalpy>
+				<entropy>-16.0</entropy>
+			</bulge>
+			<bulge sequence="TTT/AA">
+				<enthalpy>-8200.0</enthalpy>
+				<entropy>-30.1</entropy>
+			</bulge>
+			<bulge sequence="TTC/AG">
+				<enthalpy>8800.0</enthalpy>
+				<entropy>23.2</entropy>
+			</bulge>
+			<bulge sequence="TTG/AC">
+				<enthalpy>7000.0</enthalpy>
+				<entropy>17.5</entropy>
+			</bulge>
+			<bulge sequence="TCA/AT">
+				<enthalpy>1600.0</enthalpy>
+				<entropy>-3.9</entropy>
+			</bulge>
+			<bulge sequence="TCT/AA">
+				<enthalpy>9900.0</enthalpy>
+				<entropy>30.5</entropy>
+			</bulge>
+			<bulge sequence="TCC/AG">
+				<enthalpy>-15200.0</enthalpy>
+				<entropy>-48.7</entropy>
+			</bulge>
+			<bulge sequence="TCG/AC">
+				<enthalpy>-700.0</enthalpy>
+				<entropy>-7.0</entropy>
+			</bulge>
+			<bulge sequence="TGA/AT">
+				<enthalpy>-12300.0</enthalpy>
+				<entropy>-47.0</entropy>
+			</bulge>
+			<bulge sequence="TGT/AA">
+				<enthalpy>20900.0</enthalpy>
+				<entropy>59.8</entropy>
+			</bulge>
+			<bulge sequence="TGC/AG">
+				<enthalpy>2600.0</enthalpy>
+				<entropy>1.6</entropy>
+			</bulge>
+			<bulge sequence="TGG/AC">
+				<enthalpy>-9200.0</enthalpy>
+				<entropy>-31.4</entropy>
+			</bulge>			
+			<bulge sequence="CAA/GT">
+				<enthalpy>-14400.0</enthalpy>
+				<entropy>-46.6</entropy>
+			</bulge>
+			<bulge sequence="CAT/GA">
+				<enthalpy>-7000.0</enthalpy>
+				<entropy>-25.8</entropy>
+			</bulge>
+			<bulge sequence="CAC/GG">
+				<enthalpy>4300.0</enthalpy>
+				<entropy>8.8</entropy>
+			</bulge>
+			<bulge sequence="CAG/GC">
+				<enthalpy>-2900.0</enthalpy>
+				<entropy>-13.0</entropy>
+			</bulge>
+			<bulge sequence="CTA/GT">
+				<enthalpy>-18700.0</enthalpy>
+				<entropy>-61.7</entropy>
+			</bulge>
+			<bulge sequence="CTT/GA">
+				<enthalpy>-4600.0</enthalpy>
+				<entropy>-17.0</entropy>
+			</bulge>
+			<bulge sequence="CTC/GG">
+				<enthalpy>-14500.0</enthalpy>
+				<entropy>-48.1</entropy>
+			</bulge>
+			<bulge sequence="CTG/GC">
+				<enthalpy>-4700.0</enthalpy>
+				<entropy>-18.8</entropy>
+			</bulge>
+			<bulge sequence="CCA/GT">
+				<enthalpy>5800.0</enthalpy>
+				<entropy>13.4</entropy>
+			</bulge>
+			<bulge sequence="CCT/GA">
+				<enthalpy>-5300.0</enthalpy>
+				<entropy>-24.8</entropy>
+			</bulge>
+			<bulge sequence="CCC/GG">
+				<enthalpy>-2600.0</enthalpy>
+				<entropy>-9.4</entropy>
+			</bulge>
+			<bulge sequence="CCG/GC">
+				<enthalpy>9100.0</enthalpy>
+				<entropy>24.4</entropy>
+			</bulge>
+			<bulge sequence="CGA/GT">
+				<enthalpy>-14700.0</enthalpy>
+				<entropy>-49.6</entropy>
+			</bulge>
+			<bulge sequence="CGT/GA">
+				<enthalpy>2100.0</enthalpy>
+				<entropy>6.5</entropy>
+			</bulge>
+			<bulge sequence="CGC/GG">
+				<enthalpy>-4400.0</enthalpy>
+				<entropy>-17.8</entropy>
+			</bulge>
+			<bulge sequence="CGG/GC">
+				<enthalpy>-16400.0</enthalpy>
+				<entropy>-51.6</entropy>
+			</bulge>			
+			<bulge sequence="GAA/CT">
+				<enthalpy>-6800.0</enthalpy>
+				<entropy>-25.2</entropy>
+			</bulge>
+			<bulge sequence="GAT/CA">
+				<enthalpy>-9800.0</enthalpy>
+				<entropy>-35.6</entropy>
+			</bulge>
+			<bulge sequence="GAC/CG">
+				<enthalpy>-4800.0</enthalpy>
+				<entropy>-18.3</entropy>
+			</bulge>
+			<bulge sequence="GAG/CC">
+				<enthalpy>-6500.0</enthalpy>
+				<entropy>-21.0</entropy>
+			</bulge>
+			<bulge sequence="GTA/CT">
+				<enthalpy>-7400.0</enthalpy>
+				<entropy>-27.0</entropy>
+			</bulge>
+			<bulge sequence="GTT/CA">
+				<enthalpy>1800.0</enthalpy>
+				<entropy>-0.6</entropy>
+			</bulge>
+			<bulge sequence="GTC/CG">
+				<enthalpy>-12300.0</enthalpy>
+				<entropy>-40.0</entropy>
+			</bulge>
+			<bulge sequence="GTG/CC">
+				<enthalpy>-2300.0</enthalpy>
+				<entropy>-10.0</entropy>
+			</bulge>
+			<bulge sequence="GCA/CT">
+				<enthalpy>-2100.0</enthalpy>
+				<entropy>-12.5</entropy>
+			</bulge>
+			<bulge sequence="GCT/CA">
+				<enthalpy>-3500.0</enthalpy>
+				<entropy>-16.1</entropy>
+			</bulge>
+			<bulge sequence="GCC/CG">
+				<enthalpy>400.0</enthalpy>
+				<entropy>-1.0</entropy>
+			</bulge>
+			<bulge sequence="GCG/CC">
+				<enthalpy>13800.0</enthalpy>
+				<entropy>42.9</entropy>
+			</bulge>
+			<bulge sequence="GGA/CT">
+				<enthalpy>2700.0</enthalpy>
+				<entropy>3.6</entropy>
+			</bulge>
+			<bulge sequence="GGT/CA">
+				<enthalpy>-1200.0</enthalpy>
+				<entropy>-9.3</entropy>
+			</bulge>
+			<bulge sequence="GGC/CG">
+				<enthalpy>-1700.0</enthalpy>
+				<entropy>-7.2</entropy>
+			</bulge>
+			<bulge sequence="GGG/CC">
+				<enthalpy>3500.0</enthalpy>
+				<entropy>8.5</entropy>
+			</bulge>
+		</origine>
+	</loop>
+	<loop type="long_bulge">
+     	<origine article="Santalucia_2004">
+ <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA bulge loops of Santalucia et al       */
+/* (2004). Annu. Rev. Biophys. Biomol. Struct 33 : 415-440                                            */                                                    
+/******************************************************************************/-->
+    		<bulge size="1">
+  				<entropy>-12.86</entropy>
+  			</bulge>
+  			<bulge size="2">
+  				<entropy>-9.35</entropy>
+  			</bulge>
+  			<bulge size="3">
+  				<entropy>-10.0</entropy>
+  			</bulge>
+  			<bulge size="4">
+  				<entropy>-10.32</entropy>
+  			</bulge>
+  			<bulge size="5">
+  				<entropy>-10.64</entropy>
+  			</bulge>
+  			<bulge size="6">
+  				<entropy>-11.28</entropy>
+  			</bulge>
+  			<bulge size="7">
+  				<entropy>-11.93</entropy>
+  			</bulge>
+  			<bulge size="8">
+  				<entropy>-12.57</entropy>
+  			</bulge>
+ 			<bulge size="9">
+  				<entropy>-13.22</entropy>
+  			</bulge>
+ 			<bulge size="10">
+  				<entropy>-13.86</entropy>
+  			</bulge>
+ 			<bulge size="12">
+  				<entropy>-14.51</entropy>
+  			</bulge>
+ 			<bulge size="14">
+  				<entropy>-15.48</entropy>
+  			</bulge>
+ 			<bulge size="16">
+  				<entropy>-16.12</entropy>
+  			</bulge>
+ 			<bulge size="18">
+  				<entropy>-16.77</entropy>
+  			</bulge>
+ 			<bulge size="20">
+  				<entropy>-17.09</entropy>
+  			</bulge>
+  			<bulge size="25">
+  				<entropy>-18.06</entropy>
+  			</bulge>
+  			<bulge size="30">
+  				<entropy>-19.02</entropy>
+  			</bulge>
+    	</origine>
+    </loop>
+    
+    <loop type="hairpin">
+      <origine article="Santalucia_2004">
+ <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hairpin loops of Santalucia et al       */
+/* (2004). Annu. Rev. Biophys. Biomol. Struct 33 : 415-440                                            */                                                    
+/******************************************************************************/-->
+    	<hairpin size="3">
+  			<entropy>-11.3</entropy>
+  		</hairpin>
+		<hairpin size="4">
+  			<entropy>-11.3</entropy>
+  		</hairpin>
+		<hairpin size="5">
+  			<entropy>-10.6</entropy>
+  		</hairpin>
+		<hairpin size="6">
+  			<entropy>-12.9</entropy>
+  		</hairpin>
+		<hairpin size="7">
+  			<entropy>-13.5</entropy>
+  		</hairpin>
+		<hairpin size="8">
+  			<entropy>-13.9</entropy>
+  		</hairpin>
+		<hairpin size="9">
+  			<entropy>-14.5</entropy>
+  		</hairpin>
+		<hairpin size="10">
+  			<entropy>-14.8</entropy>
+  		</hairpin>
+ 		<hairpin size="12">
+  			<entropy>-16.1</entropy>
+  		</hairpin>
+ 		<hairpin size="14">
+  			<entropy>-16.4</entropy>
+  		</hairpin>
+ 		<hairpin size="16">
+  			<entropy>-17.1</entropy>
+  		</hairpin>
+ 		<hairpin size="18">
+  			<entropy>-17.7</entropy>
+  		</hairpin>
+ 		<hairpin size="20">
+  			<entropy>-18.4</entropy>
+  		</hairpin>
+ 		<hairpin size="25">
+  			<entropy>-19.7</entropy>
+  		</hairpin>
+ 		<hairpin size="30">
+  			<entropy>-20.3</entropy>
+  		</hairpin>
+  		
+  		<bonus type="triloop" sequence="AG-x-A/T">
+  			<enthalpy>-1500.0</enthalpy>
+  			<entropy>0.0</entropy>
+  		</bonus>
+  		<bonus type="triloop" sequence="CG-x-A/G">
+  			<enthalpy>-2000.0</enthalpy>
+  			<entropy>0.0</entropy>
+  		</bonus> 			
+  		<bonus type="triloop" sequence="GG-x-A/C">
+  			<enthalpy>-2000.0</enthalpy>
+  			<entropy>0.0</entropy>
+  		</bonus> 			
+  		<bonus type="triloop" sequence="TG-x-A/A">
+  			<enthalpy>-1500.0</enthalpy>
+  			<entropy>0.0</entropy>
+  		</bonus>  		
+  		<bonus type="tetraloop" sequence="TAAAA/A">
+  			<enthalpy>500.0</enthalpy>
+  			<entropy>-0.6</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TAAAC/A">
+  			<enthalpy>700.0</enthalpy>
+  			<entropy>1.6</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TAACA/A">
+  			<enthalpy>1000.0</enthalpy>
+  			<entropy>1.6</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TCTTG/A">
+  			<enthalpy>0.0</enthalpy>
+  			<entropy>4.19</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TGAAA/A">
+  			<enthalpy>-1100.0</enthalpy>
+  			<entropy>1.6</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TGAGA/A">
+  			<enthalpy>-1100.0</enthalpy>
+  			<entropy>1.6</entropy>
+  		</bonus>
+  		<bonus type="tetraloop" sequence="TGATA/A">
+  								<enthalpy>-1500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCAA/A">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCTT/A">
+  								<enthalpy>200.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGAA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGG/A">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>0.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTAA/A">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTGG/A">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>0.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTTC/A">
+  								<enthalpy>800.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTCG/A">
+  								<enthalpy>-200.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTG/A">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTT/A">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>  			
+  		<bonus type="tetraloop" sequence="CAAAA/G">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-1.3</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CAAAC/G">
+  								<enthalpy>700.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CAACA/G">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CAACC/G">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CCTTG/G">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>2.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGAAA/G">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGAGA/G">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGATA/G">
+  								<enthalpy>-1500.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGCAA/G">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGCGA/G">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGCTT/G">
+  								<enthalpy>200.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGGAA/G">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGGGA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGGGG/G">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-1.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGTAA/G">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGTGA/G">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CGTTC/G">
+  								<enthalpy>800.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CTTCG/G">
+  								<enthalpy>-200.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CTTTG/G">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="CTTTT/G">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GAAAA/C">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-3.2</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GAAAC/C">
+  								<enthalpy>700.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+		<bonus type="tetraloop" sequence="GAACA/C">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>-3.2</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GCTTG/C">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>2.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGAAA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGAGA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGATA/C">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCAA/C">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCGA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCTT/C">
+  								<enthalpy>200.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGAA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGGA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGGG/C">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-1.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGTAA/C">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGTGA/C">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGTTC/C">
+  								<enthalpy>800.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTCG/C">
+  								<enthalpy>-200.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTTG/C">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTTT/C">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GAAAA/T">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-3.22</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GAAAC/T">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+		<bonus type="tetraloop" sequence="GAACA/T">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GCTTG/T">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGAAA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGAGA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGATA/T">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCAA/T">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCGA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGCTT/T">
+  								<enthalpy>-100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGAA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGGA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGGGG/T">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-1.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGTAA/T">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GGTGA/T">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTATA/T">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTCG/T">
+  								<enthalpy>-400.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTTG/T">
+  								<enthalpy>-400.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="GTTTT/T">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>0.0</entropy>
+  							</bonus>  				
+  		<bonus type="tetraloop" sequence="TAAAA/A">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>0.3</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TAAAC/A">
+  								<enthalpy>700.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TAACA/A">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TCTTG/A">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>4.2</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGAAA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGAGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGATA/A">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>>
+  		<bonus type="tetraloop" sequence="TGCAA/A">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCTT/A">
+  								<enthalpy>200.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGAA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGG/A">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>0.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTAA/A">
+  								<enthalpy>-1600.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTGA/A">
+  								<enthalpy>-1100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTTC/A">
+  								<enthalpy>800.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTCG/A">
+  								<enthalpy>-200.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTG/A">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTT/A">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TAAAA/G">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>-1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TAAAC/G">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+		<bonus type="tetraloop" sequence="TAACA/G">
+  								<enthalpy>1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TCTTG/G">
+  								<enthalpy>0.0</enthalpy>
+  								<entropy>3.2</entropy>
+  		<bonus type="tetraloop" sequence="TGAAA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGAGA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGATA/G">
+  								<enthalpy>-1500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>>
+  		<bonus type="tetraloop" sequence="TGCAA/G">
+  								<enthalpy>-1500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCGA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGCTT/G">
+  								<enthalpy>-100.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGAA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGGGG/G">
+  								<enthalpy>500.0</enthalpy>
+  								<entropy>0.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTAA/G">
+  								<enthalpy>-1500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TGTGA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTCG/G">
+  								<enthalpy>-400.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTA/G">
+  								<enthalpy>-1000.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTG/G">
+  								<enthalpy>-400.0</enthalpy>
+  								<entropy>1.6</entropy>
+  							</bonus>
+  		<bonus type="tetraloop" sequence="TTTTTG">
+  								<enthalpy>-500.0</enthalpy>
+  								<entropy>1.6</entropy>
+  		</bonus>
+  	  </origine>
+    </loop>
+</hybridization>
+
+<hybridization type="rnarna">
+	<loop type="single_bulge">
+		<origine article="Serra_2007">
+    <!--/* /******************************************************************************/
+    contains the parameters for RNA/RNA bulge loops of Martin J Serra et al       */
+/* (2007). Biochemistry 46 : 15123-15135                                            */                                                    
+/******************************************************************************/-->
+			<bulge sequence="CAC/GG">
+				<enthalpy>-4700.0</enthalpy>
+				<entropy>-2.6</entropy>
+			</bulge>
+			<bulge sequence="CAG/GC">
+				<enthalpy>-14700.0</enthalpy>
+				<entropy>-32.9</entropy>
+			</bulge>
+			<bulge sequence="CAU/GA">
+				<enthalpy>-11900.0</enthalpy>
+				<entropy>-24.2</entropy>
+			</bulge>
+			<bulge sequence="CAU/GG">
+				<enthalpy>-38200.0</enthalpy>
+				<entropy>-109.0</entropy>
+			</bulge>
+			<bulge sequence="CGC/GG">
+				<enthalpy>-8800.0</enthalpy>
+				<entropy>-15.5</entropy>
+			</bulge>
+			<bulge sequence="CGU/GA">
+				<enthalpy>-21800.0</enthalpy>
+				<entropy>-55.1</entropy>
+			</bulge>
+			<bulge sequence="CGU/GG">
+				<enthalpy>-19700.0</enthalpy>
+				<entropy>-58.0</entropy>
+			</bulge>			
+			<bulge sequence="GAG/CC">
+				<enthalpy>-8300.0</enthalpy>
+				<entropy>-14.5</entropy>
+			</bulge>
+			<bulge sequence="GAC/CG">
+				<enthalpy>-8200.0</enthalpy>
+				<entropy>-17.1</entropy>
+			</bulge>
+			<bulge sequence="GAU/CA">
+				<enthalpy>-9800.0</enthalpy>
+				<entropy>-17.1</entropy>
+			</bulge>
+			<bulge sequence="GAU/CG">
+				<enthalpy>-21300.0</enthalpy>
+				<entropy>-62.2</entropy>
+			</bulge>
+			<bulge sequence="GCG/CC">
+				<enthalpy>4500.0</enthalpy>
+				<entropy>24.2</entropy>
+			</bulge>
+			<bulge sequence="GCA/CU">
+				<enthalpy>-9400.0</enthalpy>
+				<entropy>-16.4</entropy>
+			</bulge>
+			<bulge sequence="GCU/CA">
+				<enthalpy>-4200.0</enthalpy>
+				<entropy>-9.4</entropy>
+			</bulge>
+			<bulge sequence="GCG/CU">
+				<enthalpy>-16100.0</enthalpy>
+				<entropy>35.8</entropy>
+			</bulge>
+			<bulge sequence="GUG/CC">
+				<enthalpy>-13000.0</enthalpy>
+				<entropy>-29.3</entropy>
+			</bulge>
+			<bulge sequence="GUA/CU">
+				<enthalpy>300.0</enthalpy>
+				<entropy>12.9</entropy>
+			</bulge>
+			<bulge sequence="GUG/CU">
+				<enthalpy>-15600.0</enthalpy>
+				<entropy>-35.1</entropy>
+			</bulge>			
+			<bulge sequence="UAG/AC">
+				<enthalpy>-16400.0</enthalpy>
+				<entropy>-45.8</entropy>
+			</bulge>
+			<bulge sequence="UAC/AG">
+				<enthalpy>-26000.0</enthalpy>
+				<entropy>-66.4</entropy>
+			</bulge>
+			<bulge sequence="UAU/AA">
+				<enthalpy>-20800.0</enthalpy>
+				<entropy>-54.2</entropy>
+			</bulge>
+			<bulge sequence="UAU/AG">
+				<enthalpy>-36800.0</enthalpy>
+				<entropy>-100.0</entropy>
+			</bulge>
+			<bulge sequence="UGC/AG">
+				<enthalpy>-26600.0</enthalpy>
+				<entropy>-69.6</entropy>
+			</bulge>
+			<bulge sequence="UGU/AA">
+				<enthalpy>-12200.0</enthalpy>
+				<entropy>-28.4</entropy>
+			</bulge>
+			<bulge sequence="UGU/AG">
+				<enthalpy>-56.300.0</enthalpy>
+				<entropy>-163.8</entropy>
+			</bulge>
+			<bulge sequence="UCA/AU">
+				<enthalpy>-8500.0</enthalpy>
+				<entropy>-14.8</entropy>
+			</bulge>
+			<bulge sequence="UCU/AA">
+				<enthalpy>-4200.0</enthalpy>
+				<entropy>-1.0</entropy>
+			</bulge>
+			<bulge sequence="UCG/AC">
+				<enthalpy>-20100.0</enthalpy>
+				<entropy>-49.3</entropy>
+			</bulge>
+			<bulge sequence="UCG/AU">
+				<enthalpy>-34600.0</enthalpy>
+				<entropy>-97.0</entropy>
+			</bulge>			
+			<bulge sequence="ACA/UU">
+				<enthalpy>3700.0</enthalpy>
+				<entropy>25.8</entropy>
+			</bulge>
+			<bulge sequence="ACG/UC">
+				<enthalpy>-22600.0</enthalpy>
+				<entropy>-60.1</entropy>
+			</bulge>
+			<bulge sequence="ACU/UA">
+				<enthalpy>-32400.0</enthalpy>
+				<entropy>-89.0</entropy>
+			</bulge>
+			<bulge sequence="ACG/UU">
+				<enthalpy>-39700.0</enthalpy>
+				<entropy>-114.5</entropy>
+			</bulge>
+			<bulge sequence="AUG/UC">
+				<enthalpy>-15100.0</enthalpy>
+				<entropy>-35.8</entropy>
+			</bulge>
+			<bulge sequence="AUA/UU">
+				<enthalpy>-3700.0</enthalpy>
+				<entropy>-0.0</entropy>
+			</bulge>
+			<bulge sequence="AUG/UU">
+				<enthalpy>-42000.0</enthalpy>
+				<entropy>-119.9</entropy>
+			</bulge>			
+			<bulge sequence="GCA/UU">
+				<enthalpy>-25800.0</enthalpy>
+				<entropy>-70.9</entropy>
+			</bulge>
+			<bulge sequence="GCG/UC">
+				<enthalpy>-11400.0</enthalpy>
+				<entropy>-23.9</entropy>
+			</bulge>
+			<bulge sequence="GCU/UA">
+				<enthalpy>-25200.0</enthalpy>
+				<entropy>-68.7</entropy>
+			</bulge>
+			<bulge sequence="GCG/UU">
+				<enthalpy>-23800.0</enthalpy>
+				<entropy>-66.7</entropy>
+			</bulge>
+			<bulge sequence="GUG/UC">
+				<enthalpy>-4200.0</enthalpy>
+				<entropy>-11.9</entropy>
+			</bulge>
+			<bulge sequence="GUA/UU">
+				<enthalpy>-10000.0</enthalpy>
+				<entropy>-19.3</entropy>
+			</bulge>
+			<bulge sequence="GUG/UU">
+				<enthalpy>-24600.0</enthalpy>
+				<entropy>-68.4</entropy>
+			</bulge>			
+			<bulge sequence="UAC/GG">
+				<enthalpy>-6200.0</enthalpy>
+				<entropy>-10.6</entropy>
+			</bulge>
+			<bulge sequence="UAG/GC">
+				<enthalpy>-100.0</enthalpy>
+				<entropy>4.8</entropy>
+			</bulge>
+			<bulge sequence="UAU/GA">
+				<enthalpy>-20700.0</enthalpy>
+				<entropy>-56.1</entropy>
+			</bulge>
+			<bulge sequence="UAU/GG">
+				<enthalpy>-18400.0</enthalpy>
+				<entropy>-50.9</entropy>
+			</bulge>
+			<bulge sequence="UGC/GG">
+				<enthalpy>-21800.0</enthalpy>
+				<entropy>-61.6</entropy>
+			</bulge>
+			<bulge sequence="UGU/GA">
+				<enthalpy>-13800.0</enthalpy>
+				<entropy>-31.0</entropy>
+			</bulge>
+			<bulge sequence="UGU/GG">
+				<enthalpy>-17500.0</enthalpy>
+			</bulge>
+		</origine>
+	</loop>
+	<loop type="long_bulge">
+     	<origine article="turner_1999_2006">
+     	<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA bulge loops of ;
+	REF: Douglas M Turner et al (2006). Nucleic Acids Research 34: 4912-4924. 
+    	REF: Douglas M Turner et al (1999). J.Mol.Biol.  288: 911_940. 
+    	/******************************************************************************/-->
+    	
+    		<bulge type="initiation" size="1">
+    			<enthalpy>10600.0</enthalpy>
+    			<entropy>21.9</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size="2">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy>13.9</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size="3">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy>12.6</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size="4">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy>11.3</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size="5">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy>10.0</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size="6">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy>8.7</entropy>
+    		</bulge>
+    		
+    		<bulge type="initiation" size=">6">
+    			<enthalpy>7100.0</enthalpy>
+    			<entropy equation="1000/310.15 x (8.7 - 1085.5ln(n/6))">1000</entropy>
+    		</bulge>
+    	</origine>
+    </loop>
+    
+    <loop type="hairpin">
+    	<origine article="Turner_1999_2006">
+       <!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA hairpin loop of ;
+	REF: Douglas M Turner et al (2006). Nucleic Acids Research 34: 4912-4924.
+	REF: Douglas M Turner et al (1999). J.Mol.Biol.  288: 911_940. 
+    	/******************************************************************************/-->
+   		
+   			<hairpin type="initiation" size="3">
+   				<enthalpy>1300.0</enthalpy>
+   				<entropy>-14.2</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="4">
+   				<enthalpy>4800.0</enthalpy>
+   				<entropy>-2.6</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="5">
+   				<enthalpy>3600.0</enthalpy>
+   				<entropy>-6.4</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="6">
+   				<enthalpy>-2900.0</enthalpy>
+   				<entropy>-26.8</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="7">
+   				<enthalpy>1300.0</enthalpy>
+   				<entropy>-14.8</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="8">
+   				<enthalpy>-2900.0</enthalpy>
+   				<entropy>-27.4</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="9">
+   				<enthalpy>5000.0</enthalpy>
+   				<entropy>-4.5</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size=">9">
+   				<enthalpy>5000.0</enthalpy>
+   				<entropy equation="1000/310.15x(-1.4 - 1085.5ln(n/9)"></entropy>
+   			</hairpin>
+   			
+   			<bonus type="first_mismatch" sequence="U/U">
+   				<enthalpy>-5800.0</enthalpy>
+   				<entropy>-16.1</entropy>
+   			</bonus>
+   			<bonus type="first_mismatch" sequence="G/A_not_A/G">
+   				<enthalpy>-5800.0</enthalpy>
+   				<entropy>-16.1</entropy>
+   			</bonus>
+   			<bonus type="closure" sequence="G/U">
+   				<enthalpy>-14800.0</enthalpy>
+   				<entropy>-40.6</entropy>
+   			</bonus>
+   			
+   			<penalty type="oligo_C_loop_3">
+   				<enthalpy>1860.0</enthalpy>
+   				<entropy>55.5</entropy>
+   			</penalty>
+   			
+   			<penalty type="oligo_C_loop_>3" parameter="A">
+   				<enthalpy>3400.0</enthalpy>
+   				<entropy>10.1</entropy>
+   			</penalty>
+   			<penalty type="oligo_C_loop_>3" parameter="B">
+   					<enthalpy>7600.0</enthalpy>
+   					<entropy>19.3</entropy>
+   			</penalty>
+   		</origine>
+    	
+    	<origine article="Serra_1997_1998_2000_2006">
+       <!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA hairpin loop of ;
+	REF: Martin J Serra et al (1998). Biochemistry 37: 1094-1100.
+	REF: Martin J Serra et al (2000). RNA 6: 608-615.
+	REF: Martin J Serra et al (1997). Biochemistry 36: 4844-4851.
+	REF: Martin J Serra et al (2006). Biochemistry 45: 1400-1407.  
+       	/******************************************************************************/-->
+    	<hairpin type="terminal_mismatch" sequence="UA/GA">
+    			<enthalpy>-3700.0</enthalpy>
+    			<entropy>-9.2</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UA/GC">
+    			<enthalpy>-3500.0</enthalpy>
+    			<entropy>-8.9</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UA/GG">
+    			<enthalpy>-3700.0</enthalpy>
+    			<entropy>-9.0</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UC/GA">
+    			<enthalpy>-1700.0</enthalpy>
+    			<entropy>-3.9</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UC/GC">
+    			<enthalpy>-2700.0</enthalpy>
+    			<entropy>-6.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UC/GU">
+    			<enthalpy>-100.0</enthalpy>
+    			<entropy>0.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UG/GA">
+    			<enthalpy>-3100.0</enthalpy>
+    			<entropy>-11.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UG/GG">
+    			<enthalpy>-1500.0</enthalpy>
+    			<entropy>-2.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UU/GU">
+    			<enthalpy>-2800.0</enthalpy>
+    			<entropy>-7.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UU/GC">
+    			<enthalpy>-2100.0</enthalpy>
+    			<entropy>-4.9</entropy>
+    	</hairpin>
+    	
+    	<hairpin type="terminal_mismatch" sequence="GA/UA">
+    			<enthalpy>-3400.0</enthalpy>
+    			<entropy>-10.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/UC">
+    			<enthalpy>-400.0</enthalpy>
+    			<entropy>0.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/UG">
+    			<enthalpy>-1300.0</enthalpy>
+    			<entropy>-1.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UA">
+    			<enthalpy>-3400.0</enthalpy>
+    			<entropy>-15.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UC">
+    			<enthalpy>-4000.0</enthalpy>
+    			<entropy>-9.5</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UU">
+    			<enthalpy>-1900.0</enthalpy>
+    			<entropy>-3.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/UA">
+    			<enthalpy>-600.0</enthalpy>
+    			<entropy>-0.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/UG">
+    			<enthalpy>-900.0</enthalpy>
+    			<entropy>3.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/UU">
+    			<enthalpy>-2000.0</enthalpy>
+    			<entropy>-3.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/UC">
+    			<enthalpy>-1100.0</enthalpy>
+    			<entropy>-1.2</entropy>
+    	</hairpin>   	
+    	<hairpin type="terminal_mismatch" sequence="AA/UA">
+    			<enthalpy>-3900.0</enthalpy>
+    			<entropy>-10.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AA/UC">
+    			<enthalpy>-1800.0</enthalpy>
+    			<entropy>-3.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AA/UG">
+    			<enthalpy>-4800.0</enthalpy>
+    			<entropy>-1.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UA">
+    			<enthalpy>-2300.0</enthalpy>
+    			<entropy>-5.3</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UC">
+    			<enthalpy>-6000.0</enthalpy>
+    			<entropy>-21.6</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UU">
+    			<enthalpy>-2900.0</enthalpy>
+    			<entropy>-8.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AG/UA">
+    			<enthalpy>-3100.0</enthalpy>
+    			<entropy>-7.3</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AG/UG">
+    			<enthalpy>-4700.0</enthalpy>
+    			<entropy>-12.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AU/UC">
+    			<enthalpy>-6090.0</enthalpy>
+    			<entropy>-18.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AU/UU">
+    			<enthalpy>-5200.0</enthalpy>
+    			<entropy>-14.6</entropy>
+    	</hairpin>    	
+    	<hairpin type="terminal_mismatch" sequence="GA/CA">
+    			<enthalpy>-5200.0</enthalpy>
+    			<entropy>-13.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/CC">
+    			<enthalpy>-5300.0</enthalpy>
+    			<entropy>-13.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/CG">
+    			<enthalpy>-5600.0</enthalpy>
+    			<entropy>-13.9</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CA">
+    			<enthalpy>-7200.0</enthalpy>
+    			<entropy>-19.6</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CC">
+    			<enthalpy>-1000.0</enthalpy>
+    			<entropy>-0.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CU">
+    			<enthalpy>-2200.0</enthalpy>
+    			<entropy>-4.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/CA">
+    			<enthalpy>-7100.0</enthalpy>
+    			<entropy>-17.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/CG">
+    			<enthalpy>-6200.0</enthalpy>
+    			<entropy>-15.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/CC">
+    			<enthalpy>-2000.0</enthalpy>
+    			<entropy>-12.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/CU">
+    			<enthalpy>-4600.0</enthalpy>
+    			<entropy>-12.5</entropy>
+    	</hairpin>
+    	
+    	<penalty type="closure" sequence="AU">
+    		<enthalpy>600.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="UA">
+    		<enthalpy>600.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="UG">
+    		<enthalpy>600.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="GU">
+    		<enthalpy>-700.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="GA_notGU">
+    		<enthalpy>-800.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="UU_notGU">
+    		<enthalpy>-800.0</enthalpy>
+    	</penalty>
+    	<penalty type="closure" sequence="GG" closing="5purine">
+    		<enthalpy>-800.0</enthalpy>
+    	</penalty>
+    	
+    	<hairpin size="3">
+    		<entropy>-15.5</entropy>
+    	</hairpin>
+    	
+    	<hairpin size="4">
+    		<entropy>-15.8</entropy>
+    	</hairpin>
+    	<hairpin size="5">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="6">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="7">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="8">
+    		<entropy>-15.8</entropy>
+    	</hairpin>
+    	<hairpin size="9">
+    		<entropy>-17.7</entropy>
+    	</hairpin>
+    </origine>
+    </loop>
+    
+    <loop type="trinucleotide_repeats">
+    	<origine article="Broda_2005">
+       <!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA trinucleotide repeats of ;
+	REF: Broda et al (2005). Biochemistry 44: 10873-10882.
+    	/******************************************************************************/-->
+   			<CNG sequence="CAG/GAC" repeats="2">
+				<enthalpy>-40100.0</enthalpy>
+				<entropy>-110.1</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="2">
+				<enthalpy>-50100.0</enthalpy>
+				<entropy>-139.5</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="2">
+				<enthalpy>-29300.0</enthalpy>
+				<entropy>-74.9/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="2">
+				<enthalpy>-49600.0</enthalpy>
+				<entropy>-141.9</entropy>
+			</CNG>					
+			<CNG sequence="CAG/GAC" repeats="3">
+				<enthalpy>-30100.0</enthalpy>
+				<entropy>-75.4</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="3">
+				<enthalpy>-50700.0</enthalpy>
+				<entropy>-134.3</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="3">
+				<enthalpy>-42200.0</enthalpy>
+				<entropy>-114.4/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="3">
+				<enthalpy>-54900.0</enthalpy>
+				<entropy>-147.9</entropy>
+			</CNG>					
+			<CNG sequence="CAG/GAC" repeats="4">
+				<enthalpy>-32000.0</enthalpy>
+				<entropy>-180.2</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="4">
+				<enthalpy>-58000.0</enthalpy>
+				<entropy>-153.0</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="4">
+				<enthalpy>-45800.0</enthalpy>
+				<entropy>-66.7/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="4">
+				<enthalpy>-43900.0</enthalpy>
+				<entropy>-116.7</entropy>
+			</CNG>
+			</CNG>
+			<CNG sequence="CAG/GAC" repeats="5">
+				<enthalpy>-29300.0</enthalpy>
+				<entropy>-86.6</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="5">
+				<enthalpy>-19900.0</enthalpy>
+				<entropy>-58.2</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="5">
+				<enthalpy>-32800.0</enthalpy>
+				<entropy>-121.5/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="5">
+				<enthalpy>-42800.0</enthalpy>
+				<entropy>-128.3</entropy>
+			</CNG>
+			<CNG sequence="CAG/GAC" repeats="6">
+				<enthalpy>-35500.0</enthalpy>
+				<entropy>-104.0</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="6">
+				<enthalpy>-23900.0</enthalpy>
+				<entropy>-69.8</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="6">
+				<enthalpy>-24400.0</enthalpy>
+				<entropy>-72.0/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="6">
+				<enthalpy>-39800.0</enthalpy>
+				<entropy>-118.6</entropy>
+			</CNG>
+			<CNG sequence="CAG/GAC" repeats="7">
+				<enthalpy>-30600.0</enthalpy>
+				<entropy>-89.4</entropy>
+			</CNG>
+			<CNG sequence="CGG/GGC" repeats="7">
+				<enthalpy>-23400.0</enthalpy>
+				<entropy>-67.5</entropy>
+			</CNG>
+			<CNG sequence="CCG/GCC" repeats="7">
+				<enthalpy>-27300.0</enthalpy>
+				<entropy>-80.1/entropy>
+			</CNG>
+			<CNG sequence="CUG/GUC" repeats="7">
+				<enthalpy>-498600.0</enthalpy>
+				<entropy>-143.5</entropy>
+			</CNG>
+   		</origine>
+</hybridization>

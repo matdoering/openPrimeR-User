@@ -1,0 +1,113 @@
+\hypertarget{group__inverse__fold}{}\section{Inverse Secondary Structure Prediction}
+\label{group__inverse__fold}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{inverse_8h}{inverse.\+h}
+\begin{DoxyCompactList}\small\item\em Inverse folding routines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold} (char $\ast$start, const char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Find sequences with predefined structure. \end{DoxyCompactList}\item 
+float \hyperlink{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}{inverse\+\_\+pf\+\_\+fold} (char $\ast$start, const char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Find sequence that maximizes probability of a predefined structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}{}char $\ast$ \hyperlink{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}{symbolset}\label{group__inverse__fold_ga8f791e7740a5a28b9f6fafb4e60301d9}
+
+\begin{DoxyCompactList}\small\item\em This global variable points to the allowed bases, initially \char`\"{}\+A\+U\+G\+C\char`\"{}. It can be used to design sequences from reduced alphabets. \end{DoxyCompactList}\item 
+float \hyperlink{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}{final\+\_\+cost}
+\item 
+int \hyperlink{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}{give\+\_\+up}
+\item 
+int \hyperlink{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}{inv\+\_\+verbose}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+We provide two functions that search for sequences with a given structure, thereby inverting the folding routines. 
+
+\subsection{Function Documentation}
+\hypertarget{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}!inverse\+\_\+fold@{inverse\+\_\+fold}}
+\index{inverse\+\_\+fold@{inverse\+\_\+fold}!Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsubsection[{inverse\+\_\+fold}]{\setlength{\rightskip}{0pt plus 5cm}float inverse\+\_\+fold (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{start, }
+\item[{const char $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}
+
+
+{\ttfamily \#include $<$\hyperlink{inverse_8h}{Vienna\+R\+N\+A/inverse.\+h}$>$}
+
+
+
+Find sequences with predefined structure. 
+
+This function searches for a sequence with minimum free energy structure provided in the parameter \textquotesingle{}target\textquotesingle{}, starting with sequence \textquotesingle{}start\textquotesingle{}. It returns 0 if the search was successful, otherwise a structure distance in terms of the energy difference between the search result and the actual target \textquotesingle{}target\textquotesingle{} is returned. The found sequence is returned in \textquotesingle{}start\textquotesingle{}. If \hyperlink{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}{give\+\_\+up} is set to 1, the function will return as soon as it is clear that the search will be unsuccessful, this speeds up the algorithm if you are only interested in exact solutions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start sequence \\
+\hline
+{\em target} & The target secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance to the target in case a search was unsuccessful, 0 otherwise 
+\end{DoxyReturn}
+\hypertarget{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}{}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}!inverse\+\_\+pf\+\_\+fold@{inverse\+\_\+pf\+\_\+fold}}
+\index{inverse\+\_\+pf\+\_\+fold@{inverse\+\_\+pf\+\_\+fold}!Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsubsection[{inverse\+\_\+pf\+\_\+fold}]{\setlength{\rightskip}{0pt plus 5cm}float inverse\+\_\+pf\+\_\+fold (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{start, }
+\item[{const char $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}
+
+
+{\ttfamily \#include $<$\hyperlink{inverse_8h}{Vienna\+R\+N\+A/inverse.\+h}$>$}
+
+
+
+Find sequence that maximizes probability of a predefined structure. 
+
+This function searches for a sequence with maximum probability to fold into the provided structure \textquotesingle{}target\textquotesingle{} using the partition function algorithm. It returns $-kT \cdot \log(p)$ where $p$ is the frequency of \textquotesingle{}target\textquotesingle{} in the ensemble of possible structures. This is usually much slower than \hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The start sequence \\
+\hline
+{\em target} & The target secondary structure in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance to the target in case a search was unsuccessful, 0 otherwise 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}{}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}!final\+\_\+cost@{final\+\_\+cost}}
+\index{final\+\_\+cost@{final\+\_\+cost}!Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsubsection[{final\+\_\+cost}]{\setlength{\rightskip}{0pt plus 5cm}float final\+\_\+cost}\label{group__inverse__fold_ga7f17d3b169af048d32bb185039a9c09c}
+
+
+{\ttfamily \#include $<$\hyperlink{inverse_8h}{Vienna\+R\+N\+A/inverse.\+h}$>$}
+
+when to stop \hyperlink{group__inverse__fold_gaeef52ecbf2a2450ad585a344f9826806}{inverse\+\_\+pf\+\_\+fold()} \hypertarget{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}{}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}!give\+\_\+up@{give\+\_\+up}}
+\index{give\+\_\+up@{give\+\_\+up}!Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsubsection[{give\+\_\+up}]{\setlength{\rightskip}{0pt plus 5cm}int give\+\_\+up}\label{group__inverse__fold_ga7ec4ba51f86e1717a1e174264e4a75ce}
+
+
+{\ttfamily \#include $<$\hyperlink{inverse_8h}{Vienna\+R\+N\+A/inverse.\+h}$>$}
+
+default 0\+: try to minimize structure distance even if no exact solution can be found \hypertarget{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}{}\index{Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}!inv\+\_\+verbose@{inv\+\_\+verbose}}
+\index{inv\+\_\+verbose@{inv\+\_\+verbose}!Inverse Secondary Structure Prediction@{Inverse Secondary Structure Prediction}}
+\subsubsection[{inv\+\_\+verbose}]{\setlength{\rightskip}{0pt plus 5cm}int inv\+\_\+verbose}\label{group__inverse__fold_gafcfc65fba01b9cca5946726ed9057a63}
+
+
+{\ttfamily \#include $<$\hyperlink{inverse_8h}{Vienna\+R\+N\+A/inverse.\+h}$>$}
+
+print out substructure on which \hyperlink{group__inverse__fold_ga7af026de55d4babad879f2c92559cbbc}{inverse\+\_\+fold()} fails 

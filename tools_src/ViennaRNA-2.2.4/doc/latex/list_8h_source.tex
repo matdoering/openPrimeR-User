@@ -1,0 +1,70 @@
+\hypertarget{list_8h_source}{}\section{list.\+h}
+\label{list_8h_source}\index{Vienna\+R\+N\+A/list.\+h@{Vienna\+R\+N\+A/list.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{  $Log: list.h,v $}
+00003 \textcolor{comment}{  Revision 1.2  2000/10/10 08:50:01  ivo}
+00004 \textcolor{comment}{  some annotation for lclint}
+00005 \textcolor{comment}{}
+00006 \textcolor{comment}{  Revision 1.1  1997/08/04 21:05:32  walter}
+00007 \textcolor{comment}{  Initial revision}
+00008 \textcolor{comment}{}
+00009 \textcolor{comment}{*/}
+00010 
+00011 \textcolor{preprocessor}{#ifndef \_\_LIST\_H}
+00012 \textcolor{preprocessor}{#define \_\_LIST\_H}
+00013 
+00014 \textcolor{comment}{/*---------------------- Macros and type definitions ----------------------*/}
+00015 
+\hypertarget{list_8h_source_l00016}{}\hyperlink{structLST__BUCKET}{00016} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{structLST__BUCKET}{LST\_BUCKET} \{
+00017   \textcolor{keyword}{struct }\hyperlink{structLST__BUCKET}{LST\_BUCKET} *next;
+00018 \}
+00019 \hyperlink{structLST__BUCKET}{LST\_BUCKET};
+00020 
+\hypertarget{list_8h_source_l00021}{}\hyperlink{structLIST}{00021} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{
+00022   \textcolor{keywordtype}{int} count;      \textcolor{comment}{/* Number of elements currently in list */}
+00023   \hyperlink{structLST__BUCKET}{LST\_BUCKET} *head;   \textcolor{comment}{/* Pointer to head element of list      */}
+00024   \hyperlink{structLST__BUCKET}{LST\_BUCKET} *z;    \textcolor{comment}{/* Pointer to last node of list         */}
+00025   \hyperlink{structLST__BUCKET}{LST\_BUCKET} hz[2];   \textcolor{comment}{/* Space for head and z nodes           */}
+00026 \}
+00027 \hyperlink{structLIST}{LIST};
+00028 
+00029 \textcolor{comment}{/* Return a pointer to the user space given the address of the header of}
+00030 \textcolor{comment}{ * a node.}
+00031 \textcolor{comment}{ */}
+00032 
+00033 \textcolor{preprocessor}{#define LST\_USERSPACE(h)  ((void*)((LST\_BUCKET*)(h) + 1))}
+00034 
+00035 \textcolor{comment}{/* Return a pointer to the header of a node, given the address of the}
+00036 \textcolor{comment}{ * user space.}
+00037 \textcolor{comment}{ */}
+00038 
+00039 \textcolor{preprocessor}{#define LST\_HEADER(n)   ((LST\_BUCKET*)(n) - 1)}
+00040 
+00041 \textcolor{comment}{/* Return a pointer to the user space of the list's head node. This user}
+00042 \textcolor{comment}{ * space does not actually exist, but it is useful to be able to address}
+00043 \textcolor{comment}{ * it to enable insertion at the start of the list.}
+00044 \textcolor{comment}{ */}
+00045 
+00046 \textcolor{preprocessor}{#define LST\_HEAD(l)   LST\_USERSPACE((l)->head)}
+00047 
+00048 \textcolor{comment}{/* Determine if a list is empty}
+00049 \textcolor{comment}{ */}
+00050 
+00051 \textcolor{preprocessor}{#define LST\_EMPTY(l)    ((l)->count == 0)}
+00052 
+00053 \textcolor{comment}{/*-------------------------- Function Prototypes --------------------------*/}
+00054 
+00055 \textcolor{comment}{/*@only@*/}\textcolor{comment}{/*@out@*/} \textcolor{keywordtype}{void} *lst\_newnode (\textcolor{keywordtype}{int} size);
+00056 \textcolor{keywordtype}{void} lst\_freenode (\textcolor{comment}{/*@only@*/} \textcolor{keywordtype}{void} *\hyperlink{group__data__structures_structnode}{node});
+00057 \textcolor{comment}{/*@only@*/}\textcolor{comment}{/*@out@*/}  \hyperlink{structLIST}{LIST} *lst\_init (\textcolor{keywordtype}{void});
+00058 \textcolor{keywordtype}{void} lst\_kill (\hyperlink{structLIST}{LIST} * l, \textcolor{keywordtype}{void} (*freeNode) ());
+00059 \textcolor{keywordtype}{void} lst\_insertafter (\hyperlink{structLIST}{LIST} * l, \textcolor{comment}{/*@keep@*/} \textcolor{keywordtype}{void} *\hyperlink{group__data__structures_structnode}{node}, \textcolor{keywordtype}{void} *after);
+00060 \textcolor{keywordtype}{void} *lst\_deletenext (\textcolor{comment}{/*@only@*/} \hyperlink{structLIST}{LIST} * l, \textcolor{keywordtype}{void} *\hyperlink{group__data__structures_structnode}{node});
+00061 \textcolor{comment}{/*@dependent@*/} \textcolor{keywordtype}{void} *lst\_first (\hyperlink{structLIST}{LIST} * l);
+00062 \textcolor{comment}{/*@dependent@*/} \textcolor{keywordtype}{void} *lst\_next (\textcolor{keywordtype}{void} *prev);
+00063 \textcolor{keywordtype}{void} lst\_mergesort (\hyperlink{structLIST}{LIST} * l, \textcolor{keywordtype}{int} (*cmp\_func) ());
+00064 
+00065 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+[INSTALLATION]
+
+Unbundle the distribution in the proper place (e.g. /usr/local/ or c:\Program
+Files). 
+
+Some pre-compiled binaries are located in the directory bin. The program just needs 
+a Java 1.5 environment (http://java.sun.com/javase/downloads/index_jdk5.jsp).
+
+If you want to build this project, you need to have ant installed on your system (
+http://ant.apache.org). When this is done, you just need to type buildProject.sh.
+The resulting classes will be in ./build/src, the resulting jar in ./build/lib and
+the generated Javadoc in ./build/javadoc.
+
+UNICES 
+
+Type `sudo Install.unice' to install the program.
+The manpage melting.1 is moved in the proper location during the
+installation. The other files can stay in doc or the entire doc directory can be
+moved under the name melting in /usr/doc or an equivalent directory.
+Be aware : the Install.unice script is for ubuntu, check if the executable and the 
+Data are moved in the proper place. The melting5.jar is moved with the executable
+in /usr/local/bin.
+
+WINDOWS
+
+The documentation is located in the directory doc. The files containing the nearest-neighbor
+parameters are located in the directory Data.
+
+[EXECUTION]
+
+READ THE DOCUMENTATION BEFORE RUNNING THE PROGRAM. 
+
+The executable versions do not require any particular external libraries, 
+and must run directly. 
+Go to the directory executables (contains the executable) and type 
+'melting.bat [options]' under DOS/Windows (or 'melting4.bat [options]' if you
+want to use MELTING 5 with the options of MELTING 4. Be aware, using MELTING 5 with the options
+of MELTING 4 doesn't allow the user to change some of the thermodynamic models and corrections.
+In addition to that, the user can't enter a formamide or DMSO %). 
+Type 'melting [options]' under Unixes (or 'melting4 [options]' if you
+want to use MELTING 5 with the options of MELTING 4. Be aware, using MELTING 5 with the options
+of MELTING 4 doesn't allow the user to change some of the thermodynamic models and corrections.
+In addition to that, the user can't enter a formamide or DMSO %).  
+
+You can also put the executable in a directory present in your PATH 
+variable in order to use the programme wherever you are. The environment 
+variable NN_PATH can be set to the directory containing your personal 
+nearest-neighbor parameters. For instance in the bash:
+
+export NN_PATH=$HOME/LIB/MELTING/Data (UNIX)
+set NN_PATH=%USERPROFILE%/MELTING/Data (WINDOWS)
+
+In a graphical environment you can also launch melting by clicking on an 
+icon linked to the program (the command-line options can then be entered 
+through the properties of the icon, generally in the 'execute' or 'run' 
+entry).
+
+Type 'melting -h' to get a summary of options.
+
+The directory testResults contains files with measured Tm from the literature.
+They are useful only for testing the different sets of NN, the corrections
+of salt concentration etc.
+
+Report any questions, comments, suggestions or critics to
+
+      Nicolas Le Novère, Marine Dumousseau and William John Gowers
+      EMBL-EBI
+      Wellcome-Trust Genome Campus
+      Hinxton Cambridge
+      CB10 1SD United-Kingdom
+      e-mail: n.lenovere@gmail.com

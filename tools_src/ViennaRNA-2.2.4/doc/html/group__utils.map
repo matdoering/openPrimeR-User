@@ -1,0 +1,7 @@
+<map id="Utilities" name="Utilities">
+<area shape="rect" id="node1" href="$group__struct__utils.html" title="Parsing, Converting,\l and Comparing &#45; Functions\l to Manipulate Secondary\l Structures" alt="" coords="136,5,319,76"/>
+<area shape="rect" id="node2" href="$group__string__utils.html" title="Parsing, Converting,\l and Comparing &#45; Functions\l to Manipulate Sequence\l and Structure Strings" alt="" coords="136,100,319,171"/>
+<area shape="rect" id="node3" href="$group__plotting__utils.html" title="Functions for Creating\l RNA Secondary Structures\l Plots, Dot&#45;Plots, and More" alt="" coords="135,195,320,251"/>
+<area shape="rect" id="node4" href="$group__file__utils.html" title="Functions to Read/Write\l several File Formats\l for RNA Sequences, Structures,\l and Alignments" alt="" coords="120,276,335,347"/>
+<area shape="rect" id="node6" href="$group__aln__utils.html" title="Various utilities for\l Sequence Alignments,\l and Comparative Structure\l Prediction" alt="" coords="136,371,319,441"/>
+</map>

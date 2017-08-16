@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    contains the parameters for RNA/RNA single bulge loops of Martin J Serra et al       */
+/* (2007). Biochemistry 46 : 15123-15135                                            */                                                    
+/******************************************************************************/-->
+			
+		<data type="single_bulge_loop">
+			<bulge sequence="CAC/GG">
+				<enthalpy>4700.0</enthalpy>
+				<entropy>2.6</entropy>
+			</bulge>
+			<bulge sequence="CAG/GC">
+				<enthalpy>14700.0</enthalpy>
+				<entropy>32.9</entropy>
+			</bulge>
+			<bulge sequence="CAU/GA">
+				<enthalpy>11900.0</enthalpy>
+				<entropy>24.2</entropy>
+			</bulge>
+			<bulge sequence="CAU/GG">
+				<enthalpy>5300.0</enthalpy>
+				<entropy>13.2</entropy>
+			</bulge>
+			<bulge sequence="CGC/GG">
+				<enthalpy>8800.0</enthalpy>
+				<entropy>15.5</entropy>
+			</bulge>
+			<bulge sequence="CGU/GA">
+				<enthalpy>21800.0</enthalpy>
+				<entropy>55.1</entropy>
+			</bulge>
+			<bulge sequence="CGU/GG">
+				<enthalpy>19700.0</enthalpy>
+				<entropy>58.0</entropy>
+			</bulge>			
+			<bulge sequence="GAG/CC">
+				<enthalpy>8300.0</enthalpy>
+				<entropy>14.5</entropy>
+			</bulge>
+			<bulge sequence="GAC/CG">
+				<enthalpy>8200.0</enthalpy>
+				<entropy>17.1</entropy>
+			</bulge>
+			<bulge sequence="GAU/CA">
+				<enthalpy>9800.0</enthalpy>
+				<entropy>17.1</entropy>
+			</bulge>
+			<bulge sequence="GAU/CG">
+				<enthalpy>21300.0</enthalpy>
+				<entropy>62.2</entropy>
+			</bulge>
+			<bulge sequence="GCG/CC">
+				<enthalpy>-4500.0</enthalpy>
+				<entropy>-24.2</entropy>
+			</bulge>
+			<bulge sequence="GCA/CU">
+				<enthalpy>9400.0</enthalpy>
+				<entropy>16.4</entropy>
+			</bulge>
+			<bulge sequence="GCU/CA">
+				<enthalpy>4200.0</enthalpy>
+				<entropy>9.4</entropy>
+			</bulge>
+			<bulge sequence="GCG/CU">
+				<enthalpy>16100.0</enthalpy>
+				<entropy>35.8</entropy>
+			</bulge>
+			<bulge sequence="GUG/CC">
+				<enthalpy>13000.0</enthalpy>
+				<entropy>29.3</entropy>
+			</bulge>
+			<bulge sequence="GUA/CU">
+				<enthalpy>-300.0</enthalpy>
+				<entropy>-12.9</entropy>
+			</bulge>
+			<bulge sequence="GUG/CU">
+				<enthalpy>15600.0</enthalpy>
+				<entropy>35.1</entropy>
+			</bulge>			
+			<bulge sequence="UAG/AC">
+				<enthalpy>16400.0</enthalpy>
+				<entropy>45.8</entropy>
+			</bulge>
+			<bulge sequence="UAC/AG">
+				<enthalpy>26000.0</enthalpy>
+				<entropy>66.4</entropy>
+			</bulge>
+			<bulge sequence="UAU/AA">
+				<enthalpy>20800.0</enthalpy>
+				<entropy>54.2</entropy>
+			</bulge>
+			<bulge sequence="UAU/AG">
+				<enthalpy>36800.0</enthalpy>
+				<entropy>100.0</entropy>
+			</bulge>
+			<bulge sequence="UGC/AG">
+				<enthalpy>26600.0</enthalpy>
+				<entropy>69.6</entropy>
+			</bulge>
+			<bulge sequence="UGU/AA">
+				<enthalpy>12200.0</enthalpy>
+				<entropy>28.4</entropy>
+			</bulge>
+			<bulge sequence="UGU/AG">
+				<enthalpy>56.3</enthalpy>
+				<entropy>163.8</entropy>
+			</bulge>
+			<bulge sequence="UCA/AU">
+				<enthalpy>8500.0</enthalpy>
+				<entropy>14.8</entropy>
+			</bulge>
+			<bulge sequence="UCU/AA">
+				<enthalpy>4200.0</enthalpy>
+				<entropy>1.0</entropy>
+			</bulge>
+			<bulge sequence="UCG/AC">
+				<enthalpy>20100.0</enthalpy>
+				<entropy>49.3</entropy>
+			</bulge>
+			<bulge sequence="UCG/AU">
+				<enthalpy>34600.0</enthalpy>
+				<entropy>97.0</entropy>
+			</bulge>			
+			<bulge sequence="ACA/UU">
+				<enthalpy>-3700.0</enthalpy>
+				<entropy>-25.8</entropy>
+			</bulge>
+			<bulge sequence="ACG/UC">
+				<enthalpy>22600.0</enthalpy>
+				<entropy>60.1</entropy>
+			</bulge>
+			<bulge sequence="ACU/UA">
+				<enthalpy>32400.0</enthalpy>
+				<entropy>89.0</entropy>
+			</bulge>
+			<bulge sequence="ACG/UU">
+				<enthalpy>39700.0</enthalpy>
+				<entropy>114.5</entropy>
+			</bulge>
+			<bulge sequence="AUG/UC">
+				<enthalpy>15100.0</enthalpy>
+				<entropy>35.8</entropy>
+			</bulge>
+			<bulge sequence="AUA/UU">
+				<enthalpy>3700.0</enthalpy>
+				<entropy>0.0</entropy>
+			</bulge>
+			<bulge sequence="AUG/UU">
+				<enthalpy>42000.0</enthalpy>
+				<entropy>119.9</entropy>
+			</bulge>			
+			<bulge sequence="GCA/UU">
+				<enthalpy>25800.0</enthalpy>
+				<entropy>70.9</entropy>
+			</bulge>
+			<bulge sequence="GCG/UC">
+				<enthalpy>11400.0</enthalpy>
+				<entropy>23.9</entropy>
+			</bulge>
+			<bulge sequence="GCU/UA">
+				<enthalpy>25200.0</enthalpy>
+				<entropy>68.7</entropy>
+			</bulge>
+			<bulge sequence="GCG/UU">
+				<enthalpy>23800.0</enthalpy>
+				<entropy>66.7</entropy>
+			</bulge>
+			<bulge sequence="GUG/UC">
+				<enthalpy>4200.0</enthalpy>
+				<entropy>11.9</entropy>
+			</bulge>
+			<bulge sequence="GUA/UU">
+				<enthalpy>10000.0</enthalpy>
+				<entropy>19.3</entropy>
+			</bulge>
+			<bulge sequence="GUG/UU">
+				<enthalpy>24600.0</enthalpy>
+				<entropy>68.4</entropy>
+			</bulge>			
+			<bulge sequence="UAC/GG">
+				<enthalpy>6200.0</enthalpy>
+				<entropy>10.6</entropy>
+			</bulge>
+			<bulge sequence="UAG/GC">
+				<enthalpy>100.0</enthalpy>
+				<entropy>-4.8</entropy>
+			</bulge>
+			<bulge sequence="UAU/GA">
+				<enthalpy>20700.0</enthalpy>
+				<entropy>56.1</entropy>
+			</bulge>
+			<bulge sequence="UAU/GG">
+				<enthalpy>18400.0</enthalpy>
+				<entropy>50.9</entropy>
+			</bulge>
+			<bulge sequence="UGC/GG">
+				<enthalpy>21800.0</enthalpy>
+				<entropy>61.6</entropy>
+			</bulge>
+			<bulge sequence="UGU/GA">
+				<enthalpy>13800.0</enthalpy>
+				<entropy>31.0</entropy>
+			</bulge>
+			<bulge sequence="UGU/GG">
+				<enthalpy>17500.0</enthalpy>
+				<entropy>46.4</entropy>	
+			</bulge>
+		</data>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New DMSO and formamide corrections</TITLE>
+<META NAME="description" CONTENT="New DMSO and formamide corrections">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html221"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html217"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html213"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html219"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html222"
+  HREF="node15.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html218"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html214"
+  HREF="node13.html">New sodium equivalence formula</A>
+ &nbsp; <B>  <A NAME="tex2html220"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00083000000000000000">
+New DMSO and formamide corrections</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class which implements the CorrectionMethod interface or, if it is adapted for
+a new DMSO correction, which extends the DNADMSOCorrections class in the melting.correctionMethods package.
+You must create your class int the adapted package : melting.otherCorrections.dmsoCorrections 
+package if it is a DMSO correction or melting.otherCorrections.formamideCorrections package if
+it is a formamide correction.
+<BR>
+<BR>
+If you just implement the CorrectionMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> and <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN>
+The first method is important to define the conditions of application of the correction and the 
+second is important to correct the computed melting temperature.
+<BR>
+<BR>
+The DNADMSOCorrections is a base implementation for DMSO corrections and is focused on DNA sequences.
+If you extend DNADMSOCorrections, you have to override the public method <SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> 
+to define the conditions of application of the DMSO correction.
+The public method <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN> 
+has to be implemented to compute the DMSO correction.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the correction name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into one of these functions of RegisterMethods : 
+<SPAN  CLASS="textit">private void initialiseDMSOCorrectionMethod()</SPAN> or <SPAN  CLASS="textit">private void initialiseFormamideCorrectionMethod()</SPAN>.
+this following line :
+
+<P>
+<PRE>
+/**
+* initialises the DMSOCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseDMSOCorrectionMethod(){
+		[...]
+		
+		DMSOCorrection.put("DMSOCorrection-Name", 
+		                           Class-Name.class);
+	}
+	
+/**
+* initialises the formamideCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseFormamideCorrectionMethod(){
+		[...]
+		formamideCorrection.put("formamideCorrection-Name", 
+		                               Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// correction formula.
+private static String correctionFormula = "formula";
+
+[...]
+
+// To print the article reference of the correction 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                              reference of the formula");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                      correctionFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html221"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html217"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html213"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html219"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html222"
+  HREF="node15.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html218"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html214"
+  HREF="node13.html">New sodium equivalence formula</A>
+ &nbsp; <B>  <A NAME="tex2html220"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

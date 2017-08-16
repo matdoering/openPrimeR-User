@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+<!--/******************************************************************************/
+    /* contains the parameters for DNA/DNA inosine pairs of Santalucia et al.      */
+    /* (2005). Nucleic acids research 33 : 6258-6267                              */
+    /******************************************************************************/-->
+        
+       <data type="modified_nucleotides">
+        <modified sequence="AA/IT">
+            <enthalpy>-3400.0</enthalpy>
+            <entropy>-11.2</entropy>
+	    </modified>
+	    <modified sequence="AC/IG">
+	        <enthalpy>-7800.0</enthalpy>
+            <entropy>-21.1</entropy>
+	    </modified>
+	    <modified sequence="AG/IC">
+	        <enthalpy>2600.0</enthalpy>
+            <entropy>8.9</entropy>
+	    </modified>
+	    <modified sequence="AT/IA">
+	        <enthalpy>-8300.0</enthalpy>
+            <entropy>-25.0</entropy>
+	    </modified>
+	    <modified sequence="AI/IA">
+            <enthalpy>-9500.0</enthalpy>
+            <entropy>-29.1</entropy>
+       	</modified>           
+        <modified sequence="CA/IT">
+            <enthalpy>-5900.0</enthalpy>
+            <entropy>-17.4</entropy>
+	    </modified>
+	    <modified sequence="CC/IG">
+	        <enthalpy>-6800.0</enthalpy>
+            <entropy>-19.1</entropy>
+	    </modified>
+	    <modified sequence="CG/IC">
+	        <enthalpy>-5400.0</enthalpy>
+            <entropy>-13.7</entropy>
+	    </modified>
+	    <modified sequence="CT/IA">
+	        <enthalpy>-8900.0</enthalpy>
+            <entropy>-25.5</entropy>
+	    </modified>
+	    <modified sequence="CI/IC">
+	         <enthalpy>-1800.0</enthalpy>
+             <entropy>-6.4</entropy> 
+        </modified>	
+        <modified sequence="GA/IT">
+            <enthalpy>-1900.0</enthalpy>
+            <entropy>-8.5</entropy>
+	    </modified>
+	    <modified sequence="GC/IG">
+	         <enthalpy>-1100.0</enthalpy>
+             <entropy>-3.2</entropy>
+	    </modified>
+	    <modified sequence="GG/IC">
+	        <enthalpy>7100.0</enthalpy>
+            <entropy>21.3</entropy>
+	    </modified>
+	    <modified sequence="GT/IA">
+	        <enthalpy>-4900.0</enthalpy>
+            <entropy>-15.8</entropy>
+	    </modified>
+	    <modified sequence="GI/IG">
+	       	<enthalpy>-4200.0</enthalpy>
+            <entropy>-39.8</entropy>  
+        </modified>
+        <modified sequence="TA/IT">
+            <enthalpy>-6500.0</enthalpy>
+            <entropy>-22.0</entropy>
+	    </modified>
+	    <modified sequence="TC/IG">
+	        <enthalpy>-3500.0</enthalpy>
+            <entropy>-10.6</entropy>
+	    </modified>
+	    <modified sequence="TG/IC">
+	        <enthalpy>-1000.0</enthalpy>
+            <entropy>-2.4</entropy>
+	    </modified>
+	    <modified sequence="TT/IA">
+	        <enthalpy>490.0</enthalpy>
+            <entropy>-0.7</entropy>
+	    </modified>
+	    <modified sequence="TI/IT">
+	        <enthalpy>-14700.0</enthalpy>
+            <entropy>-49.4</entropy>
+		</modified>	        
+	    <modified sequence="IA/AT">
+            <enthalpy>-1300.0</enthalpy>
+            <entropy>-4.6</entropy>
+	    </modified>
+	    <modified sequence="IC/AG">
+	        <enthalpy>-7600.0</enthalpy>
+            <entropy>-20.2</entropy>
+	    </modified>
+	    <modified sequence="IG/AC">
+	        <enthalpy>-7000.0</enthalpy>
+            <entropy>-20.0</entropy>
+	    </modified>
+	    <modified sequence="IT/AA">
+	        <enthalpy>-700.0</enthalpy>
+            <entropy>-2.6</entropy>
+	    </modified>
+	    <modified sequence="IA/AI">
+	        <enthalpy>-13900.0</enthalpy>
+            <entropy>-40.5</entropy>
+        </modified>            
+        <modified sequence="IA/CT">
+            <enthalpy>-4900.0</enthalpy>
+            <entropy>-13.9</entropy>
+	    </modified>
+	    <modified sequence="IC/CG">
+	         <enthalpy>-5000.0</enthalpy>
+             <entropy>-12.6</entropy>
+	    </modified>
+	    <modified sequence="IG/CC">
+	        <enthalpy>-8300.0</enthalpy>
+            <entropy>-23.8</entropy>
+	    </modified>
+	    <modified sequence="IT/CA">
+	        <enthalpy>-8800.0</enthalpy>
+            <entropy>-25.4</entropy>
+	    </modified>
+	    <modified sequence="IC/CI">
+	        <enthalpy>-12100.0</enthalpy>
+            <entropy>-36.3</entropy>
+        </modified>	
+        <modified sequence="IA/GT">
+            <enthalpy>1000.0</enthalpy>
+            <entropy>1.0</entropy>
+	    </modified>
+	    <modified sequence="IC/GG">
+	        <enthalpy>-7600.0</enthalpy>
+            <entropy>-22.0</entropy>
+	    </modified>
+	    <modified sequence="IG/GC">
+	        <enthalpy>5800.0</enthalpy>
+            <entropy>16.9</entropy>
+	    </modified>
+	    <modified sequence="IT/GA">
+	        <enthalpy>100.0</enthalpy>
+            <entropy>-1.8</entropy>
+	    </modified>
+	    <modified sequence="IG/GI">
+	        <enthalpy>3200.0</enthalpy>
+            <entropy>6.1</entropy>
+        </modified>        
+        <modified sequence="IA/TT">
+            <enthalpy>-800.0</enthalpy>
+            <entropy>-4.3</entropy>
+	    </modified>
+	    <modified sequence="IC/TG">
+	        <enthalpy>-4300.0</enthalpy>
+            <entropy>-12.1</entropy>
+	    </modified>
+	    <modified sequence="IG/TC">
+	        <enthalpy>100.0</enthalpy>
+            <entropy>-1.0</entropy>
+	    </modified>
+	    <modified sequence="IT/TA">
+	        <enthalpy>-5600.0</enthalpy>
+            <entropy>-18.7</entropy>
+	    </modified>
+	    <modified sequence="IT/TI">
+	        <enthalpy>-7600.0</enthalpy>
+            <entropy>-31.1</entropy>
+	    </modified>
+	    <modified sequence="IC/IG">
+	         <enthalpy>-500.0</enthalpy>
+             <entropy>-1.3</entropy>
+	    </modified>
+	    <modified sequence="IG/IC">
+	        <enthalpy>1300.0</enthalpy>
+            <entropy>3.0</entropy>
+	    </modified>
+	    <modified sequence="IT/IA">
+	        <enthalpy>-3300.0</enthalpy>
+            <entropy>-11.9</entropy>
+	    </modified>
+	    <modified sequence="IA/IT">
+	        <enthalpy>100.0</enthalpy>
+            <entropy>-2.3</entropy>
+        </modified>
+      </data>

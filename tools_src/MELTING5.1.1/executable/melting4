@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd $(dirname $0)
+if [ ! "$NN_PATH" ]; then
+  NN_PATH=/usr/local/share/MELTING/Data
+fi
+java -cp melting5.jar melting.CompatibleMain $*

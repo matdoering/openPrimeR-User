@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New sodium equivalence formula</TITLE>
+<META NAME="description" CONTENT="New sodium equivalence formula">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html211"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html207"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html201"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html212"
+  HREF="node14.html">New DMSO and formamide</A>
+<B> Up:</B> <A NAME="tex2html208"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html202"
+  HREF="node12.html">New ion correction</A>
+ &nbsp; <B>  <A NAME="tex2html210"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000">
+New sodium equivalence formula</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class (in the melting.ionCorrection.sodiumEquivalence package) which implements 
+the SodiumEquivalenceMethod interface or, if it is adapted, which extends the SodiumEquivalent 
+class in the melting.ionCorrection.sodiumEquivalence package. 
+<BR>
+<BR>
+If you just implement the SodiumEquivalenceMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">double computeSodiumEquivalent(double Na, double Mg, double K, double Tris, double dNTP)</SPAN> and 
+<SPAN  CLASS="textit">boolean isApplicable(HashMap&lt;String, String&gt; options)</SPAN>. 
+<BR>
+<BR>
+The first is important to compute a sodium equivalence depending on the ions entered by the user. 
+The second method is important to define the conditions of application of the sodium equivalent formula.
+<BR>
+<BR>
+<P>
+The SodiumEquivalent is a base implementation for sodium equivalence computation
+If you extend SodiumEquivalent, you have to override the public method <SPAN  CLASS="textit">boolean isApplicable(HashMap&lt;String, String&gt; options)</SPAN> 
+to define the conditions of application of the sodium equivalence.
+The public method <SPAN  CLASS="textit">double computeSodiumEquivalent(double Na, double Mg, double K, double Tris, double dNTP)</SPAN> 
+has to be implemented to compute the sodium equivalence.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the sodium equivalence name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into the function <SPAN  CLASS="textit">private void initialiseNaEqMethods()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseNaEqMethods(){
+		[...]
+		
+		NaEqMethod.put("sodiumEquivalence-Name", Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula you used to compute the sodium equivalent concentration
+and must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// sodium equivalence formula.
+private static String equivalenceFormula = "formula";
+
+[...]
+
+// To print the article reference of the sodium equivalence 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                                reference of the formula");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                      equivalenceFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html211"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html207"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html201"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html212"
+  HREF="node14.html">New DMSO and formamide</A>
+<B> Up:</B> <A NAME="tex2html208"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html202"
+  HREF="node12.html">New ion correction</A>
+ &nbsp; <B>  <A NAME="tex2html210"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

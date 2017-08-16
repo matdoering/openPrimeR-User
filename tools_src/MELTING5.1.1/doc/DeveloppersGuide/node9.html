@@ -1,0 +1,379 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How to create a new duplex structure</TITLE>
+<META NAME="description" CONTENT="How to create a new duplex structure">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html160"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html156"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html150"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html158"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html161"
+  HREF="node10.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html157"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html151"
+  HREF="node8.html">Thermodynamic model for inosine</A>
+ &nbsp; <B>  <A NAME="tex2html159"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00060000000000000000">
+How to create a new duplex structure</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new package with the name of the structure. 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Create a new instance variable 
+<SPAN  CLASS="textit">private static HashMap&lt;String, Class&lt;? extends PatternComputationMethod&#187; newStructureMethod</SPAN>
+of the class RegisterMethods in the melting.configuration package.
+
+<P>
+<PRE>
+/**
+* HasMap newStructureMethod : contains all the methods 
+* for the new structure computation.
+*/
+	private static HashMap&lt;String, Class&lt;? extends 
+	        PatternComputationMethod&gt;&gt; newStructureMethod = 
+	new HashMap&lt;String, Class&lt;? extends PatternComputationMethod&gt;&gt;();
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a new method in the RegisterMethod class to initialise the 
+<SPAN  CLASS="textit">&lt;String, Class&lt;? extends PatternComputationMethod&#187; newStructureMethod</SPAN> you created. It must contains
+all the relationships between the new model names and the matching implemented class:
+
+<P>
+<PRE>
+private void initialisenewStructureMethods(){
+		newStructureMethod.put("model1-Name", classModel1-Name.class);
+		newStructureMethod.put("model2-Name", classModel2-Name.class);
+		newStructureMethod.put("model3-Name", classModel3-Name.class);
+		[...]
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Call this method in the constructor of RegisterMethod :
+
+<P>
+<PRE>
+public RegisterMethods(){
+		[...]
+		
+		initialisenewStructureMethods();
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">5)</SPAN> Create a new <SPAN  CLASS="textit">public static final String</SPAN> as instance variable of the OptionManagement
+class in the melting.configuration package. This String represents the new option name you choose
+to change the default model used to compute the new structure.
+
+<P>
+<PRE>
+/**
+* Option name to choose another method to compute the 
+* new structure.
+*/
+	public static final String newStructureOption-Name = 
+	                                       "option-name";
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">6)</SPAN> Fix the default model name to use for each type of hybridization. You have to add
+the following lines into the following methods of OptionManagement :
+
+<P>
+<PRE>
+/**
+* initialises the DNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialisesDNADefaultOptions() {
+		[...]
+		this.DNADefaultOptions.put(newStructureOption-Name, 
+		                          "DNA-defaultModel-Name");
+
+	}
+	
+/**
+* initialises the RNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRNADefaultOptions() {
+		[...]
+		this.RNADefaultOptions.put(newStructureOption-Name, 
+		                          "RNA-defaultModel-Name");
+
+	}
+	
+/**
+* initialises the hybridDefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseHybridDefaultOptions() {
+		[...]
+		this.hybridDefaultOptions.put(newStructureOption-Name, 
+		                         "DNA/RNA-defaultModel-Name");
+		
+	}
+	
+/**
+* initialises the mRNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseMRNADefaultOptions() {
+		[...]
+		this.mRNADefaultOptions.put(newStructureOption-Name, 
+		                          "mRNA-defaultModel-Name");
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">7)</SPAN> Register the new option in the HashMap <SPAN  CLASS="textit">registerPatternModels</SPAN> of OptionManagement.
+You just have to add this following line into the method <SPAN  CLASS="textit">private void initialiseRegisterPatternModels()</SPAN>
+of OptionManagement :
+
+<P>
+<PRE>
+/**
+* Initialises the registerPatternModels HashMap of the OptionManagement object.
+*/
+private void initialiseRegisterPatternModels(){
+	[...]
+		
+registerPatternModels.add(newStructureOption-Name);
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">8)</SPAN> Add in the method <SPAN  CLASS="textit">private void initialisePatternModels()</SPAN> of RegsiterMethods the
+following line to register the new structure.
+
+<P>
+<PRE>
+	private void initialisePatternModels(){
+		[...]
+		
+		// It creates a relationship between the option name 
+		// for the new structure and the HashMap containing 
+		// the models and the class which can compute the new 
+		// structure.
+		PatternModel.put(OptionManagement.newStructureMethod, 
+		                                 newStructureMethod);
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">9)</SPAN> Add a new method in the NucleotiSequences class in the melting.sequences package to be abble 
+to recognize if a structure between two positions in the duplex matches the new structure you created.
+
+<P>
+<PRE>
+// new method to recognize the new structure in the duplex
+public boolean isNewStructure(int pos1, int pos2){
+
+[if the subsequences between the positions pos1 and pos2
+in the duplex match the new structure, you must return true.]
+
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">10)</SPAN> Create a new <SPAN  CLASS="textit">private PatternComputationMethod</SPAN> instance variable in the NearestNeighborMode
+class in the melting.nearestNeighborMode package. This new instance represents an object PatternComputationMethod
+which is a new instance of one of your implemented class which can compute the new structure.
+
+<P>
+<PRE>
+/**
+* PatternComputationMethod newStructureMethod : represents 
+* the model for new structure computation.
+*/
+	private PatternComputationMethod newStructureMethod;
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">11)</SPAN> Create a new method in the NearestNeighborMode class to initialise the PatternComputationMethod 
+newStructureMethod :
+
+<P>
+<PRE>
+private void initialiseNewStructureMethod(){
+		// Get the option name (public static final instance 
+		// variable of OptionManagement) which allows to change 
+		// the model to compute the new structure.
+		String optionName = OptionManagement.newStructureOption-Name;
+		
+		// Get the model name (model name) which allows to change 
+		// the model to compute the new structure and initialise the 
+		// PatternComputationMethod newStructureMethod.
+		String methodName = this.environment.getOptions().get(optionName);
+		this.newStructureMethod = initialiseMethod(optionName, methodName);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">12)</SPAN> If the new structure you added contains perfectly matching base pairs, maybe you have to
+change the method <SPAN  CLASS="textit">private int [] getPositionsPattern(int pos1)</SPAN> of the NearestNeighborMode class.
+<BR>
+<BR>
+This method defines the positions of a structure in the duplex (a perfectly matching structure or a 
+structure composed of non perfectly matching base pairs or composed of modified nucleic acid(s)). 
+<BR>
+<BR>
+If you need the adjacent base pairs to the non perfectly matching base pair or the modified nucleic acid, 
+you can add a method which corrects the positions of the structure in the duplex, in the class computing 
+the new structure. (see the following example and the Javadoc)
+
+<P>
+<PRE>
+private int[] correctPositions(int pos1, int pos2, 
+                                int duplexLength){
+		if (pos1 &gt; 0){
+			pos1 --;
+		}
+		if (pos2 &lt; duplexLength - 1){
+			pos2 ++;
+		}
+		int [] positions = {pos1, pos2};
+		return positions;
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">13)</SPAN> Change the method <SPAN  CLASS="textit">private PatternComputationMethod getAppropriatePatternModel(int [] positions)</SPAN>
+of NearestNeighborMode to add your new structure initialisation.
+
+<P>
+<PRE>
+// Method to get the adapted PatternComputationMethod to 
+// compute the structure defined at the positions int [] 
+// positions.
+private PatternComputationMethod getAppropriatePatternModel
+                                        (int [] positions){
+
+// if the new structure is always a terminal structure, you 
+// can change the method here.
+if (positions[0] == 0 || positions[1] == 
+         environment.getSequences().getDuplexLength() - 1){
+
+[...]
+  // call the NucleotidSequences method to recognize the identity 
+  // of the new structure
+  else if (environment.getSequences().isNewStructure(positions[0], 
+                                                   positions[1])){
+  
+    if (this.newStructureMethod == null){
+		initialiseNewStructureMethod(); // initialise the 
+		                                //PatternComputationMethod
+		                                // newStructureMethod
+	}
+	return this.newStructureMethod;
+  }
+}
+
+// if the structure is not always a terminal structure, you can 
+// change the method here.
+[...]
+
+  // call the NucleotidSequences method to recognize the identity 
+  // of the new structure
+  else if (environment.getSequences().isNewStructure(positions[0], 
+                                                   positions[1])){
+  
+    if (this.newStructureMethod == null){
+		initialiseNewStructureMethod(); // initialise the 
+		                                //PatternComputationMethod
+		                                // newStructureMethod
+	}
+	return this.newStructureMethod;
+  }
+  [...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">14)</SPAN> Create the new class(es) representing your model(s) for the new structure as it is explained
+in the section <SPAN  CLASS="textit">How to add new thermodynamic model</SPAN>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html160"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html156"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html150"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html158"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html161"
+  HREF="node10.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html157"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html151"
+  HREF="node8.html">Thermodynamic model for inosine</A>
+ &nbsp; <B>  <A NAME="tex2html159"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

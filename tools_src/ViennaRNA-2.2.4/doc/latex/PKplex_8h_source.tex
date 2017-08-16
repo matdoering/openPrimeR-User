@@ -1,0 +1,27 @@
+\hypertarget{PKplex_8h_source}{}\section{P\+Kplex.\+h}
+\label{PKplex_8h_source}\index{Vienna\+R\+N\+A/\+P\+Kplex.\+h@{Vienna\+R\+N\+A/\+P\+Kplex.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef PKPLEX\_H}
+00002 \textcolor{preprocessor}{#define PKPLEX\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{data__structures_8h}{ViennaRNA/data\_structures.h}>}
+00005 
+00006 \textcolor{keyword}{extern} \hyperlink{group__data__structures_structdupVar}{dupVar} *PlexHits;
+00007 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    PlexHitsArrayLength;
+00008 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    NumberOfHits;
+00009 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    verbose;
+00010 
+00011 
+00015 \hyperlink{group__data__structures_structdupVar}{dupVar}  **PKLduplexfold\_XS( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00016                             \textcolor{keywordtype}{int} **access\_s1,
+00017                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00018                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00019                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta);
+00020 
+00021 \textcolor{keywordtype}{int}     arraySize(\hyperlink{group__data__structures_structduplexT}{duplexT} **array);
+00022 
+00023 \textcolor{keywordtype}{void}    freeDuplexT(\hyperlink{group__data__structures_structduplexT}{duplexT} **array);
+00024 
+00025 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

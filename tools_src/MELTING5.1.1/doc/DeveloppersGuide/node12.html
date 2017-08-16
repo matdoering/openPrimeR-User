@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New ion correction</TITLE>
+<META NAME="description" CONTENT="New ion correction">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html199"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html195"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html189"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html197"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html200"
+  HREF="node13.html">New sodium equivalence formula</A>
+<B> Up:</B> <A NAME="tex2html196"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html190"
+  HREF="node11.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html198"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00081000000000000000">
+New ion correction</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class which implements the CorrectionMethod interface or, if it is adapted, which
+extends the EntropyCorrection class in the melting.correctionMethods package. 
+<BR>
+<BR>
+The class must be created in the adapted package : 
+melting.ionCorrection.magnesiumCorrection if it is a new magnesium correction, 
+melting.ionCorrection.mixedNaMgCorrection if it is a new mixed monovalent correction, 
+magnesium correction or 
+melting.ionCorrection.sodiumCorrection if it is a new sodium correction.
+<BR>
+<BR>
+<P>
+If you just implement the CorrectionMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> and <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN>
+The first method is important to define the conditions of application of the ion correction and the 
+second is important to correct the computed melting temperature.
+<BR>
+<BR>
+<P>
+The EntropyCorrection is a base implementation for ion corrections which directly correct the 
+computed entropy and then compute te melting temperature. If you extend EntropyCorrection, you have to
+override the public method <SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> to define the conditions
+of application of the ion correction.
+<BR>
+<BR>
+The public method <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN> is already implemented
+by EntropyCorrection but you have to override the method <SPAN  CLASS="textit">protected double correctEntropy(Environment environment)</SPAN>
+to correct the computed entropy.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the ion correction name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into the function <SPAN  CLASS="textit">private void initialiseIonCorrectionMethod()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseIonCorrectionMethod(){
+		[...]
+		
+		ionCorrection.put("sodiumCorrection-Name", 
+		                               Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula you applied to the computed melting temperature or the
+computed entropy and must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// correction formula
+private static String correctionFormula = "formula";
+
+[...]
+
+// To print the article reference of the correction 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                           reference of the correction");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                  correctionFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> In case of sodium corrections, you can use the method <SPAN  CLASS="textit">public static computesNaEquivalent(environment)</SPAN> 
+of the Helper class in melting package to convert the sodium concentration entered by the user
+into a sodium equivalent concentration which takes into account the other cations entered 
+by the user.
+
+<P>
+<PRE>
+double NaEq = Helper.computesNaEquivalent(environment);
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html199"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html195"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html189"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html197"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html200"
+  HREF="node13.html">New sodium equivalence formula</A>
+<B> Up:</B> <A NAME="tex2html196"
+  HREF="node11.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html190"
+  HREF="node11.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html198"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

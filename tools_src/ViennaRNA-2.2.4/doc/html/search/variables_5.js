@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['f',['f',['../group__hard__constraints.html#a85714afbf27012165ec80c564bd62931',1,'vrna_hc_s::f()'],['../group__soft__constraints.html#a32dc86090237888c75491bbd4861a04b',1,'vrna_sc_s::f()']]],
+  ['f0ab',['F0AB',['../group__pf__cofold.html#a82e31d1fb6e95923fab6036f52c370af',1,'vrna_dimer_pf_s']]],
+  ['f3',['f3',['../group__dp__matrices.html#a4ea4595a93733adef047ece8e6f5da52',1,'vrna_mx_mfe_s']]],
+  ['f3_5flocal',['f3_local',['../group__dp__matrices.html#a6eae0a2b696b0c63bbaa78a70b950600',1,'vrna_mx_mfe_s']]],
+  ['f5',['f5',['../group__dp__matrices.html#abebad693be987c2701d64477ab858039',1,'vrna_mx_mfe_s']]],
+  ['f_5fmonomer',['F_monomer',['../group__pf__cofold.html#gac2d1851a710a8561390861155ca988fe',1,'part_func_co.h']]],
+  ['fa',['FA',['../group__pf__cofold.html#a1aca57247f2c023d08028b1919005b0a',1,'vrna_dimer_pf_s']]],
+  ['fab',['FAB',['../group__pf__cofold.html#a01a87f59db2b7fbf883b056e6f6c673a',1,'vrna_dimer_pf_s']]],
+  ['fb',['FB',['../group__pf__cofold.html#ab4d307be5400604d3c1d84d58a9981df',1,'vrna_dimer_pf_s']]],
+  ['fc',['fc',['../group__dp__matrices.html#a8ee6b6cefe20cfbf1f6bef5c788b6667',1,'vrna_mx_mfe_s::fc()'],['../group__dp__matrices.html#ac6a22d71c6a0eccedf978372b19b458a',1,'vrna_mx_mfe_s::Fc()']]],
+  ['fcab',['FcAB',['../group__pf__cofold.html#a7b01cea5721f61badebc29cf0a9c4266',1,'vrna_dimer_pf_s']]],
+  ['final_5fcost',['final_cost',['../group__inverse__fold.html#ga7f17d3b169af048d32bb185039a9c09c',1,'inverse.h']]],
+  ['fm1',['fM1',['../group__dp__matrices.html#ae4e598d601f5ece6b8b4ffffcae2db06',1,'vrna_mx_mfe_s']]],
+  ['fm2',['fM2',['../group__dp__matrices.html#ad29106e37d485b3f20b7be468e6c179c',1,'vrna_mx_mfe_s']]],
+  ['fml',['fML',['../group__dp__matrices.html#a103995e4ab8e21e7f8bc36a6edcb1331',1,'vrna_mx_mfe_s']]],
+  ['fml_5flocal',['fML_local',['../group__dp__matrices.html#ad37d705240a8e6b1e9a4e4ea19e74003',1,'vrna_mx_mfe_s']]],
+  ['fold_5fconstrained',['fold_constrained',['../fold__vars_8h.html#a0afc287c2464866d94858c39175154af',1,'fold_vars.h']]],
+  ['free_5fauxdata',['free_auxdata',['../group__fold__compound.html#a8e84dbabab016ecd74da6c38cb94e816',1,'vrna_fc_s']]],
+  ['free_5fdata',['free_data',['../group__hard__constraints.html#a970e0e202c9e46ebc7640ddc43357ba6',1,'vrna_hc_s']]]
+];

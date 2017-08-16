@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Package layout</TITLE>
+<META NAME="description" CONTENT="Package layout">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html87"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html83"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html77"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html85"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html88"
+  HREF="node4.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html84"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html78"
+  HREF="node2.html">Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html86"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00030000000000000000">
+Package layout</A>
+</H1>
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="textit">examples</SPAN> 
+<BR>
+This package contains all the main classes to test the program.
+    
+<UL>
+<LI><SPAN  CLASS="textit">test</SPAN> 
+<BR>
+It contains all the experimental Data and sequences to test the program.
+    
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">melting</SPAN> 
+<BR>
+This package contains the general classes used by most classes of the program. It also
+  contains the main class which runs <SMALL>MELTING</SMALL>.
+    
+<UL>
+<LI><SPAN  CLASS="textit">approximativeMethods</SPAN> 
+<BR>
+It contains all the classes which implement an approximative formula to compute the melting
+    temperature.
+</LI>
+<LI><SPAN  CLASS="textit">configuration</SPAN> 
+<BR>
+It contains all the classes which register the option, models and corrections names. It contains
+    the classes which manage the default options and which map the models and correction names with the
+    matching classes.
+</LI>
+<LI><SPAN  CLASS="textit">correctionMethods</SPAN> 
+<BR>
+It regroups some of the base implementations for ion or denaturing agent corrections.
+</LI>
+<LI><SPAN  CLASS="textit">exceptions</SPAN> 
+<BR>
+It contains all the exceptions used in the program.
+</LI>
+<LI><SPAN  CLASS="textit">handlers</SPAN> 
+<BR>
+It contains all the Handler classes necessary to parse the XML files.
+</LI>
+<LI><SPAN  CLASS="textit">ionCorrection</SPAN> 
+<BR>      
+<UL>
+<LI><SPAN  CLASS="textit">magnesiumCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a magnesium correction.
+</LI>
+<LI><SPAN  CLASS="textit">mixedNaMgCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a mixed sodium, magnesium correction.
+</LI>
+<LI><SPAN  CLASS="textit">sodiumCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a sodium correction.
+</LI>
+<LI><SPAN  CLASS="textit">sodiumEquivalence</SPAN> 
+<BR>
+It contains all the classes which implement a formula to compute a sodium-equivalent concentration.
+      
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">methodInterfaces</SPAN> 
+<BR>
+It contains all the interfaces.
+</LI>
+<LI><SPAN  CLASS="textit">nearestNeighborModel</SPAN> 
+<BR>
+It contains the class which uses a Nearest-Neighbor approach to compute the enthalpy, entropy and
+    melting temperature. 
+</LI>
+<LI><SPAN  CLASS="textit">otherCorrections</SPAN> 
+<BR>      
+<UL>
+<LI><SPAN  CLASS="textit">dmsoCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a DMSO correction.
+</LI>
+<LI><SPAN  CLASS="textit">formamideCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a formamide correction.
+      
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">patternModels</SPAN> 
+<BR>
+It contains the base implementation of each thermodynamic model. 
+      
+<UL>
+<LI><SPAN  CLASS="textit">cngPatterns</SPAN> 
+<BR>
+It contains the class which implements a thermodynamic model for CNG repetitions computation.
+</LI>
+<LI><SPAN  CLASS="textit">cricksPair</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for Crick's pairs computation.
+</LI>
+<LI><SPAN  CLASS="textit">InternalLoops</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for internal loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">longBulge</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for long bulge loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">longDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for long dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">secondDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for two adjacent dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleBulge</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single bulge loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleMismatch</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single mismatch computation.
+</LI>
+<LI><SPAN  CLASS="textit">specificAcids</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for specific or modified nucleic acids
+      computation.
+</LI>
+<LI><SPAN  CLASS="textit">tandemMismatches</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for tandem mismatches computation.
+</LI>
+<LI><SPAN  CLASS="textit">wobble</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for inosine and GU base pair computation.
+      
+</LI>
+</UL> 
+</LI>
+<LI><SPAN  CLASS="textit">sequences</SPAN> 
+<BR>
+It contains the classes which allow to represent nucleic acids and sequences and analyze them.
+    
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html87"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html83"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html77"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html85"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html88"
+  HREF="node4.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html84"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html78"
+  HREF="node2.html">Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html86"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA single bulge loops of Tanaka Fumiaki et al       */
+/* (2004). Biochemistry 43 : 7143-7150                                            */                                                    
+/******************************************************************************/-->
+			
+		<data type="single_bulge_loop">
+			<bulge sequence="AAA/TT">
+				<enthalpy>-4000.0</enthalpy>
+				<entropy>-17.5</entropy>
+			</bulge>
+			<bulge sequence="AAT/TA">
+				<enthalpy>-13500.0</enthalpy>
+				<entropy>-44.6</entropy>
+			</bulge>
+			<bulge sequence="AAC/TG">
+				<enthalpy>10200.0</enthalpy>
+				<entropy>25.8</entropy>
+			</bulge>
+			<bulge sequence="AAG/TC">
+				<enthalpy>-200.0</enthalpy>
+				<entropy>-4.6</entropy>
+			</bulge>
+			<bulge sequence="ATA/TT">
+				<enthalpy>9800.0</enthalpy>
+				<entropy>24.7</entropy>
+			</bulge>
+			<bulge sequence="ATT/TA">
+				<enthalpy>-19500.0</enthalpy>
+				<entropy>-61.8</entropy>
+			</bulge>
+			<bulge sequence="ATC/TG">
+				<enthalpy>-4800.0</enthalpy>
+				<entropy>-20.0</entropy>
+			</bulge>
+			<bulge sequence="ATG/TC">
+				<enthalpy>5600.0</enthalpy>
+				<entropy>12.9</entropy>
+			</bulge>
+			<bulge sequence="ACA/TT">
+				<enthalpy>6100.0</enthalpy>
+				<entropy>14.0</entropy>
+			</bulge>
+			<bulge sequence="ACT/TA">
+				<enthalpy>-3400.0</enthalpy>
+				<entropy>-15.3</entropy>
+			</bulge>
+			<bulge sequence="ACC/TG">
+				<enthalpy>-29100.0</enthalpy>
+				<entropy>-91.3</entropy>
+			</bulge>
+			<bulge sequence="ACG/TC">
+				<enthalpy>-1200.0</enthalpy>
+				<entropy>-7.4</entropy>
+			</bulge>
+			<bulge sequence="AGA/TT">
+				<enthalpy>15500.0</enthalpy>
+				<entropy>43.1</entropy>
+			</bulge>
+			<bulge sequence="AGT/TA">
+				<enthalpy>5300.0</enthalpy>
+				<entropy>10.6</entropy>
+			</bulge>
+			<bulge sequence="AGC/TG">
+				<enthalpy>-7200.0</enthalpy>
+				<entropy>-28.4</entropy>
+			</bulge>
+			<bulge sequence="AGG/TC">
+				<enthalpy>5700.0</enthalpy>
+				<entropy>14.4</entropy>
+			</bulge>			
+			<bulge sequence="TAA/AT">
+				<enthalpy>15300.0</enthalpy>
+				<entropy>38.5</entropy>
+			</bulge>
+			<bulge sequence="TAT/AA">
+				<enthalpy>19800.0</enthalpy>
+				<entropy>56.7</entropy>
+			</bulge>
+			<bulge sequence="TAC/AG">
+				<enthalpy>-2300.0</enthalpy>
+				<entropy>-12.7</entropy>
+			</bulge>
+			<bulge sequence="TAG/AC">
+				<enthalpy>15000.0</enthalpy>
+				<entropy>40.4</entropy>
+			</bulge>
+			<bulge sequence="TTA/AT">
+				<enthalpy>-2700.0</enthalpy>
+				<entropy>-16.0</entropy>
+			</bulge>
+			<bulge sequence="TTT/AA">
+				<enthalpy>-8200.0</enthalpy>
+				<entropy>-30.1</entropy>
+			</bulge>
+			<bulge sequence="TTC/AG">
+				<enthalpy>8800.0</enthalpy>
+				<entropy>23.2</entropy>
+			</bulge>
+			<bulge sequence="TTG/AC">
+				<enthalpy>7000.0</enthalpy>
+				<entropy>17.5</entropy>
+			</bulge>
+			<bulge sequence="TCA/AT">
+				<enthalpy>1600.0</enthalpy>
+				<entropy>-3.9</entropy>
+			</bulge>
+			<bulge sequence="TCT/AA">
+				<enthalpy>9900.0</enthalpy>
+				<entropy>30.5</entropy>
+			</bulge>
+			<bulge sequence="TCC/AG">
+				<enthalpy>-15200.0</enthalpy>
+				<entropy>-48.7</entropy>
+			</bulge>
+			<bulge sequence="TCG/AC">
+				<enthalpy>-700.0</enthalpy>
+				<entropy>-7.0</entropy>
+			</bulge>
+			<bulge sequence="TGA/AT">
+				<enthalpy>-12300.0</enthalpy>
+				<entropy>-47.0</entropy>
+			</bulge>
+			<bulge sequence="TGT/AA">
+				<enthalpy>20900.0</enthalpy>
+				<entropy>59.8</entropy>
+			</bulge>
+			<bulge sequence="TGC/AG">
+				<enthalpy>2600.0</enthalpy>
+				<entropy>1.6</entropy>
+			</bulge>
+			<bulge sequence="TGG/AC">
+				<enthalpy>-9200.0</enthalpy>
+				<entropy>-31.4</entropy>
+			</bulge>			
+			<bulge sequence="CAA/GT">
+				<enthalpy>-14400.0</enthalpy>
+				<entropy>-46.6</entropy>
+			</bulge>
+			<bulge sequence="CAT/GA">
+				<enthalpy>-7000.0</enthalpy>
+				<entropy>-25.8</entropy>
+			</bulge>
+			<bulge sequence="CAC/GG">
+				<enthalpy>4300.0</enthalpy>
+				<entropy>8.8</entropy>
+			</bulge>
+			<bulge sequence="CAG/GC">
+				<enthalpy>-2900.0</enthalpy>
+				<entropy>-13.0</entropy>
+			</bulge>
+			<bulge sequence="CTA/GT">
+				<enthalpy>-18700.0</enthalpy>
+				<entropy>-61.7</entropy>
+			</bulge>
+			<bulge sequence="CTT/GA">
+				<enthalpy>-4600.0</enthalpy>
+				<entropy>-17.0</entropy>
+			</bulge>
+			<bulge sequence="CTC/GG">
+				<enthalpy>-14500.0</enthalpy>
+				<entropy>-48.1</entropy>
+			</bulge>
+			<bulge sequence="CTG/GC">
+				<enthalpy>-4700.0</enthalpy>
+				<entropy>-18.8</entropy>
+			</bulge>
+			<bulge sequence="CCA/GT">
+				<enthalpy>5800.0</enthalpy>
+				<entropy>13.4</entropy>
+			</bulge>
+			<bulge sequence="CCT/GA">
+				<enthalpy>-5300.0</enthalpy>
+				<entropy>-24.8</entropy>
+			</bulge>
+			<bulge sequence="CCC/GG">
+				<enthalpy>-2600.0</enthalpy>
+				<entropy>-9.4</entropy>
+			</bulge>
+			<bulge sequence="CCG/GC">
+				<enthalpy>9100.0</enthalpy>
+				<entropy>24.4</entropy>
+			</bulge>
+			<bulge sequence="CGA/GT">
+				<enthalpy>-14700.0</enthalpy>
+				<entropy>-49.6</entropy>
+			</bulge>
+			<bulge sequence="CGT/GA">
+				<enthalpy>2100.0</enthalpy>
+				<entropy>6.5</entropy>
+			</bulge>
+			<bulge sequence="CGC/GG">
+				<enthalpy>-4400.0</enthalpy>
+				<entropy>-17.8</entropy>
+			</bulge>
+			<bulge sequence="CGG/GC">
+				<enthalpy>-16400.0</enthalpy>
+				<entropy>-51.6</entropy>
+			</bulge>			
+			<bulge sequence="GAA/CT">
+				<enthalpy>-6800.0</enthalpy>
+				<entropy>-25.2</entropy>
+			</bulge>
+			<bulge sequence="GAT/CA">
+				<enthalpy>-9800.0</enthalpy>
+				<entropy>-35.6</entropy>
+			</bulge>
+			<bulge sequence="GAC/CG">
+				<enthalpy>-4800.0</enthalpy>
+				<entropy>-18.3</entropy>
+			</bulge>
+			<bulge sequence="GAG/CC">
+				<enthalpy>-6500.0</enthalpy>
+				<entropy>-21.0</entropy>
+			</bulge>
+			<bulge sequence="GTA/CT">
+				<enthalpy>-7400.0</enthalpy>
+				<entropy>-27.0</entropy>
+			</bulge>
+			<bulge sequence="GTT/CA">
+				<enthalpy>1800.0</enthalpy>
+				<entropy>-0.6</entropy>
+			</bulge>
+			<bulge sequence="GTC/CG">
+				<enthalpy>-12300.0</enthalpy>
+				<entropy>-40.0</entropy>
+			</bulge>
+			<bulge sequence="GTG/CC">
+				<enthalpy>-2300.0</enthalpy>
+				<entropy>-10.0</entropy>
+			</bulge>
+			<bulge sequence="GCA/CT">
+				<enthalpy>-2100.0</enthalpy>
+				<entropy>-12.5</entropy>
+			</bulge>
+			<bulge sequence="GCT/CA">
+				<enthalpy>-3500.0</enthalpy>
+				<entropy>-16.1</entropy>
+			</bulge>
+			<bulge sequence="GCC/CG">
+				<enthalpy>400.0</enthalpy>
+				<entropy>-1.0</entropy>
+			</bulge>
+			<bulge sequence="GCG/CC">
+				<enthalpy>13800.0</enthalpy>
+				<entropy>42.9</entropy>
+			</bulge>
+			<bulge sequence="GGA/CT">
+				<enthalpy>2700.0</enthalpy>
+				<entropy>3.6</entropy>
+			</bulge>
+			<bulge sequence="GGT/CA">
+				<enthalpy>-1200.0</enthalpy>
+				<entropy>-9.3</entropy>
+			</bulge>
+			<bulge sequence="GGC/CG">
+				<enthalpy>-1700.0</enthalpy>
+				<entropy>-7.2</entropy>
+			</bulge>
+			<bulge sequence="GGG/CC">
+				<enthalpy>3500.0</enthalpy>
+				<entropy>8.5</entropy>
+			</bulge>
+		</data>

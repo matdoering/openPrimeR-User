@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    contains the parameters for DNA/DNA internal loops of Santalucia et al       */
+/* (2004). Annu. Rev. Biophys. Biomol. Struct 33 : 415-440                                            */                                                    
+/******************************************************************************/-->
+  			
+  		<data type="long_mismatch">
+  			<mismatch size="3">
+  				<entropy>10.3</entropy>
+  			</mismatch>
+  			<mismatch size="4">
+  				<entropy>11.6</entropy>
+  			</mismatch>
+  			<mismatch size="5">
+  				<entropy>12.9</entropy>
+  			</mismatch>
+  			<mismatch size="6">
+  				<entropy>14.2</entropy>
+  			</mismatch>
+  			<mismatch size="7">
+  				<entropy>14.8</entropy>
+  			</mismatch>
+  			<mismatch size="8">
+  				<entropy>15.5</entropy>
+  			</mismatch>
+  			<mismatch size="9">
+  				<entropy>15.8</entropy>
+  			</mismatch>
+  			<mismatch size="10">
+  				<entropy>15.8</entropy>
+  			</mismatch>
+ 			<mismatch size="12">
+  				<entropy>16.7</entropy>
+  			</mismatch>
+ 			<mismatch size="14">
+  				<entropy>17.4</entropy>
+  			</mismatch>
+ 			<mismatch size="16">
+  				<entropy>18.1</entropy>
+  			</mismatch>
+ 			<mismatch size="18">
+  				<entropy>18.7</entropy>
+  			</mismatch>
+ 			<mismatch size="20">
+  				<entropy>19.0</entropy>
+  			</mismatch>
+ 			<mismatch size="25">
+  				<entropy>20.3</entropy>
+  			</mismatch>
+ 			<mismatch size="30">
+  				<entropy>21.3</entropy>
+  			</mismatch>
+  		</data>

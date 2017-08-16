@@ -1,0 +1,153 @@
+\hypertarget{pair__mat_8h_source}{}\section{pair\+\_\+mat.\+h}
+\label{pair__mat_8h_source}\index{Vienna\+R\+N\+A/pair\+\_\+mat.\+h@{Vienna\+R\+N\+A/pair\+\_\+mat.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <ctype.h>}
+00002 \textcolor{preprocessor}{#include <\hyperlink{utils_8h}{ViennaRNA/utils.h}>}
+00003 \textcolor{preprocessor}{#include <\hyperlink{fold__vars_8h}{ViennaRNA/fold\_vars.h}>}
+00004 
+00005 \textcolor{preprocessor}{#define NBASES 8}
+00006 \textcolor{comment}{/*@notnull@*/}
+00007 
+00008 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} Law\_and\_Order[] = \textcolor{stringliteral}{"\_ACGUTXKI"};
+00009 \textcolor{keyword}{static} \textcolor{keywordtype}{int} BP\_pair[NBASES][NBASES]=
+00010 \textcolor{comment}{/* \_  A  C  G  U  X  K  I */}
+00011 \{\{ 0, 0, 0, 0, 0, 0, 0, 0\},
+00012  \{ 0, 0, 0, 0, 5, 0, 0, 5\},
+00013  \{ 0, 0, 0, 1, 0, 0, 0, 0\},
+00014  \{ 0, 0, 2, 0, 3, 0, 0, 0\},
+00015  \{ 0, 6, 0, 4, 0, 0, 0, 6\},
+00016  \{ 0, 0, 0, 0, 0, 0, 2, 0\},
+00017  \{ 0, 0, 0, 0, 0, 1, 0, 0\},
+00018  \{ 0, 6, 0, 0, 5, 0, 0, 0\}\};
+00019 
+00020 \textcolor{preprocessor}{#define MAXALPHA 20       }\textcolor{comment}{/* maximal length of alphabet */}\textcolor{preprocessor}{}
+00021 
+00022 \textcolor{keyword}{static} \textcolor{keywordtype}{short} alias[\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}+1];
+00023 \textcolor{keyword}{static} \textcolor{keywordtype}{int} pair[\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}+1][\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}+1];
+00024 \textcolor{comment}{/* rtype[pair[i][j]]:=pair[j][i] */}
+00025 \textcolor{keyword}{static} \textcolor{keywordtype}{int} rtype[8] = \{0, 2, 1, 4, 3, 6, 5, 7\};
+00026 
+00027 \textcolor{preprocessor}{#ifdef \_OPENMP}
+00028 \textcolor{preprocessor}{#pragma omp threadprivate(Law\_and\_Order, BP\_pair, alias, pair, rtype)}
+00029 \textcolor{preprocessor}{#endif}
+00030 
+00031 \textcolor{comment}{/* for backward compatibility */}
+00032 \textcolor{preprocessor}{#define ENCODE(c) encode\_char(c)}
+00033 
+00034 \textcolor{keyword}{static} \textcolor{keywordtype}{int} encode\_char(\textcolor{keywordtype}{char} c) \{
+00035   \textcolor{comment}{/* return numerical representation of base used e.g. in pair[][] */}
+00036   \textcolor{keywordtype}{int} code;
+00037   \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}>0) code = (int) (c-\textcolor{charliteral}{'A'})+1;
+00038   \textcolor{keywordflow}{else} \{
+00039     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *pos;
+00040     pos = strchr(Law\_and\_Order, c);
+00041     \textcolor{keywordflow}{if} (pos==NULL) code=0;
+00042     \textcolor{keywordflow}{else} code = (int) (pos-Law\_and\_Order);
+00043     \textcolor{keywordflow}{if} (code>5) code = 0;
+00044     \textcolor{keywordflow}{if} (code>4) code--; \textcolor{comment}{/* make T and U equivalent */}
+00045   \}
+00046   \textcolor{keywordflow}{return} code;
+00047 \}
+00048 
+00049 \textcolor{comment}{/*@+boolint +charint@*/}
+00050 \textcolor{comment}{/*@null@*/}
+00051 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\hyperlink{group__model__details_ga2695d91cc535d09c2eae5c3884e2ec64}{nonstandards};
+00052 
+00053 \textcolor{keyword}{static} \textcolor{keywordtype}{void} make\_pair\_matrix(\textcolor{keywordtype}{void})
+00054 \{
+00055    \textcolor{keywordtype}{int} i,j;
+00056 
+00057    \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}==0) \{
+00058       \textcolor{keywordflow}{for} (i=0; i<5; i++) alias[i] = (\textcolor{keywordtype}{short}) i;
+00059       alias[5] = 3; \textcolor{comment}{/* X <-> G */}
+00060       alias[6] = 2; \textcolor{comment}{/* K <-> C */}
+00061       alias[7] = 0; \textcolor{comment}{/* I <-> default base '@' */}
+00062       \textcolor{keywordflow}{for} (i=0; i<NBASES; i++) \{
+00063           \textcolor{keywordflow}{for} (j=0; j<NBASES; j++)
+00064             pair[i][j] = BP\_pair[i][j];
+00065       \}
+00066       \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gabf380d09e4f1ab94fc6af57cf0ad5d32}{noGU}) pair[3][4] = pair[4][3] =0;
+00067       \textcolor{keywordflow}{if} (nonstandards!=NULL) \{  \textcolor{comment}{/* allow nonstandard bp's */}
+00068          \textcolor{keywordflow}{for} (i=0; i<(int)strlen(nonstandards); i+=2)
+00069             pair[encode\_char(nonstandards[i])]
+00070               [encode\_char(nonstandards[i+1])]=7;
+00071       \}
+00072       \textcolor{keywordflow}{for} (i=0; i<NBASES; i++) \{
+00073           \textcolor{keywordflow}{for} (j=0; j<NBASES; j++)
+00074            rtype[pair[i][j]] = pair[j][i];
+00075       \}
+00076    \} \textcolor{keywordflow}{else} \{
+00077       \textcolor{keywordflow}{for} (i=0; i<=\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; i++) \{
+00078          \textcolor{keywordflow}{for} (j=0; j<=\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; j++)
+00079             pair[i][j] = 0;
+00080       \}
+00081       \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}==1) \{
+00082          \textcolor{keywordflow}{for} (i=1; i<\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA};) \{
+00083             alias[i++] = 3;  \textcolor{comment}{/* A <-> G */}
+00084             alias[i++] = 2;  \textcolor{comment}{/* B <-> C */}
+00085          \}
+00086          \textcolor{keywordflow}{for} (i=1; i<\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; i++) \{
+00087             pair[i][i+1] = 2;    \textcolor{comment}{/* AB <-> GC */}
+00088             i++;
+00089             pair[i][i-1] = 1;    \textcolor{comment}{/* BA <-> CG */}
+00090          \}
+00091       \}
+00092       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}==2) \{
+00093         \textcolor{keywordflow}{for} (i=1; i<\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA};) \{
+00094             alias[i++] = 1;  \textcolor{comment}{/* A <-> A*/}
+00095             alias[i++] = 4;  \textcolor{comment}{/* B <-> U */}
+00096          \}
+00097          \textcolor{keywordflow}{for} (i=1; i<\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; i++) \{
+00098             pair[i][i+1] = 5;    \textcolor{comment}{/* AB <-> AU */}
+00099             i++;
+00100             pair[i][i-1] = 6;    \textcolor{comment}{/* BA <-> UA */}
+00101          \}
+00102       \}
+00103       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{group__model__details_gafb1ef1166da85092ae8a325e02dcae71}{energy\_set}==3) \{
+00104         \textcolor{keywordflow}{for} (i=1; i<MAXALPHA-2; ) \{
+00105           alias[i++] = 3;  \textcolor{comment}{/* A <-> G */}
+00106           alias[i++] = 2;  \textcolor{comment}{/* B <-> C */}
+00107           alias[i++] = 1;  \textcolor{comment}{/* C <-> A */}
+00108           alias[i++] = 4;  \textcolor{comment}{/* D <-> U */}
+00109         \}
+00110         \textcolor{keywordflow}{for} (i=1; i<MAXALPHA-2; i++) \{
+00111           pair[i][i+1] = 2;    \textcolor{comment}{/* AB <-> GC */}
+00112           i++;
+00113           pair[i][i-1] = 1;    \textcolor{comment}{/* BA <-> CG */}
+00114           i++;
+00115           pair[i][i+1] = 5;    \textcolor{comment}{/* CD <-> AU */}
+00116           i++;
+00117           pair[i][i-1] = 6;    \textcolor{comment}{/* DC <-> UA */}
+00118         \}
+00119       \}
+00120       \textcolor{keywordflow}{else} \hyperlink{group__utils_gabb76f8f8dbd652fa4a24037cf4524373}{vrna\_message\_error}(\textcolor{stringliteral}{"What energy\_set are YOU using??"});
+00121       \textcolor{keywordflow}{for} (i=0; i<=\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; i++) \{
+00122         \textcolor{keywordflow}{for} (j=0; j<=\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA}; j++)
+00123           rtype[pair[i][j]] = pair[j][i];
+00124       \}
+00125    \}
+00126 \}
+00127 
+00128 \textcolor{keyword}{static} \textcolor{keywordtype}{short} *encode\_sequence(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{short} how)\{
+00129   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i,l = (\textcolor{keywordtype}{unsigned} int)strlen(sequence);
+00130   \textcolor{keywordtype}{short}         *S = (\textcolor{keywordtype}{short} *) \hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{short})*(l+2));
+00131 
+00132   \textcolor{keywordflow}{switch}(how)\{
+00133     \textcolor{comment}{/* standard encoding as always used for S */}
+00134     \textcolor{keywordflow}{case} 0:   \textcolor{keywordflow}{for}(i=1; i<=l; i++) \textcolor{comment}{/* make numerical encoding of sequence */}
+00135                 S[i]= (\textcolor{keywordtype}{short}) encode\_char(toupper(sequence[i-1]));
+00136               S[l+1] = S[1];
+00137               S[0] = (short) l;
+00138               \textcolor{keywordflow}{break};
+00139     \textcolor{comment}{/* encoding for mismatches of nostandard bases (normally used for S1) */}
+00140     \textcolor{keywordflow}{case} 1:   \textcolor{keywordflow}{for}(i=1; i<=l; i++)
+00141                 S[i] = alias[(\textcolor{keywordtype}{short}) encode\_char(toupper(sequence[i-1]))];
+00142               S[l+1] = S[1];
+00143               S[0] = S[l];
+00144               \textcolor{keywordflow}{break};
+00145   \}
+00146 
+00147   \textcolor{keywordflow}{return} S;
+00148 \}
+\end{DoxyCode}

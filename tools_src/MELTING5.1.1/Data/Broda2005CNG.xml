@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+ <!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA CNG trinucleotide repeats of ;
+	REF: Broda et al (2005). Biochemistry 44: 10873-10882.
+    	/******************************************************************************/-->
+   			
+   		<data type="repeats">
+   			<CNG sequence="CAG" repeats="2">
+				<enthalpy>-40100.0</enthalpy>
+				<entropy>-110.1</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="2">
+				<enthalpy>-50100.0</enthalpy>
+				<entropy>-139.5</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="2">
+				<enthalpy>-29300.0</enthalpy>
+				<entropy>-74.9</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="2">
+				<enthalpy>-49600.0</enthalpy>
+				<entropy>-141.9</entropy>
+			</CNG>					
+			<CNG sequence="CAG" repeats="3">
+				<enthalpy>-30100.0</enthalpy>
+				<entropy>-75.4</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="3">
+				<enthalpy>-50700.0</enthalpy>
+				<entropy>-134.3</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="3">
+				<enthalpy>-42200.0</enthalpy>
+				<entropy>-114.4</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="3">
+				<enthalpy>-54900.0</enthalpy>
+				<entropy>-147.9</entropy>
+			</CNG>					
+			<CNG sequence="CAG" repeats="4">
+				<enthalpy>-32000.0</enthalpy>
+				<entropy>-80.2</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="4">
+				<enthalpy>-58000.0</enthalpy>
+				<entropy>-153.0</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="4">
+				<enthalpy>-45800.0</enthalpy>
+				<entropy>-66.7</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="4">
+				<enthalpy>-43900.0</enthalpy>
+				<entropy>-116.7</entropy>
+			</CNG>
+			<CNG sequence="CAG" repeats="5">
+				<enthalpy>-29300.0</enthalpy>
+				<entropy>-86.6</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="5">
+				<enthalpy>-19900.0</enthalpy>
+				<entropy>-58.2</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="5">
+				<enthalpy>-32800.0</enthalpy>
+				<entropy>-121.5</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="5">
+				<enthalpy>-42800.0</enthalpy>
+				<entropy>-128.3</entropy>
+			</CNG>
+			<CNG sequence="CAG" repeats="6">
+				<enthalpy>-35500.0</enthalpy>
+				<entropy>-104.0</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="6">
+				<enthalpy>-23900.0</enthalpy>
+				<entropy>-69.8</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="6">
+				<enthalpy>-24400.0</enthalpy>
+				<entropy>-72.0</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="6">
+				<enthalpy>-39800.0</enthalpy>
+				<entropy>-118.6</entropy>
+			</CNG>
+			<CNG sequence="CAG" repeats="7">
+				<enthalpy>-30600.0</enthalpy>
+				<entropy>-89.4</entropy>
+			</CNG>
+			<CNG sequence="CGG" repeats="7">
+				<enthalpy>-23400.0</enthalpy>
+				<entropy>-67.5</entropy>
+			</CNG>
+			<CNG sequence="CCG" repeats="7">
+				<enthalpy>-27300.0</enthalpy>
+				<entropy>-80.1</entropy>
+			</CNG>
+			<CNG sequence="CUG" repeats="7">
+				<enthalpy>-49860.0</enthalpy>
+				<entropy>-143.5</entropy>
+			</CNG>
+		</data>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA single mismatches of ;
+	REF: Brent M Znosko et al (2007). Biochemistry 46: 13425-13436. 
+    	/******************************************************************************/-->
+   			
+   		<data type="single_mismatch">
+   			<parameters sequence="A/G">
+	        	<enthalpy>-6900.0</enthalpy>
+                <entropy>-21.0</entropy>
+   			</parameters>	
+   			<parameters sequence="G/G">
+	        	<enthalpy>-18200.0</enthalpy>
+                <entropy>-51.8</entropy>
+   			</parameters>			
+   			<parameters sequence="U/U">
+	        	<enthalpy>-12600.0</enthalpy>
+                <entropy>-39.6</entropy>
+   			</parameters>
+   			
+   			<mismatch sequence="YRR/RRY">
+	        	<enthalpy>200.0</enthalpy>
+                <entropy>-1.4</entropy>
+   			</mismatch>
+  			<mismatch sequence="RYY/YYR">
+	        	<enthalpy>-5500.0</enthalpy>
+                <entropy>-16.25</entropy>
+   			</mismatch>
+  			<mismatch sequence="YYR/RYY">
+	        	<enthalpy>2200.0</enthalpy>
+                <entropy>5.7</entropy>
+   			</mismatch>
+  			<mismatch sequence="YRY/RYR">
+	        	<enthalpy>-7700.0</enthalpy>
+                <entropy>-23.4</entropy>
+   			</mismatch>
+  			<mismatch sequence="RRY/YYR">
+	        	<enthalpy>-19500.0</enthalpy>
+                <entropy>-59.7</entropy>
+   			</mismatch>
+   			
+  			<closure type="per_A/U">
+	        	<enthalpy>-1800.0</enthalpy>
+                <entropy>-9.8</entropy>
+   			</closure>
+   			<closure type="per_G/U">
+	        	<enthalpy>-1800.0</enthalpy>
+                <entropy>-9.8</entropy>
+   			</closure>
+   		</data>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA long bulge loops of Santalucia et al       */
+/* (2004). Annu. Rev. Biophys. Biomol. Struct 33 : 415-440                                            */                                                    
+/******************************************************************************/-->
+			
+		<data type="long_bulge_loop">
+			<bulge size="1">
+  				<entropy>-12.86</entropy>
+  			</bulge>
+  			<bulge size="2">
+  				<entropy>-9.35</entropy>
+  			</bulge>
+  			<bulge size="3">
+  				<entropy>-10.0</entropy>
+  			</bulge>
+  			<bulge size="4">
+  				<entropy>-10.32</entropy>
+  			</bulge>
+  			<bulge size="5">
+  				<entropy>-10.64</entropy>
+  			</bulge>
+  			<bulge size="6">
+  				<entropy>-11.28</entropy>
+  			</bulge>
+  			<bulge size="7">
+  				<entropy>-11.93</entropy>
+  			</bulge>
+  			<bulge size="8">
+  				<entropy>-12.57</entropy>
+  			</bulge>
+ 			<bulge size="9">
+  				<entropy>-13.22</entropy>
+  			</bulge>
+ 			<bulge size="10">
+  				<entropy>-13.86</entropy>
+  			</bulge>
+ 			<bulge size="12">
+  				<entropy>-14.51</entropy>
+  			</bulge>
+ 			<bulge size="14">
+  				<entropy>-15.48</entropy>
+  			</bulge>
+ 			<bulge size="16">
+  				<entropy>-16.12</entropy>
+  			</bulge>
+ 			<bulge size="18">
+  				<entropy>-16.77</entropy>
+  			</bulge>
+ 			<bulge size="20">
+  				<entropy>-17.09</entropy>
+  			</bulge>
+  			<bulge size="25">
+  				<entropy>-18.06</entropy>
+  			</bulge>
+  			<bulge size="30">
+  				<entropy>-19.02</entropy>
+  			</bulge>
+  		</data>

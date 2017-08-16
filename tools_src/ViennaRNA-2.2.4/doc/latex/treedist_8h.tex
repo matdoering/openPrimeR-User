@@ -1,0 +1,92 @@
+\hypertarget{treedist_8h}{}\section{Vienna\+R\+N\+A/treedist.h File Reference}
+\label{treedist_8h}\index{Vienna\+R\+N\+A/treedist.\+h@{Vienna\+R\+N\+A/treedist.\+h}}
+
+
+Functions for \hyperlink{structTree}{Tree} Edit Distances.  
+
+
+Include dependency graph for treedist.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{treedist_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTree}{Tree} $\ast$ \hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\+\_\+tree} (char $\ast$struc)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{structTree}{Tree} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}. \end{DoxyCompactList}\item 
+float \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance} (\hyperlink{structTree}{Tree} $\ast$T1, \hyperlink{structTree}{Tree} $\ast$T2)
+\begin{DoxyCompactList}\small\item\em Calculates the edit distance of the two trees. \end{DoxyCompactList}\item 
+\hypertarget{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}{}void \hyperlink{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}{print\+\_\+tree} (\hyperlink{structTree}{Tree} $\ast$t)\label{treedist_8h_a21ad4de3ba4055aeef08b28c9ad48894}
+
+\begin{DoxyCompactList}\small\item\em Print a tree (mainly for debugging) \end{DoxyCompactList}\item 
+void \hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\+\_\+tree} (\hyperlink{structTree}{Tree} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated for \hyperlink{structTree}{Tree} t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for \hyperlink{structTree}{Tree} Edit Distances. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{}\index{treedist.\+h@{treedist.\+h}!make\+\_\+tree@{make\+\_\+tree}}
+\index{make\+\_\+tree@{make\+\_\+tree}!treedist.\+h@{treedist.\+h}}
+\subsubsection[{make\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree}$\ast$ make\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{struc}
+\end{DoxyParamCaption}
+)}\label{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}
+
+
+Constructs a \hyperlink{structTree}{Tree} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em struc} & may be any rooted structure representation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{}\index{treedist.\+h@{treedist.\+h}!tree\+\_\+edit\+\_\+distance@{tree\+\_\+edit\+\_\+distance}}
+\index{tree\+\_\+edit\+\_\+distance@{tree\+\_\+edit\+\_\+distance}!treedist.\+h@{treedist.\+h}}
+\subsubsection[{tree\+\_\+edit\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}float tree\+\_\+edit\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree} $\ast$}]{T1, }
+\item[{{\bf Tree} $\ast$}]{T2}
+\end{DoxyParamCaption}
+)}\label{treedist_8h_a3b21f1925f7071f46d93431a835217bb}
+
+
+Calculates the edit distance of the two trees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T1} & \\
+\hline
+{\em T2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{}\index{treedist.\+h@{treedist.\+h}!free\+\_\+tree@{free\+\_\+tree}}
+\index{free\+\_\+tree@{free\+\_\+tree}!treedist.\+h@{treedist.\+h}}
+\subsubsection[{free\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\label{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}
+
+
+Free the memory allocated for \hyperlink{structTree}{Tree} t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}

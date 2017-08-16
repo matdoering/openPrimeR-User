@@ -1,0 +1,120 @@
+@ARTICLE{\2_\5_\3,
+   AUTHOR  = {\1},
+   TITLE   = {\4},  
+   YEAR    = {\3},
+   JOURNAL = {\6},
+   VOLUME  = {\7},
+   PAGES   = {\8}
+}
+@ARTICLE{\2_\5_\3,\n\tAUTHOR  = {\1},\n\tTITLE   = {\4},\n\tYEAR    = {\3},\n\tJOURNAL = {\6},\n\tVOLUME  = {\7},\n\tPAGES   = {\8}\n}
+
+^ *(([A-Za-z]+)[^(]+)\(([0-9]+)\) ?[.,]? *(([A-Za-z]+)?[^\\]+)\\textit\{([^}]+)\}[^0-9]*([0-9]+)[^0-9]*(.*)$
+
+
+Allawi H.T., SantaLucia J. (1997). Thermodynamics and NMR of internal G-T mismatches in DNA. \textit{Biochemistry} 36: 10581-10594   
+
+Allawi H.T., SantaLucia J. (1998). Nearest Neighbor thermodynamics parameters for internal G.A mismatches in DNA. \textit{Biochemistry} 37: 2170-2179
+
+Allawi H.T., SantaLucia J. (1998). Thermodynamics of internal C.T mismatches in DNA. \textit{Biochemistry} 26: 2694-2701.
+
+Allawi H.T., SantaLucia J. (1998). Nearest Neighbor thermodynamics of internal A.C mismatches in DNA: sequence dependence and pH effects.\textit{Biochemistry} 37: 9435-9444.
+
+Amanda S. O'toole, Stacy Miller and Martin J Serra (2005), Stability of 3' double nucleotide overhangs that model the 3'ends of siRNA. \textit{RNA} 11: 512-516
+
+Amanda S. O'toole, Stacy Miller, Nathan Haines, M. Coleen Zink and Martin J Serra (2006). Comprehensive thermodynamic analysis of 3' double-nucleotide overhangs neighboring Watson-Crick terminal base pairs.\textit{Nucleic Acids research} 34: 3338-3344
+
+Amber R. Davis, and Brent M. Znosko (2007), Thermodynamic Characterization of Single Mismatches Found in Naturally Occurring RNA.\textit{Biochemistry} 46: 13425-13436
+
+Amber R. Davis, and Brent M. Znosko (2008), Thermodynamic Characterization of Naturally Occurring RNA Single Mismatches with G-U Nearest Neighbors.\textit{Biochemistry} 47: 10178-10187
+
+Blake, R. D., and Delcourt, S. G. (1998) , Thermal stability of DNA.\textit{Nucleic Acids Res} 26: 3323-3332 and corrigendum.
+
+Bommarito S., Peyret N., SantaLucia J. (2000).  Thermodynamic parameters for DNAsequences with dangling ends.  \textit{Nucleic Acids Res} 28: 1929-1934
+
+  Breslauer K.J., Frank R., Bl\"ocker H., Marky L.A. (1986). Predicting DNA duplex stability from the base sequence.  \textit{Proc Natl Acad Sci USA}  83: 3746-3750   
+
+Broda Magdalena, Elbieta Kierzek, Zofia Gdaniec, Tadeusz Kulinski and Ryszard Kierzek (2005), Thermodynamic stability of RNA structures formed by CNG trinucleotide repeats. Implication for prediction of RNA structure.\textit{Biochemistry} 44: 10873-10882.
+
+Casey J., and Davidson N. (1977) \textit{Nucleic acids research} 4: 1539-1532.
+
+Cullen Br, Bick Md (1976), Thermal denaturation of DNA from bromodeoxyuridine substitued cells.\textit{Nucleic acids research} 3: 49-62.
+
+David H. Mathews, Jeffrey Sabina, Michael Zucker and Douglas H Turner (1999)Expanded sequence dependence of thermodynamic parameters improves predictionof RNA secondary structure.\textit{J. Mol. Biol} 288 : 911-940
+
+Elzbieta Kierzek, David H. Mathews, Anna Ciesielska, Douglas H. Turner and Ryszard Kierzek (2006) Nearest neighbor parameters for Watson Crick complementary heteroduplexesformed between 2-O-methyl RNA and RNA oligonucleotides. \textit{Nucleic acids research} 34: 3609-3614
+
+Escara JF, Hutton Jr (1980), Thermal stability and renaturation of DNA in dimethyl sulfoxidesolutions: acceleration of the renaturation rate.\textit{Biopolymers} 19: 1315-1327.
+
+Frank-Kamenetskii, M. D. (1971), Simplification of the empirical relationship between melting temperature of DNA, its GC content and concentration of sodium ions in solution\textit{Biopolymers} 10: 2623-2624.
+
+Freier S.M., Kierzek R., Jaeger, J.A., Sugimoto N., Caruthers M.H., Neilson T., Turner D.H.(1986). \textit{Biochemistry}  83:9373-9377 
+ 
+ Fumiaki Tanaka, Atsushi Kameda, Masahito Yamamoto and Azuma Ohuchi (2004)., Thermodynamic Parameters based on a nearest neighbor model for DNA sequences with a single bulge loop.\textit{Biochemistry} 43 : 7143-7150
+
+Hiroyuki Asanuma, Daijiro Matsunaga and Makoto Komiyama (2005), Clear-cut photo-regulation of the formation and dissociation of the DNA duplex by modified oligonucleotide involving multiple azobenzenes.\textit{Nucleic acids Symposium Series} 49 : 35-36
+
+Hutton Jr (1977) \textit{Nucleic acids research} 4: 3537-3555.
+
+Jaya Badhwar, Saradasri Karri, Cody K. Cass, Erica L. Wunderlich and Brent M. Znosco (2007). Thermodynamic characterization of RNA duplexes containing naturally occuring 1x2 nucleotide internal loops.\textit{Biochemistry} 46: 14715-14724.
+
+Joshua M. Blose, Michelle L. Manni, Kelly A. Klapec, Yukiko Stranger-Jones, Allison C.Zyra, Vasiliy Sim, Chad A. Griffith, Jason D. Long, and Martin J. Serra (2007) Non-Nearest-Neighbor Dependence of Stability for RNA Bulge Loops Based on the Complete Set of Group I Single Nucleotide Bulge Loops.\textit{Biochemistry} 46 : 15123-15135
+
+Junji Kawakami1,2, Hiroyuki Kamiya3, Kyohko Yasuda2, Hiroyoshi Fujiki1, Hiroshi Kasai3 andNaoki Sugimoto (2001), Thermodynamic stability of base pairs between 2-hydroxyadenine and incoming nucleotides as a determinant of nucleotide incorporation specificity during replication.\textit{Nucleic acids research} 29 : 3289-3296
+
+***************Marmur, J., and Doty, P. (1962), Determination of the base composition of deoxyribonucleic acid from its thermal denaturation temperature. \textit{J. Mol. Biol.} 5: 109-118.
+
+McConaughy, B.L., Laird, C.D. and McCarthy, B.I. (1969) \textit{ Biochemistry} 8: 3289-3295.
+
+Mitsuhashi M. (1996), Technical report: Part 1. Basic requirements for designing optimal oligonucleotide probe sequences.\textit{J. Clin. Lab. Anal} 10: 277-284.
+
+Musielski H., Mann W, Laue R, Michel S (1981) Influence of dimethylsulfoxide on transcription by bacteriophage T3-induced RNA polymerase.\textit{Z allg Microbiol}21: 447-456.
+
+***************Nicolas Von Ahsen, Carl T Wittwer and Ekkehard Schutz (2001) Oligonucleotide melting temperatures under PCR conditions : deoxynucleotide Triphosphate and Dimethyl sulfoxide concentrations with comparison to alternative empirical formulas \textit{Clinical Chemistry}47: 1956-1961.
+ 
+ Owczarzy R., Moreira B.G., You Y., Behlke M.B., Walder J.A.(2008) Predicting stability of DNA duplexes in solutions containing Magnesium and Monovalent Cations. \textit{Biochemistry} 47: 5336-5353.  
+
+Patricia M. McTigue, Raymond J. Peterson, and Jason D. Kahn (2004) Sequence-Dependent Thermodynamic Parameters for Locked Nucleic Acid (LNA)DNA DuplexFormation.\textit{Biochemistry} 43 : 5388-5405
+
+Peyret N. (2000), Prediction of nucleic acid hybridization : parameters and algorithms.\textit{Ph.D Thesis} Section .5.4.2, 128, Wayne State University, Detroit, MI.
+
+Peyret N., Seneviratne P.A., Allawi H.T., SantaLucia J. (1999). Nearest Neighbor thermodynamics and NMR of DNA sequences with internal A.A, C.C, G.G and T.T mismatches. dependence and pH effects.\textit{Biochemistry} 38: 3468-3477
+
+R. D. Blake and Scott G. Delcourt (1996), Thermodynamic effects of formamide on DNA stability.\textit{Nucleic Acids Research} 24, No. 11 : 2095-2103
+
+Record, M.T., Jr (1967) \textit{Biopolymers} 5: 975-992.
+
+Richard Owczarzy, Yong You, Bernardo G. Moreira, Jeffrey A.Manthey, Lingyan Huang, Mark A. Behlke and Joseph A.Walder (2004), Effects of sodium ions on DNA duplex oligomers: Improved predictions of melting temperatures. \textit{Biochemistry} 43: 3537-3554.
+
+  SantaLucia J. Jr, Allawi H.T., Seneviratne P.A. (1996). Improved nearest-neighbor parameters for predicting DNA duplex stability. \textit{Biochemistry} 35: 3555-3562  
+
+Schildkraut, C., and Lifson, S. (1965), Dependence of the melting temperature of DNA on salt concentration.\textit{Biopolymers} 3: 195-208.
+
+Stacy Miller, Laura E. Jones, Karen Giovannitti, Dan Piper and Martin J. Serra (2008)Thermodynamic analysis of 5 and 3 single- and 3 double-nucleotide overhangs neighboring wobble terminal base pairs.\textit{Nucleic Acids research}  36: 5652-5659  
+
+  ****************Sugimoto N., Katoh M., Nakano S., Ohmichi T., Sasaki M. (1994). RNA/DNA hybrid duplexes with identical nearest-neighbor base-pairs hve identical stability. \textit{FEBS Letters} 354: 74-78   
+
+  Sugimoto N., Nakano S., Katoh M., Matsumura A., Nakamuta H., Ohmichi T., Yoneyama M., Sasaki M. (1995). Thermodynamic parameters to predict stability of RNA/DNA hybrid duplexes. \textit{Biochemistry} 34: 11211-11216 
+  
+  Sugimoto N., Nakano S., Yoneyama M., Honda K. (1996).  Improved thermodynamic parameters and helix initiation factor to predict stability of DNA duplexes. \textit{Nuc Acids Res}  24: 4501-4505  
+
+Tatsuo Ohmichi, Shu-ichi Nakano, Daisuke Miyoshi and Naoki Sugimoto (2002), Long RNA danglingend has large energetic contribution to duplex stability.\textit{J. Am. Chem. Soc.}124: 10367-10372
+
+Watkins N.E., Santalucia J. Jr. (2005). Nearest-neighbor thermodynamics of deoxyinosine pairs in DNA duplexes. \textit{Nuc Acids Res} 33: 6258-6267 
+
+Wright D.J., Rice J.L., Yanker D.M., Znosko B.M. (2007). Nearest neighbor parameters for inosine-uridine pairs in RNA duplexes. \textit{Biochemistry} 46: 4625-4634
+
+Xia T., SantaLucia J., Burkard M.E., Kierzek R., Schroeder S.J., Jiao X., Cox C., Turner D.H. (1998). Thermodynamics parameters for an expanded nearest-neighbor model for formation of RNA duplexes with Watson-Crick base pairs. \textit{Biochemistry}  37: 14719-14735  
+
+Zhi-Jie Tan and Shi-Jie Chen, (2006), Nucleic acid helix stability: effects of Salt concentration, cation valence and size, and chain length.\textit{Biophysical Journal}90: 1175-1190. 
+
+Zhi-Jie Tan and Shi-Jie Chen (2007), RNA helix stability in Mixed Na+/Mg2+ solutions" \textit{Biophysical Journal} 92: 3615-3632.
+
+Zhi John Lu, Douglas H. Turner and David H. Mathews (2006). A set of nearest neighbor parameters for predicting the enthalpy change of RNA secondary structure formation. \textit{Nucleic Acids Research} 34: 4912-4924. 
+
+****************SantaLucia J. (1998) A unified view of polymer, dumbbell, and oligonucleotide DNA nearest-neighbor thermodynamics. \textit{Proc Natl Acad Sci USA}  95: 1460-1465 
+
+SantaLucia  J., Hicks Donald (2004) The Thermodynamics of DNA structural motifs. \textit{Annu. Rev. Biophys. Struct} 33: 415-440 
+  
+ ********************Wetmur J.G. (1991) DNA probes: applications of the principles of nucleic acid hybridization. \textit{Crit Rev Biochem Mol Biol} 26: 227-259
+
+ Jonathan L. Chen,† Abigael L. Dishler, Scott D. Kennedy, Ilyas Yildirim, Biao Liu, Douglas H. Turner and Martin J. Serra (2012), Testing the Nearest Neighbor Model for Canonical RNA Base Pairs: Revision of GU Parameters. \textit{Biochemistry} 51: 3508–3522.

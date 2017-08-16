@@ -1,0 +1,59 @@
+\hypertarget{findpath_8h_source}{}\section{findpath.\+h}
+\label{findpath_8h_source}\index{Vienna\+R\+N\+A/findpath.\+h@{Vienna\+R\+N\+A/findpath.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}
+00003 
+00013 \textcolor{comment}{/* make this interface backward compatible with RNAlib < 2.2.0 */}
+00014 \textcolor{preprocessor}{#define VRNA\_BACKWARD\_COMPAT}
+00015 
+00016 \textcolor{comment}{/* below are several convenience typedef's we use throughout the ViennaRNA library */}
+00017 
+\hypertarget{findpath_8h_source_l00021}{}\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{00021} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s}  \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t};
+00022 
+00023 
+00024 \textcolor{preprocessor}{#ifdef VRNA\_BACKWARD\_COMPAT}
+00025 
+00026 \textcolor{comment}{/* the following typedefs are for backward compatibility only */}
+00027 
+\hypertarget{findpath_8h_source_l00032}{}\hyperlink{group__direct__paths_gab6b8737d5377e70a7815d04aae7fd884}{00032} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s} \hyperlink{group__direct__paths_structvrna__path__s}{path\_t};
+00033 
+00034 \textcolor{preprocessor}{#endif}
+00035 
+00036 \textcolor{preprocessor}{#include <\hyperlink{data__structures_8h}{ViennaRNA/data\_structures.h}>}
+00037 
+\hypertarget{findpath_8h_source_l00042}{}\hyperlink{group__direct__paths}{00042} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s} \{
+\hypertarget{findpath_8h_source_l00043}{}\hyperlink{group__direct__paths_ac25160bf31d28097358278f367e41227}{00043}   \textcolor{keywordtype}{double} \hyperlink{group__direct__paths_ac25160bf31d28097358278f367e41227}{en};  
+\hypertarget{findpath_8h_source_l00044}{}\hyperlink{group__direct__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{00044}   \textcolor{keywordtype}{char} *\hyperlink{group__direct__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{s};    
+00045 \};
+00046 
+00047 
+00070 \textcolor{keywordtype}{int} \hyperlink{group__direct__paths_ga957922acc1bcaa97f52cbd0975f7dcd0}{vrna\_path\_findpath\_saddle}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00071                               \textcolor{keyword}{const} \textcolor{keywordtype}{char} *struc1,
+00072                               \textcolor{keyword}{const} \textcolor{keywordtype}{char} *struc2,
+00073                               \textcolor{keywordtype}{int} max);
+00074 
+00097 \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *\hyperlink{group__direct__paths_ga5e1f97f58adc65016a8df88802dc16b5}{vrna\_path\_findpath}(
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00098                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00099                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,
+00100                                 \textcolor{keywordtype}{int} maxkeep);
+00101 
+00102 \textcolor{preprocessor}{#ifdef VRNA\_BACKWARD\_COMPAT}
+00103 
+00116 \textcolor{keywordtype}{int} \hyperlink{group__direct__paths_gad0e14268e309af773ecd1fce6244ee50}{find\_saddle}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,
+00117                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *struc1,
+00118                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *struc2,
+00119                 \textcolor{keywordtype}{int} max);
+00125 \textcolor{keywordtype}{void}    \hyperlink{group__direct__paths_ga9056421d716ae89f0ed3f107627f395b}{free\_path}(\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *path);
+00126 
+00139 \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *\hyperlink{group__direct__paths_ga0b22426253e190bd268f86b01b71220d}{get\_path}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,
+00140                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00141                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,
+00142                       \textcolor{keywordtype}{int} maxkeep);
+00143 
+00144 \textcolor{preprocessor}{#endif}
+00145 
+00150 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

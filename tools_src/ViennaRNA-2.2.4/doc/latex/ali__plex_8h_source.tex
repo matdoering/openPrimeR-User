@@ -1,0 +1,39 @@
+\hypertarget{ali__plex_8h_source}{}\section{ali\+\_\+plex.\+h}
+\label{ali__plex_8h_source}\index{Vienna\+R\+N\+A/ali\+\_\+plex.\+h@{Vienna\+R\+N\+A/ali\+\_\+plex.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_ALI\_PLEX\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_ALI\_PLEX\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{data__structures_8h}{ViennaRNA/data\_structures.h}>}
+00008 \hyperlink{group__data__structures_structduplexT}{duplexT}** aliLduplexfold( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1[],
+00009                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2[],
+00010                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00011                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} extension\_cost,
+00012                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00013                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00014                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00015                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00016                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00017                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00018                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);
+00022 \hyperlink{group__data__structures_structduplexT}{duplexT}** aliLduplexfold\_XS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* s1[],
+00023                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2[],
+00024                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s1,
+00025                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s2, 
+00026                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00027                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00028                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00029                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00030                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00031                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00032                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00033                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);
+00034 
+00035 \textcolor{comment}{/*}
+00036 \textcolor{comment}{extern duplexT aliduplexfold(const char *s1[], const char *s2[], const int extension\_cost);}
+00037 \textcolor{comment}{extern duplexT aliduplexfold\_XS(const char *s1[], const char *s2[],const int **access\_s1, }
+00038 \textcolor{comment}{const int **access\_s2, const int i\_pos, const int j\_pos, const int threshold);}
+00039 \textcolor{comment}{*/}
+00040 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

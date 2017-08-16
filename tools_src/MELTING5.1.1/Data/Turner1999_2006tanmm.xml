@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA tandem mismatches of ;
+	REF: Douglas M Turner et al (2006). Nucleic Acids Research 34: 4912-4924.
+	REF: Douglas M Turner et al (1999). J.Mol.Biol.  288: 911_940 
+    	/******************************************************************************/-->
+   		
+   	<data type="tandem_mismatch">
+   		<mismatch sequence="GA/AG" closing="G/C">
+   			<enthalpy>-25100.0</enthalpy>
+  			<entropy>-72.5</entropy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="G/C">
+   			<enthalpy>-15600.0</enthalpy>
+   			<entropy>-46.1</entropy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="G/C">
+   			<enthalpy>-14400.0</enthalpy>
+   			<entropy>-44.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="G/C">
+   			<enthalpy>-22800.0</enthalpy>
+   			<entropy>-76.1</entropy>
+   		</mismatch>
+  		<mismatch sequence="CA/AC" closing="G/C">
+   			<enthalpy>-10300.0</enthalpy>
+  			<entropy>-36.4</entropy>
+   		</mismatch>
+   		<mismatch sequence="CU/UC" closing="G/C">
+   			<enthalpy>-20900.0</enthalpy>
+   			<entropy>-70.9</entropy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="G/C">
+   			<enthalpy>-14700.0</enthalpy>
+   			<entropy>-50.6</entropy>
+  		</mismatch>
+   		<mismatch sequence="CC/CC" closing="G/C">
+   			<enthalpy>-14700.0</enthalpy>
+   			<entropy>-50.6</entropy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="G/C">
+   			<enthalpy>-8600.0</enthalpy>
+   			<entropy>-30.6</entropy>
+   		</mismatch>
+   		<mismatch sequence="AA/AA" closing="G/C">
+   			<enthalpy>-1300.0</enthalpy>
+   			<entropy>-9.0</entropy>
+   		</mismatch>
+  		<mismatch sequence="GA/AG" closing="C/G">
+   			<enthalpy>-14600.0</enthalpy>
+   			<entropy>-44.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="C/G">
+   			<enthalpy>-12700.0</enthalpy>
+   			<entropy>-38.7</entropy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="C/G">
+  			<enthalpy>-17500.0</enthalpy>
+   			<entropy>-55.1</entropy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="C/G">
+   			<enthalpy>-22800.0</enthalpy>
+   			<entropy>-76.1</entropy>
+   		</mismatch>
+   		<mismatch sequence="CA/AC" closing="C/G">
+   			<enthalpy>-10800.0</enthalpy>
+   			<entropy>-38.4</entropy>
+ 		</mismatch>
+   		<mismatch sequence="CU/UC" closing="C/G">
+   			<enthalpy>-600.0</enthalpy>
+   			<entropy>-6.4</entropy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="C/G">
+   			<enthalpy>-2800.0</enthalpy>
+   			<entropy>-13.5</entropy>
+   		</mismatch>
+   		<mismatch sequence="CC/CC" closing="C/G">
+   			<enthalpy>-1800.0</enthalpy>
+   			<entropy>-11.3</entropy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="C/G">
+   			<enthalpy>-1700.0</enthalpy>
+   			<entropy>-11.9</entropy>
+   		</mismatch>
+   		<mismatch sequence="AA/AA" closing="C/G">
+   			<enthalpy>-4600.0</enthalpy>
+   				<entropy>-19.0</entropy>
+   		</mismatch>
+  		<mismatch sequence="GA/AG" closing="U/A">
+  			<enthalpy>-13400.0</enthalpy>
+   			<entropy>-45.5</entropy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="U/A">
+   			<enthalpy>-19400.0</enthalpy>
+   			<entropy>-64.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="U/A">
+ 			<enthalpy>-6700.0</enthalpy>
+   			<entropy>-25.1</entropy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="U/A"> 
+   			<enthalpy>2700.0</enthalpy>
+   			<entropy>3.9</entropy>
+   		</mismatch>
+   		<mismatch sequence="CA/AC" closing="U/A">
+   			<enthalpy>9100.0</enthalpy>
+   			<entropy>23.2</entropy>
+   		</mismatch>
+   		<mismatch sequence="CU/UC" closing="U/A">
+   			<enthalpy>3300.0</enthalpy>
+   			<entropy>3.5</entropy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="U/A">
+   			<enthalpy>9500.0</enthalpy>
+  			<entropy>21.6</entropy>
+   		</mismatch>
+   		<mismatch sequence="CC/CC" closing="U/A">
+   			<enthalpy>12100.0</enthalpy>
+   			<entropy>30.0</entropy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="U/A">
+   			<enthalpy>12100.0</enthalpy>
+   			<entropy>30.1</entropy>
+   		</mismatch>
+  		<mismatch sequence="AA/AA" closing="U/A">
+  			<enthalpy>14700.0</enthalpy>
+   			<entropy>38.4</entropy>
+   		</mismatch>
+  		<mismatch sequence="GA/AG" closing="A/U">
+   			<enthalpy>-14400.0</enthalpy>
+   			<entropy>-47.4</entropy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="A/U">
+   			<enthalpy>-10800.0</enthalpy>
+   			<entropy>-35.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="A/U">
+   			<enthalpy>-12200.0</enthalpy>
+   			<entropy>-41.3</entropy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="A/U">
+   			<enthalpy>-1000.0</enthalpy>
+   			<entropy>-7.7</entropy>
+   		</mismatch>
+   		<mismatch sequence="CA/AC" closing="A/U">
+   			<enthalpy>7200.0</enthalpy>
+   			<entropy>15.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="CU/UC" closing="A/U">
+   			<enthalpy>7400.0</enthalpy>
+   			<entropy>-16.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="A/U">
+   			<enthalpy>7400.0</enthalpy>
+   			<entropy>-16.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="CC/CC" closing="A/U">
+   			<enthalpy>7400.0</enthalpy>
+   			<entropy>-16.8</entropy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="A/U">
+   			<enthalpy>7500.0</enthalpy>
+   			<entropy>16.1</entropy>
+   		</mismatch>
+   		<mismatch sequence="AA/AA" closing="A/U">
+   			<enthalpy>13400.0</enthalpy>
+   			<entropy>34.2</entropy>
+   		</mismatch>
+  		<!--<mismatch sequence="GA/AG" closing="U/G">
+   			<enthalpy>-15300.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="U/G">
+   			<enthalpy>-18700.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="U/G">
+ 			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="U/G">
+   			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CA/AC" closing="U/G">
+   			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CU/UC" closing="U/G">
+   				<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="U/G">
+  			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CC/CC" closing="U/G">
+   			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="U/G">
+   			<enthalpy>-8500.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AA/AA" closing="U/G">
+   			<enthalpy>1700.0</enthalpy>
+   		</mismatch>
+  		<mismatch sequence="GA/AG"  closing="G/U">
+   			<enthalpy>-19900.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AG/GA" closing="G/U">
+   			<enthalpy>-16100.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="UU/UU" closing="G/U">
+  			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="GG/GG" closing="G/U">
+  			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CA/AC" closing="G/U">
+   			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CU/UC" closing="G/U">
+   			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="UC/CU" closing="G/U">
+   			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="CC/CC" closing="G/U">
+   			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AC/CA" closing="G/U">
+   			<enthalpy>-19600.0</enthalpy>
+   		</mismatch>
+   		<mismatch sequence="AA/AA" closing="G/U">
+   			<enthalpy>-23200.0</enthalpy>
+   		</mismatch> -->
+   		
+   		<penalty type="G/G_adjacent_AA_or_nonCanonicalPyrimidine">
+ 				<enthalpy>12500.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 		</penalty>
+ 		<penalty type="AG_GA_UU_adjacent_UU_CU_CC_AA">
+ 				<enthalpy>2400.0</enthalpy>
+ 				<entropy>4.5</entropy>
+ 		</penalty>
+   	</data>

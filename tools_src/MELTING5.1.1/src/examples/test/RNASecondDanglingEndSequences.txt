@@ -1,0 +1,20 @@
+# Martin J Serra et al. (2006). Nucleic Acids research 34: 3338-3344.
+# 0.0001M oligomer concentration, 1.0 M NaCl, 10 mM sodium cacodylate, 0.5 mM EDTA pH 7
+
+--AGCGCUAA=62.2
+--AGCGCUAG=61.8
+--AGCGCUAC=63.5
+--AGCGCUAU=62.5
+--AGCGCUGA=59.3
+--AGCGCUGG=59.7
+--AGCGCUGC=61.3
+--AGCGCUGU=61.7
+--AGCGCUCA=56.9
+--AGCGCUCG=58.1
+--AGCGCUCC=58.3
+--AGCGCUCU=56.6
+--AGCGCUUA=53.5
+--AGCGCUUG=56.5
+--AGCGCUUC=56.9
+--AGCGCUUU=56.5
+

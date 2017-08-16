@@ -1,0 +1,391 @@
+\hypertarget{group__kl__neighborhood__mfe}{}\section{Calculating M\+F\+E representatives of a Distance Based Partitioning}
+\label{group__kl__neighborhood__mfe}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+
+
+Compute the minimum free energy (M\+F\+E) and secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures basepair distance to two fixed reference structures.  
+
+
+Collaboration diagram for Calculating M\+F\+E representatives of a Distance Based Partitioning\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__kl__neighborhood__mfe}
+\end{center}
+\end{figure}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{2Dfold_8h}{2\+Dfold.\+h}
+\end{DoxyCompactItemize}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}  \hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{More...}\end{DoxyCompactList}\item 
+struct \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}
+\begin{DoxyCompactList}\small\item\em Variables compound for 2\+Dfold M\+F\+E folding.  \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{More...}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t} \hyperlink{group__kl__neighborhood__mfe_ga6a81a58268d250309712549a3fa0aab2}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Solution element returned from \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} \end{DoxyCompactList}\item 
+typedef struct \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} \hyperlink{group__kl__neighborhood__mfe_gaf4f514010a14f9d59d850742b3e96954}{Two\+Dfold\+\_\+vars}
+\begin{DoxyCompactList}\small\item\em Variables compound for 2\+Dfold M\+F\+E folding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t} $\ast$ \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, int distance1, int distance2)
+\begin{DoxyCompactList}\small\item\em Compute M\+F\+E\textquotesingle{}s and representative for distance partitioning. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}{vrna\+\_\+backtrack5\+\_\+\+Two\+D} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, int k, int l, unsigned int j)
+\begin{DoxyCompactList}\small\item\em Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. \end{DoxyCompactList}\item 
+\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} $\ast$ \hyperlink{group__kl__neighborhood__mfe_gac9284f132cf0eaa0a2f43590eda05488}{get\+\_\+\+Two\+Dfold\+\_\+variables} (const char $\ast$seq, const char $\ast$structure1, const char $\ast$structure2, int \hyperlink{group__model__details_gaf9202a1a09f5828dc731e2d9a10fa111}{circ})
+\begin{DoxyCompactList}\small\item\em Get a structure of type \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} prefilled with current global settings. \end{DoxyCompactList}\item 
+void \hyperlink{group__kl__neighborhood__mfe_ga05bf4f31d216b1b160fd2d3d68e9b487}{destroy\+\_\+\+Two\+Dfold\+\_\+variables} (\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} $\ast$our\+\_\+variables)
+\begin{DoxyCompactList}\small\item\em Destroy a \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} datastructure without memory loss. \end{DoxyCompactList}\item 
+\hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t} $\ast$ \hyperlink{group__kl__neighborhood__mfe_ga7fc5e3e92fe97914ca4eccd33c01c2a7}{Two\+Dfold\+List} (\hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} $\ast$vars, int distance1, int distance2)
+\begin{DoxyCompactList}\small\item\em Compute M\+F\+E\textquotesingle{}s and representative for distance partitioning. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{group__kl__neighborhood__mfe_gaf4dc05bf8fc1ea53acd7aeb798ba80c2}{Two\+Dfold\+\_\+backtrack\+\_\+f5} (unsigned int j, int k, int l, \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} $\ast$vars)
+\begin{DoxyCompactList}\small\item\em Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Compute the minimum free energy (M\+F\+E) and secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures basepair distance to two fixed reference structures. 
+
+\begin{DoxySeeAlso}{See also}
+For further details, we refer to Lorenz et al. 2009 \cite{lorenz:2009} 
+\end{DoxySeeAlso}
+
+
+\subsection{Data Structure Documentation}
+\index{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t@{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}}\label{structvrna__sol__TwoD__t}
+\hypertarget{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{}
+\subsubsection{struct vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}
+Solution element returned from \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} 
+
+This element contains free energy and structure for the appropriate kappa (k), lambda (l) neighborhood The datastructure contains two integer attributes \textquotesingle{}k\textquotesingle{} and \textquotesingle{}l\textquotesingle{} as well as an attribute \textquotesingle{}en\textquotesingle{} of type float representing the free energy in kcal/mol and an attribute \textquotesingle{}s\textquotesingle{} of type char$\ast$ containg the secondary structure representative,
+
+A value of \hyperlink{energy__const_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+N\+F} in k denotes the end of a list
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} 
+\end{DoxySeeAlso}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__kl__neighborhood__mfe_ac111e850bb3b3a11b6b5707912cfa1b8}{}int \hyperlink{group__kl__neighborhood__mfe_ac111e850bb3b3a11b6b5707912cfa1b8}{k}\label{group__kl__neighborhood__mfe_ac111e850bb3b3a11b6b5707912cfa1b8}
+
+\begin{DoxyCompactList}\small\item\em Distance to first reference. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_ab8e95cd920901175a2cc8de726ab1d36}{}int \hyperlink{group__kl__neighborhood__mfe_ab8e95cd920901175a2cc8de726ab1d36}{l}\label{group__kl__neighborhood__mfe_ab8e95cd920901175a2cc8de726ab1d36}
+
+\begin{DoxyCompactList}\small\item\em Distance to second reference. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a7577863a6a84224dfee39b321c03cab1}{}float \hyperlink{group__kl__neighborhood__mfe_a7577863a6a84224dfee39b321c03cab1}{en}\label{group__kl__neighborhood__mfe_a7577863a6a84224dfee39b321c03cab1}
+
+\begin{DoxyCompactList}\small\item\em Free energy in kcal/mol. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_ac5942d2505a6cd7e4a8073a321d5d2d5}{}char $\ast$ \hyperlink{group__kl__neighborhood__mfe_ac5942d2505a6cd7e4a8073a321d5d2d5}{s}\label{group__kl__neighborhood__mfe_ac5942d2505a6cd7e4a8073a321d5d2d5}
+
+\begin{DoxyCompactList}\small\item\em M\+F\+E representative structure in dot-\/bracket notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\index{Two\+Dfold\+\_\+vars@{Two\+Dfold\+\_\+vars}}\label{structTwoDfold__vars}
+\hypertarget{group__kl__neighborhood__mfe_structTwoDfold__vars}{}
+\subsubsection{struct Two\+Dfold\+\_\+vars}
+Variables compound for 2\+Dfold M\+F\+E folding. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]This data structure will be removed from the library soon! Use \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead! \end{DoxyRefDesc}
+
+
+Collaboration diagram for Two\+Dfold\+\_\+vars\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structTwoDfold__vars__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__kl__neighborhood__mfe_a70da9e83ad87c37013b4bf0b265dd307}{}\hyperlink{group__energy__parameters_ga8a69ca7d787e4fd6079914f5343a1f35}{vrna\+\_\+param\+\_\+t} $\ast$ \hyperlink{group__kl__neighborhood__mfe_a70da9e83ad87c37013b4bf0b265dd307}{P}\label{group__kl__neighborhood__mfe_a70da9e83ad87c37013b4bf0b265dd307}
+
+\begin{DoxyCompactList}\small\item\em Precomputed energy parameters and model details. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_ade5c7e9337a458ae20bac75abdc52d64}{}int \hyperlink{group__kl__neighborhood__mfe_ade5c7e9337a458ae20bac75abdc52d64}{do\+\_\+backtrack}\label{group__kl__neighborhood__mfe_ade5c7e9337a458ae20bac75abdc52d64}
+
+\begin{DoxyCompactList}\small\item\em Flag whether to do backtracing of the structure(s) or not. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_aedf60b8b26dae05ad266d3e098d18208}{}char $\ast$ \hyperlink{group__kl__neighborhood__mfe_aedf60b8b26dae05ad266d3e098d18208}{ptype}\label{group__kl__neighborhood__mfe_aedf60b8b26dae05ad266d3e098d18208}
+
+\begin{DoxyCompactList}\small\item\em Precomputed array of pair types. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a3596f3d4d320318c4b8428e2abc7ab56}{}char $\ast$ \hyperlink{group__kl__neighborhood__mfe_a3596f3d4d320318c4b8428e2abc7ab56}{sequence}\label{group__kl__neighborhood__mfe_a3596f3d4d320318c4b8428e2abc7ab56}
+
+\begin{DoxyCompactList}\small\item\em The input sequence. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_ab9ee459ffbfb5d2c138a033516056cdc}{}short $\ast$ \hyperlink{group__kl__neighborhood__mfe_ab9ee459ffbfb5d2c138a033516056cdc}{S1}\label{group__kl__neighborhood__mfe_ab9ee459ffbfb5d2c138a033516056cdc}
+
+\begin{DoxyCompactList}\small\item\em The input sequences in numeric form. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a621ed2ab02116f3f8f5e7120dec429eb}{}unsigned int \hyperlink{group__kl__neighborhood__mfe_a621ed2ab02116f3f8f5e7120dec429eb}{max\+D1}\label{group__kl__neighborhood__mfe_a621ed2ab02116f3f8f5e7120dec429eb}
+
+\begin{DoxyCompactList}\small\item\em Maximum allowed base pair distance to first reference. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a03f198a4abdb3b784486d2ba5c533aa4}{}unsigned int \hyperlink{group__kl__neighborhood__mfe_a03f198a4abdb3b784486d2ba5c533aa4}{max\+D2}\label{group__kl__neighborhood__mfe_a03f198a4abdb3b784486d2ba5c533aa4}
+
+\begin{DoxyCompactList}\small\item\em Maximum allowed base pair distance to second reference. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_aa11f5bcd8c4fe70a91c155c877c855d5}{}unsigned int $\ast$ \hyperlink{group__kl__neighborhood__mfe_aa11f5bcd8c4fe70a91c155c877c855d5}{mm1}\label{group__kl__neighborhood__mfe_aa11f5bcd8c4fe70a91c155c877c855d5}
+
+\begin{DoxyCompactList}\small\item\em Maximum matching matrix, reference struct 1 disallowed. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a2eaa93316b6beb17531f0c078806036c}{}unsigned int $\ast$ \hyperlink{group__kl__neighborhood__mfe_a2eaa93316b6beb17531f0c078806036c}{mm2}\label{group__kl__neighborhood__mfe_a2eaa93316b6beb17531f0c078806036c}
+
+\begin{DoxyCompactList}\small\item\em Maximum matching matrix, reference struct 2 disallowed. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a1a20cb06b58b75d1a3dbdbc8bc60d0a7}{}int $\ast$ \hyperlink{group__kl__neighborhood__mfe_a1a20cb06b58b75d1a3dbdbc8bc60d0a7}{my\+\_\+iindx}\label{group__kl__neighborhood__mfe_a1a20cb06b58b75d1a3dbdbc8bc60d0a7}
+
+\begin{DoxyCompactList}\small\item\em Index for moving in quadratic distancy dimensions. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_a536525b98c1b633d4c5f2da4f8d78c18}{}unsigned int $\ast$ \hyperlink{group__kl__neighborhood__mfe_a536525b98c1b633d4c5f2da4f8d78c18}{reference\+B\+Ps1}\label{group__kl__neighborhood__mfe_a536525b98c1b633d4c5f2da4f8d78c18}
+
+\begin{DoxyCompactList}\small\item\em Matrix containing number of basepairs of reference structure1 in interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_aa7abf73c3114cb5f0dc90e702fa9dd0f}{}unsigned int $\ast$ \hyperlink{group__kl__neighborhood__mfe_aa7abf73c3114cb5f0dc90e702fa9dd0f}{reference\+B\+Ps2}\label{group__kl__neighborhood__mfe_aa7abf73c3114cb5f0dc90e702fa9dd0f}
+
+\begin{DoxyCompactList}\small\item\em Matrix containing number of basepairs of reference structure2 in interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\item 
+\hypertarget{group__kl__neighborhood__mfe_af1106e1a592e2dccc92b3452340549e0}{}unsigned int $\ast$ \hyperlink{group__kl__neighborhood__mfe_af1106e1a592e2dccc92b3452340549e0}{bpdist}\label{group__kl__neighborhood__mfe_af1106e1a592e2dccc92b3452340549e0}
+
+\begin{DoxyCompactList}\small\item\em Matrix containing base pair distance of reference structure 1 and 2 on interval \mbox{[}i,j\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{group__kl__neighborhood__mfe_ga6a81a58268d250309712549a3fa0aab2}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t@{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}}
+\index{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t@{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}  {\bf vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}}\label{group__kl__neighborhood__mfe_ga6a81a58268d250309712549a3fa0aab2}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Solution element returned from \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} 
+
+This element contains free energy and structure for the appropriate kappa (k), lambda (l) neighborhood The datastructure contains two integer attributes \textquotesingle{}k\textquotesingle{} and \textquotesingle{}l\textquotesingle{} as well as an attribute \textquotesingle{}en\textquotesingle{} of type float representing the free energy in kcal/mol and an attribute \textquotesingle{}s\textquotesingle{} of type char$\ast$ containg the secondary structure representative,
+
+A value of \hyperlink{energy__const_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+N\+F} in k denotes the end of a list
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} 
+\end{DoxySeeAlso}
+\hypertarget{group__kl__neighborhood__mfe_gaf4f514010a14f9d59d850742b3e96954}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!Two\+Dfold\+\_\+vars@{Two\+Dfold\+\_\+vars}}
+\index{Two\+Dfold\+\_\+vars@{Two\+Dfold\+\_\+vars}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{Two\+Dfold\+\_\+vars}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Two\+Dfold\+\_\+vars}  {\bf Two\+Dfold\+\_\+vars}}\label{group__kl__neighborhood__mfe_gaf4f514010a14f9d59d850742b3e96954}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Variables compound for 2\+Dfold M\+F\+E folding. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]This data structure will be removed from the library soon! Use \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead! \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!vrna\+\_\+mfe\+\_\+\+Two\+D@{vrna\+\_\+mfe\+\_\+\+Two\+D}}
+\index{vrna\+\_\+mfe\+\_\+\+Two\+D@{vrna\+\_\+mfe\+\_\+\+Two\+D}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{vrna\+\_\+mfe\+\_\+\+Two\+D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}$\ast$ vrna\+\_\+mfe\+\_\+\+Two\+D (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
+\item[{int}]{distance1, }
+\item[{int}]{distance2}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Compute M\+F\+E\textquotesingle{}s and representative for distance partitioning. 
+
+This function computes the minimum free energies and a representative secondary structure for each distance class according to the two references specified in the datastructure \textquotesingle{}vars\textquotesingle{}. The maximum basepair distance to each of both references may be set by the arguments \textquotesingle{}distance1\textquotesingle{} and \textquotesingle{}distance2\textquotesingle{}, respectively. If both distance arguments are set to \textquotesingle{}-\/1\textquotesingle{}, no restriction is assumed and the calculation is performed for each distance class possible.
+
+The returned list contains an entry for each distance class. If a maximum basepair distance to either of the references was passed, an entry with k=l=-\/1 will be appended in the list, denoting the class where all structures exceeding the maximum will be thrown into. The end of the list is denoted by an attribute value of \hyperlink{energy__const_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+N\+F} in the k-\/attribute of the list entry.
+
+\begin{DoxySeeAlso}{See also}
+vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()}, \hyperlink{group__kl__neighborhood__pf_ga0bc3427689bd09da09b8b3094a27f836}{vrna\+\_\+pf\+\_\+\+Two\+D()} \hyperlink{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}{vrna\+\_\+backtrack5\+\_\+\+Two\+D()}, \hyperlink{group__kl__neighborhood__mfe_structvrna__sol__TwoD__t}{vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The datastructure containing all precomputed folding attributes \\
+\hline
+{\em distance1} & maximum distance to reference1 (-\/1 means no restriction) \\
+\hline
+{\em distance2} & maximum distance to reference2 (-\/1 means no restriction) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of minimum free energies (and corresponding structures) for each distance class 
+\end{DoxyReturn}
+\hypertarget{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!vrna\+\_\+backtrack5\+\_\+\+Two\+D@{vrna\+\_\+backtrack5\+\_\+\+Two\+D}}
+\index{vrna\+\_\+backtrack5\+\_\+\+Two\+D@{vrna\+\_\+backtrack5\+\_\+\+Two\+D}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{vrna\+\_\+backtrack5\+\_\+\+Two\+D}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ vrna\+\_\+backtrack5\+\_\+\+Two\+D (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
+\item[{int}]{k, }
+\item[{int}]{l, }
+\item[{unsigned int}]{j}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. 
+
+This function allows to backtrack a secondary structure beginning at the 5\textquotesingle{} end, a specified length and residing in a specific distance class. If the argument \textquotesingle{}k\textquotesingle{} gets a value of -\/1, the structure that is backtracked is assumed to reside in the distance class where all structures exceeding the maximum basepair distance specified in \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} belong to. \begin{DoxyNote}{Note}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated energy values in the energy matrices, i.\+e. a call to \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()} preceding this function is mandatory!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The datastructure containing all precomputed folding attributes \\
+\hline
+{\em j} & The length in nucleotides beginning from the 5\textquotesingle{} end \\
+\hline
+{\em k} & distance to reference1 (may be -\/1) \\
+\hline
+{\em l} & distance to reference2 \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__kl__neighborhood__mfe_gac9284f132cf0eaa0a2f43590eda05488}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!get\+\_\+\+Two\+Dfold\+\_\+variables@{get\+\_\+\+Two\+Dfold\+\_\+variables}}
+\index{get\+\_\+\+Two\+Dfold\+\_\+variables@{get\+\_\+\+Two\+Dfold\+\_\+variables}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{get\+\_\+\+Two\+Dfold\+\_\+variables}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+Dfold\+\_\+vars}$\ast$ get\+\_\+\+Two\+Dfold\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{seq, }
+\item[{const char $\ast$}]{structure1, }
+\item[{const char $\ast$}]{structure2, }
+\item[{int}]{circ}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_gac9284f132cf0eaa0a2f43590eda05488}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Get a structure of type \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} prefilled with current global settings. 
+
+This function returns a datastructure of type \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars}. The data fields inside the \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} are prefilled by global settings and all memory allocations necessary to start a computation are already done for the convenience of the user
+
+\begin{DoxyNote}{Note}
+Make sure that the reference structures are compatible with the sequence according to Watson-\/\+Crick-\/ and Wobble-\/base pairing
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000002}{Deprecated}]Use the new A\+P\+I that relies on \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The R\+N\+A sequence \\
+\hline
+{\em structure1} & The first reference structure in dot-\/bracket notation \\
+\hline
+{\em structure2} & The second reference structure in dot-\/bracket notation \\
+\hline
+{\em circ} & A switch to indicate the assumption to fold a circular instead of linear R\+N\+A (0=O\+F\+F, 1=O\+N) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A datastructure prefilled with folding options and allocated memory 
+\end{DoxyReturn}
+\hypertarget{group__kl__neighborhood__mfe_ga05bf4f31d216b1b160fd2d3d68e9b487}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!destroy\+\_\+\+Two\+Dfold\+\_\+variables@{destroy\+\_\+\+Two\+Dfold\+\_\+variables}}
+\index{destroy\+\_\+\+Two\+Dfold\+\_\+variables@{destroy\+\_\+\+Two\+Dfold\+\_\+variables}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{destroy\+\_\+\+Two\+Dfold\+\_\+variables}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\+\_\+\+Two\+Dfold\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{{\bf Two\+Dfold\+\_\+vars} $\ast$}]{our\+\_\+variables}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_ga05bf4f31d216b1b160fd2d3d68e9b487}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Destroy a \hyperlink{group__kl__neighborhood__mfe_structTwoDfold__vars}{Two\+Dfold\+\_\+vars} datastructure without memory loss. 
+
+This function free\textquotesingle{}s all allocated memory that depends on the datastructure given.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000003}{Deprecated}]Use the new A\+P\+I that relies on \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em our\+\_\+variables} & A pointer to the datastructure to be destroyed \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__kl__neighborhood__mfe_ga7fc5e3e92fe97914ca4eccd33c01c2a7}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!Two\+Dfold\+List@{Two\+Dfold\+List}}
+\index{Two\+Dfold\+List@{Two\+Dfold\+List}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{Two\+Dfold\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+sol\+\_\+\+Two\+D\+\_\+t}$\ast$ Two\+Dfold\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf Two\+Dfold\+\_\+vars} $\ast$}]{vars, }
+\item[{int}]{distance1, }
+\item[{int}]{distance2}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_ga7fc5e3e92fe97914ca4eccd33c01c2a7}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Compute M\+F\+E\textquotesingle{}s and representative for distance partitioning. 
+
+This function computes the minimum free energies and a representative secondary structure for each distance class according to the two references specified in the datastructure \textquotesingle{}vars\textquotesingle{}. The maximum basepair distance to each of both references may be set by the arguments \textquotesingle{}distance1\textquotesingle{} and \textquotesingle{}distance2\textquotesingle{}, respectively. If both distance arguments are set to \textquotesingle{}-\/1\textquotesingle{}, no restriction is assumed and the calculation is performed for each distance class possible.
+
+The returned list contains an entry for each distance class. If a maximum basepair distance to either of the references was passed, an entry with k=l=-\/1 will be appended in the list, denoting the class where all structures exceeding the maximum will be thrown into. The end of the list is denoted by an attribute value of \hyperlink{energy__const_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+N\+F} in the k-\/attribute of the list entry.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000004}{Deprecated}]Use the new A\+P\+I that relies on \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & the datastructure containing all predefined folding attributes \\
+\hline
+{\em distance1} & maximum distance to reference1 (-\/1 means no restriction) \\
+\hline
+{\em distance2} & maximum distance to reference2 (-\/1 means no restriction) \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__kl__neighborhood__mfe_gaf4dc05bf8fc1ea53acd7aeb798ba80c2}{}\index{Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}!Two\+Dfold\+\_\+backtrack\+\_\+f5@{Two\+Dfold\+\_\+backtrack\+\_\+f5}}
+\index{Two\+Dfold\+\_\+backtrack\+\_\+f5@{Two\+Dfold\+\_\+backtrack\+\_\+f5}!Calculating M\+F\+E representatives of a Distance Based Partitioning@{Calculating M\+F\+E representatives of a Distance Based Partitioning}}
+\subsubsection[{Two\+Dfold\+\_\+backtrack\+\_\+f5}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Two\+Dfold\+\_\+backtrack\+\_\+f5 (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{j, }
+\item[{int}]{k, }
+\item[{int}]{l, }
+\item[{{\bf Two\+Dfold\+\_\+vars} $\ast$}]{vars}
+\end{DoxyParamCaption}
+)}\label{group__kl__neighborhood__mfe_gaf4dc05bf8fc1ea53acd7aeb798ba80c2}
+
+
+{\ttfamily \#include $<$\hyperlink{2Dfold_8h}{Vienna\+R\+N\+A/2\+Dfold.\+h}$>$}
+
+
+
+Backtrack a minimum free energy structure from a 5\textquotesingle{} section of specified length. 
+
+This function allows to backtrack a secondary structure beginning at the 5\textquotesingle{} end, a specified length and residing in a specific distance class. If the argument \textquotesingle{}k\textquotesingle{} gets a value of -\/1, the structure that is backtracked is assumed to reside in the distance class where all structures exceeding the maximum basepair distance specified in Two\+Dfold() belong to. \begin{DoxyNote}{Note}
+The argument \textquotesingle{}vars\textquotesingle{} must contain precalculated energy values in the energy matrices, i.\+e. a call to Two\+Dfold() preceding this function is mandatory!
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000005}{Deprecated}]Use the new A\+P\+I that relies on \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} and the corresponding functions vrna\+\_\+fold\+\_\+compound\+\_\+\+Two\+D(), \hyperlink{group__kl__neighborhood__mfe_ga243c288b463147352829df04de6a2f77}{vrna\+\_\+mfe\+\_\+\+Two\+D()}, \hyperlink{group__kl__neighborhood__mfe_ga15a96fc96f4f4c2e01a11b3e17d1ef43}{vrna\+\_\+backtrack5\+\_\+\+Two\+D()}, and \hyperlink{group__fold__compound_gadded6039d63f5d6509836e20321534ad}{vrna\+\_\+fold\+\_\+compound\+\_\+free()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & The length in nucleotides beginning from the 5\textquotesingle{} end \\
+\hline
+{\em k} & distance to reference1 (may be -\/1) \\
+\hline
+{\em l} & distance to reference2 \\
+\hline
+{\em vars} & the datastructure containing all predefined folding attributes \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,10 @@
+<map id="TwoDpfold_vars" name="TwoDpfold_vars">
+<area shape="rect" id="node2" href="$group__energy__parameters.html#structvrna__exp__param__s" title="The datastructure that contains temperature scaled Boltzmann weights of the energy parameters..." alt="" coords="5,95,137,121"/>
+<area shape="rect" id="node4" href="$group__fold__compound.html#structvrna__fc__s" title="The most basic data structure required by many functions throughout the RNAlib. " alt="" coords="292,199,371,225"/>
+<area shape="rect" id="node3" href="$group__model__details.html#structvrna__md__s" title="The data structure that contains the complete model details used throughout the calculations. " alt="" coords="103,5,189,32"/>
+<area shape="rect" id="node6" href="$group__energy__parameters.html#structvrna__param__s" title="The datastructure that contains temperature scaled energy parameters. " alt="" coords="162,95,266,121"/>
+<area shape="rect" id="node5" href="$group__soft__constraints.html#structvrna__sc__s" title="The soft constraints data structure. " alt="" coords="663,95,746,121"/>
+<area shape="rect" id="node7" href="$group__hard__constraints.html#structvrna__hc__s" title="The hard constraints data structure. " alt="" coords="290,95,373,121"/>
+<area shape="rect" id="node8" href="$group__dp__matrices.html#structvrna__mx__mfe__s" title="Minimum Free Energy (MFE) Dynamic Programming (DP) matrices data structure required within the vrna_f..." alt="" coords="397,95,511,121"/>
+<area shape="rect" id="node9" href="$group__dp__matrices.html#structvrna__mx__pf__s" title="Partition function (PF) Dynamic Programming (DP) matrices data structure required within the vrna_fol..." alt="" coords="535,95,639,121"/>
+</map>

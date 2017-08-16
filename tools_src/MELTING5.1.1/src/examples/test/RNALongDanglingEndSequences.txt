@@ -1,0 +1,19 @@
+# Sugimoto et al. (2002). J. Am. Chem. Soc. 124: 10367-10372
+# 0.0001M oligomer concentration, 1 M NaCl, 10 mM Na2HPO4, and 1 mM Na2EDTA (pH 7.0).
+
+-GCAUAUGCA=67.4                                     
+--GCAUAUGCAA=67.5                                    
+---GCAUAUGCAAA=68.3                                   
+----GCAUAUGCAAAA=68.3                                                                                                                   
+AGCAUAUGC-=56.3
+AAGCAUAUGC--=55.7
+AAAGCAUAUGC---=56.4
+AAAAGCAUAUGC----=55.6
+-AUGCAUA=38.9                                       
+--AUGCAUAA=42.7                                      
+---AUGCAUAAA=45.2                                     
+----AUGCAUAAAA=43.8                                    
+AAUGCAU-=34.7                                       
+AAAUGCAU--=37.3                                      
+AAAAUGCAU---=38.7
+AAAAAUGCAU----=43.4                                    

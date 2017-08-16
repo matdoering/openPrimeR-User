@@ -1,0 +1,47 @@
+\hypertarget{centroid_8h_source}{}\section{centroid.\+h}
+\label{centroid_8h_source}\index{Vienna\+R\+N\+A/centroid.\+h@{Vienna\+R\+N\+A/centroid.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CENTROID\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CENTROID\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{data__structures_8h}{ViennaRNA/data\_structures.h}>}
+00005 
+00006 \textcolor{preprocessor}{#ifdef DEPRECATION\_WARNINGS}
+00007 \textcolor{preprocessor}{# ifdef \_\_GNUC\_\_}
+00008 \textcolor{preprocessor}{#  define DEPRECATED(func) func \_\_attribute\_\_ ((deprecated))}
+00009 \textcolor{preprocessor}{# else}
+00010 \textcolor{preprocessor}{#  define DEPRECATED(func) func}
+00011 \textcolor{preprocessor}{# endif}
+00012 \textcolor{preprocessor}{#else}
+00013 \textcolor{preprocessor}{# define DEPRECATED(func) func}
+00014 \textcolor{preprocessor}{#endif}
+00015 
+00016 \textcolor{comment}{/* make this interface backward compatible with RNAlib < 2.2.0 */}
+00017 \textcolor{preprocessor}{#define VRNA\_BACKWARD\_COMPAT}
+00018 
+00037 \textcolor{keywordtype}{char} *\hyperlink{group__centroid__fold_ga0e64bb67e51963dc71cbd4d30b80a018}{vrna\_centroid}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00038                     \textcolor{keywordtype}{double} *dist);
+00039 
+00056 \textcolor{keywordtype}{char}  *\hyperlink{group__centroid__fold_ga70525a53b879c1427f9ea546c96fa1c5}{vrna\_centroid\_from\_plist}(\textcolor{keywordtype}{int} length,
+00057                                 \textcolor{keywordtype}{double} *dist,
+00058                                 \hyperlink{group__data__structures_structvrna__plist__s}{vrna\_plist\_t} *pl);
+00059 
+00076 \textcolor{keywordtype}{char}  *\hyperlink{group__centroid__fold_ga98193ede06778a9ea966cc8fc43d0804}{vrna\_centroid\_from\_probs}(\textcolor{keywordtype}{int} length,
+00077                                 \textcolor{keywordtype}{double} *dist,
+00078                                 \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *probs);
+00079 
+00080 \textcolor{preprocessor}{#ifdef VRNA\_BACKWARD\_COMPAT}
+00081 
+00087 DEPRECATED(\textcolor{keywordtype}{char}  *\hyperlink{centroid_8h_a8f387bf1583fb5eaf5f4ffd78493e43e}{get\_centroid\_struct\_pl}(\textcolor{keywordtype}{int} length,
+00088                               \textcolor{keywordtype}{double} *dist,
+00089                               \hyperlink{group__data__structures_structvrna__plist__s}{vrna\_plist\_t} *pl));
+00090 
+00096 DEPRECATED(\textcolor{keywordtype}{char}  *\hyperlink{centroid_8h_ac92486ce514677256f4a832dc518759c}{get\_centroid\_struct\_pr}(\textcolor{keywordtype}{int} length,
+00097                               \textcolor{keywordtype}{double} *dist,
+00098                               \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}));
+00099 
+00100 \textcolor{preprocessor}{#endif}
+00101 
+00102 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How to add new thermodynamic model</TITLE>
+<META NAME="description" CONTENT="How to add new thermodynamic model">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html111"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html107"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html101"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html109"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html112"
+  HREF="node6.html">Thermodynamic model for Crick's</A>
+<B> Up:</B> <A NAME="tex2html108"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html102"
+  HREF="node4.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html110"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+How to add new thermodynamic model</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Creates a new class which implements the PatternComputationMethod interface or which extends the 
+PatternComputation class in the melting.patternModels package. 
+<BR>
+<BR>
+If the structure computed by the new class is already registered by the program, you can create your class 
+in the appropriate package (cngPatterns, cricksPair, InternalLoops, longBulge, longDanglingEnds, 
+secondDanglingEnds, singleBulge, singleDanglingEnds, singleMismatch, specificAcids, tandemMismatches or wobble).
+<BR>
+<BR>
+The PatternComputation class contains all the base implementations of each PatternComputationMethod method
+except for this function : <SPAN  CLASS="textit">boolean isApplicable(Environment environment, int pos1, int pos2)</SPAN>.
+<BR>
+<BR>
+You have to implement this method to compute the enthalpy and entropy of a motif in the duplex.
+You also have to override the function <SPAN  CLASS="textit">boolean isApplicable(Environment environment, int pos1,int pos2)</SPAN>
+to define the conditions of application of the new thermodynamic model. 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Always register the new model in the RegisterMethod class in the melting.configuration package.
+Depending on which structure in the duplex your new model computes, you will have to add one of these
+following lines :
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="textit">New model for Crick's pairs computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseCricksMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        cricksMethod.put("model-Name", 
+                         ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single mismatch computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which implements it.
+        singleMismatchMethod.put("model-Name", ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for tandem mismatches computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseTandemMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        tandemMismatchMethod.put("model-Name", 
+                               ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for GU base pairs computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseWobbleMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        wobbleMethod.put("model-Name", 
+                        ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for internal loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseInternalLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        internalLoopMethod.put("model-Name", 
+                               ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single bulge loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleBulgeLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        singleBulgeLoopMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for long bulge loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLongBulgeLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        longBulgeLoopMethod.put("model-Name", 
+                                ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        singleDanglingEndMethod.put("model-Name", 
+                                    ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for double dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseDoubleDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        doubleDanglingEndMethod.put("model-Name", 
+                                    ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for long dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLongDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        longDanglingEndMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for CNG repeats computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseCNGRepeatsMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        CNGRepeatsMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for inosine computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseInosineMethods(){
+		[...]
+		
+		// To map the model name to the class 
+		// which implements it.
+        inosineMethod.put("model-Name", 
+                          ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for azobenzene computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseAzobenzeneMethods(){
+		[...]
+		
+		// To map the model name to the class 
+		// which implements it.
+        azobenzeneMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for locked nucleic acid computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLockedAcidMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        lockedAcidMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for hydroxyadenosine computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseHydroxyadenosineMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        hydroxyadenosineMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+</LI>
+</UL>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a <SPAN  CLASS="textit">public static String defaultFileName</SPAN> as instance variable of the class. It represents
+the name of the XML file containing the thermodynamic parameters for this model. You must print it if the
+user requires the verbose mode. You can create another <SPAN  CLASS="textit">public static String</SPAN> which contains the 
+thermodynamic formula of the model and print it during the verbose mode.
+<BR>
+<BR>
+For each message you want to print during the verbose mode, you must write this line :
+<SPAN  CLASS="textit">OptionManagement.meltingLogger.log(Level.FINE, "message to print");</SPAN> 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> You always must override or implement this function : <SPAN  CLASS="textit">void initialiseFileName(String methodName)</SPAN>.
+It is necessary to write that the new class can use the thermodynamic parameters of its default File or
+use the thermodynamic parameters of another file required by the user.
+
+<P>
+<PRE>
+@Override
+	public void initialiseFileName(String methodName){
+		super.initialiseFileName(methodName);
+		
+		if (this.fileName == null){
+			this.fileName = defaultFileName; // The public static String
+			                                 // of this class.
+		}
+	}
+</PRE>
+
+<P>
+Some base implementations have been written for some non specific thermodynamic models, maybe your new
+class can extend one of the following base implementations. (but you always have to do the steps 1 to 4)
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A NAME="tex2html113"
+  HREF="node6.html">Thermodynamic model for Crick's pairs computation</A>
+<LI><A NAME="tex2html114"
+  HREF="node7.html">Thermodynamic model for single bulge loop computation</A>
+<LI><A NAME="tex2html115"
+  HREF="node8.html">Thermodynamic model for inosine computation</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html111"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html107"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html101"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html109"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html112"
+  HREF="node6.html">Thermodynamic model for Crick's</A>
+<B> Up:</B> <A NAME="tex2html108"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html102"
+  HREF="node4.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html110"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

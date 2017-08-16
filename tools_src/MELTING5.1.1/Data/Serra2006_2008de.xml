@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA single dangling ends of ;
+	REF: Martin J Serra et al. (2006). Nucleic Acids research 34: 3338-3344
+	REF: Martin J Serra et al. (2008). Nucleic Acids research 36: 5652-5659 
+    	/******************************************************************************/-->
+			
+		<data type="single_dangling_end">
+			<dangling sequence="UA/A" sens="3">
+				<enthalpy>-5200.0</enthalpy>
+				<entropy>-14.3</entropy>
+			</dangling>
+			<dangling sequence="UC/A" sens="3">
+				<enthalpy>-3000.0</enthalpy>
+				<entropy>-8.7</entropy>
+			</dangling>
+			<dangling sequence="UG/A" sens="3">
+				<enthalpy>-6600.0</enthalpy>
+				<entropy>-18.8</entropy>
+			</dangling>
+			<dangling sequence="UU/A" sens="3">
+				<enthalpy>-3100.0</enthalpy>
+				<entropy>-8.9</entropy>
+			</dangling>
+			<dangling sequence="UA/G" sens="3">
+				<enthalpy>-2900.0</enthalpy>
+				<entropy>-6.5</entropy>
+			</dangling>
+			<dangling sequence="UC/G" sens="3">
+				<enthalpy>-2800.0</enthalpy>
+				<entropy>-6.7</entropy>
+			</dangling>
+			<dangling sequence="UG/G" sens="3">
+				<enthalpy>-6400.0</enthalpy>
+				<entropy>-17.5</entropy>
+			</dangling>
+			<dangling sequence="UU/G" sens="3">
+				<enthalpy>-1500.0</enthalpy>
+				<entropy>-3.1</entropy>
+			</dangling>			
+			<dangling sequence="GA/U" sens="3">
+				<enthalpy>-2600.0</enthalpy>
+				<entropy>-6.8</entropy>
+			</dangling>
+			<dangling sequence="GC/U" sens="3">
+				<enthalpy>-4000.0</enthalpy>
+				<entropy>-10.2</entropy>
+			</dangling>
+			<dangling sequence="GG/U" sens="3">
+				<enthalpy>-1700.0</enthalpy>
+				<entropy>-4.4</entropy>
+			</dangling>
+			<dangling sequence="GU/U" sens="3">
+				<enthalpy>-2200.0</enthalpy>
+				<entropy>-5.4</entropy>
+			</dangling>			
+			<dangling sequence="AU/G" sens="5">
+				<enthalpy>2800.0</enthalpy>
+				<entropy>9.7</entropy>
+			</dangling>
+			<dangling sequence="CU/G" sens="5">
+				<enthalpy>400.0</enthalpy>
+				<entropy>2.3</entropy>
+			</dangling>
+			<dangling sequence="GU/G" sens="5">
+				<enthalpy>1400.0</enthalpy>
+				<entropy>5.3</entropy>
+			</dangling>
+			<dangling sequence="UU/G" sens="5">
+				<enthalpy>4300.0</enthalpy>
+				<entropy>14.0</entropy>
+			</dangling>			
+			<dangling sequence="AG/U" sens="5">
+				<enthalpy>1600.0</enthalpy>
+				<entropy>5.3</entropy>
+			</dangling>
+			<dangling sequence="CG/U" sens="5">
+				<enthalpy>500.0</enthalpy>
+				<entropy>1.6</entropy>
+			</dangling>
+			<dangling sequence="GG/U" sens="5">
+				<enthalpy>-600.0</enthalpy>
+				<entropy>-1.7</entropy>
+			</dangling>
+			<dangling sequence="UG/U" sens="5">
+				<enthalpy>2200.0</enthalpy>
+				<entropy>6.8</entropy>
+			</dangling>
+		</data>

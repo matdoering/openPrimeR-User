@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of Tanaka Fumiaki et al       */
+/* (2004). Biochemistry 43 : 7143-7150                                            */                                                    
+/******************************************************************************/-->
+        
+       <data type="crick">
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-8300.0</enthalpy>
+            <entropy>-23.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AC/TG">
+	       	<enthalpy>-9500.0</enthalpy>
+            <entropy>-26.0</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AG/TC">
+	       	<enthalpy>-8200.0</enthalpy>
+            <entropy>-22.3</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AT/TA">
+	       	<enthalpy>-8500.0</enthalpy>
+            <entropy>-24.6</entropy>
+    	</neighbor>                 
+        <neighbor sequence="CA/GT">
+	       	<enthalpy>-8900.0</enthalpy>
+            <entropy>-24.3</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="CC/GG">
+	       	<enthalpy>-8800.0</enthalpy>
+            <entropy>-21.7</entropy>
+    	</neighbor> 
+	   	<neighbor sequence="CG/GC">
+	        <enthalpy>-11400.0</enthalpy>
+            <entropy>-29.7</entropy>
+	   	</neighbor> 
+        <neighbor sequence="GA/CT">
+	        <enthalpy>-8700.0</enthalpy>
+            <entropy>-23.6</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="GC/CG">
+	       	<enthalpy>-10100.0</enthalpy>
+            <entropy>-25.4</entropy>
+	   	</neighbor>
+        <neighbor sequence="TA/AT">
+	        <enthalpy>-6500.0</enthalpy>
+            <entropy>-19.0</entropy>
+	   	</neighbor> 
+	    	
+        <initiation type="per_A/T">
+            <enthalpy>4400.0</enthalpy>
+            <entropy>10.7</entropy>
+        </initiation>
+        
+        <initiation type="per_G/C">
+            <enthalpy>1700.0</enthalpy>
+            <entropy>2.4</entropy>
+        </initiation>
+
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>
+      </data>

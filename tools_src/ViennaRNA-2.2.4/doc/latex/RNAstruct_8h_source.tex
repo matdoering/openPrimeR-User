@@ -1,0 +1,44 @@
+\hypertarget{RNAstruct_8h_source}{}\section{R\+N\+Astruct.\+h}
+\label{RNAstruct_8h_source}\index{Vienna\+R\+N\+A/\+R\+N\+Astruct.\+h@{Vienna\+R\+N\+A/\+R\+N\+Astruct.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_RNASTRUCT\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_RNASTRUCT\_H}
+00003 
+00028 \textcolor{preprocessor}{#define STRUC     2000}
+00029 
+00037 \textcolor{keywordtype}{char} *\hyperlink{group__struct__utils_ga07b7e90e712559a1992fba3ac6d21bbd}{b2HIT}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);             \textcolor{comment}{/* Full   -> HIT    [incl. root] */}
+00038 
+00046 \textcolor{keywordtype}{char} *\hyperlink{group__struct__utils_ga9c80d92391f2833549a8b6dac92233f0}{b2C}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);               \textcolor{comment}{/* Full   -> Coarse [incl. root] */}
+00047 
+00056 \textcolor{keywordtype}{char} *\hyperlink{group__struct__utils_ga5cd2feb367feeacad0c03cb7ddba5f10}{b2Shapiro}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);         \textcolor{comment}{/* Full -> weighted Shapiro [i.r.] */}
+00057 
+00064 \textcolor{keywordtype}{char} *\hyperlink{group__struct__utils_ga880d33066dd95441e5fbb73c57ed1c3e}{add\_root}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);                   \textcolor{comment}{/* \{Tree\} -> (\{Tree\}R)          */}
+00065 
+00073 \textcolor{keywordtype}{char}  *\hyperlink{group__struct__utils_gabe3d815b420dc4553bfb23511198b4c6}{expand\_Shapiro}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *coarse);
+00074 
+00075 \textcolor{comment}{/* add S for stacks to coarse struct */}
+00083 \textcolor{keywordtype}{char}  *\hyperlink{group__struct__utils_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);      \textcolor{comment}{/* Full   -> FFull         */}
+00084 
+00092 \textcolor{keywordtype}{char}  *\hyperlink{group__struct__utils_ga260c4b622093b76a883bf96628280de1}{unexpand\_Full}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *ffull);        \textcolor{comment}{/* FFull  -> Full          */}
+00093 
+00100 \textcolor{keywordtype}{char}  *\hyperlink{group__struct__utils_ga09a80253ac7b6bae606871ba7c6e5136}{unweight}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *wcoarse);           \textcolor{comment}{/* remove weights from coarse struct */}
+00101 
+00111 \textcolor{keywordtype}{void}   \hyperlink{group__struct__utils_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\_aligned\_F}(\textcolor{keywordtype}{char} *align[2]);
+00112 
+00123 \textcolor{keywordtype}{void}   \hyperlink{group__struct__utils_ga3c79042e6bf6f01706bf30ec9e69e8ac}{parse\_structure}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure);  \textcolor{comment}{/* make structure statistics */}
+00124 
+00129 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_ga3f31e0e48125601bfa57b52f8b038e8e}{loop\_size}[STRUC];       \textcolor{comment}{/* loop sizes of a structure */}
+00130 
+00134 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_ga8218c0d581a3fba2a1a56a196abe19a5}{helix\_size}[STRUC];      \textcolor{comment}{/* helix sizes of a structure */}
+00135 
+00139 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_gaef14e2f8ab3f61e8e659ba6b9003b08a}{loop\_degree}[STRUC];     \textcolor{comment}{/* loop degrees of a structure */}
+00140 
+00144 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_ga439fcb9f8d4f9f4d2227fde5fbfecb30}{loops};                  \textcolor{comment}{/* n of loops and stacks */}
+00145 
+00149 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_gadd2f952597e02d66e1116a9d11d252d6}{unpaired};
+00150 
+00154 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__struct__utils_ga6341cbb704924824e0236c1dce791032}{pairs};        \textcolor{comment}{/* n of unpaired digits and pairs */}
+00155 
+00160 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,166 @@
+\documentclass{article}
+
+\begin{document}
+\title{\textsc{melting} - GUI development guide}
+\author{John Gowers}
+\date{October 2013}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+I have started writing a GUI, in Swing, for \textsc{melting}.  At the moment,
+it is only able to use the mandatory options (\texttt{-S}, \texttt{-C},
+\texttt{-E}, \texttt{-H} and \texttt{-P}), but it will eventually be able to
+give users the ability to specify all the options that they can specify via the
+CLI.  
+
+In addition, there are several fixes that ought to be made to the GUI.  I shall
+give an overview of my implementation of the software (for clarification,
+please see the Javadoc or the source code itself) and explain some of the
+structures I have implemented in order to make it easy to add to the GUI.  
+
+\section{Overview}
+
+The packages I have added are the following: 
+
+\begin{itemize}
+  \item \texttt{meltinggui} This package contains all the other packages I have
+  added.  It also contains a number of classes which are not in any sub-
+  package.
+  They are: 
+  \begin{itemize}
+    \item \texttt{MeltingGui} This class contains the \texttt{main} method, and
+    provides an entry point into the GUI.  It is also responsible for 
+    delegating the tasks of melting temperature calculation, creation of the
+    GUI etc. to the other classes.  Other classes sometimes communicate with
+    this one using the \texttt{Observable} design pattern.
+    \item \texttt{MeltingCalculator} This class provides an interface to the 
+    \textsc{melting} package, and its methods are called in order to calculate
+    melting temperatures and other thermodynamic results.
+    \item \texttt{MeltingLayout} A layout manager designed for handling
+    label/text pairs.  
+    \item \texttt{MeltingObservable} A very simple subclass of the 
+    \texttt{Observable} class, used in \textsc{melting}.  
+    \item \texttt{ArgsMessage} A message containing command-line options which
+    can be sent to \textsc{melting} in order to compute thermodynamic results.
+  \end{itemize}
+  \item \texttt{meltinggui.frames} This contains all the frames used in the
+  GUI, whether they be \texttt{JFrame}s or \texttt{JInternalFrame}s.  When the
+  GUI window is closed, the positions on the screen of the frames are 
+  serialized: the class \texttt{FrameScreenPosition} represents the position on
+  the screen of one frame, while the class \texttt{GuiScreenPositions} 
+  represents all the frame screen positions in the GUI.  
+  \item \texttt{dialogs} Contains dialogs for the GUI.  The word 'dialog' is 
+  used in a non-standard way to refer to a group of widgets on a frame which 
+  carry out a particular function.  As an illustration, all the dialogs in the
+  GUI implement the interface \texttt{DialogInterface}: this provides a method
+  that gets the command-line flags associated with that dialog.  For instance,
+  the \texttt{SequenceDialog} dialog is responsible for getting information 
+  about the sequences: it is implemented as two label/text box pairs, and 
+  returns the command-line flags \texttt{-S <sequence> [-C
+  <complementary-sequence>]}.  
+  \item \texttt{widgets} Contains various widgets (components) for use in the 
+  GUI dialogs.  Widgets for input normally implement the
+  \texttt{InputWidgetInterface} interface, which provides methods for getting
+  and setting the value, and for selecting everything.  In particular: 
+  \begin{itemize}
+    \item \texttt{MeltingTextField} is a straightforward subclass of 
+    \texttt{JTextField} that implements the \texttt{InputWidgetInterface}.
+    \item \texttt{MeltingComboBox} is a combo box with constructors that make
+    it very easy to make dialogs with combo boxes (see the class 
+    \texttt{meltinggui.dialogs.ComboBoxDialog} for a way to automatically make
+    dialogs with combo boxes that return command-line options: this will be 
+    very useful for the 'more options' frame).
+    \item \texttt{InputFieldArray} is a big array of label/input pairs.  
+    \texttt{InputField} is one label/input pair.
+  \end{itemize}
+\end{itemize}
+
+\section{Workings of the program}
+
+The different parts of the program communicate using the \texttt{Observer}
+pattern.  When the user presses the 'Get Thermodynamics' button on the main 
+\textsc{melting} frame, the \texttt{MeltingFrame} class notifies its observer
+(the \texttt{MeltingGui} class) with the command-line options collected from 
+the dialogs on the frame.  These are collected together into an 
+\texttt{ArgsMessage} class.  The \texttt{MeltingGui} class receives the update,
+and sends the command-line options over to a new instance of the 
+\texttt{MeltingCalculator} class, which uses them to furnish itself with the
+results, which the \texttt{MeltingGui} class then collects and prints on to the
+melting frame.  If \textsc{melting} throws an error getting the results
+(because the user entered an illegal base, for example), this error is thrown
+to the \texttt{MeltingGui} class, which brings up the error frame and prints
+the error message to it.
+
+When the 'More Options' frame is added, it should work in the same way -
+passing the command-line arguments it generates over to \texttt{MeltingGui}, 
+which will then add them to the mandatory arguments and use them to get the
+\textsc{melting} results.  The \texttt{ArgsMessage} class is already set up to
+allow the class sending the options to distinguish between mandatory 
+(\texttt{-S}, \texttt{-C}, \texttt{-H}, \texttt{-P}, \texttt{-E}) and general
+options.  
+
+\section{The {\ttfamily MeltingLayout} layout manager}
+
+The \texttt{MeltingLayout} layout manager is quite easy to use.  It thinks of a
+group of components as falling into one or more \emph{component lines}.  A
+\emph{component line} is made up of a group of components acting as a label - 
+the \emph{label group} - and a group of components that acts as a place to
+write input - the \emph{input group}.  In practice, the label group normally
+contains a single \texttt{JLabel} and no other components, while the input
+group normally contains a text field, or another input widget, and possibly a 
+label after it specifying the units.  The way the layout manager manages layout
+is best seen by trying it out for yourself, but a summary is:
+\begin{itemize}
+  \item The widgets in the \emph{label group} are laid out first, followed by
+  the widgets in the \emph{input group}.  
+  \item If there is not enough space for both groups on one line, the entire
+  imput group wraps on to the next line.
+  \item The left-hand edges of the \emph{unwrapped} input groups are aligned.
+  \item The first component in the input group becomes as wide as possible to 
+  use up as much horizontal space as it can, subject to the above constraints.
+\end{itemize}
+
+Adding components to the layout manager is simple.  When adding components,
+specify whether they belong to the label group, or to the input group, by
+passing in one of the constants \texttt{MeltingLayout.LABEL\_GROUP} or
+\texttt{MeltingLayout.INPUT\_GROUP} to the \texttt{Component.add} method.  The
+layout manager automatically groups together consecutive label group/input
+group components to make the two groups.  For example: 
+
+\begin{verbatim}
+
+JPanel panel = new JPanel();
+
+// Set the layout.
+panel.setLayout(new MeltingLayout(panel));
+
+// Add a label saying what kind of input we're looking for:
+panel.add(new JLabel("Type in the concentration of ions: "),
+          MeltingLayout.LABEL_GROUP);
+
+// Add a text field for the user to type in the value, and a label specifying
+// the units.
+panel.add(new MeltingTextField(), MeltingLayout.INPUT_GROUP);
+panel.add(new JLabel("mol/L"), MeltingLayout.INPUT_GROUP);
+
+// Start a new line with a label and a little picture.
+panel.add(new JLabel("Do you want to use the nearest-neighbour method?"),
+          MeltingLayout.LABEL_GROUP);
+panel.add(ImageIO.read(new File("~/Pictures/NN.png")), 
+          MeltingLayout.LABEL_GROUP);
+
+// Give the user a checkbox to select.
+panel.add(new JCheckBox(), MeltingLayout.INPUT_GROUP);
+
+\end{verbatim}
+
+\end{document}
+
+

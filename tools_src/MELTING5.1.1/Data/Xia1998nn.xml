@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+<!--/******************************************************************************/ 
+    contains the parameters for RNA/RNA hybridisation of Xia et al (1998)      */
+/* Biochemistry 37: 14719-14735                                                                         
+/******************************************************************************/-->
+        
+       <data type="crick">
+        <neighbor sequence="AA/UU">
+	        <enthalpy>-6820.0</enthalpy>
+            <entropy>-19.0</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AC/UG">
+	       	<enthalpy>-11400.0</enthalpy>
+            <entropy>-29.5</entropy>	    	
+		</neighbor> 
+	   	<neighbor sequence="AG/UC">
+	       	<enthalpy>-10480.0</enthalpy>
+            <entropy>-27.1</entropy>
+    	</neighbor> 
+	    <neighbor sequence="AU/UA">
+	       	<enthalpy>-9380.0</enthalpy>
+            <entropy>-26.7</entropy>
+    	</neighbor>               
+		<neighbor sequence="CA/GU">
+	        <enthalpy>-10440.0</enthalpy>
+            <entropy>-26.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="CC/GG">
+	       	<enthalpy>-13390.0</enthalpy>
+            <entropy>-32.7</entropy>
+		</neighbor> 
+	    <neighbor sequence="CG/GC">
+	        <enthalpy>-10640.0</enthalpy>
+            <entropy>-26.7</entropy>
+	   	</neighbor>
+        <neighbor sequence="GA/CU">
+	        <enthalpy>-12440.0</enthalpy>
+            <entropy>-32.5</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="GC/CG">
+	       	<enthalpy>-14880.0</enthalpy>
+            <entropy>-36.9</entropy>
+	    </neighbor> 
+        <neighbor sequence="UA/AU">
+	        <enthalpy>-7690.0</enthalpy>
+            <entropy>-20.5</entropy>
+	   	</neighbor> 
+
+        <initiation>
+            <enthalpy>3610.0</enthalpy>
+            <entropy>-1.5</entropy>
+        </initiation> 
+        
+        <terminal type="per_A/U">
+            <enthalpy>3720.0</enthalpy>
+            <entropy>10.5</entropy>
+        </terminal> 
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>
+      </data>

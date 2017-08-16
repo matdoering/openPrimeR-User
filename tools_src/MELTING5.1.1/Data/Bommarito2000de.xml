@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for DNA/DNA single dangling ends of ;
+	REF: Bommarito et al. (2000). Nuc Acids Res 28: 1929-1934 
+    	/******************************************************************************/-->
+			
+		<data type="single_dangling_end">
+			<dangling sequence="AA/T" sens="5">
+               	<enthalpy>200.0</enthalpy>
+                <entropy>2.3</entropy>
+	    	</dangling>
+	    	<dangling sequence="TA/T" sens="5">
+               	<enthalpy>-6900.0</enthalpy>
+                <entropy>-20.0</entropy>
+	    	</dangling>
+	    	<dangling sequence="GA/T" sens="5">
+               	<enthalpy>-1100.0</enthalpy>
+                <entropy>-1.6</entropy>
+	    	</dangling>
+	    	<dangling sequence="CA/T" sens="5">
+               <enthalpy>600.0</enthalpy>
+               <entropy>3.3</entropy>
+			</dangling>
+			<dangling sequence="AC/G" sens="5">
+	        	<enthalpy>-6300.0</enthalpy>
+               	<entropy>-17.1</entropy>
+	    	</dangling>
+	    	<dangling sequence="TC/G" sens="5">
+	        	<enthalpy>-4000.0</enthalpy>
+                <entropy>-10.9</entropy>
+	    	</dangling>
+	    	<dangling sequence="GC/G" sens="5">
+	        	<enthalpy>-5100.0</enthalpy>
+                <entropy>-14.0</entropy>
+	    	</dangling>
+	    	<dangling sequence="CC/G" sens="5">
+	        	<enthalpy>-4400.0</enthalpy>
+                <entropy>-12.6</entropy>
+			</dangling>				
+			<dangling sequence="AG/C" sens="5">
+	        	<enthalpy>-3700.0</enthalpy>
+                <entropy>-10</entropy>
+	    	</dangling>
+	    	<dangling sequence="TG/C" sens="5">
+	        	<enthalpy>-4900.0</enthalpy>
+                <entropy>-13.8</entropy>
+	    	</dangling>
+	    	<dangling sequence="GG/C" sens="5">
+	        	<enthalpy>-3900.0</enthalpy>
+                <entropy>-10.9</entropy>
+	    	</dangling>
+	    	<dangling sequence="CG/C" sens="5">
+	        	<enthalpy>-4000.0</enthalpy>
+                <entropy>-11.9</entropy>
+			</dangling>				
+			<dangling sequence="AT/A" sens="5">
+	        	<enthalpy>-2900.0</enthalpy>
+                <entropy>-7.6</entropy>
+	    	</dangling>
+	    	<dangling sequence="TT/A" sens="5">
+	        	<enthalpy>-200.0</enthalpy>
+                <entropy>-0.5</entropy>
+	    	</dangling>
+	    	<dangling sequence="GT/A" sens="5">
+	        	<enthalpy>-4200.0</enthalpy>
+                <entropy>-15.0</entropy>
+	    	</dangling>
+	    	<dangling sequence="CT/A" sens="5">
+	        	<enthalpy>-4100.0</enthalpy>
+                <entropy>-13.0</entropy>
+			</dangling>		
+			<dangling sequence="AA/T" sens="3">
+               	<enthalpy>-500.0</enthalpy>
+                <entropy>-1.1</entropy>
+	    	</dangling>
+	    	<dangling sequence="AC/T" sens="3">
+	        	<enthalpy>4700.0</enthalpy>
+                <entropy>14.2</entropy>
+	    	</dangling>
+	    	<dangling sequence="AG/T" sens="3">
+	        	<enthalpy>-4100.0</enthalpy>
+                <entropy>-13.1</entropy>
+	    	</dangling>
+	    	<dangling sequence="AT/T" sens="3">
+	        	<enthalpy>-3800.0</enthalpy>
+                <entropy>-12.6</entropy>
+			</dangling>				
+			<dangling sequence="TA/A" sens="3">
+               	<enthalpy>-700.0</enthalpy>
+                <entropy>-0.8</entropy>
+	    	</dangling>
+	    	<dangling sequence="TC/A" sens="3">
+	        	<enthalpy>4400.0</enthalpy>
+                <entropy>14.9</entropy>
+	    	</dangling>
+	    	<dangling sequence="TG/A" sens="3">
+	        	<enthalpy>-1600.0</enthalpy>
+                <entropy>-3.6</entropy>
+	    	</dangling>
+	    	<dangling sequence="TT/A" sens="3">
+	        	<enthalpy>2900.0</enthalpy>
+                <entropy>10.4</entropy>
+			</dangling>				
+			<dangling sequence="GA/C" sens="3">
+               	<enthalpy>-2100.0</enthalpy>
+                <entropy>-3.9</entropy>
+	    	</dangling>
+	    	<dangling sequence="GC/C" sens="3">
+	        	<enthalpy>-200.0</enthalpy>
+                <entropy>-0.1</entropy>
+	    	</dangling>
+	    	<dangling sequence="GG/C" sens="3">
+	        	<enthalpy>-3900.0</enthalpy>
+                <entropy>-11.2</entropy>
+	    	</dangling>
+	    	<dangling sequence="GT/C" sens="3">
+	        	<enthalpy>-4400.0</enthalpy>
+                <entropy>-13.1</entropy>
+			</dangling>				
+			<dangling sequence="CA/G" sens="3">
+               	<enthalpy>-5900.0</enthalpy>
+                <entropy>-16.5</entropy>
+	    	</dangling>
+	    	<dangling sequence="CC/G" sens="3">
+	        	<enthalpy>-2600.0</enthalpy>
+                <entropy>-7.4</entropy>
+	    	</dangling>
+	    	<dangling sequence="CG/G" sens="3">
+	        	<enthalpy>-3200.0</enthalpy>
+                <entropy>-10.4</entropy>
+	    	</dangling>
+	    	<dangling sequence="CT/G" sens="3">
+	        	<enthalpy>-5200.0</enthalpy>
+                <entropy>-15.0</entropy>
+		</dangling>
+		</data>

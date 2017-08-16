@@ -1,0 +1,100 @@
+The following program exercises most commonly used functions of the library. The program folds two sequences using both the mfe and partition function algorithms and calculates the tree edit and profile distance of the resulting structures and base pairing probabilities.
+
+\begin{DoxyNote}{Note}
+This program uses the old A\+P\+I of R\+N\+Alib, which is in part already marked deprecated. Please consult the \hyperlink{newAPI}{R\+N\+Alib A\+P\+I v3.\+0} page for details of what changes are necessary to port your implementation to the new A\+P\+I.
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include  <stdio.h>}
+\textcolor{preprocessor}{#include  <stdlib.h>}
+\textcolor{preprocessor}{#include  <math.h>}
+\textcolor{preprocessor}{#include  <string.h>}
+\textcolor{preprocessor}{#include  "\hyperlink{utils_8h}{utils.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{fold__vars_8h}{fold\_vars.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{fold_8h}{fold.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{part__func_8h}{part\_func.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{inverse_8h}{inverse.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{RNAstruct_8h}{RNAstruct.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{treedist_8h}{treedist.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{stringdist_8h}{stringdist.h}"}
+\textcolor{preprocessor}{#include  "\hyperlink{profiledist_8h}{profiledist.h}"}
+
+\textcolor{keywordtype}{void} main()
+\{
+   \textcolor{keywordtype}{char} *seq1=\textcolor{stringliteral}{"CGCAGGGAUACCCGCG"}, *seq2=\textcolor{stringliteral}{"GCGCCCAUAGGGACGC"},
+        *struct1,* struct2,* xstruc;
+   \textcolor{keywordtype}{float} e1, e2, tree\_dist, string\_dist, profile\_dist, kT;
+   \hyperlink{structTree}{Tree} *T1, *T2;
+   \hyperlink{structswString}{swString} *S1, *S2;
+   \textcolor{keywordtype}{float} *pf1, *pf2;
+   \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *bppm;
+   \textcolor{comment}{/* fold at 30C instead of the default 37C */}
+   \hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature} = 30.;      \textcolor{comment}{/* must be set *before* initializing  */}
+
+   \textcolor{comment}{/* allocate memory for structure and fold */}
+   struct1 = (\textcolor{keywordtype}{char}* ) \hyperlink{utils_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*(strlen(seq1)+1));
+   e1 =  \hyperlink{group__mfe__fold__single_gaadafcb0f140795ae62e5ca027e335a9b}{fold}(seq1, struct1);
+
+   struct2 = (\textcolor{keywordtype}{char}* ) \hyperlink{utils_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*(strlen(seq2)+1));
+   e2 =  \hyperlink{group__mfe__fold__single_gaadafcb0f140795ae62e5ca027e335a9b}{fold}(seq2, struct2);
+
+   \hyperlink{group__mfe__fold__single_ga107fdfe5fd641868156bfd849f6866c7}{free\_arrays}();     \textcolor{comment}{/* free arrays used in fold() */}
+
+   \textcolor{comment}{/* produce tree and string representations for comparison */}
+   xstruc = \hyperlink{group__struct__utils_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}(struct1);
+   T1 = \hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\_tree}(xstruc);
+   S1 = \hyperlink{stringdist_8h_a3125991b3a403b3f89230474deb3f22e}{Make\_swString}(xstruc);
+   free(xstruc);
+
+   xstruc = \hyperlink{group__struct__utils_ga78d73cd54a068ef2812812771cdddc6f}{expand\_Full}(struct2);
+   T2 = \hyperlink{treedist_8h_a08fe4d5afd385dce593b86eaf010c6e3}{make\_tree}(xstruc);
+   S2 = \hyperlink{stringdist_8h_a3125991b3a403b3f89230474deb3f22e}{Make\_swString}(xstruc);
+   free(xstruc);
+
+   \textcolor{comment}{/* calculate tree edit distance and aligned structures with gaps */}
+   \hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\_backtrack} = 1;
+   tree\_dist = \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\_edit\_distance}(T1, T2);
+   \hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\_tree}(T1); \hyperlink{treedist_8h_acbc1cb9bce582ea945e4a467c76a57aa}{free\_tree}(T2);
+   \hyperlink{group__struct__utils_ga1054c4477d53b31d79d4cb132100e87a}{unexpand\_aligned\_F}(\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line});
+   printf(\textcolor{stringliteral}{"%s\(\backslash\)n%s  %3.2f\(\backslash\)n"}, \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[0], \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[1], tree\_dist);
+
+   \textcolor{comment}{/* same thing using string edit (alignment) distance */}
+   string\_dist = \hyperlink{stringdist_8h_a89e3c335ef17780576d7c0e713830db9}{string\_edit\_distance}(S1, S2);
+   free(S1); free(S2);
+   printf(\textcolor{stringliteral}{"%s  mfe=%5.2f\(\backslash\)n%s  mfe=%5.2f  dist=%3.2f\(\backslash\)n"},
+          \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[0], e1, \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[1], e2, string\_dist);
+
+   \textcolor{comment}{/* for longer sequences one should also set a scaling factor for}
+\textcolor{comment}{      partition function folding, e.g: */}
+   kT = (\hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}+273.15)*1.98717/1000.;  \textcolor{comment}{/* kT in kcal/mol */}
+   \hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\_scale} = exp(-e1/kT/strlen(seq1));
+
+   \textcolor{comment}{/* calculate partition function and base pair probabilities */}
+   e1 = \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}(seq1, struct1);
+   \textcolor{comment}{/* get the base pair probability matrix for the previous run of pf\_fold() */}
+   bppm = \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}();
+   pf1 = \hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\_bp\_profile\_bppm}(bppm, strlen(seq1));
+
+   e2 = \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}(seq2, struct2);
+   \textcolor{comment}{/* get the base pair probability matrix for the previous run of pf\_fold() */}
+   bppm = \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}();
+   pf2 = \hyperlink{profiledist_8h_a3dff26e707a2a2e65a0f759caabde6e7}{Make\_bp\_profile\_bppm}(bppm, strlen(seq2));
+
+   \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\_pf\_arrays}();  \textcolor{comment}{/* free space allocated for pf\_fold() */}
+
+   profile\_dist = \hyperlink{profiledist_8h_abe75e90e00a1e5dd8862944ed53dad5d}{profile\_edit\_distance}(pf1, pf2);
+   printf(\textcolor{stringliteral}{"%s  free energy=%5.2f\(\backslash\)n%s  free energy=%5.2f  dist=%3.2f\(\backslash\)n"},
+          \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[0], e1, \hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[1], e2, profile\_dist);
+
+   \hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\_profile}(pf1); \hyperlink{profiledist_8h_a9b0b84a5a45761bf42d7c835dcdb3b85}{free\_profile}(pf2);
+\}
+\end{DoxyCodeInclude}
+
+
+In a typical Unix environment you would compile this program using\+: \begin{DoxyVerb}cc ${OPENMP_CFLAGS} -c example.c -I${hpath}
+\end{DoxyVerb}
+ and link using \begin{DoxyVerb}cc ${OPENMP_CFLAGS} -o example -L${lpath} -lRNA -lm
+\end{DoxyVerb}
+ where {\itshape \$\{hpath\}} and {\itshape \$\{lpath\}} point to the location of the header files and library, respectively. \begin{DoxyNote}{Note}
+As default, the R\+N\+Alib is compiled with build-\/in {\itshape Open\+M\+P} multithreading support. Thus, when linking your own object files to the library you have to pass the compiler specific {\itshape \$\{O\+P\+E\+N\+M\+P\+\_\+\+C\+F\+L\+A\+G\+S\}} (e.\+g. \textquotesingle{}-\/fopenmp\textquotesingle{} for {\bfseries gcc}) even if your code does not use openmp specific code. However, in that case the {\itshape Open\+M\+P} flags may be ommited when compiling example.\+c 
+\end{DoxyNote}

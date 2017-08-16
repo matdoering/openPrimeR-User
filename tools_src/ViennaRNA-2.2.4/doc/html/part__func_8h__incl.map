@@ -1,0 +1,10 @@
+<map id="ViennaRNA/part_func.h" name="ViennaRNA/part_func.h">
+<area shape="rect" id="node2" href="$data__structures_8h.html" title="ViennaRNA/data_structures.h" alt="" coords="253,169,449,196"/>
+<area shape="rect" id="node6" href="$params_8h.html" title="ViennaRNA/params.h" alt="" coords="503,244,653,271"/>
+<area shape="rect" id="node9" href="$centroid_8h.html" title="Centroid structure computation. " alt="" coords="389,87,541,114"/>
+<area shape="rect" id="node10" href="$boltzmann__sampling_8h.html" title="Boltzmann Sampling of secondary structures from the ensemble. " alt="" coords="159,80,314,121"/>
+<area shape="rect" id="node3" href="$energy__const_8h.html" title="ViennaRNA/energy_const.h" alt="" coords="498,319,682,345"/>
+<area shape="rect" id="node5" href="$model_8h.html" title="The model details data structure and its corresponding modifiers. " alt="" coords="333,319,474,345"/>
+<area shape="rect" id="node7" href="$dp__matrices_8h.html" title="ViennaRNA/dp_matrices.h" alt="" coords="5,244,183,271"/>
+<area shape="rect" id="node8" href="$constraints_8h.html" title="ViennaRNA/constraints.h" alt="" coords="207,244,378,271"/>
+</map>

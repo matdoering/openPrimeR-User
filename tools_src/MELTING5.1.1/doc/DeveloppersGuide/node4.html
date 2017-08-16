@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How to add new approximative formulas</TITLE>
+<META NAME="description" CONTENT="How to add new approximative formulas">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html99"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html95"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html89"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html97"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html100"
+  HREF="node5.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html96"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html90"
+  HREF="node3.html">Package layout</A>
+ &nbsp; <B>  <A NAME="tex2html98"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+How to add new approximative formulas</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Creates a new class which implements the MeltingComputationMethod interface or which extends the 
+ApproximativeMode class in the melting.approximativeMethods package. 
+<BR>
+<BR>
+The ApproximativeMode class already implements the public functions <SPAN  CLASS="textit">RegisterMethods getRegister()</SPAN> 
+and <SPAN  CLASS="textit">void setUpVariables(HashMap&lt;String, String&gt; options)</SPAN> of the MeltingComputationMethod interface. 
+This last method is useful to compute an equivalent sodium concentration if other cations than sodium are 
+entered by the user. 
+<BR>
+<BR>
+If you extend the ApproximativeMode class, you just need to implement the public functions
+<SPAN  CLASS="textit">ThermoResult computesThermodynamics()</SPAN> and <SPAN  CLASS="textit">boolean isApplicable()</SPAN> of the MeltingComputationMethod 
+interface. These methods are respectively important to compute the melting temperature with the approximative 
+formula and to define the conditions of application of this formula. (read the Javadoc for further information).
+You also can override the different ApproximativeMode methods.
+<BR>
+<BR>
+If you don't extend the ApproximativeMode class, you have to implement all the MeltingComputationMethod
+methods. (<SPAN  CLASS="textit">RegisterMethods getRegister()</SPAN>, <SPAN  CLASS="textit">void setUpVariables(HashMap&lt;String, String&gt; options)</SPAN>,
+<SPAN  CLASS="textit">ThermoResult computesThermodynamics()</SPAN> and <SPAN  CLASS="textit">boolean isApplicable()</SPAN>).
+<BR>
+<BR>
+Don't forget to add a private static String as instance variable of the class. This String must represent the
+approximative formula and must be printed when the verbose mode is required by the user (see the following
+example).
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// approximative formula
+private static String temperatureFormula = "formula";
+
+[...]
+
+public ThermoResult computesThermodynamics(){
+
+// To print the article reference of the approximative 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "from 
+                                Ahsen et al. (2001)");
+
+// To print the approximative formula (the private 
+ // static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                  temperatureFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the approximative formula name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add in the function <SPAN  CLASS="textit">private void initialiseApproximativeMethods()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseApproximativeMethods(){
+		[...]
+		
+		// To map the formula name to the class which 
+		// implements it.
+        approximativeMethod.put("formula-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html99"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html95"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html89"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html97"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html100"
+  HREF="node5.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html96"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html90"
+  HREF="node3.html">Package layout</A>
+ &nbsp; <B>  <A NAME="tex2html98"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

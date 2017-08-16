@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA internal loop of ;
+	REF: Douglas M Turner et al (2006). Nucleic Acids Research 34: 4912-4924. 
+    REF: Douglas M Turner et al (1999). J.Mol.Biol.  288: 911_940 
+    	/******************************************************************************/-->
+ 			
+ 		<data type="long_mismatch">
+ 			<mismatch size="2" type="initiation">
+ 				<enthalpy>-10500.0</enthalpy>
+ 				<entropy>-35.4</entropy>
+ 			</mismatch>
+ 			<mismatch size="3" type="initiation">
+ 				<enthalpy>300.0</enthalpy>
+ 				<entropy>-4.5</entropy>
+ 			</mismatch>
+ 			<mismatch size="4" type="initiation">
+ 				<enthalpy>-7200.0</enthalpy>
+				<entropy>-26.8</entropy>
+ 			</mismatch>
+ 			<mismatch size="5" type="initiation">
+ 				<enthalpy>-6800.0</enthalpy>
+ 				<entropy>-28.4</entropy>
+ 			</mismatch>
+ 			<mismatch size="6" type="initiation">
+ 				<enthalpy>-1300.0</enthalpy>
+ 				<entropy>-10.6</entropy>
+ 			</mismatch>
+ 			<mismatch size=">6" type="initiation">
+ 				<enthalpy>-1300.0</enthalpy>
+ 				<entropy>-10.6</entropy>
+ 			</mismatch>
+ 			
+ 			<closure type="per_A/U">
+ 				<enthalpy>5000.0</enthalpy>
+ 				<entropy>13.9</entropy>
+ 			</closure>
+ 			
+ 			<closure type="per_G/U">
+ 				<enthalpy>5000.0</enthalpy>
+ 				<entropy>13.9</entropy>
+ 			</closure>
+ 			
+ 			<asymetry>
+ 				<enthalpy>3200.0</enthalpy>
+ 				<entropy>8.4</entropy>
+ 			</asymetry>
+ 			
+ 			<mismatch sequence="RA/YG" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RA/YG" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RA/YG" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RA/YG" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>-3400.0</enthalpy>
+ 				<entropy>-8.4</entropy>
+ 			</mismatch>
+
+ 			<mismatch sequence="YA/RG" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>-5800.0</enthalpy>
+ 				<entropy>-14.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YA/RG" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YA/RG" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>-5700.0</enthalpy>
+ 				<entropy>-4.1</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YA/RG" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>-3400</enthalpy>
+ 				<entropy>-8.4</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RG/YA" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>-5800.0</enthalpy>
+ 				<entropy>-14.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RG/YA" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RG/YA" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>-10900.0</enthalpy>
+ 				<entropy>-31.3</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RG/YA" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>-7600.0</enthalpy>
+ 				<entropy>-21.3</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YG/RA" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>-5800.0</enthalpy>
+ 				<entropy>-14.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YG/RA" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YG/RA" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>-8600.0</enthalpy>
+ 				<entropy>-24.2</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="YG/RA" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>-7600.0</enthalpy>
+ 				<entropy>-21.3</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="G/G" loop="1x1" type="first_non_canonical_pair">
+ 				<enthalpy>-7900.0</enthalpy>
+ 				<entropy>-17.1</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="G/G" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>-5800.0</enthalpy>
+ 				<entropy>-14.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="G/G" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="G/G" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>-9000.0</enthalpy>
+ 				<entropy>-26.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="G/G" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>2800.0</enthalpy>
+ 				<entropy>12.3</entropy>
+ 			</mismatch> 			
+ 			<mismatch sequence="U/U" loop="1x2" type="first_non_canonical_pair">
+ 				<enthalpy>-10100.0</enthalpy>
+ 				<entropy>-30.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="U/U" loop="1xn_n>2" type="first_non_canonical_pair">
+ 				<enthalpy>0.0</enthalpy>
+ 				<entropy>0.0</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="U/U" loop="2x3" type="first_non_canonical_pair">
+ 				<enthalpy>-6400.0</enthalpy>
+ 				<entropy>-19.4</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="U/U" loop="others_non_2x2" type="first_non_canonical_pair">
+ 				<enthalpy>-5800.0</enthalpy>
+ 				<entropy>-16.8</entropy>
+ 			</mismatch>
+ 			<mismatch sequence="RU/YU" loop="1x1" type="first_non_canonical_pair">
+ 				<enthalpy>-3400.0</enthalpy>
+ 				<entropy>-9.7</entropy>
+ 			</mismatch>
+ 		</data>

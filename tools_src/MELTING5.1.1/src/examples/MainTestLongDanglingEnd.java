@@ -1,0 +1,47 @@
+/* This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the 
+ * License, or (at your option) any later version
+                                
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+ * Public License for more details. 
+ * 
+ * You should have received a copy of the GNU General Public License along with this program; if not, 
+ * write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA                                                                  
+
+ *       Marine Dumousseau and Nicolas Lenovere                                                   
+ *       EMBL-EBI, neurobiology computational group,                          
+ *       Cambridge, UK. e-mail: lenov@ebi.ac.uk, marine@ebi.ac.uk        */
+
+package examples;
+
+import java.util.ArrayList;
+import java.util.Properties;
+
+/**
+ * This class exists to test the different long dangling end methods.
+ */
+public class MainTestLongDanglingEnd {
+
+	public static void main(String[] args) {
+
+		ArrayList<String> DNALongDanglingEndMethods = new ArrayList<String>();
+		DNALongDanglingEndMethods.add("sugdna02");
+
+		Properties DNALongDanglingEnd = MainTest.loadSequencesTest("src/examples/test/DNALongDanglingEndSequences.txt");
+		
+		System.out.print("\n\n melting.sequences \t TmExp \t sugdna02 \n");
+
+		MainTest.displayResultsLongDanglingEnd(DNALongDanglingEnd, DNALongDanglingEndMethods, "dnadna", "Na=1", "0.0001", "-lonDE");
+		
+		ArrayList<String> RNALongDanglingEndMethods = new ArrayList<String>();
+		RNALongDanglingEndMethods.add("sugrna02");
+
+		Properties RNALongDanglingEnd = MainTest.loadSequencesTest("src/examples/test/RNALongDanglingEndSequences.txt");
+		
+		System.out.print("\n\n melting.sequences \t TmExp \t sugrna02 \n");
+
+		MainTest.displayResultsLongDanglingEnd(RNALongDanglingEnd, RNALongDanglingEndMethods, "rnarna", "Na=1", "0.0001", "-lonDE");
+	}
+
+}

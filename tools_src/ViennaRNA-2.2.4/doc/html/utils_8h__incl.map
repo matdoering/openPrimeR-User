@@ -1,0 +1,10 @@
+<map id="ViennaRNA/utils.h" name="ViennaRNA/utils.h">
+<area shape="rect" id="node3" href="$data__structures_8h.html" title="ViennaRNA/data_structures.h" alt="" coords="269,169,465,196"/>
+<area shape="rect" id="node10" href="$string__utils_8h.html" title="General utility&#45; and helper&#45;functions for RNA sequence and structure strings used throughout the Vien..." alt="" coords="405,87,574,114"/>
+<area shape="rect" id="node11" href="$structure__utils_8h.html" title="Various utility&#45; and helper&#45;functions for secondary structure parsing, converting, etc. " alt="" coords="183,80,329,121"/>
+<area shape="rect" id="node4" href="$energy__const_8h.html" title="ViennaRNA/energy_const.h" alt="" coords="5,319,189,345"/>
+<area shape="rect" id="node6" href="$model_8h.html" title="The model details data structure and its corresponding modifiers. " alt="" coords="223,319,364,345"/>
+<area shape="rect" id="node7" href="$params_8h.html" title="ViennaRNA/params.h" alt="" coords="116,244,265,271"/>
+<area shape="rect" id="node8" href="$dp__matrices_8h.html" title="ViennaRNA/dp_matrices.h" alt="" coords="341,244,518,271"/>
+<area shape="rect" id="node9" href="$constraints_8h.html" title="ViennaRNA/constraints.h" alt="" coords="543,244,713,271"/>
+</map>

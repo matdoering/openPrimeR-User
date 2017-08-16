@@ -1,0 +1,2381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>MELTING - development guide</TITLE>
+<META NAME="description" CONTENT="MELTING - development guide">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive"
+ SRC="/usr/share/latex2html/icons/nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1 ALIGN="CENTER"><SMALL>MELTING</SMALL> - development guide</H1>
+<DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Marine Dumousseau</STRONG></P>
+</DIV>
+<DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Nicolas Le Nov&#232;re</STRONG></P>
+<P ALIGN="CENTER"><I><TT>lenov@ebi.ac.uk</TT></I></P>
+</DIV>
+<P ALIGN="CENTER"><STRONG>August 2009</STRONG></P>
+
+<P>
+
+<P>
+<BR>
+
+<H2><A NAME="SECTION00010000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC">
+<LI><A NAME="tex2html30"
+  HREF="DeveloppersGuide.html#SECTION00020000000000000000">Introduction</A>
+<LI><A NAME="tex2html31"
+  HREF="DeveloppersGuide.html#SECTION00030000000000000000">Package layout</A>
+<LI><A NAME="tex2html32"
+  HREF="DeveloppersGuide.html#SECTION00040000000000000000">How to add new approximative formulas</A>
+<LI><A NAME="tex2html33"
+  HREF="DeveloppersGuide.html#SECTION00050000000000000000">How to add new thermodynamic model</A>
+<LI><A NAME="tex2html34"
+  HREF="DeveloppersGuide.html#SECTION00060000000000000000">How to create a new duplex structure</A>
+<LI><A NAME="tex2html35"
+  HREF="DeveloppersGuide.html#SECTION00070000000000000000">How to add new nucleic acids</A>
+<LI><A NAME="tex2html36"
+  HREF="DeveloppersGuide.html#SECTION00080000000000000000">How to add new corrections for Na, Mg, K, Tris, DMSO and/or formamide</A>
+<UL>
+<LI><A NAME="tex2html37"
+  HREF="DeveloppersGuide.html#SECTION00081000000000000000">New ion correction</A>
+<LI><A NAME="tex2html38"
+  HREF="DeveloppersGuide.html#SECTION00082000000000000000">New sodium equivalence formula</A>
+<LI><A NAME="tex2html39"
+  HREF="DeveloppersGuide.html#SECTION00083000000000000000">New DMSO and formamide corrections</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html40"
+  HREF="DeveloppersGuide.html#SECTION00090000000000000000">How to add new ion and denaturing agent species</A>
+<UL>
+<LI><A NAME="tex2html41"
+  HREF="DeveloppersGuide.html#SECTION00091000000000000000">New ion species</A>
+<LI><A NAME="tex2html42"
+  HREF="DeveloppersGuide.html#SECTION00092000000000000000">New denaturing agent species or other species</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html43"
+  HREF="DeveloppersGuide.html#SECTION000100000000000000000">How to change the default textitMelting options</A>
+<LI><A NAME="tex2html44"
+  HREF="DeveloppersGuide.html#SECTION000110000000000000000">XML Files</A>
+<UL>
+<LI><A NAME="tex2html45"
+  HREF="DeveloppersGuide.html#SECTION000111000000000000000">General information</A>
+<LI><A NAME="tex2html46"
+  HREF="DeveloppersGuide.html#SECTION000112000000000000000">List of existing nodes and attributes</A>
+<LI><A NAME="tex2html47"
+  HREF="DeveloppersGuide.html#SECTION000113000000000000000">what to change if you add new subnodes or new attributes</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html49"
+  HREF="DeveloppersGuide.html#SECTION000120000000000000000">How to change the default ion corrections</A>
+</UL>
+<!--End of Table of Contents-->
+<P>
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+Introduction</A>
+</H1>
+
+<P>
+This document describes the general layout of the code and can help the developpers
+to quickly add new models, corrections into the program. The API is documented in the 
+Javadoc.If you want to see the details about the different models and corrections and 
+the program usages, you can read the <SMALL>MELTING</SMALL> documentation. 
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+Package layout</A>
+</H1>
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="textit">examples</SPAN> 
+<BR>
+This package contains all the main classes to test the program.
+    
+<UL>
+<LI><SPAN  CLASS="textit">test</SPAN> 
+<BR>
+It contains all the experimental Data and sequences to test the program.
+    
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">melting</SPAN> 
+<BR>
+This package contains the general classes used by most classes of the program. It also
+  contains the main class which runs <SMALL>MELTING</SMALL>. This package also contains the CompatibleMain
+  class which allow the user to use MELTING 5 with the MELTING 4 option syntax (except for the option '-q').
+    
+<UL>
+<LI><SPAN  CLASS="textit">approximativeMethods</SPAN> 
+<BR>
+It contains all the classes which implement an approximative formula to compute the melting
+    temperature.
+</LI>
+<LI><SPAN  CLASS="textit">configuration</SPAN> 
+<BR>
+It contains all the classes which register the option, models and corrections names. It contains
+    the classes which manage the default options and which map the models and correction names with the
+    matching classes.
+</LI>
+<LI><SPAN  CLASS="textit">correctionMethods</SPAN> 
+<BR>
+It regroups some of the base implementations for ion or denaturing agent corrections.
+</LI>
+<LI><SPAN  CLASS="textit">exceptions</SPAN> 
+<BR>
+It contains all the exceptions used in the program.
+</LI>
+<LI><SPAN  CLASS="textit">handlers</SPAN> 
+<BR>
+It contains all the Handler classes necessary to parse the XML files.
+</LI>
+<LI><SPAN  CLASS="textit">ionCorrection</SPAN> 
+<BR>      
+<UL>
+<LI><SPAN  CLASS="textit">magnesiumCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a magnesium correction.
+</LI>
+<LI><SPAN  CLASS="textit">mixedNaMgCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a mixed sodium, magnesium correction.
+</LI>
+<LI><SPAN  CLASS="textit">sodiumCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a sodium correction.
+</LI>
+<LI><SPAN  CLASS="textit">sodiumEquivalence</SPAN> 
+<BR>
+It contains all the classes which implement a formula to compute a sodium-equivalent concentration.
+      
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">methodInterfaces</SPAN> 
+<BR>
+It contains all the interfaces.
+</LI>
+<LI><SPAN  CLASS="textit">nearestNeighborModel</SPAN> 
+<BR>
+It contains the class which uses a Nearest-Neighbor approach to compute the enthalpy, entropy and
+    melting temperature. 
+</LI>
+<LI><SPAN  CLASS="textit">otherCorrections</SPAN> 
+<BR>      
+<UL>
+<LI><SPAN  CLASS="textit">dmsoCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a DMSO correction.
+</LI>
+<LI><SPAN  CLASS="textit">formamideCorrections</SPAN> 
+<BR>
+It contains all the classes which implement a formamide correction.
+      
+</LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textit">patternModels</SPAN> 
+<BR>
+It contains the base implementation of each thermodynamic model. 
+      
+<UL>
+<LI><SPAN  CLASS="textit">cngPatterns</SPAN> 
+<BR>
+It contains the class which implements a thermodynamic model for CNG repetitions computation.
+</LI>
+<LI><SPAN  CLASS="textit">cricksPair</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for Crick's pairs computation.
+</LI>
+<LI><SPAN  CLASS="textit">InternalLoops</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for internal loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">longBulge</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for long bulge loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">longDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for long dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">secondDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for two adjacent dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleBulge</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single bulge loop computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleDanglingEnds</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single dangling end computation.
+</LI>
+<LI><SPAN  CLASS="textit">singleMismatch</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for single mismatch computation.
+</LI>
+<LI><SPAN  CLASS="textit">specificAcids</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for specific or modified nucleic acids
+      computation.
+</LI>
+<LI><SPAN  CLASS="textit">tandemMismatches</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for tandem mismatches computation.
+</LI>
+<LI><SPAN  CLASS="textit">wobble</SPAN> 
+<BR>
+It contains the classes which implement a thermodynamic model for inosine and GU base pair computation.
+      
+</LI>
+</UL> 
+</LI>
+<LI><SPAN  CLASS="textit">sequences</SPAN> 
+<BR>
+It contains the classes which allow to represent nucleic acids and sequences and analyze them.
+    
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+How to add new approximative formulas</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Creates a new class which implements the MeltingComputationMethod interface or which extends the 
+ApproximativeMode class in the melting.approximativeMethods package. 
+<BR>
+<BR>
+The ApproximativeMode class already implements the public functions <SPAN  CLASS="textit">RegisterMethods getRegister()</SPAN> 
+and <SPAN  CLASS="textit">void setUpVariables(HashMap&lt;String, String&gt; options)</SPAN> of the MeltingComputationMethod interface. 
+This last method is useful to compute an equivalent sodium concentration if other cations than sodium are 
+entered by the user. 
+<BR>
+<BR>
+If you extend the ApproximativeMode class, you just need to implement the public functions
+<SPAN  CLASS="textit">ThermoResult computesThermodynamics()</SPAN> and <SPAN  CLASS="textit">boolean isApplicable()</SPAN> of the MeltingComputationMethod 
+interface. These methods are respectively important to compute the melting temperature with the approximative 
+formula and to define the conditions of application of this formula. (read the Javadoc for further information).
+You also can override the different ApproximativeMode methods.
+<BR>
+<BR>
+If you don't extend the ApproximativeMode class, you have to implement all the MeltingComputationMethod
+methods. (<SPAN  CLASS="textit">RegisterMethods getRegister()</SPAN>, <SPAN  CLASS="textit">void setUpVariables(HashMap&lt;String, String&gt; options)</SPAN>,
+<SPAN  CLASS="textit">ThermoResult computesThermodynamics()</SPAN> and <SPAN  CLASS="textit">boolean isApplicable()</SPAN>).
+<BR>
+<BR>
+Don't forget to add a private static String as instance variable of the class. This String must represent the
+approximative formula and must be printed when the verbose mode is required by the user (see the following
+example).
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// approximative formula
+private static String temperatureFormula = "formula";
+
+[...]
+
+public ThermoResult computesThermodynamics(){
+
+// To print the article reference of the approximative 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "from 
+                                Ahsen et al. (2001)");
+
+// To print the approximative formula (the private 
+ // static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                  temperatureFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the approximative formula name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add in the function <SPAN  CLASS="textit">private void initialiseApproximativeMethods()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseApproximativeMethods(){
+		[...]
+		
+		// To map the formula name to the class which 
+		// implements it.
+        approximativeMethod.put("formula-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00050000000000000000">
+How to add new thermodynamic model</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Creates a new class which implements the PatternComputationMethod interface or which extends the 
+PatternComputation class in the melting.patternModels package. 
+<BR>
+<BR>
+If the structure computed by the new class is already registered by the program, you can create your class 
+in the appropriate package (cngPatterns, cricksPair, InternalLoops, longBulge, longDanglingEnds, 
+secondDanglingEnds, singleBulge, singleDanglingEnds, singleMismatch, specificAcids, tandemMismatches or wobble).
+<BR>
+<BR>
+The PatternComputation class contains all the base implementations of each PatternComputationMethod method
+except for this function : <SPAN  CLASS="textit">boolean isApplicable(Environment environment, int pos1, int pos2)</SPAN>.
+<BR>
+<BR>
+You have to implement this method to compute the enthalpy and entropy of a motif in the duplex.
+You also have to override the function <SPAN  CLASS="textit">boolean isApplicable(Environment environment, int pos1,int pos2)</SPAN>
+to define the conditions of application of the new thermodynamic model. 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Always register the new model in the RegisterMethod class in the melting.configuration package.
+Depending on which structure in the duplex your new model computes, you will have to add one of these
+following lines :
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="textit">New model for Crick's pairs computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseCricksMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        cricksMethod.put("model-Name", 
+                         ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single mismatch computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which implements it.
+        singleMismatchMethod.put("model-Name", ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for tandem mismatches computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseTandemMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        tandemMismatchMethod.put("model-Name", 
+                               ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for GU base pairs computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseWobbleMismatchMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        wobbleMethod.put("model-Name", 
+                        ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for internal loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseInternalLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        internalLoopMethod.put("model-Name", 
+                               ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single bulge loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleBulgeLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        singleBulgeLoopMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for long bulge loop computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLongBulgeLoopMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        longBulgeLoopMethod.put("model-Name", 
+                                ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for single dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseSingleDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        singleDanglingEndMethod.put("model-Name", 
+                                    ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for double dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseDoubleDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        doubleDanglingEndMethod.put("model-Name", 
+                                    ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for long dangling end computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLongDanglingEndMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        longDanglingEndMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for CNG repeats computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseCNGRepeatsMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        CNGRepeatsMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for inosine computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseInosineMethods(){
+		[...]
+		
+		// To map the model name to the class 
+		// which implements it.
+        inosineMethod.put("model-Name", 
+                          ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for azobenzene computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseAzobenzeneMethods(){
+		[...]
+		
+		// To map the model name to the class 
+		// which implements it.
+        azobenzeneMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for locked nucleic acid computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseLockedAcidMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        lockedAcidMethod.put("model-Name", 
+                            ClassName.class);
+	}
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">New model for hydroxyadenosine computation</SPAN>
+
+<P>
+<PRE>
+private void initialiseHydroxyadenosineMethods(){
+		[...]
+		
+		// To map the model name to the class which 
+		// implements it.
+        hydroxyadenosineMethod.put("model-Name", 
+                                  ClassName.class);
+	}
+</PRE>
+</LI>
+</UL>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a <SPAN  CLASS="textit">public static String defaultFileName</SPAN> as instance variable of the class. It represents
+the name of the XML file containing the thermodynamic parameters for this model. You must print it if the
+user requires the verbose mode. You can create another <SPAN  CLASS="textit">public static String</SPAN> which contains the 
+thermodynamic formula of the model and print it during the verbose mode.
+<BR>
+<BR>
+For each message you want to print during the verbose mode, you must write this line :
+<SPAN  CLASS="textit">OptionManagement.meltingLogger.log(Level.FINE, "message to print");</SPAN> 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> You always must override or implement this function : <SPAN  CLASS="textit">void initialiseFileName(String methodName)</SPAN>.
+It is necessary to write that the new class can use the thermodynamic parameters of its default File or
+use the thermodynamic parameters of another file required by the user.
+
+<P>
+<PRE>
+@Override
+	public void initialiseFileName(String methodName){
+		super.initialiseFileName(methodName);
+		
+		if (this.fileName == null){
+			this.fileName = defaultFileName; // The public static String
+			                                 // of this class.
+		}
+	}
+</PRE>
+
+<P>
+Some base implementations have been written for some non specific thermodynamic models, maybe your new
+class can extend one of the following base implementations. (but you always have to do the steps 1 to 4)
+
+<P>
+
+<H3><A NAME="SECTION00050100000000000000">
+Thermodynamic model for Crick's pairs computation</A>
+</H3>
+
+<P>
+If it is possible, you directly can create a new class which extends the CricksNNMethod class. (melting.patternModels.cricksPair) 
+<BR>
+<BR>
+The CrickNNMethod class already implements the following public functions of the PatternComputationMethod interface.: 
+<SPAN  CLASS="textit">ThermoResult computeThermodynamics(NucleotidSequences sequences,int pos1, int pos2, ThermoResult result)</SPAN>,
+<SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN>, 
+and <SPAN  CLASS="textit">ThermoResult computesHybridizationInitiation(Environment environment)</SPAN>. 
+<BR>
+<BR>
+A CricksNNMethod can compute the enthalpy and entropy of a perfectly matching structure by adding
+the thermodynamic parameters of each Crick's base pair. The implemented function
+<SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN> can determine if
+a thermodynamic parameter for one of the Crick's pair is missing. Finally, the implemented function
+<SPAN  CLASS="textit">ThermoResult computesHybridizationInitiation(Environment environment)</SPAN> is the base implementation
+of the hybridization initiation computation and the symetry correction for self complementary sequences.
+<BR>
+<BR>
+<P>
+If the hybridization initiation can be computed with the function 
+<SPAN  CLASS="textit">public ThermoResult computesHybridizationInitiation(Environment environment)</SPAN> of one of the
+following classes : DecomposedInitiation or GlobalInitiation, you directly can create a new class
+which extends DecomposedInitiation or GlobalInitiation.
+
+<P>
+
+<H3><A NAME="SECTION00050200000000000000">
+Thermodynamic model for single bulge loop computation</A>
+</H3>
+
+<P>
+If it is possible, you directly can create a new class which extends the GlobalSingleBuleLoop class 
+(melting.patternModels.singleBulge).
+<BR>
+<BR>
+The GlobalSingleBuleLoop class already implements the following public functions of the PatternComputationMethod interface.: 
+<SPAN  CLASS="textit">ThermoResult computeThermodynamics(NucleotidSequences sequences,int pos1, int pos2, ThermoResult result)</SPAN>,
+and <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN>. 
+<BR>
+<BR>
+A GlobalSingleBuleLoop can compute the enthalpy and entropy of a single bulge loop by adding
+the thermodynamic parameters for the trinucleotide containing the single bulge loop. 
+The implemented function <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN> 
+can determine if a thermodynamic parameter for the trinucleotide containing the single bulge loop is missing. 
+<BR>
+<BR>
+Finally, the implemented function <SPAN  CLASS="textit">int[] correctPositions(int pos1, int pos2, int duplexLength)</SPAN> is necessary
+to take into account the adjacent base pairs of the single bulge loop.
+
+<P>
+
+<H3><A NAME="SECTION00050300000000000000">
+Thermodynamic model for inosine computation</A>
+</H3>
+
+<P>
+If it is possible, you directly can create a new class which extends the InosineNNMethod class 
+(melting.patternModels.wobble). 
+<BR>
+<BR>
+The InosineNNMethod class already implements the following public functions of the PatternComputationMethod interface.: 
+<SPAN  CLASS="textit">ThermoResult computeThermodynamics(NucleotidSequences sequences,int pos1, int pos2, ThermoResult result)</SPAN>,
+and <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN>. 
+<BR>
+<BR>
+An InosineNNMethod can compute the enthalpy and entropy of a Crick's pair containing an inosine base by adding
+the thermodynamic parameters for each Crick's pair containing an inosine base. 
+The implemented function <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN> 
+can determine if a thermodynamic parameter for one of the Crick's pair containing an inosine base is missing. 
+<BR>
+<BR>
+Finally, the implemented function <SPAN  CLASS="textit">int[] correctPositions(int pos1, int pos2, int duplexLength)</SPAN> is necessary
+to take into account the adjacent base pairs of the base pair containing the inosine.
+
+<P>
+
+<H1><A NAME="SECTION00060000000000000000">
+How to create a new duplex structure</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new package with the name of the structure. 
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Create a new instance variable 
+<SPAN  CLASS="textit">private static HashMap&lt;String, Class&lt;? extends PatternComputationMethod&#187; newStructureMethod</SPAN>
+of the class RegisterMethods in the melting.configuration package.
+
+<P>
+<PRE>
+/**
+* HasMap newStructureMethod : contains all the methods 
+* for the new structure computation.
+*/
+	private static HashMap&lt;String, Class&lt;? extends 
+	        PatternComputationMethod&gt;&gt; newStructureMethod = 
+	new HashMap&lt;String, Class&lt;? extends PatternComputationMethod&gt;&gt;();
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a new method in the RegisterMethod class to initialise the 
+<SPAN  CLASS="textit">&lt;String, Class&lt;? extends PatternComputationMethod&#187; newStructureMethod</SPAN> you created. It must contains
+all the relationships between the new model names and the matching implemented class:
+
+<P>
+<PRE>
+private void initialisenewStructureMethods(){
+		newStructureMethod.put("model1-Name", classModel1-Name.class);
+		newStructureMethod.put("model2-Name", classModel2-Name.class);
+		newStructureMethod.put("model3-Name", classModel3-Name.class);
+		[...]
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Call this method in the constructor of RegisterMethod :
+
+<P>
+<PRE>
+public RegisterMethods(){
+		[...]
+		
+		initialisenewStructureMethods();
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">5)</SPAN> Create a new <SPAN  CLASS="textit">public static final String</SPAN> as instance variable of the OptionManagement
+class in the melting.configuration package. This String represents the new option name you choose
+to change the default model used to compute the new structure.
+
+<P>
+<PRE>
+/**
+* Option name to choose another method to compute the 
+* new structure.
+*/
+	public static final String newStructureOption-Name = 
+	                                       "option-name";
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">6)</SPAN> Fix the default model name to use for each type of hybridization. You have to add
+the following lines into the following methods of OptionManagement :
+
+<P>
+<PRE>
+/**
+* initialises the DNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialisesDNADefaultOptions() {
+		[...]
+		this.DNADefaultOptions.put(newStructureOption-Name, 
+		                          "DNA-defaultModel-Name");
+
+	}
+	
+/**
+* initialises the RNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRNADefaultOptions() {
+		[...]
+		this.RNADefaultOptions.put(newStructureOption-Name, 
+		                          "RNA-defaultModel-Name");
+
+	}
+	
+/**
+* initialises the hybridDefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseHybridDefaultOptions() {
+		[...]
+		this.hybridDefaultOptions.put(newStructureOption-Name, 
+		                         "DNA/RNA-defaultModel-Name");
+		
+	}
+	
+/**
+* initialises the mRNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseMRNADefaultOptions() {
+		[...]
+		this.mRNADefaultOptions.put(newStructureOption-Name, 
+		                          "mRNA-defaultModel-Name");
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">7)</SPAN> Register the new option in the HashMap <SPAN  CLASS="textit">registerPatternModels</SPAN> of OptionManagement.
+You just have to add this following line into the method <SPAN  CLASS="textit">private void initialiseRegisterPatternModels()</SPAN>
+of OptionManagement :
+
+<P>
+<PRE>
+/**
+* Initialises the registerPatternModels HashMap of the OptionManagement object.
+*/
+private void initialiseRegisterPatternModels(){
+	[...]
+		
+registerPatternModels.add(newStructureOption-Name);
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">8)</SPAN> Add in the method <SPAN  CLASS="textit">private void initialisePatternModels()</SPAN> of RegsiterMethods the
+following line to register the new structure.
+
+<P>
+<PRE>
+	private void initialisePatternModels(){
+		[...]
+		
+		// It creates a relationship between the option name 
+		// for the new structure and the HashMap containing 
+		// the models and the class which can compute the new 
+		// structure.
+		PatternModel.put(OptionManagement.newStructureMethod, 
+		                                 newStructureMethod);
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">9)</SPAN> Add a new method in the NucleotiSequences class in the melting.sequences package to be abble 
+to recognize if a structure between two positions in the duplex matches the new structure you created.
+
+<P>
+<PRE>
+// new method to recognize the new structure in the duplex
+public boolean isNewStructure(int pos1, int pos2){
+
+[if the subsequences between the positions pos1 and pos2
+in the duplex match the new structure, you must return true.]
+
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">10)</SPAN> Create a new <SPAN  CLASS="textit">private PatternComputationMethod</SPAN> instance variable in the NearestNeighborMode
+class in the melting.nearestNeighborMode package. This new instance represents an object PatternComputationMethod
+which is a new instance of one of your implemented class which can compute the new structure.
+
+<P>
+<PRE>
+/**
+* PatternComputationMethod newStructureMethod : represents 
+* the model for new structure computation.
+*/
+	private PatternComputationMethod newStructureMethod;
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">11)</SPAN> Create a new method in the NearestNeighborMode class to initialise the PatternComputationMethod 
+newStructureMethod :
+
+<P>
+<PRE>
+private void initialiseNewStructureMethod(){
+		// Get the option name (public static final instance 
+		// variable of OptionManagement) which allows to change 
+		// the model to compute the new structure.
+		String optionName = OptionManagement.newStructureOption-Name;
+		
+		// Get the model name (model name) which allows to change 
+		// the model to compute the new structure and initialise the 
+		// PatternComputationMethod newStructureMethod.
+		String methodName = this.environment.getOptions().get(optionName);
+		this.newStructureMethod = initialiseMethod(optionName, methodName);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">12)</SPAN> If the new structure you added contains perfectly matching base pairs, maybe you have to
+change the method <SPAN  CLASS="textit">private int [] getPositionsPattern(int pos1)</SPAN> of the NearestNeighborMode class.
+<BR>
+<BR>
+This method defines the positions of a structure in the duplex (a perfectly matching structure or a 
+structure composed of non perfectly matching base pairs or composed of modified nucleic acid(s)). 
+<BR>
+<BR>
+If you need the adjacent base pairs to the non perfectly matching base pair or the modified nucleic acid, 
+you can add a method which corrects the positions of the structure in the duplex, in the class computing 
+the new structure. (see the following example and the Javadoc)
+
+<P>
+<PRE>
+private int[] correctPositions(int pos1, int pos2, 
+                                int duplexLength){
+		if (pos1 &gt; 0){
+			pos1 --;
+		}
+		if (pos2 &lt; duplexLength - 1){
+			pos2 ++;
+		}
+		int [] positions = {pos1, pos2};
+		return positions;
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">13)</SPAN> Change the method <SPAN  CLASS="textit">private PatternComputationMethod getAppropriatePatternModel(int [] positions)</SPAN>
+of NearestNeighborMode to add your new structure initialisation.
+
+<P>
+<PRE>
+// Method to get the adapted PatternComputationMethod to 
+// compute the structure defined at the positions int [] 
+// positions.
+private PatternComputationMethod getAppropriatePatternModel
+                                        (int [] positions){
+
+// if the new structure is always a terminal structure, you 
+// can change the method here.
+if (positions[0] == 0 || positions[1] == 
+         environment.getSequences().getDuplexLength() - 1){
+
+[...]
+  // call the NucleotidSequences method to recognize the identity 
+  // of the new structure
+  else if (environment.getSequences().isNewStructure(positions[0], 
+                                                   positions[1])){
+  
+    if (this.newStructureMethod == null){
+		initialiseNewStructureMethod(); // initialise the 
+		                                //PatternComputationMethod
+		                                // newStructureMethod
+	}
+	return this.newStructureMethod;
+  }
+}
+
+// if the structure is not always a terminal structure, you can 
+// change the method here.
+[...]
+
+  // call the NucleotidSequences method to recognize the identity 
+  // of the new structure
+  else if (environment.getSequences().isNewStructure(positions[0], 
+                                                   positions[1])){
+  
+    if (this.newStructureMethod == null){
+		initialiseNewStructureMethod(); // initialise the 
+		                                //PatternComputationMethod
+		                                // newStructureMethod
+	}
+	return this.newStructureMethod;
+  }
+  [...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">14)</SPAN> Create the new class(es) representing your model(s) for the new structure as it is explained
+in the section <SPAN  CLASS="textit">How to add new thermodynamic model</SPAN>.
+
+<P>
+
+<H1><A NAME="SECTION00070000000000000000">
+How to add new nucleic acids</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Add the name to the new nucleic acid in the SpecificAcidNames enum in the melting.sequences
+package :
+
+<P>
+<PRE>
+public enum SpecificAcidNames {
+
+	inosine, lockedNucleicAcid, hydroxyadenine, azobenzene, 
+	newNucleicAcidName
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the new nucleic acid syntax in the ArrayList <SPAN  CLASS="textit">existingNucleicAcids</SPAN>
+of BasePair in the melting.sequences package. You just have to add the following line
+into the method <SPAN  CLASS="textit">public static void initialiseNucleicAcidList()</SPAN> of BasePair :
+
+<P>
+<PRE>
+/**
+* initialises the ArrayList existingNucleicAcids of the 
+* BasePair class.
+*/
+	public static void initialiseNucleicAcidList(){
+		[...] 
+		
+		// You have to choose a syntax (String representation) 
+		// of the new nucleic acid in the String sequence.
+		// It is this syntax which will be recognized by the 
+		// program when it analyzes the sequences.
+		existingNucleicAcids.add("newAcid-syntax");
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a relationship between the nucleic acid syntax in the ArrayList 
+<SPAN  CLASS="textit">existingNucleicAcids</SPAN> of BasePair and the
+nucleic acid name registered in the SpecificAcidNames enum. You have to add
+the following line into the method <SPAN  CLASS="textit">public static void initialiseModifiedAcidHashmap()</SPAN>
+of NucleotidSequences in the melting.sequences package :
+
+<P>
+<PRE>
+/**
+* initialises the HasMap modifiedAcidNames of the 
+* NucleotiSequences class.
+*/
+	public static void initialiseModifiedAcidHashmap(){
+		[...]
+		
+		modifiedAcidNames.put("newAcid-syntax", 
+		    SpecificAcidNames.newNucleicAcidName);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Create a new class to manage the computation of the new nucleic acid as it is
+explained in the section <SPAN  CLASS="textit">How to add new thermodynamic model</SPAN>. (a new nucleic
+acid is considered as a new structure in the computation of the enthalpy and entropy of
+the Crick's pair containing the new nucleic acid.)
+
+<P>
+
+<H1><A NAME="SECTION00080000000000000000">
+How to add new corrections for Na, Mg, K, Tris, DMSO and/or formamide</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00081000000000000000">
+New ion correction</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class which implements the CorrectionMethod interface or, if it is adapted, which
+extends the EntropyCorrection class in the melting.correctionMethods package. 
+<BR>
+<BR>
+The class must be created in the adapted package : 
+melting.ionCorrection.magnesiumCorrection if it is a new magnesium correction, 
+melting.ionCorrection.mixedNaMgCorrection if it is a new mixed monovalent correction, 
+magnesium correction or 
+melting.ionCorrection.sodiumCorrection if it is a new sodium correction.
+<BR>
+<BR>
+<P>
+If you just implement the CorrectionMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> and <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN>
+The first method is important to define the conditions of application of the ion correction and the 
+second is important to correct the computed melting temperature.
+<BR>
+<BR>
+<P>
+The EntropyCorrection is a base implementation for ion corrections which directly correct the 
+computed entropy and then compute te melting temperature. If you extend EntropyCorrection, you have to
+override the public method <SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> to define the conditions
+of application of the ion correction.
+<BR>
+<BR>
+The public method <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN> is already implemented
+by EntropyCorrection but you have to override the method <SPAN  CLASS="textit">protected double correctEntropy(Environment environment)</SPAN>
+to correct the computed entropy.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the ion correction name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into the function <SPAN  CLASS="textit">private void initialiseIonCorrectionMethod()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseIonCorrectionMethod(){
+		[...]
+		
+		ionCorrection.put("sodiumCorrection-Name", 
+		                               Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula you applied to the computed melting temperature or the
+computed entropy and must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// correction formula
+private static String correctionFormula = "formula";
+
+[...]
+
+// To print the article reference of the correction 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                           reference of the correction");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                  correctionFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> In case of sodium corrections, you can use the method <SPAN  CLASS="textit">public static computesNaEquivalent(environment)</SPAN> 
+of the Helper class in melting package to convert the sodium concentration entered by the user
+into a sodium equivalent concentration which takes into account the other cations entered 
+by the user.
+
+<P>
+<PRE>
+double NaEq = Helper.computesNaEquivalent(environment);
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00082000000000000000">
+New sodium equivalence formula</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class (in the melting.ionCorrection.sodiumEquivalence package) which implements 
+the SodiumEquivalenceMethod interface or, if it is adapted, which extends the SodiumEquivalent 
+class in the melting.ionCorrection.sodiumEquivalence package. 
+<BR>
+<BR>
+If you just implement the SodiumEquivalenceMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">double computeSodiumEquivalent(double Na, double Mg, double K, double Tris, double dNTP)</SPAN> and 
+<SPAN  CLASS="textit">boolean isApplicable(HashMap&lt;String, String&gt; options)</SPAN>. 
+<BR>
+<BR>
+The first is important to compute a sodium equivalence depending on the ions entered by the user. 
+The second method is important to define the conditions of application of the sodium equivalent formula.
+<BR>
+<BR>
+<P>
+The SodiumEquivalent is a base implementation for sodium equivalence computation
+If you extend SodiumEquivalent, you have to override the public method <SPAN  CLASS="textit">boolean isApplicable(HashMap&lt;String, String&gt; options)</SPAN> 
+to define the conditions of application of the sodium equivalence.
+The public method <SPAN  CLASS="textit">double computeSodiumEquivalent(double Na, double Mg, double K, double Tris, double dNTP)</SPAN> 
+has to be implemented to compute the sodium equivalence.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the sodium equivalence name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into the function <SPAN  CLASS="textit">private void initialiseNaEqMethods()</SPAN> of RegisterMethods
+this following line :
+
+<P>
+<PRE>
+private void initialiseNaEqMethods(){
+		[...]
+		
+		NaEqMethod.put("sodiumEquivalence-Name", Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula you used to compute the sodium equivalent concentration
+and must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// sodium equivalence formula.
+private static String equivalenceFormula = "formula";
+
+[...]
+
+// To print the article reference of the sodium equivalence 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                                reference of the formula");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                      equivalenceFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00083000000000000000">
+New DMSO and formamide corrections</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new class which implements the CorrectionMethod interface or, if it is adapted for
+a new DMSO correction, which extends the DNADMSOCorrections class in the melting.correctionMethods package.
+You must create your class int the adapted package : melting.otherCorrections.dmsoCorrections 
+package if it is a DMSO correction or melting.otherCorrections.formamideCorrections package if
+it is a formamide correction.
+<BR>
+<BR>
+If you just implement the CorrectionMethod interface, you have to implement the public methods 
+<SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> and <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN>
+The first method is important to define the conditions of application of the correction and the 
+second is important to correct the computed melting temperature.
+<BR>
+<BR>
+The DNADMSOCorrections is a base implementation for DMSO corrections and is focused on DNA sequences.
+If you extend DNADMSOCorrections, you have to override the public method <SPAN  CLASS="textit">boolean isApplicable(Environment environment)</SPAN> 
+to define the conditions of application of the DMSO correction.
+The public method <SPAN  CLASS="textit">ThermoResult correctMeltingResults(Environment environment)</SPAN> 
+has to be implemented to compute the DMSO correction.
+<BR>
+<BR>
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the correction name and the class which represents it in the RegisterMethods
+class (melting.configuration package). 
+You have to add into one of these functions of RegisterMethods : 
+<SPAN  CLASS="textit">private void initialiseDMSOCorrectionMethod()</SPAN> or <SPAN  CLASS="textit">private void initialiseFormamideCorrectionMethod()</SPAN>.
+this following line :
+
+<P>
+<PRE>
+/**
+* initialises the DMSOCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseDMSOCorrectionMethod(){
+		[...]
+		
+		DMSOCorrection.put("DMSOCorrection-Name", 
+		                           Class-Name.class);
+	}
+	
+/**
+* initialises the formamideCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseFormamideCorrectionMethod(){
+		[...]
+		formamideCorrection.put("formamideCorrection-Name", 
+		                               Class-Name.class);
+	}
+</PRE> 
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Don't forget to add a <SPAN  CLASS="textit">private static String</SPAN> instance variable in your class. This
+String represents the correction formula must be printed if the verbose mode is required by the user.
+
+<P>
+<PRE>
+// Create a private static String which represents the 
+// correction formula.
+private static String correctionFormula = "formula";
+
+[...]
+
+// To print the article reference of the correction 
+// formula if the verbose mode is required.
+OptionManagement.meltingLogger.log(Level.FINE, "article 
+                              reference of the formula");
+
+// To print the correction formula (the private static String)
+OptionManagement.meltingLogger.log(Level.FINE, 
+                                      correctionFormula);
+
+[...]
+}
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00090000000000000000">
+How to add new ion and denaturing agent species</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Create a new method in the Environment class from the melting package. This method
+must facilitate the usage of the new ion or denaturing agent species concentration in the
+program.
+
+<P>
+<PRE>
+public double getNewSpecies() {
+		if (concentrations.containsKey("newSpecies-Name")){
+			return concentrations.get("newSpecies-Name");
+		}
+		return 0;
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> If the new species concentration is a "required ion concentration", that's to say the new
+species can be the only one species in the solution (no other ions are necessary), you have to 
+change the method <SPAN  CLASS="textit">private boolean isRequiredConcentrations()</SPAN> in the Environment class.
+
+<P>
+<PRE>
+private boolean isRequiredConcentrations(){
+		double Na = 0;
+		double Mg = 0;
+		double K = 0;
+		double Tris = 0;
+		
+		// The new species must be initialised
+		double NewSpecies = 0;
+		
+		if (concentrations.containsKey("Na")){
+			Na = concentrations.get("Na");
+		}
+		if (concentrations.containsKey("Mg")){
+			Mg = concentrations.get("Mg");
+		}
+		if (concentrations.containsKey("K")){
+			K = concentrations.get("K");
+		}
+		if (concentrations.containsKey("Tris")){
+			Tris = concentrations.get("Tris");
+		}
+		
+		// To get the concentration of the new species
+		if (concentrations.containsKey("newSpecies")){
+			Tris = concentrations.get("newSpecies");
+		}
+		
+		// the new species concentration must be strictly positive
+		if (Na &gt; 0 || K &gt; 0 || Mg &gt; 0 || Tris &gt; 0 || newSpecies &gt; 0){
+			return true;
+		}
+		return false;
+	}
+</PRE>
+
+<P>
+Now, the future steps depend on the identity of the new species you want to add.
+
+<P>
+
+<H2><A NAME="SECTION00091000000000000000">
+New ion species</A>
+</H2>
+
+<P>
+MELTING is currently using the algorithm from Owczarzy et al, 2008 (see the MELTING documentation
+for the complete reference.)to correct the computed melting temperature depending on the ion 
+concentrations. This algorithm can take into account the effect of monovalent cations and one divalent
+cation : the magnesium.
+<BR>
+<BR><SPAN  CLASS="textbf">1)</SPAN> If the new ion species can be integrated into the algorithm of Owczarzy et al, 2008, you have to change
+the method <SPAN  CLASS="textit">public CorrectionMethod getIonCorrectionMethod (Environment environment)</SPAN> of the 
+RegisterMethods class in the melting.configuration package. Otherwise, you must report to the following 
+section for <SPAN  CLASS="textit">new denaturing agents</SPAN> even thought the new species is not a denaturing agent.
+
+<P>
+<PRE>
+public CorrectionMethod getIonCorrectionMethod
+                                  (Environment environment){
+		
+		// A specific ion correction is required by the user.
+		if (environment.getOptions().containsKey
+		                    (OptionManagement.ionCorrection)){
+		[...]
+		}
+		
+		// No specific ion correction is required, the 
+		// algorithm from Owczarzy et al, 2008 will now be 
+		// used. You have to include your new ion species
+		// here.
+		else{
+		
+		// If it is a new monovalent cation, you must change 
+		// the monovalent concentration.
+		double monovalent = environment.getNa() + environment.getK() 
+		                  + environment.getTris() / 2
+		                  + environment.getNewSpecies();
+		
+		[...]
+		
+		// Here are the important variable you may have to 
+		// change to integrate your new ion species (if it 
+		// is a divalent cation or other ion and you know a 
+		// relationship between magnesium concentration and 
+		// this new ion species.)
+		double Mg = environment.getMg() - environment.getDNTP();
+		double ratio = Math.sqrt(Mg) / monovalent;
+		
+		[...]
+		}
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> If you know a relationship between your new ion species and Na, Mg, Tris or K, don't forget
+to add your new ion species in the different classes computing a sodium equivalence in the
+melting.ionCorrection.SodiumEquivalent package.
+You will have to change the following methods :
+
+<P>
+In the different classes from the melting.ionCorrection.SodiumEquivalent package.
+<PRE>
+public double computeSodiumEquivalent(double Na, double Mg, 
+      double K,double Tris, double dNTP, double newSpecies) {
+		
+		// Change the base implementation in the SodiumEquivalent 
+		// class too.
+		double NaEq = super.getSodiumEquivalent(Na, Mg, K, Tris, 
+		                     dNTP, double newSpecies, parameter);
+
+		[...]
+
+		return NaEq;
+	}
+</PRE>
+
+<P>
+In the SodiumEquivalentMethod interface from the melting.methodInterfaces package.
+<PRE>
+public double computeSodiumEquivalent(double Na, double Mg, 
+            K, double Tris, double dNTP, double newSpecies);
+</PRE>
+
+<P>
+In the ApproximativeMode class from the melting.approximativeMethods
+<PRE>
+public void setUpVariables(HashMap&lt;String, String&gt; options) {
+		this.environment = new Environment(options);
+
+		if (isNaEqPossible()){
+			if (environment.getMg() &gt; 0 || environment.getK() &gt; 0 
+			    || environment.getTris() &gt; 0 
+			    || environment.getNewSpecies() &gt; 0){
+			[...]
+			}
+		[...]
+		}
+		[...]
+	}
+</PRE>
+
+<P>
+In the Helper class from the melting package
+<PRE>
+public static double computesNaEquivalent(Environment 
+                                          environment){
+		double NaEq = environment.getNa() + environment.getK() 
+		              + environment.getTris() / 2 
+		              + environment.getNewSpecies();
+		[...]
+	}
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00092000000000000000">
+New denaturing agent species or other species</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> If the new species is an ion which can't be included in the algorithm from Owczarzy et al. 2008
+or if it is a new denaturing agent, you have to create a new instance variable of RegisterMethods in
+the melting.cinfiguration package. The new <SPAN  CLASS="textit">private static HashMap&lt;String, Class&lt;? extends CorrectionMethod&#187;</SPAN>
+register all the corrections for the new species.
+
+<P>
+<PRE>
+/**
+* HasMap formamideCorrection : contains all the methods for 
+* the new species correction.
+*/
+	private static HashMap&lt;String, Class&lt;? extends CorrectionMethod&gt;&gt; 
+	                                   newSpeciesCorrection = 
+	  new HashMap&lt;String, Class&lt;? extends CorrectionMethod&gt;&gt;();
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> You have to create a new method in RegisterMethods to initialise the new HasMap :
+
+<P>
+<PRE>
+/**
+* initialises the newSpeciesCorrectionMethod HashMap of 
+* the RegisterMethods object.
+*/
+	private void initialiseNewSpeciesCorrectionMethod(){
+		[...]
+		newSpeciesCorrection.put("NewSpeciesCorrection-Name", 
+		                                   ClassName.class);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> You have to create a new option to give the possibility to change the correction
+for the new species. You must add a new <SPAN  CLASS="textit">public static final String</SPAN> in the 
+OptionManagement class to register the name of the new option. (melting.configuration package)
+
+<P>
+<PRE>
+/**
+* Option name for to change the default correction for the 
+* new species.
+*/
+	public static final String newSpeciesOption = "Option-Name";
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Choose a default new species correction for each type of hybridization in
+the following methods of OptionManagement :
+
+<P>
+<PRE>
+/**
+* initialises the DNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialisesDNADefaultOptions() {
+		[...]
+		
+		this.DNADefaultOptions.put(newSpeciesOption, 
+		                    "DNAdefaultCorrection-Name");
+	}
+	
+/**
+* initialises the RNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRNADefaultOptions() {
+		[...]
+		
+		this.RNADefaultOptions.put(newSpeciesOption, 
+		                   "RNAdefaultCorrection-Name");
+
+	}
+	
+/**
+* initialises the hybridDefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseHybridDefaultOptions() {
+		[...]
+		
+		this.hybridDefaultOptions.put(newSpeciesOption, 
+		                  "DNARNAdefaultCorrection-Name");
+		
+	}
+	
+/**
+* initialises the mRNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseMRNADefaultOptions() {
+		[...]
+		
+		this.mRNADefaultOptions.put(newSpeciesOption, 
+		                  "mRNAdefaultCorrection-Name");
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">5)</SPAN> You have to register the new option in the HashMap <SPAN  CLASS="textit">registerEnvironmentOptions</SPAN>
+of OptionManagement. You just have to add the following line into the method 
+<SPAN  CLASS="textit">private void initialiseRegisterEnvironmentOptions()</SPAN> of OptionManagement :
+
+<P>
+<PRE>
+/**
+* Initialises the registerEnvironmentOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRegisterEnvironmentOptions(){
+		[...]
+		
+		registerEnvironmentOptions.add(newSpeciesOption);
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">6)</SPAN> You have to register the new species and the new corrections for it in RegisterMethods (melting.configuration package).
+You must add the following line to the method <SPAN  CLASS="textit">private void initialiseOtherCorrectionMethod()</SPAN> :
+
+<P>
+<PRE>
+/**
+* initialises the otherCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseOtherCorrectionMethod(){
+		[...]
+		
+		// create a relationship between the new option and 
+		//the corrections registered for the new species.
+		otherCorrection.put(OptionManagement.newSpeciesOption, 
+		                                 newSpeciesCorrection);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">7)</SPAN> You have to complete the method <SPAN  CLASS="textit">public ThermoResult computeOtherMeltingCorrections(Environment environment)</SPAN>
+of RegisterMethods. This method is important to correct the melting temperature if another ion or denaturing agent species
+are present :
+
+<P>
+<PRE>
+public ThermoResult computeOtherMeltingCorrections(Environment 
+                                                 environment){
+		[...]
+		
+ // Check if the new species is present in the environment
+ if (environment.getNewSpecies() &gt; 0){
+ 
+// Get the correction associated with the option name of the 
+// new species.
+CorrectionMethod newSpeciesCorrection = 
+getCorrectionMethod(OptionManagement.newSpeciesCorrection, 
+environment.getOptions().get(OptionManagement.newSpeciesCorrection));
+			
+if (newSpeciesCorrection == null){
+	throw new NoExistingMethodException("There is no implemented 
+	                                    new species correction.");
+}
+else if (newSpeciesCorrection.isApplicable(environment)){
+environment.setResult
+    (newSpeciesCorrection.correctMeltingResults(environment));
+}
+else {
+	throw new MethodNotApplicableException("The new species correction 
+	   is not applicable with this environment 
+	   (option " + OptionManagement.newSpeciesCorrection + ").");
+}
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">8)</SPAN> Create a new class for the new species corrections as it is explained in the section
+<SPAN  CLASS="textit">How to add new corrections for Na, Mg, K, Tris, DMSO and/or formamide</SPAN>.
+
+<P>
+
+<H1><A NAME="SECTION000100000000000000000">
+How to change the default textitMelting options</A>
+</H1>
+
+<P>
+You can change the default textitMelting options in the OptionManagement class from the
+melting.configuration package. There are different default oprions for each type of hybridization.
+
+<P>
+<PRE>
+	/**
+	 * initialises the DNADefaultOptions HashMap of the 
+	 * OptionManagement object.
+	 */
+	private void initialisesDNADefaultOptions() {
+		this.DNADefaultOptions.put(NNMethod, "san04");
+		this.DNADefaultOptions.put(singleMismatchMethod, "allsanpey");
+		this.DNADefaultOptions.put(tandemMismatchMethod, "allsanpey");
+		this.DNADefaultOptions.put(internalLoopMethod, "san04");
+		this.DNADefaultOptions.put(singleDanglingEndMethod, "bom00");
+		this.DNADefaultOptions.put(doubleDanglingEndMethod, "sugdna02");
+		this.DNADefaultOptions.put(singleBulgeLoopMethod, "tan04");
+		this.DNADefaultOptions.put(longDanglingEndMethod, "sugdna02");
+		this.DNADefaultOptions.put(longBulgeLoopMethod, "san04");
+		this.DNADefaultOptions.put(approximativeMode, "wetdna91");
+		this.DNADefaultOptions.put(DMSOCorrection, "ahs01");
+		this.DNADefaultOptions.put(formamideCorrection, "bla96");
+		this.DNADefaultOptions.put(inosineMethod, "san05");
+		this.DNADefaultOptions.put(hydroxyadenineMethod, "sug01");
+		this.DNADefaultOptions.put(azobenzeneMethod, "asa05");
+		this.DNADefaultOptions.put(lockedAcidMethod, "mct04");
+		this.DNADefaultOptions.put(NaEquivalentMethod, "ahs01");
+
+	}
+	
+	/**
+	 * initialises the RNADefaultOptions HashMap of the 
+	 * OptionManagement object.
+	 */
+	private void initialiseRNADefaultOptions() {
+		this.RNADefaultOptions.put(NNMethod, "xia98");
+		this.RNADefaultOptions.put(singleMismatchMethod, "zno07");
+		this.RNADefaultOptions.put(wobbleBaseMethod, "tur99");
+		this.RNADefaultOptions.put(tandemMismatchMethod, "tur06");
+		this.RNADefaultOptions.put(internalLoopMethod, "tur06");
+		this.RNADefaultOptions.put(singleBulgeLoopMethod, "tur06");
+		this.RNADefaultOptions.put(longBulgeLoopMethod, "tur06");
+		this.RNADefaultOptions.put(CNGMethod, "bro05");
+		this.RNADefaultOptions.put(approximativeMode, "wetrna91");
+		this.RNADefaultOptions.put(inosineMethod, "zno07");
+		this.RNADefaultOptions.put(NaEquivalentMethod, "ahs01");
+		this.RNADefaultOptions.put(DMSOCorrection, "ahs01");
+		this.RNADefaultOptions.put(formamideCorrection, "bla96");
+		this.RNADefaultOptions.put(singleDanglingEndMethod, "ser08");
+		this.RNADefaultOptions.put(doubleDanglingEndMethod, "ser06");
+		this.RNADefaultOptions.put(longDanglingEndMethod, "sugrna02");
+
+	}
+	
+	/**
+	 * initialises the hybridDefaultOptions HashMap of the 
+	 * OptionManagement object.
+	 */
+	private void initialiseHybridDefaultOptions() {
+		this.hybridDefaultOptions.put(NNMethod, "sug95");
+		this.hybridDefaultOptions.put(approximativeMode, "Wetdnarna91");
+		this.hybridDefaultOptions.put(NaEquivalentMethod, "ahs01");
+		this.hybridDefaultOptions.put(DMSOCorrection, "ahs01");
+		this.hybridDefaultOptions.put(formamideCorrection, "bla96");
+		
+	}
+	
+	/**
+	 * initialises the mRNADefaultOptions HashMap of the 
+	 * OptionManagement object.
+	 */
+	private void initialiseMRNADefaultOptions() {
+		this.mRNADefaultOptions.put(NNMethod, "tur06");
+		this.mRNADefaultOptions.put(NaEquivalentMethod, "ahs01");
+		this.mRNADefaultOptions.put(DMSOCorrection, "ahs01");
+		this.mRNADefaultOptions.put(formamideCorrection, "bla96");
+
+	}
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION000110000000000000000">
+XML Files</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION000111000000000000000">
+General information</A>
+</H2>
+
+<P>
+All the XML files containing the thermodynamic parameters are in the Data folder. In each 
+file, I put the data set of a scientific article or I collected the complementary data set 
+of several articles. 
+<BR>
+<BR>
+I have used the name <SPAN  CLASS="textit">data</SPAN> for the main node of each XML file. The name of a <SPAN  CLASS="textit">data</SPAN>
+subnode is choosen depending on the structure and the model they are made for. You can see the different
+existing subnode and existing attributes in the following section.
+The enthalpy and entropy value are in cal/mol and are put as character of the subsubnodes enthalpy
+and entropy. (see the following example)
+
+<P>
+<PRE>
+&lt;data type="crick"&gt;
+		&lt;neighbor sequence="AA/TT"&gt;
+	        &lt;enthalpy&gt;-7900.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-22.2&lt;/entropy&gt;
+	    &lt;/neighbor&gt; 
+	   	&lt;neighbor sequence="AC/TG"&gt;
+	        &lt;enthalpy&gt;-8400.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-22.4&lt;/entropy&gt;
+	   	&lt;/neighbor&gt; 
+	   	
+	   	[...]
+	   	
+	   	 &lt;initiation type="per-G/C"&gt;
+            &lt;enthalpy&gt;100.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-2.8&lt;/entropy&gt;
+        &lt;/initiation&gt;  
+        
+        &lt;symmetry&gt;
+            &lt;enthalpy&gt;0.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-1.4&lt;/entropy&gt;
+        &lt;/symmetry&gt;
+&lt;/data&gt;
+</PRE>
+
+<P>
+Each enthalpy and entropy value are stocked into a Thermodynamics object. (see the Javadoc for the
+Thermodynamics class from melting package)
+
+<P>
+
+<H2><A NAME="SECTION000112000000000000000">
+List of existing nodes and attributes</A>
+</H2>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Node name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">data</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">crick</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">single-mismatch</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">tandem-mismatch</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">long-mismatch</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">modified-nucleotides</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">repeats</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">single-bulge-loop</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">long-bulge-loop</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">single-dangling-end</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">double-dangling-end</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">long-dangling-end</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">wobble</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112100000000000000">
+Parameters for perfectly matching structures</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">neighbor</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">crick's pair XX/XX</TD>
+</TR>
+<TR><TD ALIGN="CENTER">initiation</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">one-GC-Pair</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">all-AT-pairs</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">per-A/T</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">perG/C</TD>
+</TR>
+<TR><TD ALIGN="CENTER">terminal</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">per-A/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">per-A/T</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">5-T/A</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112200000000000000">
+Parameters for structures containing wobble base pair, single mimsatch, tandem mismatches or internal loop</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">mismatch</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">crick's pair XX/XX</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">YRR/RRY</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">RYY/YYR</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">YYR/RYY</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">YRY/RYR</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">RRY/YYR</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">size</TD>
+<TD ALIGN="CENTER">X (number of nucleotides)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">initiation</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">first-non-canonical-pair</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">loop</TD>
+<TD ALIGN="CENTER">1x2</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">1xn-n&gt;2</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">2x3</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">others-non-2x2</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">1x1</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">closing</TD>
+<TD ALIGN="CENTER">G/C</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">C/G</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">U/A</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">A/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">not-G/C</TD>
+</TR>
+<TR><TD ALIGN="CENTER">closure</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">per-A/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">per-G/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">asymetry</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">penalty</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">G/G-adjacent-AA-or-nonCanonicalPyrimidine</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">AG-GA-UU-adjacent-UU-CU-CC-AA</TD>
+</TR>
+<TR><TD ALIGN="CENTER">parameters</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">A/A</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">G/G</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">U/U</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112300000000000000">
+Parameters for structures containing bulge loop</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">bulge</TD>
+<TD ALIGN="CENTER">size</TD>
+<TD ALIGN="CENTER">X (number of nucleotides)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">trinucleotide XXX/XXX</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">initiation</TD>
+</TR>
+<TR><TD ALIGN="CENTER">closure</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">per-A/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">per-G/U</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112400000000000000">
+Parameters for structures containing specific nucleic acids</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">modified</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">XXX/XX or XXXX/XX</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">trans</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">cys</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">sens</TD>
+<TD ALIGN="CENTER">3</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">5</TD>
+</TR>
+<TR><TD ALIGN="CENTER">closure</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">per-A/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">per-G/U</TD>
+</TR>
+<TR><TD ALIGN="CENTER">terminal</TD>
+<TD ALIGN="CENTER">type</TD>
+<TD ALIGN="CENTER">per-I/U</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112500000000000000">
+Parameters for structures containing CNG repeats</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">CNG</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">CNG pattern XXX</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">repeats</TD>
+<TD ALIGN="CENTER">2 to 7</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H3><A NAME="SECTION000112600000000000000">
+Parameters for structures containing dangling end</A>
+</H3>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><SPAN  CLASS="textbf">Subnode name</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">Attributes</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">attributes values</SPAN></TH>
+</TR>
+<TR><TD ALIGN="CENTER">dangling</TD>
+<TD ALIGN="CENTER">sequence</TD>
+<TD ALIGN="CENTER">dangling end XX/X, XXX/X or XXXX/X</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">sens</TD>
+<TD ALIGN="CENTER">5</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+
+<H2><A NAME="SECTION000113000000000000000">
+what to change if you add new subnodes or new attributes</A>
+</H2>
+
+<P>
+The current Handler classes in the package melting.handlers can manage
+this type of node hierarchy :
+
+<P>
+<PRE>
+&lt;data type="strucure-type"&gt;
+	&lt;subnode attribute1="value1" attribute2="value2"&gt;
+		&lt;enthalpy&gt;xx[...]xx.x&lt;/enthalpy&gt;
+		&lt;entropy&gt;xx[...]xx.x&lt;/entropy&gt;
+	&lt;/subnode&gt; 
+	   	
+	   	[...]
+	
+	&lt;subnode sequence="AA/TT"&gt;
+		&lt;enthalpy&gt;xx[...]xx.x&lt;/enthalpy&gt;
+		&lt;entropy&gt;xx[...]xx.x&lt;/entropy&gt;
+	&lt;/subnode&gt; 	   	
+&lt;/data&gt;
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> You have to register your new attribute in the DataHandler class in the melting.handlers
+package. You need to change the method <SPAN  CLASS="textit">public void endElement(String uri, String localName, String name)</SPAN> 
+to build the matching key in the dictionnary which will contain the thermodynamic parameters :
+
+<P>
+<PRE>
+	@Override
+	public void endElement(String uri, String localName, String name)
+			throws SAXException {
+		if (subHandler != null) {
+			subHandler.endElement(uri, localName, name);
+			if (subHandler.hasCompletedNode()) {
+				ThermoHandler handler = (ThermoHandler) subHandler;
+				String key = name;
+				if (handler.getAttribut().containsKey("type")) {
+					key += handler.getAttribut().get("type");
+				}
+				[...]
+				
+				// Add your new attribute here
+			if (handler.getAttribut().containsKey("newAttribute-Name")) {
+			key += "subnode-Name" + handler.getAttribut().get("newAttribute-Name");
+			}
+				[...]
+	}
+</PRE>
+
+<P>
+The dictionnary key for each thermodynamic parameter mostly has the following syntax,
+
+<P>
+<SPAN  CLASS="textit">Subnode-nameAttribute1Value1Attribute2Value2</SPAN>
+
+<P>
+but it can be different for some attributes. (see the method in details)
+<BR>
+<BR><SPAN  CLASS="textbf">2)</SPAN> You have to create (or change) a method in the DataCollect class from the melting package
+to more easily get the thermodynamic parameters you need. See the example below :
+
+<P>
+<PRE>
+/**
+* to get the Thermodynamics object containing the parameters 
+* for the base pair (base1, base2) next to the mismatching 
+* base pair.
+* @param string base1 : from the sequence (5'3')
+* @param string base2 : from the complementary sequence (3'5')
+* @return Thermodynamics object containing the parameters for 
+* the base pair (base1, base2) next to the mismatching base pair.
+*/
+public Thermodynamics getClosureValue(String base1, String base2){
+		Thermodynamics s = data.get("closure"+"per-"+base1 + "/" 
+		                            + base2);
+		return s;
+	}
+	
+// Your method can be similar to the following method
+public Thermodynamics getNewThermodynamicParameter1(arg-1, ..., arg-n){
+	Thermodynamics s = data.get("node-name"+"attribute-1"+value-1 
+	                             +[...]+"attribute-n"+value-n);
+	return s;
+}
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION000120000000000000000">
+How to change the default ion corrections</A>
+</H1>
+
+<P>
+You can change the default ion corrections in the method 
+<SPAN  CLASS="textit">public CorrectionMethod getIonCorrectionMethod (Environment environment)</SPAN>
+of the class RegisterMethod from the melting.configuration package.
+
+<P>
+
+<H1><A NAME="SECTION000130000000000000000">
+About this document ...</A>
+</H1>
+ <STRONG><SMALL>MELTING</SMALL> - development guide</STRONG><P>
+This document was generated using the
+<A HREF="http://www.latex2html.org/"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 2002-2-1 (1.71)
+<P>
+Copyright &#169; 1993, 1994, 1995, 1996,
+Nikos Drakos, 
+Computer Based Learning Unit, University of Leeds.
+<BR>
+Copyright &#169; 1997, 1998, 1999,
+<A HREF="http://www.maths.mq.edu.au/~ross/">Ross Moore</A>, 
+Mathematics Department, Macquarie University, Sydney.
+<P>
+The command line arguments were: <BR>
+ <STRONG>latex2html</STRONG> <TT>-split 0 DeveloppersGuide.tex</TT>
+<P>
+The translation was initiated by Computational Neurobiology on 2009-08-13
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive"
+ SRC="/usr/share/latex2html/icons/nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-13
+</ADDRESS>
+</BODY>
+</HTML>

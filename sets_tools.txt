@@ -1,0 +1,73 @@
+Primer design tools: top 9 sets checked for every locus. 
+--------
+IGH
+--------
+
+Wu2010: no method for designing primers indicated.
+
+Szczepa2001: OLIGO 6.0, protocol according Pongers 1999 (paper not available
+..)
+
+Ippolito2012: reference to Lim2010
+
+Lim2010: extension of set from Sblattero & Bradbury (1998), no method indicated.
+
+Murugan 2015: manual design -> augmentation/combination of primers from
+Dekosky and Wardemann. Deskosky doesn't say anything ...
+
+Wardemann 2003: Manual desng using consensus formation ..
+
+Sblattero1998: primers were designed using V BASE and 'empirical optimization'
+(by hand)
+
+Scheid2011: no method described. Comparison with 'original primers' from
+Wardemann 2003.
+
+vanDongen2003: OLIGO 6.2 software
+
+Verhagen: Primer Express version 1.0 software (PE Biosystems) and the OLIGO 6.1 software (Wojciech Rychlik, Molecular Biology Insights, Cas- cade, CO, USA).
+
+Summary: 3 x OLIGO (Szczepa2001, vanDongen2003, Verhagen), 1 x PrimerExpress
+(Verhagen), all else empirical design
+
+--------------------
+IGK
+------
+Beishuizen1997: manual design.
+Ippolito2012: done before
+Lim2010: done before
+Pongers1999: OLIGO 5.0
+Sblattero1998: done before
+van der Burg2001: manual design.
+vanDongen2003: done before.
+vanEs1991: manual design
+
+------------
+IGL
+-----------------
+Farner1999: Amplify 1.2: (provided by B. Engels, Genetics Department, University of Wisconsin at Madison)
+Ippolito2012: done before.
+Lim2010: done before.
+Murugan2015: done before.
+Sblattero1998: done before.
+Tiller2008: manual design.
+vanDongen2003: done before.
+van der Burg2001: done before
+
+Conclusions:
+- software usage can boost primer quality 
+
+IGH:
+- Tool usage by: vanDongen2003 (OLIGO 6.2), Szczepa2001 (OLIGO 6.0)
+-> In all important fields vanDongen2003, Szczepa2001 show good results
+(melting temp diff, dimerization)
+
+IGK:
+- Tool usage by: Pongers1999 (OLIGO 5.0), vanDongen2003 (OLIGO 6.2)
+-> Cross dimerization: good
+-> Melting temp diff: Pongers is quite bad.
+-> self dimer: both not so great
+IGL:
+- Tool usage by: Farner1999 (Amplify), vanDongen2003 (OLIGO 6.2)
+--> vanDongen2003 better than Farner1999, but at least Farner1999 has compact
+melting temp diff, cross dimerization in contrast to the 'manually designed sets'.

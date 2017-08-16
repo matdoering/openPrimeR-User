@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+ <!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA hairpin loop of ;
+	REF: Douglas M Turner et al (2006). Nucleic Acids Research 34: 4912-4924.
+	REF: Douglas M Turner et al (1999). J.Mol.Biol.  288: 911_940. 
+    	/******************************************************************************/-->
+
+		<data type="hairpin_loop">
+			<hairpin type="initiation" size="3">
+   				<enthalpy>1300.0</enthalpy>
+   				<entropy>-14.2</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="4">
+   				<enthalpy>4800.0</enthalpy>
+   				<entropy>-2.6</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="5">
+   				<enthalpy>3600.0</enthalpy>
+   				<entropy>-6.4</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="6">
+   				<enthalpy>-2900.0</enthalpy>
+   				<entropy>-26.8</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="7">
+   				<enthalpy>1300.0</enthalpy>
+   				<entropy>-14.8</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="8">
+   				<enthalpy>-2900.0</enthalpy>
+   				<entropy>-27.4</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size="9">
+   				<enthalpy>5000.0</enthalpy>
+   				<entropy>-4.5</entropy>
+   			</hairpin>
+   			<hairpin type="initiation" size=">9">
+   				<enthalpy>5000.0</enthalpy>
+   				<entropy equation="1000/310.15x(-1.4 - 1085.5ln(n/9)"></entropy>
+   			</hairpin>
+   			
+   			<bonus type="first_mismatch" sequence="U/U">
+   				<enthalpy>-5800.0</enthalpy>
+   				<entropy>-16.1</entropy>
+   			</bonus>
+   			<bonus type="first_mismatch" sequence="G/A_not_A/G">
+   				<enthalpy>-5800.0</enthalpy>
+   				<entropy>-16.1</entropy>
+   			</bonus>
+   			<closure type="per_G/U">
+   				<enthalpy>-14800.0</enthalpy>
+   				<entropy>-40.6</entropy>
+   			</closure>
+   			
+   			<penalty type="oligo_C_loop_3">
+   				<enthalpy>1860.0</enthalpy>
+   				<entropy>55.5</entropy>
+   			</penalty>
+   			
+   			<penalty type="oligo_C_loop_>3" parameter="A">
+   				<enthalpy>3400.0</enthalpy>
+   				<entropy>10.1</entropy>
+   			</penalty>
+   			<penalty type="oligo_C_loop_>3" parameter="B">
+   					<enthalpy>7600.0</enthalpy>
+   					<entropy>19.3</entropy>
+   			</penalty>
+   		</data>

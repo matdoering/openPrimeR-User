@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA hairpin loop of ;
+	REF: Martin J Serra et al (1998). Biochemistry 37: 1094-1100.
+	REF: Martin J Serra et al (2000). RNA 6: 608-615.
+	REF: Martin J Serra et al (1997). Biochemistry 36: 4844-4851.
+	REF: Martin J Serra et al (2006). Biochemistry 45: 1400-1407.  
+       	/******************************************************************************/-->
+       	
+       <data type="hairpin_loop">
+       	<hairpin type="terminal_mismatch" sequence="UA/GA">
+    			<enthalpy>-3700.0</enthalpy>
+    			<entropy>-9.2</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UA/GC">
+    			<enthalpy>-3500.0</enthalpy>
+    			<entropy>-8.9</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UA/GG">
+    			<enthalpy>-3700.0</enthalpy>
+    			<entropy>-9.0</entropy>
+    		</hairpin>
+    	<hairpin type="terminal_mismatch" sequence="UC/GA">
+    			<enthalpy>-1700.0</enthalpy>
+    			<entropy>-3.9</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UC/GC">
+    			<enthalpy>-2700.0</enthalpy>
+    			<entropy>-6.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UC/GU">
+    			<enthalpy>-100.0</enthalpy>
+    			<entropy>0.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UG/GA">
+    			<enthalpy>-3100.0</enthalpy>
+    			<entropy>-11.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UG/GG">
+    			<enthalpy>-1500.0</enthalpy>
+    			<entropy>-2.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UU/GU">
+    			<enthalpy>-2800.0</enthalpy>
+    			<entropy>-7.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="UU/GC">
+    			<enthalpy>-2100.0</enthalpy>
+    			<entropy>-4.9</entropy>
+    	</hairpin>
+    	
+    	<hairpin type="terminal_mismatch" sequence="GA/UA">
+    			<enthalpy>-3400.0</enthalpy>
+    			<entropy>-10.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/UC">
+    			<enthalpy>-400.0</enthalpy>
+    			<entropy>0.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/UG">
+    			<enthalpy>-1300.0</enthalpy>
+    			<entropy>-1.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UA">
+    			<enthalpy>-3400.0</enthalpy>
+    			<entropy>-15.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UC">
+    			<enthalpy>-4000.0</enthalpy>
+    			<entropy>-9.5</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/UU">
+    			<enthalpy>-1900.0</enthalpy>
+    			<entropy>-3.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/UA">
+    			<enthalpy>-600.0</enthalpy>
+    			<entropy>-0.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/UG">
+    			<enthalpy>-900.0</enthalpy>
+    			<entropy>3.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/UU">
+    			<enthalpy>-2000.0</enthalpy>
+    			<entropy>-3.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/UC">
+    			<enthalpy>-1100.0</enthalpy>
+    			<entropy>-1.2</entropy>
+    	</hairpin>   	
+    	<hairpin type="terminal_mismatch" sequence="AA/UA">
+    			<enthalpy>-3900.0</enthalpy>
+    			<entropy>-10.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AA/UC">
+    			<enthalpy>-1800.0</enthalpy>
+    			<entropy>-3.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AA/UG">
+    			<enthalpy>-4800.0</enthalpy>
+    			<entropy>-1.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UA">
+    			<enthalpy>-2300.0</enthalpy>
+    			<entropy>-5.3</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UC">
+    			<enthalpy>-6000.0</enthalpy>
+    			<entropy>-21.6</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AC/UU">
+    			<enthalpy>-2900.0</enthalpy>
+    			<entropy>-8.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AG/UA">
+    			<enthalpy>-3100.0</enthalpy>
+    			<entropy>-7.3</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AG/UG">
+    			<enthalpy>-4700.0</enthalpy>
+    			<entropy>-12.4</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AU/UC">
+    			<enthalpy>-6090.0</enthalpy>
+    			<entropy>-18.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="AU/UU">
+    			<enthalpy>-5200.0</enthalpy>
+    			<entropy>-14.6</entropy>
+    	</hairpin>    	
+    	<hairpin type="terminal_mismatch" sequence="GA/CA">
+    			<enthalpy>-5200.0</enthalpy>
+    			<entropy>-13.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/CC">
+    			<enthalpy>-5300.0</enthalpy>
+    			<entropy>-13.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GA/CG">
+    			<enthalpy>-5600.0</enthalpy>
+    			<entropy>-13.9</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CA">
+    			<enthalpy>-7200.0</enthalpy>
+    			<entropy>-19.6</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CC">
+    			<enthalpy>-1000.0</enthalpy>
+    			<entropy>-0.2</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GC/CU">
+    			<enthalpy>-2200.0</enthalpy>
+    			<entropy>-4.0</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/CA">
+    			<enthalpy>-7100.0</enthalpy>
+    			<entropy>-17.8</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GG/CG">
+    			<enthalpy>-6200.0</enthalpy>
+    			<entropy>-15.1</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/CC">
+    			<enthalpy>-2000.0</enthalpy>
+    			<entropy>-12.7</entropy>
+    		</hairpin>
+    		<hairpin type="terminal_mismatch" sequence="GU/CU">
+    			<enthalpy>-4600.0</enthalpy>
+    			<entropy>-12.5</entropy>
+    	</hairpin>
+    	
+    	<closure type="per_A/U">
+    		<enthalpy>600.0</enthalpy>
+    	</closure>
+    	<closure type="per_U/A">
+    		<enthalpy>600.0</enthalpy>
+    	</closure>
+    	<closure type="per_U/G">
+    		<enthalpy>600.0</enthalpy>
+    	</closure>
+    	<closure type="per_G/U">
+    		<enthalpy>-700.0</enthalpy>
+    	</closure>
+    	<closure type="per_G/A_notGU">
+    		<enthalpy>-800.0</enthalpy>
+    	</closure>
+    	<closure type="per_U/U_notGU">
+    		<enthalpy>-800.0</enthalpy>
+    	</closure>
+    	<closure type="per_G/G_with_5purine">
+    		<enthalpy>-800.0</enthalpy>
+    	</closure>
+    	
+    	<hairpin size="3">
+    		<entropy>-15.5</entropy>
+    	</hairpin>
+    	
+    	<hairpin size="4">
+    		<entropy>-15.8</entropy>
+    	</hairpin>
+    	<hairpin size="5">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="6">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="7">
+    		<entropy>-16.1</entropy>
+    	</hairpin>
+    	<hairpin size="8">
+    		<entropy>-15.8</entropy>
+    	</hairpin>
+    	<hairpin size="9">
+    		<entropy>-17.7</entropy>
+    	</hairpin>
+    </data>

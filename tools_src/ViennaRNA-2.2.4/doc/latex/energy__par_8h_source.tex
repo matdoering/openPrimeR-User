@@ -1,0 +1,105 @@
+\hypertarget{energy__par_8h_source}{}\section{energy\+\_\+par.\+h}
+\label{energy__par_8h_source}\index{Vienna\+R\+N\+A/energy\+\_\+par.\+h@{Vienna\+R\+N\+A/energy\+\_\+par.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{   prototypes for energy\_par.c}
+00003 \textcolor{comment}{*/}
+00004 
+00005 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_ENERGY\_PAR\_H}
+00006 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_ENERGY\_PAR\_H}
+00007 
+00008 \textcolor{preprocessor}{#include <\hyperlink{energy__const_8h}{ViennaRNA/energy\_const.h}>}
+00009 
+00010 \textcolor{preprocessor}{#define PUBLIC}
+00011 
+00012 
+00013 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} lxc37;   \textcolor{comment}{/* parameter for logarithmic loop}
+00014 \textcolor{comment}{        energy extrapolation            */}
+00015 
+00016 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} stack37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1];
+00017 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} stackdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1]; \textcolor{comment}{/* stack enthalpies */}
+00018 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} entropies[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1];  \textcolor{comment}{/* not used anymore */}
+00019 
+00020 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} hairpin37[31];
+00021 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} hairpindH[31];
+00022 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} bulge37[31];
+00023 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} bulgedH[31];
+00024 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} internal\_loop37[31];
+00025 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} internal\_loopdH[31];
+00026 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} internal2\_energy;
+00027 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} old\_mismatch\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];
+00028 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchI37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00029 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchIdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00030 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatch1nI37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00031 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatch23I37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00032 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatch1nIdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00033 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatch23IdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* interior loop mismatches */}
+00034 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchH37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* same for hairpins */}
+00035 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchM37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* same for multiloops */}
+00036 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchHdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* same for hairpins */}
+00037 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchMdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];  \textcolor{comment}{/* same for multiloops */}
+00038 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchExt37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];
+00039 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} mismatchExtdH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];
+00040 
+00041 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} dangle5\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5];      \textcolor{comment}{/* 5' dangle exterior of pair */}
+00042 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} dangle3\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5];      \textcolor{comment}{/* 3' dangle */}
+00043 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} dangle3\_dH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5];       \textcolor{comment}{/* corresponding enthalpies */}
+00044 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} dangle5\_dH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5];
+00045 
+00046 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int11\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5]; \textcolor{comment}{/* 1x1 interior loops */}
+00047 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int11\_dH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5];
+00048 
+00049 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int21\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5][5]; \textcolor{comment}{/* 2x1 interior loops */}
+00050 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int21\_dH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5][5];
+00051 
+00052 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int22\_37[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5][5][5]; \textcolor{comment}{/* 2x2 interior loops */}
+00053 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} int22\_dH[\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][\hyperlink{energy__const_8h_a5e75221c779d618eab81e096f37e32ce}{NBPAIRS}+1][5][5][5][5];
+00054 
+00055 \textcolor{comment}{/* constants for linearly destabilizing contributions for multi-loops}
+00056 \textcolor{comment}{   F = ML\_closing + ML\_intern*(k-1) + ML\_BASE*u  */}
+00057 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_BASE37;
+00058 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_BASEdH;
+00059 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_closing37;
+00060 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_closingdH;
+00061 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_intern37;
+00062 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ML\_interndH;
+00063 
+00064 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} TripleC37;
+00065 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} TripleCdH;
+00066 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} MultipleCA37;
+00067 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} MultipleCAdH;
+00068 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} MultipleCB37;
+00069 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} MultipleCBdH;
+00070 
+00071 \textcolor{comment}{/* Ninio-correction for asymmetric internal loops with branches n1 and n2 */}
+00072 \textcolor{comment}{/*    ninio\_energy = min\{max\_ninio, |n1-n2|*F\_ninio[min\{4.0, n1, n2\}] \} */}
+00073 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  MAX\_NINIO;                   \textcolor{comment}{/* maximum correction */}
+00074 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} ninio37;
+00075 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} niniodH;
+00076 \textcolor{comment}{/* penalty for helices terminated by AU (actually not GC) */}
+00077 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} TerminalAU37;
+00078 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} TerminalAUdH;
+00079 \textcolor{comment}{/* penalty for forming bi-molecular duplex */}
+00080 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} DuplexInit37;
+00081 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} DuplexInitdH;
+00082 \textcolor{comment}{/* stabilizing contribution due to special hairpins of size 4 (tetraloops) */}
+00083 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} Tetraloops[];  \textcolor{comment}{/* string containing the special tetraloops */}
+00084 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  Tetraloop37[];  \textcolor{comment}{/* Bonus energy for special tetraloops */}
+00085 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  TetraloopdH[];
+00086 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} Triloops[];    \textcolor{comment}{/* string containing the special triloops */}
+00087 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  Triloop37[]; \textcolor{comment}{/* Bonus energy for special Triloops */}
+00088 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  TriloopdH[]; \textcolor{comment}{/* Bonus energy for special Triloops */}
+00089 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} Hexaloops[];    \textcolor{comment}{/* string containing the special triloops */}
+00090 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  Hexaloop37[]; \textcolor{comment}{/* Bonus energy for special Triloops */}
+00091 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  HexaloopdH[]; \textcolor{comment}{/* Bonus energy for special Triloops */}
+00092 
+00093 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} GQuadAlpha37;
+00094 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} GQuadAlphadH;
+00095 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} GQuadBeta37;
+00096 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} GQuadBetadH;
+00097 
+00098 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} Tmeasure;       \textcolor{comment}{/* temperature of param measurements */}
+00099 
+00100 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

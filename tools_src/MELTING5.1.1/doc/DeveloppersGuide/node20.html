@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>General information</TITLE>
+<META NAME="description" CONTENT="General information">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html302"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html298"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html292"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html300"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html303"
+  HREF="node21.html">List of existing nodes</A>
+<B> Up:</B> <A NAME="tex2html299"
+  HREF="node19.html">XML Files</A>
+<B> Previous:</B> <A NAME="tex2html293"
+  HREF="node19.html">XML Files</A>
+ &nbsp; <B>  <A NAME="tex2html301"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000111000000000000000">
+General information</A>
+</H2>
+
+<P>
+All the XML files containing the thermodynamic parameters are in the Data folder. In each 
+file, I put the data set of a scientific article or I collected the complementary data set 
+of several articles. 
+<BR>
+<BR>
+I have used the name <SPAN  CLASS="textit">data</SPAN> for the main node of each XML file. The name of a <SPAN  CLASS="textit">data</SPAN>
+subnode is choosen depending on the structure and the model they are made for. You can see the different
+existing subnode and existing attributes in the following section.
+The enthalpy and entropy value are in cal/mol and are put as character of the subsubnodes enthalpy
+and entropy. (see the following example)
+
+<P>
+<PRE>
+&lt;data type="crick"&gt;
+		&lt;neighbor sequence="AA/TT"&gt;
+	        &lt;enthalpy&gt;-7900.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-22.2&lt;/entropy&gt;
+	    &lt;/neighbor&gt; 
+	   	&lt;neighbor sequence="AC/TG"&gt;
+	        &lt;enthalpy&gt;-8400.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-22.4&lt;/entropy&gt;
+	   	&lt;/neighbor&gt; 
+	   	
+	   	[...]
+	   	
+	   	 &lt;initiation type="per-G/C"&gt;
+            &lt;enthalpy&gt;100.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-2.8&lt;/entropy&gt;
+        &lt;/initiation&gt;  
+        
+        &lt;symmetry&gt;
+            &lt;enthalpy&gt;0.0&lt;/enthalpy&gt;
+            &lt;entropy&gt;-1.4&lt;/entropy&gt;
+        &lt;/symmetry&gt;
+&lt;/data&gt;
+</PRE>
+
+<P>
+Each enthalpy and entropy value are stocked into a Thermodynamics object. (see the Javadoc for the
+Thermodynamics class from melting package)
+
+<P>
+<BR><HR>
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Thermodynamic model for inosine computation</TITLE>
+<META NAME="description" CONTENT="Thermodynamic model for inosine computation">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html148"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html144"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html140"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html146"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html149"
+  HREF="node9.html">How to create a</A>
+<B> Up:</B> <A NAME="tex2html145"
+  HREF="node5.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html141"
+  HREF="node7.html">Thermodynamic model for single</A>
+ &nbsp; <B>  <A NAME="tex2html147"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00050300000000000000">
+Thermodynamic model for inosine computation</A>
+</H3>
+
+<P>
+If it is possible, you directly can create a new class which extends the InosineNNMethod class 
+(melting.patternModels.wobble). 
+<BR>
+<BR>
+The InosineNNMethod class already implements the following public functions of the PatternComputationMethod interface.: 
+<SPAN  CLASS="textit">ThermoResult computeThermodynamics(NucleotidSequences sequences,int pos1, int pos2, ThermoResult result)</SPAN>,
+and <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN>. 
+<BR>
+<BR>
+An InosineNNMethod can compute the enthalpy and entropy of a Crick's pair containing an inosine base by adding
+the thermodynamic parameters for each Crick's pair containing an inosine base. 
+The implemented function <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN> 
+can determine if a thermodynamic parameter for one of the Crick's pair containing an inosine base is missing. 
+<BR>
+<BR>
+Finally, the implemented function <SPAN  CLASS="textit">int[] correctPositions(int pos1, int pos2, int duplexLength)</SPAN> is necessary
+to take into account the adjacent base pairs of the base pair containing the inosine.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

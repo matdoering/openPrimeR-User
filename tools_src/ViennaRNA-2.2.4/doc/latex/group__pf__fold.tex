@@ -1,0 +1,704 @@
+\hypertarget{group__pf__fold}{}\section{Computing Partition Functions and Pair Probabilities}
+\label{group__pf__fold}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+
+
+This section provides information about all functions and variables related to the calculation of the partition function and base pair probabilities.  
+
+
+Collaboration diagram for Computing Partition Functions and Pair Probabilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__pf__fold}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__mea__fold}{Compute the structure with maximum expected accuracy (\+M\+E\+A)}
+\item 
+\hyperlink{group__centroid__fold}{Compute the centroid structure}
+\item 
+\hyperlink{group__pf__cofold}{Partition Function for two hybridized Sequences}
+\begin{DoxyCompactList}\small\item\em Partition Function Cofolding. \end{DoxyCompactList}\item 
+\hyperlink{group__up__cofold}{Partition Function for two hybridized Sequences as a stepwise Process}
+\begin{DoxyCompactList}\small\item\em Partition Function Cofolding as a stepwise process. \end{DoxyCompactList}\item 
+\hyperlink{group__consensus__pf__fold}{Partition Function and Base Pair Probabilities for Sequence Alignment(s)}
+\item 
+\hyperlink{group__local__pf__fold}{Partition functions for locally stable secondary structures}
+\item 
+\hyperlink{group__kl__neighborhood__pf}{Calculate Partition Functions of a Distance Based Partitioning}
+\begin{DoxyCompactList}\small\item\em Compute the partition function and stochastically sample secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{boltzmann__sampling_8h}{boltzmann\+\_\+sampling.\+h}
+\begin{DoxyCompactList}\small\item\em Boltzmann Sampling of secondary structures from the ensemble. \end{DoxyCompactList}\item 
+file \hyperlink{part__func_8h}{part\+\_\+func.\+h}
+\begin{DoxyCompactList}\small\item\em Partition function of single R\+N\+A sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given R\+N\+A sequence, or sequence alignment. \end{DoxyCompactList}\item 
+float \hyperlink{group__pf__fold_ga59935ba485ac90f0efb5a38e2962d879}{vrna\+\_\+pf\+\_\+fold} (const char $\ast$seq, char $\ast$structure, \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an R\+N\+A sequence using a comparative method. \end{DoxyCompactList}\item 
+float \hyperlink{group__pf__fold_ga6dc133fce577fc0370986f3a3301cd10}{vrna\+\_\+pf\+\_\+circfold} (const char $\ast$seq, char $\ast$structure, \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for a circular R\+N\+A sequences using a comparative method. \end{DoxyCompactList}\item 
+double \hyperlink{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr} (int length, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. \end{DoxyCompactList}\item 
+double \hyperlink{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+\hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} $\ast$ \hyperlink{group__pf__fold_ga26e3cc2eb127a35625572e9275c24ee4}{vrna\+\_\+stack\+\_\+prob} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double cutoff)
+\begin{DoxyCompactList}\small\item\em Compute stacking probabilities. \end{DoxyCompactList}\item 
+float \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par} (const char $\ast$sequence, char $\ast$structure, \hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$parameters, int calculate\+\_\+bppm, int is\+\_\+constrained, int is\+\_\+circular)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given R\+N\+A sequence. \end{DoxyCompactList}\item 
+float \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ of an R\+N\+A sequence. \end{DoxyCompactList}\item 
+float \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold} (const char $\ast$sequence, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function of a circular R\+N\+A sequence. \end{DoxyCompactList}\item 
+void \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays} (void)
+\begin{DoxyCompactList}\small\item\em Free arrays for the partition function recursions. \end{DoxyCompactList}\item 
+void \hyperlink{group__pf__fold_ga384e927890f9c034ff09fa66da102d28}{update\+\_\+pf\+\_\+params} (int length)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+void \hyperlink{group__pf__fold_gaafe2d1b21f5418b123b088aa395e827d}{update\+\_\+pf\+\_\+params\+\_\+par} (int length, \hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$parameters)
+\begin{DoxyCompactList}\small\item\em Recalculate energy parameters. \end{DoxyCompactList}\item 
+\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$ \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm} (void)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the base pair probability array
+
+Accessing the base pair probabilities for a pair (i,j) is achieved by. \end{DoxyCompactList}\item 
+int \hyperlink{group__pf__fold_ga42faebdfce6f070c5f89adfc8427525c}{get\+\_\+pf\+\_\+arrays} (short $\ast$$\ast$S\+\_\+p, short $\ast$$\ast$S1\+\_\+p, char $\ast$$\ast$ptype\+\_\+p, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$qb\+\_\+p, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$qm\+\_\+p, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$q1k\+\_\+p, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$qln\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Get the pointers to (almost) all relavant computation arrays used in partition function computation. \end{DoxyCompactList}\item 
+double \hyperlink{group__pf__fold_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance} (int length)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance of the last partition function computation. \end{DoxyCompactList}\item 
+double \hyperlink{group__pf__fold_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{mean\+\_\+bp\+\_\+distance\+\_\+pr} (int length, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+\hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} $\ast$ \hyperlink{group__pf__fold_gaa3bf26a0ee2e9f2225afbaee44a37264}{vrna\+\_\+plist\+\_\+from\+\_\+probs} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double cut\+\_\+off)
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} from base pair probability matrix. \end{DoxyCompactList}\item 
+void \hyperlink{group__pf__fold_gacfdacc119b749bccf939de445afea07b}{assign\+\_\+plist\+\_\+from\+\_\+pr} (\hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} $\ast$$\ast$pl, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$probs, int length, double cutoff)
+\begin{DoxyCompactList}\small\item\em Create a vrna\+\_\+plist\+\_\+t from a probability matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This section provides information about all functions and variables related to the calculation of the partition function and base pair probabilities. 
+
+Instead of the minimum free energy structure the partition function of all possible structures and from that the pairing probability for every possible pair can be calculated, using a dynamic programming algorithm as described in \cite{mccaskill:1990}. 
+
+\subsection{Function Documentation}
+\hypertarget{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+pf@{vrna\+\_\+pf}}
+\index{vrna\+\_\+pf@{vrna\+\_\+pf}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+pf}]{\setlength{\rightskip}{0pt plus 5cm}float vrna\+\_\+pf (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
+\item[{char $\ast$}]{structure}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute the partition function $Q$ for a given R\+N\+A sequence, or sequence alignment. 
+
+If {\itshape structure} is not a N\+U\+L\+L pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If the parameter calculate\+\_\+bppm is set to 0 base pairing probabilities will not be computed (saving C\+P\+U time), otherwise after calculations took place \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} of type \hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da1608d3aa78905fc39e0d25a624ac9512}{V\+R\+N\+A\+\_\+\+V\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+N\+G\+L\+E}, and \hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da056345f1bcfe7cd595d1fd437c05246d}{V\+R\+N\+A\+\_\+\+V\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+L\+I\+G\+N\+M\+E\+N\+T}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__pf__fold_ga59935ba485ac90f0efb5a38e2962d879}{vrna\+\_\+pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga6dc133fce577fc0370986f3a3301cd10}{vrna\+\_\+pf\+\_\+circfold()}, \hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}, \hyperlink{group__consensus__pf__fold_gaef750636c70e597a85ee139197a4350d}{vrna\+\_\+pf\+\_\+alifold()}, \hyperlink{group__consensus__pf__fold_ga017209394a4c1e68d96cd47e61d16d25}{vrna\+\_\+pf\+\_\+circalifold()}, \hyperlink{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}{vrna\+\_\+db\+\_\+from\+\_\+probs()}, \hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}, \hyperlink{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}{vrna\+\_\+aln\+\_\+pinfo()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em vc} & The fold compound data structure \\
+\hline
+\mbox{\tt in,out}  & {\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+L\+L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga59935ba485ac90f0efb5a38e2962d879}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+pf\+\_\+fold@{vrna\+\_\+pf\+\_\+fold}}
+\index{vrna\+\_\+pf\+\_\+fold@{vrna\+\_\+pf\+\_\+fold}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+pf\+\_\+fold}]{\setlength{\rightskip}{0pt plus 5cm}float vrna\+\_\+pf\+\_\+fold (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{seq, }
+\item[{char $\ast$}]{structure, }
+\item[{{\bf vrna\+\_\+plist\+\_\+t} $\ast$$\ast$}]{pl}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga59935ba485ac90f0efb5a38e2962d879}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for an R\+N\+A sequence using a comparative method. 
+
+This simplified interface to \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for an R\+N\+A sequence using default options. Memory required for dynamic programming (D\+P) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled D\+P matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_ga6dc133fce577fc0370986f3a3301cd10}{vrna\+\_\+pf\+\_\+circfold()}, \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & R\+N\+A sequence \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+L\+L) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} to store pairing probabilities (Maybe N\+U\+L\+L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga6dc133fce577fc0370986f3a3301cd10}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+pf\+\_\+circfold@{vrna\+\_\+pf\+\_\+circfold}}
+\index{vrna\+\_\+pf\+\_\+circfold@{vrna\+\_\+pf\+\_\+circfold}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+pf\+\_\+circfold}]{\setlength{\rightskip}{0pt plus 5cm}float vrna\+\_\+pf\+\_\+circfold (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{seq, }
+\item[{char $\ast$}]{structure, }
+\item[{{\bf vrna\+\_\+plist\+\_\+t} $\ast$$\ast$}]{pl}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga6dc133fce577fc0370986f3a3301cd10}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for a circular R\+N\+A sequences using a comparative method. 
+
+This simplified interface to \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for a circular R\+N\+A sequence using default options. Memory required for dynamic programming (D\+P) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled D\+P matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+Folding of circular R\+N\+A sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_ga59935ba485ac90f0efb5a38e2962d879}{vrna\+\_\+pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & A circular R\+N\+A sequence \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+L\+L) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} to store pairing probabilities (Maybe N\+U\+L\+L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr@{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}}
+\index{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr@{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}]{\setlength{\rightskip}{0pt plus 5cm}double vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr (
+\begin{DoxyParamCaption}
+\item[{int}]{length, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$}]{pr}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. 
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the sequence \\
+\hline
+{\em pr} & The matrix containing the base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+mean\+\_\+bp\+\_\+distance@{vrna\+\_\+mean\+\_\+bp\+\_\+distance}}
+\index{vrna\+\_\+mean\+\_\+bp\+\_\+distance@{vrna\+\_\+mean\+\_\+bp\+\_\+distance}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+mean\+\_\+bp\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}double vrna\+\_\+mean\+\_\+bp\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble. 
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga26e3cc2eb127a35625572e9275c24ee4}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+stack\+\_\+prob@{vrna\+\_\+stack\+\_\+prob}}
+\index{vrna\+\_\+stack\+\_\+prob@{vrna\+\_\+stack\+\_\+prob}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+stack\+\_\+prob}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+plist\+\_\+t}$\ast$ vrna\+\_\+stack\+\_\+prob (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
+\item[{double}]{cutoff}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga26e3cc2eb127a35625572e9275c24ee4}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute stacking probabilities. 
+
+For each possible base pair $(i,j)$, compute the probability of a stack $(i,j)$, $(i+1, j-1)$.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure with precomputed base pair probabilities \\
+\hline
+{\em cutoff} & A cutoff value that limits the output to stacks with $ p > \textrm{cutoff} $. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of stacks with enclosing base pair $(i,j)$ and probabiltiy $ p $ 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!pf\+\_\+fold\+\_\+par@{pf\+\_\+fold\+\_\+par}}
+\index{pf\+\_\+fold\+\_\+par@{pf\+\_\+fold\+\_\+par}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{pf\+\_\+fold\+\_\+par}]{\setlength{\rightskip}{0pt plus 5cm}float pf\+\_\+fold\+\_\+par (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{sequence, }
+\item[{char $\ast$}]{structure, }
+\item[{{\bf vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$}]{parameters, }
+\item[{int}]{calculate\+\_\+bppm, }
+\item[{int}]{is\+\_\+constrained, }
+\item[{int}]{is\+\_\+circular}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute the partition function $Q$ for a given R\+N\+A sequence. 
+
+If {\itshape structure} is not a N\+U\+L\+L pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If \hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained} is not 0, the {\itshape structure} string is interpreted on input as a list of constraints for the folding. The character \char`\"{}x\char`\"{} marks bases that must be unpaired, matching brackets \char`\"{} ( ) \char`\"{} denote base pairs, all other characters are ignored. Any pairs conflicting with the constraint will be forbidden. This is usually sufficient to ensure the constraints are honored. If the parameter calculate\+\_\+bppm is set to 0 base pairing probabilities will not be computed (saving C\+P\+U time), otherwise after calculations took place \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000094}{Deprecated}]Use \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} instead\end{DoxyRefDesc}
+
+
+\begin{DoxyNote}{Note}
+The global array \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()} 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack} was set the base pair probabilities are already computed and may be accessed for further usage via the \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()} function. A call of \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__struct__utils_ga129d81c4a1ead793c5b2311333e03dfa}{bppm\+\_\+to\+\_\+structure()}, \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}, \hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}, \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em sequence} & The R\+N\+A sequence input \\
+\hline
+\mbox{\tt in,out}  & {\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be N\+U\+L\+L, too) \\
+\hline
+\mbox{\tt in}  & {\em parameters} & Data structure containing the precalculated Boltzmann factors \\
+\hline
+\mbox{\tt in}  & {\em calculate\+\_\+bppm} & Switch to Base pair probability calculations on/off (0==off) \\
+\hline
+\mbox{\tt in}  & {\em is\+\_\+constrained} & Switch to indicate that a structure contraint is passed via the structure argument (0==off) \\
+\hline
+\mbox{\tt in}  & {\em is\+\_\+circular} & Switch to (de-\/)activate postprocessing steps in case R\+N\+A sequence is circular (0==off) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!pf\+\_\+fold@{pf\+\_\+fold}}
+\index{pf\+\_\+fold@{pf\+\_\+fold}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{pf\+\_\+fold}]{\setlength{\rightskip}{0pt plus 5cm}float pf\+\_\+fold (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{sequence, }
+\item[{char $\ast$}]{structure}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute the partition function $Q$ of an R\+N\+A sequence. 
+
+If {\itshape structure} is not a N\+U\+L\+L pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If \hyperlink{fold__vars_8h_a0afc287c2464866d94858c39175154af}{fold\+\_\+constrained} is not 0, the {\itshape structure} string is interpreted on input as a list of constraints for the folding. The character \char`\"{}x\char`\"{} marks bases that must be unpaired, matching brackets \char`\"{} ( ) \char`\"{} denote base pairs, all other characters are ignored. Any pairs conflicting with the constraint will be forbidden. This is usually sufficient to ensure the constraints are honored. If \hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack} has been set to 0 base pairing probabilities will not be computed (saving C\+P\+U time), otherwise \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyNote}{Note}
+The global array \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}. 
+
+{\bfseries Open\+M\+P\+:} This function is not entirely threadsafe. While the recursions are working on their own copies of data the model details for the recursions are determined from the global settings just before entering the recursions. Consider using \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()} for a really threadsafe implementation. 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+This function takes its model details from the global variables provided in {\itshape R\+N\+Alib} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack} was set the base pair probabilities are already computed and may be accessed for further usage via the \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()} function. A call of \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}, \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}, \hyperlink{group__struct__utils_ga129d81c4a1ead793c5b2311333e03dfa}{bppm\+\_\+to\+\_\+structure()}, \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The R\+N\+A sequence input \\
+\hline
+{\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be N\+U\+L\+L, too) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!pf\+\_\+circ\+\_\+fold@{pf\+\_\+circ\+\_\+fold}}
+\index{pf\+\_\+circ\+\_\+fold@{pf\+\_\+circ\+\_\+fold}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{pf\+\_\+circ\+\_\+fold}]{\setlength{\rightskip}{0pt plus 5cm}float pf\+\_\+circ\+\_\+fold (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{sequence, }
+\item[{char $\ast$}]{structure}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute the partition function of a circular R\+N\+A sequence. 
+
+\begin{DoxyNote}{Note}
+The global array \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} is deprecated and the user who wants the calculated base pair probabilities for further computations is advised to use the function \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()}. 
+
+{\bfseries Open\+M\+P\+:} This function is not entirely threadsafe. While the recursions are working on their own copies of data the model details for the recursions are determined from the global settings just before entering the recursions. Consider using \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()} for a really threadsafe implementation. 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+This function takes its model details from the global variables provided in {\itshape R\+N\+Alib} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+After successful run the hidden folding matrices are filled with the appropriate Boltzmann factors. Depending on whether the global variable \hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\+\_\+backtrack} was set the base pair probabilities are already computed and may be accessed for further usage via the \hyperlink{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{export\+\_\+bppm()} function. A call of \hyperlink{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{free\+\_\+pf\+\_\+arrays()} will free all memory allocated by this function. Successive calls will first free previously allocated memory before starting the computation. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000095}{Deprecated}]Use \hyperlink{group__pf__fold_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} instead! 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em sequence} & The R\+N\+A sequence input \\
+\hline
+\mbox{\tt in,out}  & {\em structure} & A pointer to a char array where a base pair probability information can be stored in a pseudo-\/dot-\/bracket notation (may be N\+U\+L\+L, too) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\end{DoxyRefDesc}
+\hypertarget{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!free\+\_\+pf\+\_\+arrays@{free\+\_\+pf\+\_\+arrays}}
+\index{free\+\_\+pf\+\_\+arrays@{free\+\_\+pf\+\_\+arrays}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{free\+\_\+pf\+\_\+arrays}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+pf\+\_\+arrays (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gae73db3f49a94f0f72e067ecd12681dbd}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Free arrays for the partition function recursions. 
+
+Call this function if you want to free all allocated memory associated with the partition function forward recursion. \begin{DoxyNote}{Note}
+Successive calls of \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()} already check if they should free any memory from a previous run. 
+
+{\bfseries Open\+M\+P notice\+:}~\newline
+ This function should be called before leaving a thread in order to avoid leaking memory
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000097}{Deprecated}]See vrna\+\_\+fold\+\_\+compound\+\_\+t and its related functions for how to free memory occupied by the dynamic programming matrices\end{DoxyRefDesc}
+
+
+\begin{DoxyPostcond}{Postcondition}
+All memory allocated by \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}, \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()} or \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()} will be free\textquotesingle{}d 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}, \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()} 
+\end{DoxySeeAlso}
+\hypertarget{group__pf__fold_ga384e927890f9c034ff09fa66da102d28}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!update\+\_\+pf\+\_\+params@{update\+\_\+pf\+\_\+params}}
+\index{update\+\_\+pf\+\_\+params@{update\+\_\+pf\+\_\+params}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{update\+\_\+pf\+\_\+params}]{\setlength{\rightskip}{0pt plus 5cm}void update\+\_\+pf\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga384e927890f9c034ff09fa66da102d28}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Recalculate energy parameters. 
+
+Call this function to recalculate the pair matrix and energy parameters after a change in folding parameters like \hyperlink{group__model__details_gab4b11c8d9c758430960896bc3fe82ead}{temperature}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000098}{Deprecated}]Use \hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()} instead\end{DoxyRefDesc}
+\hypertarget{group__pf__fold_gaafe2d1b21f5418b123b088aa395e827d}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!update\+\_\+pf\+\_\+params\+\_\+par@{update\+\_\+pf\+\_\+params\+\_\+par}}
+\index{update\+\_\+pf\+\_\+params\+\_\+par@{update\+\_\+pf\+\_\+params\+\_\+par}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{update\+\_\+pf\+\_\+params\+\_\+par}]{\setlength{\rightskip}{0pt plus 5cm}void update\+\_\+pf\+\_\+params\+\_\+par (
+\begin{DoxyParamCaption}
+\item[{int}]{length, }
+\item[{{\bf vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gaafe2d1b21f5418b123b088aa395e827d}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Recalculate energy parameters. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000099}{Deprecated}]Use \hyperlink{group__energy__parameters_ga8e7ac4fab3b0cc03afbc134eaafb3525}{vrna\+\_\+exp\+\_\+params\+\_\+subst()} instead\end{DoxyRefDesc}
+\hypertarget{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!export\+\_\+bppm@{export\+\_\+bppm}}
+\index{export\+\_\+bppm@{export\+\_\+bppm}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{export\+\_\+bppm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}$\ast$ export\+\_\+bppm (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gac5ac7ee281aae1c5cc5898a841178073}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get a pointer to the base pair probability array
+
+Accessing the base pair probabilities for a pair (i,j) is achieved by. 
+
+
+\begin{DoxyCode}
+00001 FLT\_OR\_DBL *pr  = export\_bppm();
+00002 pr\_ij           = pr[iindx[i]-j];
+\end{DoxyCode}
+
+
+\begin{DoxyPrecond}{Precondition}
+Call \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}, \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()} or \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()} first to fill the base pair probability array
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()}, \hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise()}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+A pointer to the base pair probability array 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga42faebdfce6f070c5f89adfc8427525c}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!get\+\_\+pf\+\_\+arrays@{get\+\_\+pf\+\_\+arrays}}
+\index{get\+\_\+pf\+\_\+arrays@{get\+\_\+pf\+\_\+arrays}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{get\+\_\+pf\+\_\+arrays}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+pf\+\_\+arrays (
+\begin{DoxyParamCaption}
+\item[{short $\ast$$\ast$}]{S\+\_\+p, }
+\item[{short $\ast$$\ast$}]{S1\+\_\+p, }
+\item[{char $\ast$$\ast$}]{ptype\+\_\+p, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$}]{qb\+\_\+p, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$}]{qm\+\_\+p, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$}]{q1k\+\_\+p, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$$\ast$}]{qln\+\_\+p}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga42faebdfce6f070c5f89adfc8427525c}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get the pointers to (almost) all relavant computation arrays used in partition function computation. 
+
+\begin{DoxyPrecond}{Precondition}
+In order to assign meaningful pointers, you have to call \hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()} or \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()} first! 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_gac4f95bee734b2563a3d6e9932117ebdf}{pf\+\_\+fold\+\_\+par()}, \hyperlink{group__pf__fold_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()}, \hyperlink{group__pf__fold_ga819ce5fca8984004ac81c4a3b04cb735}{pf\+\_\+circ\+\_\+fold()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em S\+\_\+p} & A pointer to the \textquotesingle{}S\textquotesingle{} array (integer representation of nucleotides) \\
+\hline
+\mbox{\tt out}  & {\em S1\+\_\+p} & A pointer to the \textquotesingle{}S1\textquotesingle{} array (2nd integer representation of nucleotides) \\
+\hline
+\mbox{\tt out}  & {\em ptype\+\_\+p} & A pointer to the pair type matrix \\
+\hline
+\mbox{\tt out}  & {\em qb\+\_\+p} & A pointer to the Q\textsuperscript{B} matrix \\
+\hline
+\mbox{\tt out}  & {\em qm\+\_\+p} & A pointer to the Q\textsuperscript{M} matrix \\
+\hline
+\mbox{\tt out}  & {\em q1k\+\_\+p} & A pointer to the 5\textquotesingle{} slice of the Q matrix ( $q1k(k) = Q(1, k)$) \\
+\hline
+\mbox{\tt out}  & {\em qln\+\_\+p} & A pointer to the 3\textquotesingle{} slice of the Q matrix ( $qln(l) = Q(l, n)$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non Zero if everything went fine, 0 otherwise 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_ga79cbc375af65f11609feb6b055269e7d}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!mean\+\_\+bp\+\_\+distance@{mean\+\_\+bp\+\_\+distance}}
+\index{mean\+\_\+bp\+\_\+distance@{mean\+\_\+bp\+\_\+distance}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{mean\+\_\+bp\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}double mean\+\_\+bp\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_ga79cbc375af65f11609feb6b055269e7d}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get the mean base pair distance of the last partition function computation. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000100}{Deprecated}]Use \hyperlink{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()} or \hyperlink{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()} instead! \begin{DoxySeeAlso}{See also}
+\hyperlink{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()}, \hyperlink{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()}
+\end{DoxySeeAlso}
+\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mean base pair distance in thermodynamic ensemble 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!mean\+\_\+bp\+\_\+distance\+\_\+pr@{mean\+\_\+bp\+\_\+distance\+\_\+pr}}
+\index{mean\+\_\+bp\+\_\+distance\+\_\+pr@{mean\+\_\+bp\+\_\+distance\+\_\+pr}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{mean\+\_\+bp\+\_\+distance\+\_\+pr}]{\setlength{\rightskip}{0pt plus 5cm}double mean\+\_\+bp\+\_\+distance\+\_\+pr (
+\begin{DoxyParamCaption}
+\item[{int}]{length, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$}]{pr}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gad5ba36cef8d01cf4244cc09b9bf1ce1d}
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble. 
+
+This is a threadsafe implementation of \hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\+\_\+bp\+\_\+dist()} !
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000101}{Deprecated}]Use \hyperlink{group__pf__fold_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance()} or \hyperlink{group__pf__fold_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the sequence \\
+\hline
+{\em pr} & The matrix containing the base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gaa3bf26a0ee2e9f2225afbaee44a37264}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!vrna\+\_\+plist\+\_\+from\+\_\+probs@{vrna\+\_\+plist\+\_\+from\+\_\+probs}}
+\index{vrna\+\_\+plist\+\_\+from\+\_\+probs@{vrna\+\_\+plist\+\_\+from\+\_\+probs}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{vrna\+\_\+plist\+\_\+from\+\_\+probs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+plist\+\_\+t}$\ast$ vrna\+\_\+plist\+\_\+from\+\_\+probs (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
+\item[{double}]{cut\+\_\+off}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gaa3bf26a0ee2e9f2225afbaee44a37264}
+
+
+{\ttfamily \#include $<$\hyperlink{structure__utils_8h}{Vienna\+R\+N\+A/structure\+\_\+utils.\+h}$>$}
+
+
+
+Create a \hyperlink{group__data__structures_ga8e4eb5e1bfc95776559575beb359af87}{vrna\+\_\+plist\+\_\+t} from base pair probability matrix. 
+
+The probability matrix provided via the \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} is parsed and all pair probabilities above the given threshold are used to create an entry in the plist
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vc} & The fold compound \\
+\hline
+\mbox{\tt in}  & {\em cutoff} & The cutoff value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the plist that is to be created 
+\end{DoxyReturn}
+\hypertarget{group__pf__fold_gacfdacc119b749bccf939de445afea07b}{}\index{Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}!assign\+\_\+plist\+\_\+from\+\_\+pr@{assign\+\_\+plist\+\_\+from\+\_\+pr}}
+\index{assign\+\_\+plist\+\_\+from\+\_\+pr@{assign\+\_\+plist\+\_\+from\+\_\+pr}!Computing Partition Functions and Pair Probabilities@{Computing Partition Functions and Pair Probabilities}}
+\subsubsection[{assign\+\_\+plist\+\_\+from\+\_\+pr}]{\setlength{\rightskip}{0pt plus 5cm}void assign\+\_\+plist\+\_\+from\+\_\+pr (
+\begin{DoxyParamCaption}
+\item[{{\bf vrna\+\_\+plist\+\_\+t} $\ast$$\ast$}]{pl, }
+\item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L} $\ast$}]{probs, }
+\item[{int}]{length, }
+\item[{double}]{cutoff}
+\end{DoxyParamCaption}
+)}\label{group__pf__fold_gacfdacc119b749bccf939de445afea07b}
+
+
+{\ttfamily \#include $<$\hyperlink{structure__utils_8h}{Vienna\+R\+N\+A/structure\+\_\+utils.\+h}$>$}
+
+
+
+Create a vrna\+\_\+plist\+\_\+t from a probability matrix. 
+
+The probability matrix given is parsed and all pair probabilities above the given threshold are used to create an entry in the plist
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+\begin{DoxyNote}{Note}
+This function is threadsafe 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000139}{Deprecated}]Use \hyperlink{group__pf__fold_gaa3bf26a0ee2e9f2225afbaee44a37264}{vrna\+\_\+plist\+\_\+from\+\_\+probs()} instead!\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pl} & A pointer to the vrna\+\_\+plist\+\_\+t that is to be created \\
+\hline
+\mbox{\tt in}  & {\em probs} & The probability matrix used for creating the plist \\
+\hline
+\mbox{\tt in}  & {\em length} & The length of the R\+N\+A sequence \\
+\hline
+\mbox{\tt in}  & {\em cutoff} & The cutoff value \\
+\hline
+\end{DoxyParams}

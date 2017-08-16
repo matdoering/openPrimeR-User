@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New ion species</TITLE>
+<META NAME="description" CONTENT="New ion species">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html243"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html237"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node17.html">New denaturing agent species</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="node15.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html238"
+  HREF="node15.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html246"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00091000000000000000">
+New ion species</A>
+</H2>
+
+<P>
+MELTING is currently using the algorithm from Owczarzy et al, 2008 (see the MELTING documentation
+for the complete reference.)to correct the computed melting temperature depending on the ion 
+concentrations. This algorithm can take into account the effect of monovalent cations and one divalent
+cation : the magnesium.
+<BR>
+<BR><SPAN  CLASS="textbf">1)</SPAN> If the new ion species can be integrated into the algorithm of Owczarzy et al, 2008, you have to change
+the method <SPAN  CLASS="textit">public CorrectionMethod getIonCorrectionMethod (Environment environment)</SPAN> of the 
+RegisterMethods class in the melting.configuration package. Otherwise, you must report to the following 
+section for <SPAN  CLASS="textit">new denaturing agents</SPAN> even thought the new species is not a denaturing agent.
+
+<P>
+<PRE>
+public CorrectionMethod getIonCorrectionMethod
+                                  (Environment environment){
+		
+		// A specific ion correction is required by the user.
+		if (environment.getOptions().containsKey
+		                    (OptionManagement.ionCorrection)){
+		[...]
+		}
+		
+		// No specific ion correction is required, the 
+		// algorithm from Owczarzy et al, 2008 will now be 
+		// used. You have to include your new ion species
+		// here.
+		else{
+		
+		// If it is a new monovalent cation, you must change 
+		// the monovalent concentration.
+		double monovalent = environment.getNa() + environment.getK() 
+		                  + environment.getTris() / 2
+		                  + environment.getNewSpecies();
+		
+		[...]
+		
+		// Here are the important variable you may have to 
+		// change to integrate your new ion species (if it 
+		// is a divalent cation or other ion and you know a 
+		// relationship between magnesium concentration and 
+		// this new ion species.)
+		double Mg = environment.getMg() - environment.getDNTP();
+		double ratio = Math.sqrt(Mg) / monovalent;
+		
+		[...]
+		}
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> If you know a relationship between your new ion species and Na, Mg, Tris or K, don't forget
+to add your new ion species in the different classes computing a sodium equivalence in the
+melting.ionCorrection.SodiumEquivalent package.
+You will have to change the following methods :
+
+<P>
+In the different classes from the melting.ionCorrection.SodiumEquivalent package.
+<PRE>
+public double computeSodiumEquivalent(double Na, double Mg, 
+      double K,double Tris, double dNTP, double newSpecies) {
+		
+		// Change the base implementation in the SodiumEquivalent 
+		// class too.
+		double NaEq = super.getSodiumEquivalent(Na, Mg, K, Tris, 
+		                     dNTP, double newSpecies, parameter);
+
+		[...]
+
+		return NaEq;
+	}
+</PRE>
+
+<P>
+In the SodiumEquivalentMethod interface from the melting.methodInterfaces package.
+<PRE>
+public double computeSodiumEquivalent(double Na, double Mg, 
+            K, double Tris, double dNTP, double newSpecies);
+</PRE>
+
+<P>
+In the ApproximativeMode class from the melting.approximativeMethods
+<PRE>
+public void setUpVariables(HashMap&lt;String, String&gt; options) {
+		this.environment = new Environment(options);
+
+		if (isNaEqPossible()){
+			if (environment.getMg() &gt; 0 || environment.getK() &gt; 0 
+			    || environment.getTris() &gt; 0 
+			    || environment.getNewSpecies() &gt; 0){
+			[...]
+			}
+		[...]
+		}
+		[...]
+	}
+</PRE>
+
+<P>
+In the Helper class from the melting package
+<PRE>
+public static double computesNaEquivalent(Environment 
+                                          environment){
+		double NaEq = environment.getNa() + environment.getK() 
+		              + environment.getTris() / 2 
+		              + environment.getNewSpecies();
+		[...]
+	}
+</PRE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html243"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html237"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node17.html">New denaturing agent species</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="node15.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html238"
+  HREF="node15.html">How to add new</A>
+ &nbsp; <B>  <A NAME="tex2html246"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<hybridization type="dnadna">
+  <nearest_neighbor type="NN">
+    <origine article="Breslauer_1986">
+    <!--/******************************************************************************/
+    /* contains the parameters for DNA/DNA hybridisation of Breslauer et al.      */
+    /* (1986). Proc Natl Acad Sci USA 83 : 3746-3750                              */
+    /******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+           <enthalpy>-9100.0</enthalpy>
+           <entropy>-24.0</entropy>
+	    </neighbor>
+	    <neighbor sequence="AC/TG">
+	         <enthalpy>-6500.0</enthalpy>
+             <entropy>-17.3</entropy>
+	    </neighbor>
+	    <neighbor sequence="AG/TC">
+	        <enthalpy>-7800.0</enthalpy>
+            <entropy>-20.8</entropy>
+	    </neighbor>
+	    <neighbor sequence="AT/TA">
+	        <enthalpy>-8600.0</enthalpy>
+            <entropy>-23.9</entropy>
+	    </neighbor>    
+        <neighbor sequence="CA/GT">
+	        <enthalpy>-5800.0</enthalpy>
+            <entropy>-12.9</entropy>
+	    </neighbor>
+	    <neighbor sequence="CC/GG">
+	        <enthalpy>-11000.0</enthalpy>
+            <entropy>-26.6</entropy>
+	    </neighbor>
+	    <neighbor sequence="CG/GC">
+	        <enthalpy>-11900.0</enthalpy>
+            <entropy>-27.8</entropy>
+	    </neighbor>           
+        <neighbor sequence="GA/CT">
+	        <enthalpy>-5600.0</enthalpy>
+            <entropy>-13.5</entropy>
+	    </neighbor> 
+	    <neighbor sequence="GC/CG">
+	        <enthalpy>-11100.0</enthalpy>
+            <entropy>-26.7</entropy>
+	    </neighbor>                    
+        <neighbor sequence="TA/AT">
+	        <enthalpy>-6000.0</enthalpy>
+            <entropy>-16.9</entropy>
+	    </neighbor> 
+
+	    <initiation type="one_GC_Pair">
+            <enthalpy>0.0</enthalpy>
+            <entropy>-20.1</entropy>
+        </initiation>  
+        <initiation type="all_AT_pairs">
+            <enthalpy>0.0</enthalpy>
+            <entropy>-9.0</entropy>
+        </initiation> 
+
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.3</entropy>
+        </symmetry>     
+    </origine>
+    
+    <origine article="Santalucia_1996">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of SantaLucia et al.     */
+/* (1996). Biochemistry 35 : 3555-3562                                        */
+/******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-8400.0</enthalpy>
+            <entropy>-23.0</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AC/TG">
+	        <enthalpy>-8600.0</enthalpy>
+            <entropy>-23.0</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AG/TC">
+	        <enthalpy>-6100.0</enthalpy>
+            <entropy>-16.1</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AT/TA">
+	        <enthalpy>-6500.0</enthalpy>
+            <entropy>-18.8</entropy>
+	    </neighbor>      
+        <neighbor sequence="CA/GT">
+	        <enthalpy>-7400.0</enthalpy>
+            <entropy>-19.3</entropy>
+	    </neighbor> 
+	    <neighbor sequence="CC/GG">
+	        <enthalpy>-6700.0</enthalpy>
+            <entropy>-15.6</entropy>
+	    </neighbor> 
+	    <neighbor sequence="CG/GC">
+	        <enthalpy>-10100.0</enthalpy>
+            <entropy>-25.5</entropy>
+	    </neighbor> 
+	    <neighbor sequence="GA/CT">
+	        <enthalpy>-7700.0</enthalpy>
+            <entropy>-20.3</entropy>
+	    </neighbor> 
+	    <neighbor sequence="GC/CG">
+	        <enthalpy>-11100.0</enthalpy>
+            <entropy>-28.4</entropy>
+	    </neighbor> 
+	    <neighbor sequence="TA/AT">
+	        <enthalpy>-6300.0</enthalpy>
+            <entropy>-18.5</entropy>
+	    </neighbor>
+        
+        <initiation type="one_GC_Pair">
+            <enthalpy>0.0</enthalpy>
+            <entropy>-5.9</entropy>
+        </initiation>  
+        <initiation type="all_AT_pairs">
+            <enthalpy>0.0</enthalpy>
+            <entropy>-9.0</entropy>
+        </initiation> 
+        
+        <terminal type="5_T/A">
+            <enthalpy>400.0</enthalpy>
+            <entropy>0.0</entropy>
+        </terminal> 
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>  
+    </origine>
+    
+    <origine article="Sugimoto_1996">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of Sugimoto et al.       */
+/* (1996). Nuc Acids Res 24 : 4501-4505                         
+/******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-8000.0</enthalpy>
+            <entropy>-21.9</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AC/TG">
+	        <enthalpy>-9400.0</enthalpy>
+            <entropy>-25.5</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AG/TC">
+	        <enthalpy>-6600.0</enthalpy>
+            <entropy>-16.4</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AT/TA">
+	        <enthalpy>-5600.0</enthalpy>
+            <entropy>-15.2</entropy>
+	    </neighbor>                
+        </first_base>
+        <neighbor sequence="CA/GT">
+	        <enthalpy>-8200.0</enthalpy>
+            <entropy>-21.0</entropy>
+	    </neighbor> 
+	    <neighbor sequence="CC/GG">
+	        <enthalpy>-10900.0</enthalpy>
+            <entropy>-28.4</entropy>
+	    </neighbor> 
+	    <neighbor sequence="CG/GC">
+	       	<enthalpy>-11800.0</enthalpy>
+            <entropy>-29.0</entropy>
+    	</neighbor> 
+	    <neighbor sequence="GA/CT">
+	        <enthalpy>-8800.0</enthalpy>
+            <entropy>-23.5</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="GC/CG">
+	       	<enthalpy>-10500.0</enthalpy>
+            <entropy>-26.4</entropy>
+    	</neighbor> 
+		<neighbor sequence="TA/AT">
+	        <enthalpy>-6600.0</enthalpy>
+            <entropy>-18.4</entropy>
+	   	</neighbor> 
+	    
+        <initiation>
+            <enthalpy>600.0</enthalpy>
+            <entropy>-9.0</entropy>
+        </initiation>  
+        
+		<symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>  
+    </origine>
+    
+    <origine article="Allawi_Santalucia_1997">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of Allawi and SantaLucia */
+/* (1997). Biochemistry 36 : 10581-10594                                      */
+/* CAUTION: DIFFERENT FROM THE MISMATCHES PARAMETERS PRESENTED IN THE SAME    */
+/* ARTICLE.                                                     
+/******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-7900.0</enthalpy>
+            <entropy>-22.2</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AC/TG">
+	        <enthalpy>-8400.0</enthalpy>
+            <entropy>-22.4</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="AG/TC">
+	       	<enthalpy>-7800.0</enthalpy>
+            <entropy>-21.0</entropy>
+    	</neighbor> 
+	    <neighbor sequence="AT/TA">
+	       	<enthalpy>-7200.0</enthalpy>
+            <entropy>-20.4</entropy>
+    	</neighbor>                 
+        </first_base>
+       <neighbor sequence="CA/GT">
+	        <enthalpy>-8500.0</enthalpy>
+            <entropy>-22.7</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="CC/GG">
+	       	<enthalpy>-8000.0</enthalpy>
+            <entropy>-19.9</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="CG/GC">
+	       	<enthalpy>-10600.0</enthalpy>
+            <entropy>-27.2</entropy>
+    	</neighbor> 
+	    	
+        <neighbor sequence="GA/CT">
+	        <enthalpy>-8200.0</enthalpy>
+            <entropy>-22.2</entropy>
+	    </neighbor> 
+	    <neighbor sequence="GC/CG">
+	        <enthalpy>-9800.0</enthalpy>
+            <entropy>-24.4</entropy>
+	    </neighbor> 	
+        <neighbor sequence="TA/AT">
+	        <enthalpy>-7200.0</enthalpy>
+            <entropy>-21.3</entropy>
+	   	</neighbor> 
+
+        <initiation type="per_A/T">
+            <enthalpy>2300.0</enthalpy>
+            <entropy>4.1</entropy>
+        </initiation>  
+        <initiation type="per_G/C">
+            <enthalpy>100.0</enthalpy>
+            <entropy>-2.8</entropy>
+        </initiation>  
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>
+    </origine>
+    
+    <origine article="Santalucia_2004">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of Santalucia et al       */
+/* (2004). Annu. Rev. Biophys. Biomol. Struct 33 : 415-440                                            */                                                    
+/******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-7600.0</enthalpy>
+            <entropy>-21.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AC/TG">
+	       	<enthalpy>-8400.0</enthalpy>
+            <entropy>-22.4</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AG/TC">
+	       	<enthalpy>-7800.0</enthalpy>
+            <entropy>-21.0</entropy>
+    	</neighbor> 
+	    <neighbor sequence="AT/TA">
+	       	<enthalpy>-7200.0</enthalpy>
+            <entropy>-20.4</entropy>
+    	</neighbor>                 
+        <neighbor sequence="CA/GT">
+	        <enthalpy>-8500.0</enthalpy>
+               <entropy>-22.7</entropy>
+	    </neighbor> 
+	    <neighbor sequence="CC/GG">
+	       	<enthalpy>-8000.0</enthalpy>
+            <entropy>-19.9</entropy>
+    	</neighbor> 
+	    <neighbor sequence="CG/GC">
+	      	<enthalpy>-10600.0</enthalpy>
+            <entropy>-27.2</entropy>
+    	</neighbor> 
+        <neighbor sequence="GA/CT">
+	        <enthalpy>-8200.0</enthalpy>
+            <entropy>-22.2</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="GC/CG">
+	       	<enthalpy>-9800.0</enthalpy>
+            <entropy>-24.4</entropy>
+    	</neighbor> 
+        <neighbor sequence="TA/AT">
+	       	<enthalpy>-7200.0</enthalpy>
+            <entropy>-20.4</entropy>
+	   	</neighbor> 
+	   	
+        <initiation>
+            <enthalpy>200.0</enthalpy>
+            <entropy>-5.7</entropy>
+        </initiation>
+        
+        <terminal type="per_A/T">
+            <enthalpy>2200.0</enthalpy>
+            <entropy>6.9</entropy>
+        </terminal>
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>    
+    </origine>
+    
+    <origine article="Tanaka_2004">
+    <!--/* /******************************************************************************/
+    contains the parameters for DNA/DNA hybridisation of Tanaka Fumiaki et al       */
+/* (2004). Biochemistry 43 : 7143-7150                                            */                                                    
+/******************************************************************************/-->
+        <neighbor sequence="AA/TT">
+	        <enthalpy>-8300.0</enthalpy>
+            <entropy>-23.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AC/TG">
+	       	<enthalpy>-9500.0</enthalpy>
+            <entropy>-26.0</entropy>
+	    </neighbor> 
+	   	<neighbor sequence="AG/TC">
+	       	<enthalpy>-8200.0</enthalpy>
+            <entropy>-22.3</entropy>
+	    </neighbor> 
+	    <neighbor sequence="AT/TA">
+	       	<enthalpy>-8500.0</enthalpy>
+            <entropy>-24.6</entropy>
+    	</neighbor>                 
+        <neighbor sequence="CA/GT">
+	       	<enthalpy>-8900.0</enthalpy>
+            <entropy>-24.3</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="CC/GG">
+	       	<enthalpy>-8800.0</enthalpy>
+            <entropy>-21.7</entropy>
+    	</neighbor> 
+	   	<neighbor sequence="CG/GC">
+	        <enthalpy>-11400.0</enthalpy>
+            <entropy>-29.7</entropy>
+	   	</neighbor> 
+        <neighbor sequence="GA/CT">
+	        <enthalpy>-8700.0</enthalpy>
+            <entropy>-23.6</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="GC/CG">
+	       	<enthalpy>-10100.0</enthalpy>
+            <entropy>-25.4</entropy>
+	   	</neighbor>
+        <neighbor sequence="TA/AT">
+	        <enthalpy>-6500.0</enthalpy>
+            <entropy>-19.0</entropy>
+	   	</neighbor> 
+	    	
+        <initiation type="per_A/T">
+            <enthalpy>4400.0</enthalpy>
+            <entropy>10.7</entropy>
+        </initiation>
+        
+        <initiation type="per_G/C">
+            <enthalpy>1700.0</enthalpy>
+            <entropy>2.4</entropy>
+        </initiation>
+
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>    
+    </origine>
+  </nearest_neighbor>
+</hybridization>
+
+<hybridization type="dnarna">
+  <nearest_neighbor type="NN">
+	<origine article="Sugimoto_1995">
+    /******************************************************************************/<!--/* 
+ /*    contains the parameters for DNA/RNA hybridisation of Sugimoto et al.       */
+/* (1995). Biochemistry 34 : 11211-11216                                                    
+/******************************************************************************/-->
+        <neighbor sequence="dAA/rUU">
+	        <enthalpy>-11500.0</enthalpy>
+            <entropy>-36.4</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="dAC/rUG">
+	       	<enthalpy>-7800.0</enthalpy>
+            <entropy>-21.6</entropy>
+    	</neighbor> 
+	    <neighbor sequence="dAG/rUC">
+	       	<enthalpy>-7000.0</enthalpy>
+            <entropy>-19.7</entropy>
+    	</neighbor> 
+	    <neighbor sequence="dAT/rUA">
+	       	<enthalpy>-8300.0</enthalpy>
+            <entropy>-23.9</entropy>
+	   	</neighbor>             
+        <neighbor sequence="dCA/rGU">
+	        <enthalpy>-10400.0</enthalpy>
+            <entropy>-28.4</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="dCC/rGG">
+	       	<enthalpy>-12800.0</enthalpy>
+            <entropy>-31.9</entropy>
+        </neighbor> 
+	    <neighbor sequence="dCG/rGC">
+	       	<enthalpy>-16300.0</enthalpy>
+            <entropy>-47.1</entropy>
+    	</neighbor> 
+	    <neighbor sequence="dCT/rGA">
+	       	<enthalpy>-9100.0</enthalpy>
+            <entropy>-23.5</entropy>
+    	</neighbor>             
+		<neighbor sequence="dGA/rCU">
+	        <enthalpy>-8600.0</enthalpy>
+            <entropy>-22.9</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="dGC/rCG">
+	       	<enthalpy>-8000.0</enthalpy>
+            <entropy>-17.1</entropy>
+    	</neighbor> 	    	
+    	<neighbor sequence="dGG/rCC">
+	        <enthalpy>-9300.0</enthalpy>
+            <entropy>-23.2</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="dGT/rCA">
+	       	<enthalpy>-5900.0</enthalpy>
+            <entropy>-12.3</entropy>
+	    </neighbor>             
+        <neighbor sequence="dTA/rAU">
+	       	<enthalpy>-7800.0</enthalpy>
+            <entropy>-23.2</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="dTC/rAG">
+	       	<enthalpy>-5500.0</enthalpy>
+            <entropy>-13.5</entropy>
+    	</neighbor> 
+	    <neighbor sequence="dTG/rAC">
+	       	<enthalpy>-9000.0</enthalpy>
+            <entropy>-26.1</entropy>
+    	</neighbor> 
+	   	<neighbor sequence="dTT/rAA">
+	      	<enthalpy>-7800.0</enthalpy>
+            <entropy>-21.9</entropy>
+	   	</neighbor>             
+
+        <initiation>
+            <enthalpy>1900</enthalpy>
+            <entropy>-3.9</entropy>
+        </initiation> 
+    </origine>
+  </nearest_neighbor>
+</hybridization>
+
+<hybridization type="rnarna">
+  <nearest_neighbor type="NN">
+    <origine article="Freier_1986">
+    /******************************************************************************/<!--/* 
+    contains the parameters for RNA/RNA hybridisation of Freier et al (1986)   */
+/* Proc Natl Acad Sci USA 83: 9373-9377                                                                   
+/******************************************************************************/-->
+        <neighbor sequence="AA/UU">
+	        <enthalpy>-6600.0</enthalpy>
+            <entropy>-18.4</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="AC/UG">
+	       	<enthalpy>-10200.0</enthalpy>
+            <entropy>-26.2</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AG/UC">
+	        <enthalpy>-7600.0</enthalpy>
+            <entropy>-19.2</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AU/UA">
+	      	<enthalpy>-5700.0</enthalpy>
+            <entropy>-15.5</entropy>
+		</neighbor>                  
+        <neighbor sequence="CA/GU">
+	        <enthalpy>-10500.0</enthalpy>
+            <entropy>-27.8</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="CC/GG">
+	      	<enthalpy>-12200.0</enthalpy>
+            <entropy>-29.7</entropy>
+    	</neighbor> 
+		<neighbor sequence="CG/GC">
+	       	<enthalpy>-8000.0</enthalpy>
+            <entropy>-19.4</entropy>
+    	</neighbor> 
+        <neighbor sequence="GA/CU">
+	        <enthalpy>-13300.0</enthalpy>
+            <entropy>-35.5</entropy>
+	   	</neighbor> 
+	  	<neighbor sequence="GC/CG">
+	       	<enthalpy>-14200.0</enthalpy>
+            <entropy>-34.9</entropy>
+	    </neighbor> 
+        <neighbor sequence="UA/AU">
+	       	<enthalpy>-8100.0</enthalpy>
+            <entropy>-22.6</entropy>
+	   	</neighbor> 
+     
+     	<initiation>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-10.8</entropy>
+        </initiation>
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>  
+    </origine>
+    
+    <origine article="Xia_1998">
+    <!--/******************************************************************************/ 
+    contains the parameters for RNA/RNA hybridisation of Xia et al (1998)      */
+/* Biochemistry 37: 14719-14735                                                                         
+/******************************************************************************/-->
+        <neighbor sequence="AA/UU">
+	        <enthalpy>-6800.0</enthalpy>
+            <entropy>-19.0</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="AC/UG">
+	       	<enthalpy>-11400.0</enthalpy>
+            <entropy>-29.5</entropy>	    	
+		</neighbor> 
+	   	<neighbor sequence="AG/UC">
+	       	<enthalpy>-10480.0</enthalpy>
+            <entropy>-27.1</entropy>
+    	</neighbor> 
+	    <neighbor sequence="AU/UA">
+	       	<enthalpy>-9380.0</enthalpy>
+            <entropy>-26.7</entropy>
+    	</neighbor>               
+		<neighbor sequence="CA/GU">
+	        <enthalpy>-10440.0</enthalpy>
+            <entropy>-26.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="CC/GG">
+	       	<enthalpy>-13390.0</enthalpy>
+            <entropy>-32.7</entropy>
+		</neighbor> 
+	    <neighbor sequence="CG/GC">
+	        <enthalpy>-10640.0</enthalpy>
+            <entropy>-26.7</entropy>
+	   	</neighbor>
+        <neighbor sequence="GA/CU">
+	        <enthalpy>-12440.0</enthalpy>
+            <entropy>-32.5</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="GC/CG">
+	       	<enthalpy>-14880.0</enthalpy>
+            <entropy>-36.9</entropy>
+	    </neighbor> 
+        <neighbor sequence="UA/AU">
+	        <enthalpy>-7690.0</enthalpy>
+            <entropy>-20.5</entropy>
+	   	</neighbor> 
+
+        <initiation>
+            <enthalpy>3610.0</enthalpy>
+            <entropy>-1.5</entropy>
+        </initiation> 
+        
+        <terminal type="per_A/U">
+            <enthalpy>3720.0</enthalpy>
+            <entropy>10.5</entropy>
+        </terminal> 
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry> 	  
+    </origine>
+  </nearest_neighbor>
+</hybridization>
+
+<hybridization type="m_rnarna">
+  <nearest_neighbor type="NN">
+    <origine article="Turner_2006">
+    <!--/******************************************************************************/ 
+    contains the parameters for mRNA/RNA hybridisation of Turner et al (2006)   */
+/* Nucleic acids research 34: 3609-3614                                                                   
+/******************************************************************************/-->
+        <neighbor sequence="mAA/UU">
+	        <enthalpy>-7480.0</enthalpy>
+            <entropy>-22.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mAC/UG">
+	       	<enthalpy>-6320.0</enthalpy>
+            <entropy>-15.2</entropy>
+		</neighbor> 
+	   	<neighbor sequence="mAG/UC">
+	       	<enthalpy>-13940.0</enthalpy>
+            <entropy>-39.1</entropy>
+    	</neighbor> 
+	    <neighbor sequence="mAU/UA">
+	       	<enthalpy>-6330.0</enthalpy>
+            <entropy>-17.7</entropy>
+    	</neighbor>                            
+        <neighbor sequence="mCA/GU">
+	       	<enthalpy>-5210.0</enthalpy>
+            <entropy>-10.7</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mCC/GG">
+	       	<enthalpy>-8880.0</enthalpy>
+            <entropy>-19.7</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mCG/GC">
+        	<enthalpy>-9470.0</enthalpy>
+            <entropy>-23.0</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="mCU/GA">
+	       	<enthalpy>-9590.0</enthalpy>
+            <entropy>-23.89/entropy>
+	    	</neighbor>                          
+       <neighbor sequence="mGA/CU">
+	        <enthalpy>-5770.0</enthalpy>
+            <entropy>-11.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGC/CG">
+	       	<enthalpy>-11900.0</enthalpy>
+            <entropy>-26.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGG/CC">
+	       	<enthalpy>-9660.0</enthalpy>
+            <entropy>-22.1</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGU/CA">
+	       	<enthalpy>-6620.0</enthalpy>
+            <entropy>-14.3</entropy>
+	   	</neighbor>                   
+        <neighbor sequence="mUA/AU">
+	       	<enthalpy>-6470.0</enthalpy>
+            <entropy>-17.0</entropy>
+    	</neighbor> 
+	    <neighbor sequence="mUC/AG">
+	       	<enthalpy>-9650.0</enthalpy>
+            <entropy>-25.0</entropy>
+    	</neighbor> 
+		<neighbor sequence="mUG/AC">
+	        <enthalpy>-12140.0</enthalpy>
+            <entropy>-32.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mUU/AA">
+	       	<enthalpy>-5430.0</enthalpy>
+            <entropy>-14.5</entropy>
+        </neighbor>                 
+     
+     	<initiation>
+            <enthalpy>-12800.0</enthalpy>
+            <entropy>-52.0</entropy>
+        </initiation>
+        
+        <terminal type="per_A/U">
+            <enthalpy>3140.0</enthalpy>
+            <entropy>9.1</entropy>
+        </terminal> 
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry>  
+    </origine>
+  </nearest_neighbor>
+</hybridization>
+
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    contains the parameters for RNA/RNA woddle base pairs of Serra et al (2012)   */
+/* Biochemistry (2012) 51, 3508-3522 */                                                                       
+/******************************************************************************/-->
+        
+       <data type="wobble">
+        <mismatch sequence="AG/UU">
+	        <enthalpy>-3960.0</enthalpy>
+            <entropy>-11.6</entropy>
+	   	</mismatch> 
+	   	<mismatch sequence="AU/UG">
+	        <enthalpy>-7390.0</enthalpy>
+            <entropy>-21.0</entropy>               
+        </mismatch>
+        <mismatch sequence="CG/GU">
+	        <enthalpy>-5560.0</enthalpy>
+            <entropy>-13.9</entropy>
+	   	</mismatch> 
+	   	<mismatch sequence="CU/GG">
+	        <enthalpy>-9440.0</enthalpy>
+            <entropy>-24.7</entropy>           
+        </mismatch>
+        <mismatch sequence="GG/CU">
+	        <enthalpy>-7030.0</enthalpy>
+            <entropy>-16.8</entropy>
+	   	</mismatch> 
+	   	<mismatch sequence="GU/CG">
+	       	<enthalpy>-11090.0</enthalpy>
+            <entropy>-28.8</entropy>              
+        </mismatch>
+        <mismatch sequence="UG/AU">
+	       	<enthalpy>-960.0</enthalpy>
+            <entropy>-1.8 </entropy>
+	   	</mismatch>
+	   	<mismatch sequence="UU/AG">
+	       	<enthalpy>-10380.0</enthalpy>
+            <entropy>-31.8 </entropy>             
+        </mismatch> 
+        <mismatch sequence="GG/UU">
+	       	<enthalpy>-17820.0</enthalpy>
+            <entropy>-56.7</entropy>
+	   	</mismatch>
+	   	<mismatch sequence="GU/UG" closing="G/C">
+	       	<enthalpy>-30800.0</enthalpy>
+            <entropy>-86.0</entropy>
+	   	</mismatch>
+	   	<mismatch sequence="GU/UG" closing="not_G/C">                                                                                                                                                                                                                                                                                                                                        "">
+        	<enthalpy>-13830.0</enthalpy>
+			<entropy>-46.9</entropy>              
+        </mismatch>
+        <mismatch sequence="UG/GU">
+	        <enthalpy>-12640.0</enthalpy>
+            <entropy>-38.9</entropy>           
+        </mismatch>  
+       </data>

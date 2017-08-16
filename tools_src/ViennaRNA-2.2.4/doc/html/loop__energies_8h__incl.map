@@ -1,0 +1,16 @@
+<map id="ViennaRNA/loop_energies.h" name="ViennaRNA/loop_energies.h">
+<area shape="rect" id="node2" href="$exterior__loops_8h.html" title="Energy evaluation of exterior loops for MFE and partition function calculations. " alt="" coords="164,244,302,285"/>
+<area shape="rect" id="node10" href="$hairpin__loops_8h.html" title="Energy evaluation of hairpin loops for MFE and partition function calculations. " alt="" coords="39,87,222,114"/>
+<area shape="rect" id="node17" href="$interior__loops_8h.html" title="Energy evaluation of interior loops for MFE and partition function calculations. " alt="" coords="866,80,1000,121"/>
+<area shape="rect" id="node19" href="$multibranch__loops_8h.html" title="Energy evaluation of multibranch loops for MFE and partition function calculations. " alt="" coords="308,80,470,121"/>
+<area shape="rect" id="node3" href="$data__structures_8h.html" title="ViennaRNA/data_structures.h" alt="" coords="404,333,600,360"/>
+<area shape="rect" id="node7" href="$params_8h.html" title="ViennaRNA/params.h" alt="" coords="265,408,414,435"/>
+<area shape="rect" id="node4" href="$energy__const_8h.html" title="ViennaRNA/energy_const.h" alt="" coords="434,483,618,509"/>
+<area shape="rect" id="node6" href="$model_8h.html" title="The model details data structure and its corresponding modifiers. " alt="" coords="269,483,410,509"/>
+<area shape="rect" id="node8" href="$dp__matrices_8h.html" title="ViennaRNA/dp_matrices.h" alt="" coords="540,408,718,435"/>
+<area shape="rect" id="node9" href="$constraints_8h.html" title="ViennaRNA/constraints.h" alt="" coords="742,408,913,435"/>
+<area shape="rect" id="node13" href="$utils_8h.html" title="General utility&#45; and helper&#45;functions used throughout the ViennaRNA Package. " alt="" coords="498,169,629,196"/>
+<area shape="rect" id="node15" href="$string__utils_8h.html" title="General utility&#45; and helper&#45;functions for RNA sequence and structure strings used throughout the Vien..." alt="" coords="479,251,648,278"/>
+<area shape="rect" id="node16" href="$structure__utils_8h.html" title="Various utility&#45; and helper&#45;functions for secondary structure parsing, converting, etc. " alt="" coords="673,244,820,285"/>
+<area shape="rect" id="node18" href="$energy__par_8h_source.html" title="ViennaRNA/energy_par.h" alt="" coords="1046,333,1217,360"/>
+</map>

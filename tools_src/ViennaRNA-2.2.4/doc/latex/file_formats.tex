@@ -1,0 +1,96 @@
+\hypertarget{file_formats_constraint-formats}{}\section{File formats for Secondary Structure Constraints}\label{file_formats_constraint-formats}
+\hypertarget{file_formats_constraint-formats-file}{}\subsection{Constraints Definition File}\label{file_formats_constraint-formats-file}
+The R\+N\+Alib can parse and apply data from constraint definition text files, where each constraint is given as a line of whitespace delimited commands. The syntax we use extends the one used in \href{http://mfold.rna.albany.edu/?q=mfold}{\tt mfold} / \href{http://mfold.rna.albany.edu/?q=DINAMelt/software}{\tt U\+N\+Afold} where each line begins with a command character followed by a set of positions.~\newline
+Additionally, we introduce several new commands, and allow for an optional loop type context specifier in form of a sequence of characters, and an orientation flag that enables one to force a nucleotide to pair upstream, or downstream.\hypertarget{file_formats_const_file_commands}{}\subsubsection{Constraint commands}\label{file_formats_const_file_commands}
+The following set of commands is recognized\+:
+\begin{DoxyItemize}
+\item {\ttfamily F} $ \ldots $ Force
+\item {\ttfamily P} $ \ldots $ Prohibit
+\item {\ttfamily W} $ \ldots $ Weakly enforce, i.\+e. remove conflicts only
+\item {\ttfamily A} $ \ldots $ Allow (for non-\/canonical pairs)
+\item {\ttfamily E} $ \ldots $ Soft constraints for unpaired position(s), or base pair(s)
+\end{DoxyItemize}\hypertarget{file_formats_const_file_loop_types}{}\subsubsection{Specification of the loop type context}\label{file_formats_const_file_loop_types}
+The optional loop type context specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} may be a combination of the following\+:
+\begin{DoxyItemize}
+\item {\ttfamily E} $ \ldots $ Exterior loop
+\item {\ttfamily H} $ \ldots $ Hairpin loop
+\item {\ttfamily I} $ \ldots $ Interior loop (enclosing pair)
+\item {\ttfamily i} $ \ldots $ Interior loop (enclosed pair)
+\item {\ttfamily M} $ \ldots $ Multibranch loop (enclosing pair)
+\item {\ttfamily m} $ \ldots $ Multibranch loop (enclosed pair)
+\item {\ttfamily A} $ \ldots $ All loops
+\end{DoxyItemize}
+
+If no {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} flags are set, all contexts are considered (equivalent to {\ttfamily A} )\hypertarget{file_formats_const_file_orientation}{}\subsubsection{Controlling the orientation of base pairing}\label{file_formats_const_file_orientation}
+For particular nucleotides that are forced to pair, the following {\ttfamily }\mbox{[}O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N\mbox{]} flags may be used\+:
+\begin{DoxyItemize}
+\item {\ttfamily U} $ \ldots $ Upstream
+\item {\ttfamily D} $ \ldots $ Downstream
+\end{DoxyItemize}
+
+If no {\ttfamily }\mbox{[}O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N\mbox{]} flag is set, both directions are considered.\hypertarget{file_formats_const_file_seq_coords}{}\subsubsection{Sequence coordinates}\label{file_formats_const_file_seq_coords}
+Sequence positions of nucleotides/base pairs are $ 1- $ based and consist of three positions $ i $, $ j $, and $ k $. Alternativly, four positions may be provided as a pair of two position ranges $ [i:j] $, and $ [k:l] $ using the \textquotesingle{}-\/\textquotesingle{} sign as delimiter within each range, i.\+e. $ i-j $, and $ k-l $.\hypertarget{file_formats_const_file_syntax}{}\subsubsection{Valid constraint commands}\label{file_formats_const_file_syntax}
+Below are resulting general cases that are considered {\itshape valid} constraints\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries \char`\"{}\+Forcing a range of nucleotide positions to be paired\char`\"{}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}
+F i 0 k [WHERE] [ORIENTATION] 
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ Enforces the set of $ k $ consecutive nucleotides starting at position $ i $ to be paired. The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to force them to appear as closing/enclosed pairs of certain types of loops.
+\item {\bfseries \char`\"{}\+Forcing a set of consecutive base pairs to form\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}F i j k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Enforces the base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $ to form. The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to specify in which loop context the base pair must appear.
+\item {\bfseries \char`\"{}\+Prohibiting a range of nucleotide positions to be paired\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i 0 k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Prohibit a set of $ k $ consecutive nucleotides to participate in base pairing, i.\+e. make these positions unpaired. The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to force the nucleotides to appear within the loop of specific types.
+\item {\bfseries \char`\"{}\+Probibiting a set of consecutive base pairs to form\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i j k [WHERE] \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Probibit the base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $ to form. The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to specify the type of loop they are disallowed to be the closing or an enclosed pair of.
+\item {\bfseries \char`\"{}\+Prohibiting two ranges of nucleotides to pair with each other\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}P i-j k-l [WHERE] \end{DoxyVerb}
+ Description\+:~\newline
+ Prohibit any nucleotide $ p \in [i:j] $ to pair with any other nucleotide $ q \in [k:l] $. The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to specify the type of loop they are disallowed to be the closing or an enclosed pair of.
+\item {\bfseries \char`\"{}\+Weakly prohibit a range of nucleotide positions to be paired\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}W i 0 k [WHERE] \end{DoxyVerb}
+ Description\+:~\newline
+ This command is meant as a complement to {\itshape prohibiting} nucleotides to be paired, as described above. It too marks the corresponding nucleotides to be unpaired, however, they are not required to appear in the optional loop type context. They are rather prohibited from forming base pairs only. The optional loop type context specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} may be used to prohibit pairing in specific contexts.
+\item {\bfseries \char`\"{}\+Weakly enforce a set of consecutive base pairs\char`\"{}}\+:~\newline
+ Syntax\+:\begin{DoxyVerb}W i j k \end{DoxyVerb}
+~\newline
+ Description\+:~\newline
+ Remove all base pairs that conflict with a set of consecutive base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $. Two base pairs $ (i,j) $ and $ (p,q) $ conflict with each other if $ i < p < j < q $, or $ p < i < q < j $.
+\item {\bfseries \char`\"{}\+Allow a set of consecutive (non-\/canonical) base pairs to form\char`\"{}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}
+A i j k [WHERE] 
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ This command enables the formation of the consecutive base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $, no matter if they are {\itshape canonical}, or {\itshape non-\/canonical}. In contrast to the above {\ttfamily F} and {\ttfamily W} commands, which remove conflicting base pairs, the {\ttfamily A} command does not. Therefore, it may be used to allow {\itshape non-\/canoncial} base pair interactions. Since the R\+N\+Alib does not contain free energy contributions $ E_{ij} $ for non-\/canonical base pairs $ (i,j) $, they are scored as the {\itshape maximum} of similar, known contributions. In terms of a {\itshape Nussinov} like scoring function the free energy of non-\/canonical base pairs is therefore estimated as \[ E_{ij} = \min \left[ \max_{(i,k) \in \{GC, CG, AU, UA, GU, UG\}} E_{ik}, \max_{(k,j) \in \{GC, CG, AU, UA, GU, UG\}} E_{kj} \right]. \] The optional loop type specifier {\ttfamily }\mbox{[}W\+H\+E\+R\+E\mbox{]} allows to specify in which loop context the base pair may appear.
+\item {\bfseries \char`\"{}\+Apply pseudo free energy to a range of unpaired nucleotide positions\char`\"{}}\+:~\newline
+ Syntax\+:
+\begin{DoxyCode}
+E i 0 k e 
+\end{DoxyCode}
+~\newline
+ Description\+:~\newline
+ Use this command to apply a pseudo free energy of $ e $ to the set of $ k $ consecutive nucleotides, starting at position $ i $. The pseudo free energy is applied only if these nucleotides are considered unpaired in the recursions, or evaluations, and is expected to be given in $ kcal / mol $.
+\item {\bfseries \char`\"{}\+Apply pseudo free energy to a set of consecutive base pairs\char`\"{}}\+:~\newline
+ Syntax
+\begin{DoxyCode}
+E i j k e 
+\end{DoxyCode}
+~\newline
+ Use this command to apply a pseudo free energy of $ e $ to the set of base pairs $ (i,j), \ldots, (i+(k-1), j-(k-1)) $. Energies are expected to be given in $ kcal / mol $. 
+\end{DoxyEnumerate}

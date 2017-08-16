@@ -1,0 +1,307 @@
+[06/02/2014]Marine Dumousseau (marine@ebi.ac.uk)
+	Update documentation
+	Added batch script to run MELTING 5 with a file containing different sequences
+[04/10/2013]William John Gowers (gowersj@babraham.ac.uk)
+   Added MELTING GUI for MELTING 5.x.
+   Updated version to 5.1.1
+[09/08/2013]William John Gowers (gowersj@babraham.ac.uk)
+   Added new thermodynamic parameters for DNA/RNA duplexes from Watkins et al. (2010). Nucl. Acids Res. 39, 1894-1902.
+[10/02/2013]Marine Dumousseau (marine@ebi.ac.uk)
+Thanks to Richard Owczarzy:
+	Fixed typos in some thermodynamic parameters:
+	- bom00 model. GA/C- parameters are dH = -2.1 kcal/mol and dS = -3.9 in the paper
+	- san05 inosing model. Paramaters rounded to -6.0 kcal/mol. The paper reports -5.6 kcal/mol enthalpy.
+	- xia98 model. Parameters rounded into -6.8 kcal/mol. published -6.82 kcal/mol
+    - san04 bulge loop model. The sign of the entropy parameters are wrong.
+    - ser08 dangling ends model. The sign of some parameters (5' dangling ends) are wrong.
+    Added new GU parameters from from Serra et al., Biochemistry (2012) 51, 3508-3522. They are now the default parameters for GU base pairs.
+	version 5.1.0
+[06/11/2012]Marine Dumousseau (marine@ebi.ac.uk)
+	Fix default path to NN files
+	version 5.0.6
+[07/03/2012]Marine Dumousseau (marine@ebi.ac.uk)
+	Updated the documentation. The factor F cannot be 2 when the oligonucleotides are not self complementary and
+	one strand is in excess. In this case, F should be 1.
+	version 5.0.5
+[07/01/2011]Marine Dumousseau (marine@ebi.ac.uk)
+	Changed the installation script
+	When melting is used without arguments, now displays the help
+	version 5.0.4
+[02/11/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Changed the MELTING 5 documentations (references and acknoledgement)
+	Changed the files in the testResults folder.
+	version 5.0.3
+[23/10/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Fixed some bugs in the inosine and single mismatch files.
+	Added other tests.
+	Changed the JAR File.
+	Fixed a bug for the hydroxyadenine model.
+	Put by 'all97' as default DNA Crick's pair thermodynamic model
+	version 5.0.2
+[14/10/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Fixed some bugs in the melting.bib file.
+	version 5.0.1
+[08/10/09] Marine Dumousseau (marine@ebi.ac.uk)
+	Fixed some bugs in the Javadoc.
+	Created a build.xml file and buildProject.sh to build the project.
+[28/08/09] Marine Dumousseau (marine@ebi.ac.uk)
+	Fixed a bug for the option -O in OptionManagement.
+	Created the CompatibleMain class which allow a compatibility
+	between MELTING 4 and MELTING 5 options (except for the option '-q').
+[17/08/09] Marine Dumousseau (marine@ebi.ac.uk)
+	Version 5 in Java.
+	New thermodynamic models and parameters for : Crick's pair,
+	single mismatch, tandem mismatch, internal loop, single 
+	dangling end, double dangling end, long dangling end (only poly A),
+	inosine, hydroxyadenine, azobenzene, locked nucleic acids, single
+	bulge loop, long bulge loop.
+	New corrections for sodium, magnesium or mixed Na, Mg.
+	New corrections for DMSO and formamide.
+[01/JUN/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	tkmelting.1, tkmelting.1.xml and melting-gui.desktop added.
+	acknoledgements updated in the different documentation files.
+	version 4.3b
+[15/APR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	mac executable added.
+[14/APR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Index.html added to the DOC folder.
+	linux 64 bits executable added.
+[03/APR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Documentation modified. 
+[31/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	mistakes in the thermodynamic tables corrected. Documentation
+	modification. 
+[31/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	inosine parameters added
+[30/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Perl interface bugs correction and move some files. Calcul.c and
+	melting.c bugs correction.
+[27/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Correction of the function which computes the fraction of GC base pairs.
+	We can now take in account the mismatches CXor GX and inosine mismatches 
+	IG or IC.
+	New parameters of Santalucia added
+[26/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	add the inosine parameters. (from Santalucia 2005 for DNA duplexes and
+	from Brent M. Znosko 2007 for RNA duplexes (only IU base pairs)).
+	add the option -i for enter a new set of inosine parameters. 
+	
+	version 4.3
+[25/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	add the magnesium correction. (algorithm from Owczarzy 2008, only for
+	DNA/DNA duplexes)
+	add the options -k, -t, -G for the potassium, tris and magnesium
+	concentration.
+	The Tris+ concentration is about the half of total Tris concentration.
+	
+	version 4.3
+[24/MAR/2009] Marine Dumousseau (marine@ebi.ac.uk)
+	Fix mistakes in the calorimetric table sug95a.nn.
+	
+	version 4.2i
+[08/AUG/2007] Nicolas Le Novère (lenov@ebi.ac.uk)
+
+	Move from isolatin-1 to utf-8
+
+	version 4.2h
+
+[06/SEP/2004] Nicolas Le Novère (lenov@ebi.ac.uk)
+
+	Fix mistakes in the calorimetric table xia98a.nn.
+
+	version 4.2g
+	
+[20/MAY/2004] Nicolas Le Novère (lenov@ebi.ac.uk)
+
+	Fix a mistake in the calorimetric table xia98a.nn. Thanks to Wong
+	Chee Hong (wongch@bii.a-star.edu.sg)
+
+	version 4.2f
+	
+[10/APR/2003] Nicolas Le Novère (lenov@pasteur.fr)
+
+	Minor modification of the verbose output. 
+	
+	version 4.2e
+	
+[11/FEB/2003] Nicolas Le Novère (lenov@pasteur.fr)
+
+	Modification of the documentation, regarding the correction of
+	strand concentration.  
+
+	version 4.2d
+	
+[03/OCT/2002] Nicolas Le Novère (lenov@pasteur.fr)
+
+	Bug fix: An amazingly obvious mistake was introduced in the
+	approximate mode. The fractional GC was used instead of the
+	percent GC (Personnal view: The approximate mode is a crap
+	anyway). 
+
+	version 4.2c
+	
+[14/MAY/2002] Nicolas Le Novère (lenov@pasteur.fr)
+
+	Bug fix: a break was forgotten in the big switch decoding the
+	options. Also the output of long messages did not comply with ISO
+	restrictions on string length. I split the strings. Thanks to
+	Mauro Petrillo.
+
+	version 4.2b
+	
+[18/FEB/2002] Nicolas Le Novère (lenov@pasteur.fr)
+
+	The threshold between exact and approximative computation is now
+	controlled by an option.
+
+	version 4.2
+	
+[14/FEB/2002] Nicolas Le Novère (lenov@pasteur.fr)
+
+	Correction of a typo in all97a.nn An entropic factor was changed
+	from -22.5 to -22.7 cal.M-1.K-1
+
+	version 4.1h
+	
+[19/NOV/2001] Nicolas Le Novère (lenov@pasteur.fr)
+
+        Corrections of the script profil.pl
+
+        version 4.1g
+	
+[18/MAY/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Typographical mistake in decode.c:read_mm()
+	If the environment variable was undefined, or there was no
+	readable file at the specified place, the default defined at
+	compilation was not read. 
+
+	Several minor editing of the error messages.
+
+	Modification of the Tk interface.
+	
+	version 4.1f
+	
+[03/MAY/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Big mistake in documentation (relative to the correction of
+	nucleic acid concentration). Took advantage to improve the
+	documentation (including benchmark results).
+
+	Minor correction of usage function.
+
+	version 4.1e
+	
+[29/APR/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	No need to enter a useless concentration of nucleic acid when
+	using the approximative mode. Small (but important) edit of the
+	script multi.pl. Addition of a benchmark in the directory TEST,
+	which compare various methods, NN sets, and salt corrections. 
+
+	version 4.1d
+	
+[20/APR/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Correction of several critical bugs in the reading of paramaeters
+	for mismatches and dangling ends. The format of the file containing the 
+	parameters for mismatches is modified (the undetermined Crick's pair 
+	were previously commented out. They are now included with parameters 
+	equal to 99999).
+
+	version 4.1c         
+
+[10/APR/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Correction of the code to prepare the implementation of dnarna and
+	rnarna mismatches and dangling ends. Correction of the makefile
+	for unices
+
+	version 4.1b
+	
+[29/MAR/2001] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Implementation of the dangling ends analysis.
+
+	Addition of a several security corrections (strcpy -> strncpy,
+	check of malloc success ...).
+
+	Improvement of the makefile for Unices. Simplification of the
+	declaration of PATH for the nnfiles.
+	
+[07/AUG/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+        version 4f. Mistakes in the NN file san96a.nn found by Leo
+	Schalkwyk
+	(l.schalkwyk@iop.kcl.ac.uk)
+
+[05/JUN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	version 4e. Correction of the output to stderr et stdout (number
+	of spaces leading the lines). New perlTk interface.
+
+[26/APR/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	version 4d. Typos in the code and the perl/Tk interface (unit of
+	entropy was given as J.Mol-1 instead J.Mol-1.K-1)
+
+[24/APR/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	version 4c. Addition of a script (profil.pl) allowing an iterative
+	computation along a sequence, by sliding a window of a specified
+	width. Minor modifications of the documentation.
+
+[09/FEB/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	version 4b. Some fixes of the program output and of the
+	documentation.  Handle of the references in the parameter files
+	modified.
+
+[08/FEB/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	MELTING4 release version. Corrections on the advice of Nicolas
+	Joly.  Improved documentation.
+
+[05/FEB/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Changed the behaviour of options -v and -q. Improved
+	documentation.
+
+[29/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Fixed bugs in the interactive mode. Improved online help (option
+	-h).  Fixed a lot of bugs or unpleasant features in the option
+	parsing.  Changed the behaviour of options -A and -H. The former
+	has now always precedence over the latter regarding the et of NN
+	parameters.
+
+[27/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	Second beta version. Correction of some NN files. Modifications of
+	documentation.
+
+[26/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	First beta version. The program can now take in account mismatched
+	hybridisations. Correction of a bug in the screening of
+	Crick'pair.
+
+[24/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	alpha5. The program can now read a file containing the
+	nearest-neighbor parameters for some mismatched Crick's pairs.
+
+[18/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk) 
+
+	on suggestion of Nicolas Joly (njoly@pasteur.fr) alpha3 and
+	alpha4. Code correction only.
+	
+[17/JAN/2000] Nicolas Le Novère (nl223@cus.cam.ac.uk)
+
+	alpha2. Modified the system to localize files containing set of nn
+	parameters. Now a directory is defined at compilation by
+	preprocessor directive. However, an environment variable can be
+	defined, which targets a directory where to find a nn file. If it
+	was not found there, it will be searched in the default
+	directory. Therefore, a user can define its own set of parameters,
+	while still using those installed with melting.

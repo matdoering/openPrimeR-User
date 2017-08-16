@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New denaturing agent species or other species</TITLE>
+<META NAME="description" CONTENT="New denaturing agent species or other species">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html257"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html253"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html249"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html255"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html258"
+  HREF="node18.html">How to change the</A>
+<B> Up:</B> <A NAME="tex2html254"
+  HREF="node15.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html250"
+  HREF="node16.html">New ion species</A>
+ &nbsp; <B>  <A NAME="tex2html256"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00092000000000000000">
+New denaturing agent species or other species</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> If the new species is an ion which can't be included in the algorithm from Owczarzy et al. 2008
+or if it is a new denaturing agent, you have to create a new instance variable of RegisterMethods in
+the melting.cinfiguration package. The new <SPAN  CLASS="textit">private static HashMap&lt;String, Class&lt;? extends CorrectionMethod&#187;</SPAN>
+register all the corrections for the new species.
+
+<P>
+<PRE>
+/**
+* HasMap formamideCorrection : contains all the methods for 
+* the new species correction.
+*/
+	private static HashMap&lt;String, Class&lt;? extends CorrectionMethod&gt;&gt; 
+	                                   newSpeciesCorrection = 
+	  new HashMap&lt;String, Class&lt;? extends CorrectionMethod&gt;&gt;();
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> You have to create a new method in RegisterMethods to initialise the new HasMap :
+
+<P>
+<PRE>
+/**
+* initialises the newSpeciesCorrectionMethod HashMap of 
+* the RegisterMethods object.
+*/
+	private void initialiseNewSpeciesCorrectionMethod(){
+		[...]
+		newSpeciesCorrection.put("NewSpeciesCorrection-Name", 
+		                                   ClassName.class);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> You have to create a new option to give the possibility to change the correction
+for the new species. You must add a new <SPAN  CLASS="textit">public static final String</SPAN> in the 
+OptionManagement class to register the name of the new option. (melting.configuration package)
+
+<P>
+<PRE>
+/**
+* Option name for to change the default correction for the 
+* new species.
+*/
+	public static final String newSpeciesOption = "Option-Name";
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Choose a default new species correction for each type of hybridization in
+the following methods of OptionManagement :
+
+<P>
+<PRE>
+/**
+* initialises the DNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialisesDNADefaultOptions() {
+		[...]
+		
+		this.DNADefaultOptions.put(newSpeciesOption, 
+		                    "DNAdefaultCorrection-Name");
+	}
+	
+/**
+* initialises the RNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRNADefaultOptions() {
+		[...]
+		
+		this.RNADefaultOptions.put(newSpeciesOption, 
+		                   "RNAdefaultCorrection-Name");
+
+	}
+	
+/**
+* initialises the hybridDefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseHybridDefaultOptions() {
+		[...]
+		
+		this.hybridDefaultOptions.put(newSpeciesOption, 
+		                  "DNARNAdefaultCorrection-Name");
+		
+	}
+	
+/**
+* initialises the mRNADefaultOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseMRNADefaultOptions() {
+		[...]
+		
+		this.mRNADefaultOptions.put(newSpeciesOption, 
+		                  "mRNAdefaultCorrection-Name");
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">5)</SPAN> You have to register the new option in the HashMap <SPAN  CLASS="textit">registerEnvironmentOptions</SPAN>
+of OptionManagement. You just have to add the following line into the method 
+<SPAN  CLASS="textit">private void initialiseRegisterEnvironmentOptions()</SPAN> of OptionManagement :
+
+<P>
+<PRE>
+/**
+* Initialises the registerEnvironmentOptions HashMap of the 
+* OptionManagement object.
+*/
+	private void initialiseRegisterEnvironmentOptions(){
+		[...]
+		
+		registerEnvironmentOptions.add(newSpeciesOption);
+
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">6)</SPAN> You have to register the new species and the new corrections for it in RegisterMethods (melting.configuration package).
+You must add the following line to the method <SPAN  CLASS="textit">private void initialiseOtherCorrectionMethod()</SPAN> :
+
+<P>
+<PRE>
+/**
+* initialises the otherCorrectionMethod HashMap of the 
+* RegisterMethods object.
+*/
+	private void initialiseOtherCorrectionMethod(){
+		[...]
+		
+		// create a relationship between the new option and 
+		//the corrections registered for the new species.
+		otherCorrection.put(OptionManagement.newSpeciesOption, 
+		                                 newSpeciesCorrection);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">7)</SPAN> You have to complete the method <SPAN  CLASS="textit">public ThermoResult computeOtherMeltingCorrections(Environment environment)</SPAN>
+of RegisterMethods. This method is important to correct the melting temperature if another ion or denaturing agent species
+are present :
+
+<P>
+<PRE>
+public ThermoResult computeOtherMeltingCorrections(Environment 
+                                                 environment){
+		[...]
+		
+ // Check if the new species is present in the environment
+ if (environment.getNewSpecies() &gt; 0){
+ 
+// Get the correction associated with the option name of the 
+// new species.
+CorrectionMethod newSpeciesCorrection = 
+getCorrectionMethod(OptionManagement.newSpeciesCorrection, 
+environment.getOptions().get(OptionManagement.newSpeciesCorrection));
+			
+if (newSpeciesCorrection == null){
+	throw new NoExistingMethodException("There is no implemented 
+	                                    new species correction.");
+}
+else if (newSpeciesCorrection.isApplicable(environment)){
+environment.setResult
+    (newSpeciesCorrection.correctMeltingResults(environment));
+}
+else {
+	throw new MethodNotApplicableException("The new species correction 
+	   is not applicable with this environment 
+	   (option " + OptionManagement.newSpeciesCorrection + ").");
+}
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">8)</SPAN> Create a new class for the new species corrections as it is explained in the section
+<SPAN  CLASS="textit">How to add new corrections for Na, Mg, K, Tris, DMSO and/or formamide</SPAN>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html257"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html253"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html249"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html255"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html258"
+  HREF="node18.html">How to change the</A>
+<B> Up:</B> <A NAME="tex2html254"
+  HREF="node15.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html250"
+  HREF="node16.html">New ion species</A>
+ &nbsp; <B>  <A NAME="tex2html256"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

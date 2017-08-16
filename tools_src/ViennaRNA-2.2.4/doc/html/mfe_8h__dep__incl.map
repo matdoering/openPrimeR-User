@@ -1,0 +1,6 @@
+<map id="ViennaRNA/mfe.h" name="ViennaRNA/mfe.h">
+<area shape="rect" id="node2" href="$alifold_8h.html" title="compute various properties (consensus MFE structures, partition function, Boltzmann distributed stoch..." alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node3" href="$cofold_8h.html" title="MFE version of cofolding routines. " alt="" coords="170,80,311,107"/>
+<area shape="rect" id="node4" href="$fold_8h.html" title="MFE calculations for single RNA sequences. " alt="" coords="336,80,463,107"/>
+<area shape="rect" id="node5" href="$Lfold_8h.html" title="Predicting local MFE structures of large sequences. " alt="" coords="487,80,621,107"/>
+</map>

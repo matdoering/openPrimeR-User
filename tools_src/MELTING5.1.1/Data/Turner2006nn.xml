@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+<!--/******************************************************************************/ 
+    contains the parameters for mRNA/RNA hybridisation of Turner et al (2006)   */
+/* Nucleic acids research 34: 3609-3614                                                                   
+/******************************************************************************/-->
+
+	<data type="crick">
+		<neighbor sequence="mAA/UU">
+	        <enthalpy>-7480.0</enthalpy>
+            <entropy>-22.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mAC/UG">
+	       	<enthalpy>-6320.0</enthalpy>
+            <entropy>-15.2</entropy>
+		</neighbor> 
+	   	<neighbor sequence="mAG/UC">
+	       	<enthalpy>-13940.0</enthalpy>
+            <entropy>-39.1</entropy>
+    	</neighbor> 
+	    <neighbor sequence="mAU/UA">
+	       	<enthalpy>-6330.0</enthalpy>
+            <entropy>-17.7</entropy>
+    	</neighbor>                            
+        <neighbor sequence="mCA/GU">
+	       	<enthalpy>-5210.0</enthalpy>
+            <entropy>-10.7</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mCC/GG">
+	       	<enthalpy>-8880.0</enthalpy>
+            <entropy>-19.7</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mCG/GC">
+        	<enthalpy>-9470.0</enthalpy>
+            <entropy>-23.0</entropy>
+	   	</neighbor> 
+	    <neighbor sequence="mCU/GA">
+	       	<enthalpy>-9590.0</enthalpy>
+            <entropy>-23.89</entropy>
+	    	</neighbor>                          
+       <neighbor sequence="mGA/CU">
+	        <enthalpy>-5770.0</enthalpy>
+            <entropy>-11.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGC/CG">
+	       	<enthalpy>-11900.0</enthalpy>
+            <entropy>-26.3</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGG/CC">
+	       	<enthalpy>-9660.0</enthalpy>
+            <entropy>-22.1</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mGU/CA">
+	       	<enthalpy>-6620.0</enthalpy>
+            <entropy>-14.3</entropy>
+	   	</neighbor>                   
+        <neighbor sequence="mUA/AU">
+	       	<enthalpy>-6470.0</enthalpy>
+            <entropy>-17.0</entropy>
+    	</neighbor> 
+	    <neighbor sequence="mUC/AG">
+	       	<enthalpy>-9650.0</enthalpy>
+            <entropy>-25.0</entropy>
+    	</neighbor> 
+		<neighbor sequence="mUG/AC">
+	        <enthalpy>-12140.0</enthalpy>
+            <entropy>-32.9</entropy>
+	   	</neighbor> 
+	   	<neighbor sequence="mUU/AA">
+	       	<enthalpy>-5430.0</enthalpy>
+            <entropy>-14.5</entropy>
+        </neighbor>                 
+     
+     	<initiation>
+            <enthalpy>-12800.0</enthalpy>
+            <entropy>-52.0</entropy>
+        </initiation>
+        
+        <terminal type="per_A/U">
+            <enthalpy>3140.0</enthalpy>
+            <entropy>9.1</entropy>
+        </terminal> 
+        
+        <symmetry>
+            <enthalpy>0.0</enthalpy>
+            <entropy>-1.4</entropy>
+        </symmetry> 
+      </data>

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=openPrimeR installer
+Comment=Installer for openPrimeR
+Icon=application-x-desktop
+# simple solution: use current dir only for starting
+Exec=bash -c '"$(dirname "$1")"/install.sh' dummy %k
+#Exec=bash -c "`find ~ -type f ! -readable -prune -o -print` | grep 'primer_design/install.sh' | eval"
+# find is also ugly, doesn't work on MacOS...
+Type=Application
+Terminal=true
+StartupNotify=false
+GenericName=Installation of openPrimeR

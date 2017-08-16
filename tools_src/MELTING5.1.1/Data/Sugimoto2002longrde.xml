@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    	/* contains the parameters for RNA/RNA long dangling ends of ;
+	REF: Sugimoto et al. (2002). J. Am. Chem. Soc. 124: 10367-10372 
+    	/******************************************************************************/-->
+			
+		<data type="long_dangling_end">
+			<dangling sequence="CA/G" sens="3">
+				<enthalpy>-1050.0</enthalpy>
+				<entropy>1.0</entropy>
+			</dangling>
+			<dangling sequence="CAA/G" sens="3">
+				<enthalpy>-6750.0</enthalpy>
+				<entropy>-16.0</entropy>
+			</dangling>
+			<dangling sequence="CAAA/G" sens="3">
+				<enthalpy>-10450.0</enthalpy>
+				<entropy>-26.5</entropy>
+			</dangling>
+			<dangling sequence="CAAAA/G" sens="3">
+				<enthalpy>-11950.0</enthalpy>
+				<entropy>-31</entropy>
+			</dangling>			
+			<dangling sequence="AG/C" sens="5">
+				<enthalpy>-400.0</enthalpy>
+				<entropy>-0.5</entropy>
+			</dangling>
+			<dangling sequence="AAG/C" sens="5">
+				<enthalpy>-5200.0</enthalpy>
+				<entropy>-20.5</entropy>
+			</dangling>
+			<dangling sequence="AAAG/C" sens="5">
+				<enthalpy>-8250.0</enthalpy>
+				<entropy>-24.5</entropy>
+			</dangling>
+			<dangling sequence="AAAAG/C" sens="5">
+				<enthalpy>-13100.0</enthalpy>
+				<entropy>-39.5</entropy>
+			</dangling>			
+			<dangling sequence="UA/A" sens="3">
+				<enthalpy>-950.0</enthalpy>
+				<entropy>-1.0</entropy>
+			</dangling>
+			<dangling sequence="UAA/A" sens="3">
+				<enthalpy>-3200.0</enthalpy>
+				<entropy>-7.0</entropy>
+			</dangling>
+			<dangling sequence="UAAA/A" sens="3">
+				<enthalpy>-4200.0</enthalpy>
+				<entropy>-9.5</entropy>
+			</dangling>
+			<dangling sequence="UAAAA/A" sens="3">
+				<enthalpy>-5250.0</enthalpy>
+				<entropy>-13.0</entropy>
+			</dangling>			
+			<dangling sequence="AA/U" sens="5">
+				<enthalpy>-1100.0</enthalpy>
+				<entropy>-2.5</entropy>
+			</dangling>
+			<dangling sequence="AAA/U" sens="5">
+				<enthalpy>-3350.0</enthalpy>
+				<entropy>-9.0</entropy>
+			</dangling>
+			<dangling sequence="AAAA/U" sens="5">
+				<enthalpy>-3800.0</enthalpy>
+				<entropy>-10.0</entropy>
+			</dangling>
+			<dangling sequence="AAAAA/U" sens="5">
+				<enthalpy>-3850.0</enthalpy>
+				<entropy>-9.0</entropy>
+			</dangling>
+		</data>

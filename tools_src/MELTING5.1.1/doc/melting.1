@@ -1,0 +1,1108 @@
+.\" MAN PAGE COMMENTS to
+.\"
+.\"     Nicolas Le Novère and Marine Dumousseau
+.\"     EMBL-EBI, Wellcome-Trust Genome Campus
+.\"     Hinxton Cambridge, CB10 1SD, UK
+.\"     lenov@ebi.ac.uk
+.\"
+.\"      This program is free software; you can redistribute it and/or modify
+.\"      it under the terms of the GNU General Public License as published by
+.\"      the Free Software Foundation; either version 2 of the License, or
+.\"      (at your option) any later version.
+.\"
+.\"      This program is distributed in the hope that it will be useful,
+.\"      but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"      GNU General Public License for more details.
+.\"
+.\"      You should have received a copy of the GNU General Public License
+.\"      along with this program; if not, write to the Free Software
+.\"      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+.\"
+.TH MELTING 1 "2009 July 13" "Debian GNU/Linux" "Melting user-guide"
+.SH NAME
+melting \- nearest-neighbor computation of nucleic acid hybridation
+.SH SYNOPSIS
+.B melting 
+[\fIoptions\fR]
+.SH DESCRIPTION
+.B Melting 
+computes, for a nucleic acid duplex, the enthalpy and the entropy of the
+helix-coil transition, and then its melting temperature.
+Four types of hybridisation are possible: DNA/DNA, DNA/RNA, RNA/RNA and 2-O-Methyl RNA/RNA. 
+The program uses the method of nearest-neighbors. The set of thermodynamic
+parameters can be easely changed, for instance following an experimental 
+breakthrough. Melting is a free program in both sense of the term. It comes 
+with no cost and it is open-source. In addition it is coded in Java (1.5) and can be compiled 
+on any operating system.
+.SH OPTIONS
+The options are treated sequentially. If there is a conflict between
+the value of two options, the latter normally erases the former.
+
+.SS Information about
+.B Melting
+
+.TP
+.BI "\-h"
+Displays a short help and quit.
+.TP
+.BI "\-L"
+Prints the legal informations and quit.
+.TP
+.BI "\-V" 
+Displays the version number and quit.
+.TP
+.BI "\-p"  
+Return the directory supposed to contain the sets of calorimetric parameters and quit. 
+If the environment variable NN\_PATH is set, it is returned. Otherwise, the value
+defined by default during the compilation is returned.
+
+.SS Mandatory options
+
+.TP
+.BI "\-S" "sequence"
+Sequence of one strand of the nucleic acid duplex, entered 5' to 3'. 
+IMPORTANT: Uridine and thymidine are not considered as identical. The bases can be upper or lowercase.
+.TP
+.BI "\-C" "sequence"
+Enters the complementary sequence, from 3' to 5'. This option is mandatory if
+there are mismatches, inosine(s) or hydroxyadenine(s) between the two strands. If it is not used, the program
+will compute it as the complement of the sequence entered with the option 
+.B \-S
+In case of self complementary sequences, the programm can automatically detect the symmetry and deduce 
+the complementary even though there is (are) dangling end(s) and it is not necessary to write the complementary 
+sequence with the option
+.B \-C
+IMPORTANT: Uridine and thymidine are not considered as identical. The bases can be upper or lowercase.
+.TP
+.BI "\-E" "ion1_name=x.xxe-xx:ion2_name=x.xxe-xx:agent1_name=x.xxe-xx..."
+Enters the different ion (Na, Mg, Tris, K) or agent (dNTP, DMSO, formamide) concentrations. The effect  
+of  ions and denaturing agents on  thermodynamic  stability  of nucleic  acid duplexes is complex,
+and the correcting functions are  at  best rough  approximations. All the concentrations must be positive numeric
+values and in M. There are some exceptions for the DMSO concentrations (in percent) and the formamide concentrations
+(in percent or M depending on the used correction method). Be aware, the [Tris+] is about half of the total tris buffer
+concentration.
+At least one cation concentration is mandatory, the other agents are optional. See the documentation for the concentration 
+limits. It depends on the used correction.
+.TP
+.BI "\-P" "x.xxe-xx"
+Concentration of the nucleic acid strand in excess. It must be a strict positive numeric value and it is mandatory. The oligomer
+concentration is in M.
+.TP
+.BI "\-H" "hybridization_type"
+Specifies the hybridisation type. Moreover this parameter determines the nature of the sequences entered by the user.
+Possible values are :
+
+dnadna : 
+.br
+DNA sequence (option
+.B \-S
+) and DNA complementary sequence (option
+.B \-C
+)
+
+rnarna : 
+.br
+RNA sequence (option
+.B \-S
+) and RNA complementary sequence (option
+.B \-C
+)
+
+dnarna : 
+.br
+DNA sequence (option
+.B \-S
+) and RNA complementary sequence (option
+.B \-C
+)
+
+rnadna : 
+.br
+RNA sequence (option
+.B \-S
+) and DNA complementary sequence (option
+.B \-C
+)
+
+mrnarna : 
+.br
+2-o-methyl RNA sequence (option
+.B \-S
+) and RNA complementary sequence (option
+.B \-C
+)
+
+mrnarna : 
+.br
+RNA sequence (option
+.B \-S
+) and 2-o-methyl RNA complementary sequence (option
+.B \-C
+)
+
+This option is mandatory to select the default equations and methods to use.
+
+.SS General options
+
+.TP
+.BI "\-T" "xxx"
+Size threshold before approximative computation. The nearest-neighbour approach 
+will be used by default if the length of the sequence is inferior to this threshold,
+otherwise it is the approximative approach which will be used by default.
+.TP
+.BI "\-v"
+Activates the verbose mode, issuing a lot more information about the current run  (try it once 
+to see if you can get something interesting).
+.TP
+.BI "\-nnpath" "folder_pathway"
+Change the default pathway (Data) where to find the default calorimetric tables (thermodynamic parameters).
+The program will look for the file in a directory specified during the installation.
+However, if an environment variable NN_PATH is defined, melting will search in this one first.
+.TP
+.BI "\-O" "output_file"
+The output is directed to this file instead of the standard output. The name of the file must be specified.
+.TP
+.BI "\-self"
+To precise that the sequence entered with the option 
+.B \-S
+ is self complementary. No complementary sequence is mandatory. 
+The program automatically can detect a self complementary sequence for perfect matching sequences or sequences with dangling ends. 
+In these cases, the option 
+.B \-self
+ is not necessary. Otherwise we need to precise that the sequences are self complementary with this option. 
+  examples:
+  
+  ###beginning###
+.br   
+- The sequence ATCGCGAT is self complementary. The option 
+.B \-self
+ is not necessary because the programm can automatically detect it.
+.br
+- The sequence -TCGCGAT is self complementary but with a single dangling end. The option 
+.B \-self
+ is not necessary because the programm can automatically detect it.
+.br
+- If the sequence ATCCCGAT is self complementary with a single mismatch (C/C), the option 
+.B \-self
+ is necessary to precise the self complementarity because the programm can't automatically detect it.
+
+###end###
+.TP
+.BI "\-F" "xxx"
+This is the correction factor used to modulate the effect of the nucleic acid concentration in the computation of the melting temperature. 
+If the sequences are automatically recognized as self complementary sequences or if the option 
+.B \-self
+is used, the factor correction is automatically 1.
+Otherwise F is 4 if the both strands are present in equivalent amount and 1 if one strand is in excess. The default factor value is 4. 
+  
+.SS Set of thermodynamic parameters and methods (models)
+  
+By default, the approximative mode is used for oligonucleotides longer than 60 bases (the default threshold value), otherwise the nearest 
+neighbor model is used. 
+
+.TP
+.BI "\-am" "method_name"
+Forces to use a specific approximative formula, based on G+C content. You can use one of the following :
+
+DNA duplexes
+.br
+.I ahs01
+(from von Ahsen et al. 2001)
+.br
+.I che93
+(from Marmur 1962, Chester et al. 1993)
+.br
+.I che93corr
+(from von Ahsen et al. 2001, Marmur 1962, Chester et al. 1993)
+.br
+.I schdot
+(Marmur-Schildkraut-Doty formula)
+.br
+.I owe69
+(from Owen et al. 1969)
+.br
+.I san98
+(from Santalucia et al. 1998)
+.br
+.I wetdna91
+(from Wetmur 1991)  (by default)
+
+RNA duplexes
+.br
+.I wetrna91
+(from Wetmur 1991)  (by default)
+
+DNA/RNA duplexes
+.br
+.I wetdnarna91
+(from Wetmur 1991)  (by default)
+
+If there is no formula name after the option 
+.B \-am
+, we will compute the melting temperature with the default approximative formula.
+This option has to be used with caution. Note that such a calcul is increasingly incorrect when the length of  the duplex 
+decreases. Moreover, it does not take into account nucleic acid concentration, which is a strong mistake.
+examples :
+
+  ###beginning###
+.br
+- "-am" if you want to force the approximative approach with the default formula.
+.br
+- "-am ahs01" if you want to use the approximative formula from Ahsen et al. 2001.
+
+###end###
+.TP
+.BI "\-nn" "method_name"
+Forces to use a specific nearest neighbor model. You can use one of the following :
+
+ DNA duplexes
+.br
+.I all97
+(from Allawi and Santalucia 1997)  (by default)
+.br
+.I bre86
+(from Breslauer et al. 1986)
+.br
+.I san04
+(from Hicks and Santalucia 2004)
+.br
+.I san96
+(from Santalucia et al. 1996)
+.br
+.I sug96
+(from Sugimoto et al 1996)
+.br
+.I tan04
+(from Tanaka et al. 2004)		 
+
+RNA duplexes
+.br
+.I fre86
+(from Freier al. 1986)
+.br
+.I xia98
+(from Xia et al. 1998)  (by default)		 
+
+DNA/RNA duplexes
+.br
+.I sug95
+(from Sugimoto et al. 1995)  (by default)
+
+mRNA/RNA duplexes
+.br
+.I tur06
+(from Kierzeck et al. 2006)  (by default)
+  
+If there is no formula name after the option 
+.B \-nn
+, we will compute the melting temperature with the default nearest neighbor model. 
+Each nearest neighbor model uses a specific xml file containing the thermodynamic values. If you want to use another file, write the file name or the file pathway preceded by ':' (-nn [optionalname:optionalfile]).
+examples:   
+
+  ###beginning###
+.br
+- "-nn" if you want to force the nearest neighbor computation with the default model.
+.br
+- "-nn tan04" if you want to use the nearest neighbor model from Tanaka et al. 2004 with the thermodynamic parameters in the default xml file.
+.br
+- "-nn tan04:fileName" if you want to use the nearest neighbor model from Tanaka et al. 2004 with the thermodynamic parameters in the file fileName.
+.br
+- "-nn :fileName" if you want to use the default nearest neighbor model with the thermodynamic parameters in the file fileName.
+
+###end###
+.TP
+.BI "\-sinMM" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of single mismatch to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I allsanpey
+(from Allawi, Santalucia and Peyret 1997, 1998 and 1999)  (by default) 
+
+RNA duplexes
+.br
+.I tur06
+(from Lu et al. 2006)
+.br
+.I zno07
+(from Davis et al. 2007)  (by default)
+.br
+.I zno08 (from Davis et al. 2008)
+
+DNA/RNA duplexes
+.br
+.I wat10 (from Watkins et al. 2011) (by default)
+
+To change the file containing the thermodynamic parameters for single mismatch computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Single mismatches are not taken into account by the approximative mode.
+.TP
+.BI "\-GUM" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of GU base pairs to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+RNA duplexes
+.br
+.I tur99
+(from Mathews et al. 1999)
+.br
+.I ser12
+(from Serra et al. 2012) (by default)
+
+To change the file containing the thermodynamic parameters for GU base pair computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+GU base pairs are not taken into account by the approximative mode.
+.TP
+.BI "\-tanMM" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of tandem mismatches to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I allsanpey
+(from Allawi, Santalucia and Peyret 1997, 1998 and 1999)  (by default) 
+
+RNA duplexes
+.br
+.I tur99
+(from Mathews et al. 1999) (by default)		 		 
+
+To change the file containing the thermodynamic parameters for tandem mismatch computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Tandem mismatches are not taken into account by the approximative mode. Note that not all the mismatched Crick's pairs have been investigated. 
+.TP
+.BI "\-intLP" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of internal loop to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes}]
+.br
+.I san04
+(from Hicks and Santalucia 2004)  (by default) 
+
+RNA duplexes
+.br
+.I tur06
+(from Lu et al. 2006) (by default)
+.br
+.I zno07
+(from Badhwarr et al. 2007, only for 1x2 loop)
+  
+To change the file containing the thermodynamic parameters for internal loop computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Internal loops are not taken into account by the approximative mode.   
+.TP
+.BI "\-sinDE" "method_name"
+ Forces to use a specific nearest neighbor model to compute the contribution of single dangling end to the thermodynamic of helix-coil transition. 
+ You can use one of the following :
+
+DNA duplexes
+.br
+.I bom00
+(from Bommarito et al. 2000)  (by default) 
+.br
+.I sugdna02
+(from Ohmichi et al. 2002, only for polyA dangling ends)      
+
+RNA duplexes
+.br
+.I sugrna02
+(from Ohmichi et al. 2002, only for polyA dangling ends)
+.br
+.I ser08
+(from Miller et al. 2008)  (by default) 		  
+  
+To change the file containing the thermodynamic parameters for single dangling end computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Single dangling ends are not taken into account by the approximative mode.   
+.TP
+.BI "\-secDE" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of double dangling end to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br 
+.I sugdna02
+(from Ohmichi et al. 2002, only for polyA dangling ends) (by default)     
+
+RNA duplexes
+.br
+.I sugrna02
+(from Ohmichi et al. 2002, only for polyA dangling ends)
+.br
+.I ser05
+(from O'toole et al. 2005) 	
+.br
+.I ser06
+(from O'toole et al. 2006) (by default) 			 
+
+To change the file containing the thermodynamic parameters for double dangling end computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Double dangling ends are not taken into account by the approximative mode.  
+.TP
+.BI "\-lonDE" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of long dangling end to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+DNA duplexes
+.br
+.I sugdna02
+(from Ohmichi et al. 2002, only for polyA dangling ends) (by default)     
+
+RNA duplexes
+.br
+.I sugrna02
+(from Ohmichi et al. 2002, only for polyA dangling ends)
+
+To change the file containing the thermodynamic parameters for long dangling end computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Long dangling ends are not taken into account by the approximative mode.  
+.TP
+.BI "\-sinBU" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of single bulge loop to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I san04
+(from Hicks and Santalucia 2004) 
+.br
+.I tan04
+(from Tanaka et al. 2004)  (by default) 	    
+
+RNA duplexes
+.br
+.I ser07
+(from Blose et al. 2007)
+.br
+.I tur06
+(from Lu et al. 1999 and 2006)  (by default) 			 			 
+
+To change the file containing the thermodynamic parameters for single bulge loop computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Single bulge loops are not taken into account by the approximative mode. 
+.TP
+.BI "\-lonBU" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of long bulge loop to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br 
+.I san04
+(from Hicks and Santalucia 2004) (by default)
+
+RNA duplexes
+.br
+.I tur06
+(from Lu et al. 1999 and 2006)  (by default) 			 			 
+
+To change the file containing the thermodynamic parameters for long bulge loop computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Long bulge loops are not taken into account by the approximative mode.
+.TP
+.BI "\-CNG" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of CNG repeats to the thermodynamic of helix-coil transition.
+N represents a single mismatch of type N/N. 
+You can use one of the following :
+RNA duplexes
+.br
+.I bro05
+(from Magdalena et al. 2005) (by default)			 			 
+
+To change the file containing the thermodynamic parameters for CNG repeats computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+CNG repeats are not taken into account by the approximative mode.
+Be aware : Melting can compute the contribution of CNG repeats to the thermodynamic of helix-coil transition for only 2 to 7 CNG repeats.
+.TP
+.BI "\-ino" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of inosine bases (I) to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I san05
+(from Watkins and Santalucia et al. 2005)  (by default)
+
+RNA duplexes
+.br
+.I zno07
+(from Wright et al. 2007)  (by default) 			 			 
+
+To change the file containing the thermodynamic parameters for inosine bases computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Inosine bases (I) are not taken into account by the approximative mode. 
+.TP
+.BI "\-ha" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of hydroxyadenine bases (A*) to the thermodynamic of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I sug01
+(from Kawakami et al. 2001)
+
+To change the file containing the thermodynamic parameters for hydroxyadenine bases computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Hydroxyadenine bases (A*) are not taken into account by the approximative mode.
+.TP
+.BI "\-azo" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of azobenzenes (X_T for trans azobenzenes and X_C for cis azobenzenes) to the thermodynamic 
+of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I asa05
+(from Asanuma et al. 2005)(by default)
+
+To change the file containing the thermodynamic parameters for azobenzene computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Azobenzenes (X_T for trans azobenzenes and X_C for cis azobenzenes) are not taken into account by the approximative mode.
+.TP
+.BI "\-lck" "method_name"
+Forces to use a specific nearest neighbor model to compute the contribution of locked nucleic acids (AL, GL, TL and CL) to the thermodynamic 
+of helix-coil transition. 
+You can use one of the following :
+
+DNA duplexes
+.br
+.I mct04
+(from McTigue et al. 2004) (by default)
+
+To change the file containing the thermodynamic parameters for locked nucleic acids computation, the same syntax as the one for the 
+.B \-nn
+ option is used.
+Locked nucleic acids (AL, GL, TL and CL) are not taken into account by the approximative mode.
+.TP
+.BI "\-ion" "method_name"
+Forces to use a specific ion correction. You can use one of the following corrections : 
+
+Sodium corrections
+
+DNA duplexes
+.br
+.I ahs01
+(from von Ahsen et al. 2001)
+.br
+.I kam71
+(from Frank-Kamenetskii et al 2001)
+.br
+.I owc1904
+(equation 19 from Owczarzy et al. 2004)
+.br
+.I owc2004
+(equation 20 from Owczarzy et al. 2004)
+.br
+.I owc2104
+(equation 21 from Owczarzy et al. 2004)
+.br
+.I owc2204
+(equation 21 from Owczarzy et al. 2004)  (by default)
+.br
+.I san96
+(from Santalucia et al. 1996)
+.br
+.I san04
+(from Santalucia et al. 1998, 2004)
+.br
+.I schlif
+(from Schildkraut and Lifson 1965)
+.br
+.I tanna06
+(from Tan et al. 2006)
+.br
+.I wetdna91
+(from Wetmur 1991)	 
+
+RNA duplexes or mRNA/RNA duplexes
+.br
+.I tanna07
+(from Tan et al. 2007)  (by default)
+.br
+.I wetrna91
+(from Wetmur 1991)	 
+
+DNA/RNA duplexes
+.br
+.I wetdnarna91
+(from Wetmur 1991)	 
+
+Magnesium corrections
+
+DNA duplexes
+.br
+.I owcmg08
+(from Owczarzy et al. 2008)  (by default)
+.br
+.I tanmg06
+(from Tan et al. 2006)	  
+
+RNA duplexes or mRNA/RNA duplexes
+.br
+.I tanmg07
+(from Tan et al. 2007)  (by default)
+
+Mixed Na Mg corrections
+
+DNA duplexes
+.br
+.I owcmix08
+(from Owczarzy et al. 2008)  (by default)
+.br
+.I tanmix07
+(from Tan et al. 2007)	 	  
+
+RNA duplexes or mRNA/RNA duplexes}]
+.br
+.I tanmix07
+(from Tan et al. 2007)  (by default)
+
+The effect of ions on  thermodynamic  stability  of nucleic  acid duplexes is complex, and the correcting 
+functions are  at  best rough  approximations.
+By default, the program use the algorithm from Owczarzy et al 2008 : ratio = Mg^0.5 and monovalent = Na + Tris + K
+if monovalent = 0, a magnesium correction is used.
+if ratio < 0.22, a sodium correction is used.
+if 0.22 <= ratio < 6, a mixed Na Mg correction is used.
+if ratio >= 6, a magnesium correction is used.
+examples :
+
+  ###beginning###
+.br
+- "-ion owcmg08" if you want to force the use of the magnesium correction from Owczarzy et al 2008. This correction will be used independently
+of the cations present in the solution.
+.br
+
+###end###
+.TP
+.BI "\-naeq" "method_name"
+Forces to use a specific ion correction which gives a sodium equivalent concentration if other cations are present.
+You can use one of the following :
+
+DNA duplexes
+.br
+.I ahs01
+(from von Ahsen et al 2001)  (by default)
+.br
+.I mit96
+(from Mitsuhashi et al. 1996)
+.br
+.I pey00
+(from Peyret 2000)		 
+
+For the other types of hybridization, the DNA default correction is used but there is no guaranty of accuracy.
+If there are other cations when an approximative approach is used, a sodium equivalence is automatically computed.
+The correcting functions are  at  best rough  approximations.
+examples :
+
+  ###beginning###
+.br
+- "-naeq ahs01" if you want to force the use of the magnesium correction from Ahsen et al 2001. This sodium equivalence will be used 
+in case of approximative approach. In case of nearest neighbor approach, the sodium equivalence will be used only if a sodium correction
+is selected by the user.
+- "-naeq ahs01 -ion san04" means that the sodium equivalence computed by the method ahs01 (from Ahsen et al 2001) will be combined with the sodium correction san04
+(from Santalucia 2004)
+.br
+
+###end###
+.TP
+.BI "\-DMSO" "method_name"
+Forces to use a specific DMSO correction (DMSO is always in percent).
+You can use one of the following :
+
+DNA duplexes}]
+.br
+.I ahs01
+(from von Ahsen et al 2001)  (by default)
+.br
+.I mus81
+(from Musielski et al. 1981)
+.br
+.I cul76
+(from Cullen et al. 1976)	
+.br
+.I esc80
+(from Escara et al. 1980)		 	 
+
+For the other types of hybridization, the DNA default correction is used but there is no guaranty of accuracy.
+If there are DMSO when an approximative approach is used, a DMSO correction is automatically computed.
+The correcting functions are  at  best rough  approximations.
+example :
+
+  ###beginning###
+.br
+- "-DMSO ahs01" if you want to force the use of the DMSO correction from Ahsen et al 2001. This DMSO correction will be used 
+if there is DMSO present in the solutions in case of nearest neighbor approach and approximative approach. 
+
+###end###
+.TP
+.BI "\-for" "method_name"
+Forces to use a specific formamide correction.
+You can use one of the following :
+DNA duplexes}]
+.br
+.I bla96
+(from Blake et al 1996) with formamide concentration in M  (by default)
+.br
+.I lincorr
+(linear correction) with a percent of formamide volume		  	 
+
+For the other types of hybridization, the DNA default correction is used but there is no guaranty of accuracy.
+If there are formamide when an approximative approach is used, a formamide correction is automatically computed.
+The correcting functions are  at  best rough  approximations.
+example :
+
+  ###beginning###
+.br
+- "-for lincorr" if you want to force the use of the linear formamide correction. This formamide correction will be used 
+if there is formamide present in the solutions in case of nearest neighbor approach and approximative approach. 
+
+###end###
+
+.SH REFERENCES
+
+Allawi H.T., SantaLucia J. (1997).
+Thermodynamics and NMR of internal G.T mismatches in DNA.
+.I Biochemistry 
+36: 10581-10594
+
+Allawi H.T., SantaLucia J. (1998). 
+Nearest Neighbor thermodynamics parameters for internal G.A mismatches in DNA. 
+.I Biochemistry 
+37: 2170-2179
+
+Allawi H.T., SantaLucia J. (1998). 
+Thermodynamics of internal C.T mismatches in DNA.
+.I Nucleic Acids Res 
+26: 2694-2701. 
+
+Allawi H.T., SantaLucia J. (1998). 
+Nearest Neighbor thermodynamics of internal A.C mismatches in DNA: sequence 
+dependence and pH effects.
+.I Biochemistry 
+37: 9435-9444.
+
+Amanda S. O'toole, Stacy Miller and Martin J Serra (2005)
+Stability of 3' double nucleotide overhangs that model the 3'ends of siRNA. 
+.I RNA 
+11: 512-516
+
+Amanda S. O'toole, Stacy Miller, Nathan Haines, M. Coleen Zink and Martin J Serra (2006). 
+Comprehensive thermodynamic analysis of 3' double-nucleotide overhangs neighboring Watson-Crick
+terminal base pairs. 
+.I Nucleic Acids research 
+34: 3338-3344
+
+Amber R. Davis, and Brent M. Znosko (2007)
+Thermodynamic Characterization of Single Mismatches Found in Naturally Occurring RNA.
+.I Biochemistry 
+46: 13425-13436
+
+Amber R. Davis, and Brent M. Znosko (2008)
+Thermodynamic Characterization of Naturally Occurring RNA Single Mismatches with G-U Nearest 
+Neighbors.
+.I Biochemistry 
+47: 10178-10187
+
+Blake, R. D., and Delcourt, S. G. (1998) 
+Thermal stability of DNA.
+.I Nucleic Acids Res
+26: 3323-3332 and corrigendum.
+
+Bommarito S., Peyret N., SantaLucia J. (2000).
+Thermodynamic parameters for DNA sequences with dangling ends.
+.I Nucleic Acids Res
+28: 1929-1934
+
+Breslauer K.J., Frank R., Bl�ker H., Marky L.A. (1986).
+Predicting DNA duplex stability from the base sequence. 
+.I Proc Natl Acad Sci USA 
+83: 3746-3750
+
+Broda Magdalena, Elbieta Kierzek, Zofia Gdaniec, Tadeusz Kulinski
+and Ryszard Kierzek (2005)
+Thermodynamic stability of RNA structures formed by CNG trinucleotide 
+repeats. Implication for prediction of RNA structure. 
+.I Biochemistry 
+44: 10873-10882.
+
+Casey J., and Davidson N. (1977) 
+.I Nucleic acids research
+4: 1539-1532.
+
+Cullen Br, Bick Md (1976) 
+Thermal denaturation of DNA from bromodeoxyuridine substitued cells.
+.I Nucleic acids research
+3: 49-62.
+
+David H. Mathews, Jeffrey Sabina, Michael Zucker and Douglas H Turner (1999)
+Expanded sequence dependence of thermodynamic parameters improves prediction
+of RNA secondary structure.
+.I J. Mol. Biol
+288 : 911-940
+
+Elzbieta Kierzek, David H. Mathews, Anna Ciesielska, Douglas H. Turner
+and Ryszard Kierzek (2006)
+Nearest neighbor parameters for Watson Crick complementary heteroduplexes
+formed between 2-O-methyl RNA and RNA oligonucleotides. 
+.I Nucleic acids research 
+34: 3609-3614
+
+Escara JF, Hutton Jr (1980) 
+Thermal stability and renaturation of DNA in dimethyl sulfoxide solutions: 
+acceleration of the renaturation rate.
+.I Biopolymers
+19: 1315-1327.
+
+Frank-Kamenetskii, M. D. (1971) 
+Simplification of the empirical relationship between melting temperature of DNA, its GC content
+and concentration of sodium ions in solution
+.I Biopolymers 
+10: 2623-2624.
+
+Freier S.M., Kierzek R., Jaeger J.A., Sugimoto N., Caruthers M.H., 
+Neilson T., Turner D.H. (1986).
+Improved free-energy parameters for predictions of RNA duplex stability.
+.I Biochemistry 
+83: 9373-9377
+
+Fumiaki Tanaka, Atsushi Kameda, Masahito Yamamoto and Azuma Ohuchi (2004).
+Thermodynamic Parameters based on a nearest neighbor model for DNA sequences with a single bulge loop.
+.I Biochemistry 
+43 : 7143-7150
+
+Hiroyuki Asanuma, Daijiro Matsunaga and Makoto Komiyama (2005)
+Clear-cut photo-regulation of the formation and dissociation of the DNA duplex by modified oligonucleotide
+involving multiple azobenzenes.
+.I Nucleic acids Symposium Series 
+49 : 35-36
+
+Hutton Jr (1977) 
+.I Nucleic acids research
+4: 3537-3555.
+
+Jaya Badhwar, Saradasri Karri, Cody K. Cass, Erica L. Wunderlich
+and Brent M. Znosco (2007). 
+Thermodynamic characterization of RNA duplexes containing naturally occuring 1x2 nucleotide internal loops.
+.I Biochemistry 
+46: 14715-14724.
+
+Joshua M. Blose, Michelle L. Manni, Kelly A. Klapec, Yukiko Stranger-Jones, Allison C.
+Zyra, Vasiliy Sim, Chad A. Griffith, Jason D. Long, and Martin J. Serra (2007) 
+Non-Nearest-Neighbor Dependence of Stability for RNA Bulge Loops Based on the Complete 
+Set of Group I Single Nucleotide Bulge Loops.
+.I Biochemistry 
+46 : 15123-15135
+
+Junji Kawakami1,2, Hiroyuki Kamiya3, Kyohko Yasuda2, Hiroyoshi Fujiki1, Hiroshi Kasai3 and
+Naoki Sugimoto (2001)
+Thermodynamic stability of base pairs between 2-hydroxyadenine and incoming nucleotides as a
+determinant of nucleotide incorporation specificity during replication.
+.I Nucleic acids research 
+29 : 3289-3296
+
+
+Marmur, J., and Doty, P. (1962) 
+Determination of the base composition of deoxyribonucleic acid from its thermal denaturation
+temperature
+.I J. Mol. Biol.
+5: 109-118.
+
+McConaughy, B.L., Laird, C.D. and McCarthy, B.I. (1969)
+.I Biochemistry
+ 8: 3289-3295.
+
+Mitsuhashi M. (1996) 
+Technical report: Part 1. Basic requirements for designing optimal oligonucleotide probe sequences.
+.I J. Clin. Lab. Anal
+10: 277-284.
+
+Musielski H., Mann W, Laue R, Michel S (1981) 
+Influence of dimethylsulfoxide on transcription by bacteriophage T3-induced RNA polymerase.
+.I Z allg Microbiol
+21: 447-456.
+
+Nicolas Von Ahsen, Carl T Wittwer and Ekkehard Schutz (2001)
+Oligonucleotide melting temperatures under PCR conditions : deoxynucleotide Triphosphate
+and Dimethyl sulfoxide concentrations with comparison to alternative empirical formulas
+.I Clinical Chemistry
+47: 1956-1961.
+
+Owczarzy R., Moreira B.G., You Y., Behlke M.B., Walder J.A.(2008) 
+Predicting stability of DNA duplexes in solutions containing Magnesium and 
+Monovalent Cations. 
+.I Biochemistry 
+47: 5336-5353.
+
+Patricia M. McTigue, Raymond J. Peterson, and Jason D. Kahn (2004) 
+Sequence-Dependent Thermodynamic Parameters for Locked Nucleic Acid (LNA) DNA Duplex 
+Formation.
+.I Biochemistry 
+43 : 5388-5405
+
+Peyret N. (2000) 
+Prediction of nucleic acid hybridization : parameters and algorithms.
+.I Ph.D Thesis
+Section .5.4.2, 128, Wayne State University, Detroit, MI.
+
+Peyret N., Seneviratne P.A., Allawi H.T., SantaLucia J. (1999). 
+Nearest Neighbor thermodynamics and NMR of DNA sequences with internal 
+A.A, C.C, G.G and T.T mismatches. 
+dependence and pH effects.
+.I Biochemistry 
+38: 3468-3477
+
+R. D. Blake and Scott G. Delcourt (1996) 
+Thermodynamic effects of formamide on DNA stability.
+.I Nucleic Acids Research
+24, No. 11 : 2095-2103
+
+Record, M.T., Jr (1967) 
+.I Biopolymers
+5: 975-992.
+
+Richard Owczarzy, Yong You, Bernardo G. Moreira, Jeffrey A.Manthey, Lingyan Huang, 
+Mark A. Behlke and Joseph A.Walder (2004)
+Effects of sodium ions on DNA duplex oligomers: Improved predictions of melting temperatures.
+.I Biochemistry
+43: 3537-3554.
+
+SantaLucia J. Jr, Allawi H.T., Seneviratne P.A. (1996).
+Improved nearest-neighbor parameters for predicting DNA duplex stability.
+.I Biochemistry
+35: 3555-3562
+
+Schildkraut, C., and Lifson, S. (1965) 
+Dependence of the melting temperature of DNA on salt concentration.
+.I Biopolymers 
+3: 195-208.
+
+Stacy Miller, Laura E. Jones, Karen Giovannitti, Dan Piper and Martin J. Serra (2008)
+Thermodynamic analysis of 5 and 3 single- and 3 double-nucleotide overhangs neighboring wobble
+terminal base pairs.
+.I Nucleic Acids research 
+36: 5652-5659 
+
+Sugimoto N., Katoh M., Nakano S., Ohmichi T., Sasaki M. (1994).
+RNA/DNA hybrid duplexes with identical nearest-neighbor base-pairs hve identical stability.
+.I FEBS Letters
+354: 74-78
+
+Sugimoto N., Nakano S., Katoh M., Matsumura A., Nakamuta H., Ohmichi T., Yoneyama M., Sasaki M. (1995).
+Thermodynamic parameters to predict stability of RNA/DNA hybrid duplexes.
+.I Biochemistry
+34: 11211-11216
+
+Sugimoto N., Nakano S., Yoneyama M., Honda K. (1996). 
+Improved thermodynamic parameters and helix initiation factor to predict stability of DNA duplexes.
+.I Nuc Acids Res 
+24: 4501-4505
+
+Tatsuo Ohmichi, Shu-ichi Nakano, Daisuke Miyoshi and Naoki Sugimoto (2002)
+Long RNA dangling end has large energetic contribution to duplex stability.
+.I J. Am. Chem. Soc.
+124: 10367-10372
+
+Watkins N.E., Santalucia J. Jr. (2005). 
+Nearest-neighbor Thermodynamics of deoxyinosine pairs in DNA duplexes. 
+.I Nucleic Acids Research 
+33: 6258-6267
+
+Wright D.J., Rice J.L., Yanker D.M., Znosko B.M. (2007). 
+Nearest neighbor parameters for inosine-uridine pairs in  RNA duplexes. 
+.I Biochemistry 
+46: 4625-4634 
+
+Xia T., SantaLucia J., Burkard M.E., Kierzek R., Schroeder S.J., Jiao X., Cox C., Turner D.H. (1998).
+Thermodynamics parameters for an expanded nearest-neighbor model for formation of RNA duplexes with Watson-Crick base pairs.
+.I Biochemistry 
+37: 14719-14735
+
+Zhi-Jie Tan and Shi-Jie Chen, (2006).
+Nucleic acid helix stability: effects of Salt concentration, cation valence and size, and chain length.
+.I Biophysical Journal
+90: 1175-1190. 
+
+Zhi-Jie Tan and Shi-Jie Chen (2007).
+RNA helix stability in Mixed Na+/Mg2+ solutions" 
+.I Biophysical Journal
+92: 3615-3632.
+
+Zhi John Lu, Douglas H. Turner and David H. Mathews (2006).
+A set of nearest neighbor parameters for predicting the enthalpy change of RNA secondary structure formation. 
+.I Nucleic Acids Research 
+34: 4912-4924.
+
+Jonathan L. Chen,† Abigael L. Dishler, Scott D. Kennedy, Ilyas Yildirim, Biao Liu, Douglas H. Turner and Martin J. Serra (2012).
+Testing the Nearest Neighbor Model for Canonical RNA Base Pairs: Revision of GU Parameters.
+.I Biochemistry
+51: 3508–3522.
+
+
+For review see:
+
+SantaLucia J. (1998)
+A unified view of polymer, dumbbell, and oligonucleotide DNA nearest-neighbor thermodynamics.
+.I Proc Natl Acad Sci USA 
+95: 1460-1465
+
+SantaLucia  J., Hicks Donald (2004) 
+The Thermodynamics of DNA structural motifs. 
+.I Annu. Rev. Biophys. Struct. 
+33: 415-440
+
+Wetmur J.G. (1991)
+DNA probes: applications of the principles of nucleic acid hybridization.
+.I Crit Rev Biochem Mol Biol
+26: 227-259
+
+.SH SEE ALSO
+
+New versions and related material can be found at
+http://www.pasteur.fr/recherche/unites/neubiomol/meltinghome.html
+htpps://sourceforge.net/projects/melting/
+http://www.ebi.ac.uk/compneur-srv/melting/
+
+You can use MELTING through a web server at 
+http://bioweb.pasteur.fr/seqanal/interfaces/melting.html
+http://www.ebi.ac.uk/compneur-srv/melting/melt.php
+
+.SH COPYRIGHT
+
+Melting is copyright (C) 1997, 2009 by Nicolas Le Novère and Marine Dumousseau
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+
+.SH AUTHORS
+
+      Nicolas Le Novère, Marine Dumousseau and William John Gowers
+      EMBL-EBI
+      Wellcome-Trust Genome Campus
+      Hinxton Cambridge
+      CB10 1SD United-Kingdom
+      e-mail: n.lenovere@gmail.com

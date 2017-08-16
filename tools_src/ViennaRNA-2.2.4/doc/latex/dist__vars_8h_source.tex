@@ -1,0 +1,35 @@
+\hypertarget{dist__vars_8h_source}{}\section{dist\+\_\+vars.\+h}
+\label{dist__vars_8h_source}\index{Vienna\+R\+N\+A/dist\+\_\+vars.\+h@{Vienna\+R\+N\+A/dist\+\_\+vars.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_DIST\_VARS\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_DIST\_VARS\_H}
+00003 
+00015 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}   \hyperlink{dist__vars_8h_aa03194c513af6b860e7b33e370b82bdb}{edit\_backtrack};
+00016 
+00021 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\hyperlink{dist__vars_8h_ac1605fe3448ad0a0b809c4fb8f6a854a}{aligned\_line}[4];
+00022 
+00029 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{dist__vars_8h_ab65d8ff14c6937612212526a60f59b3c}{cost\_matrix};
+00030 
+00031 \textcolor{comment}{/*  Global type defs for Distance-Package */}
+00032 
+\hypertarget{dist__vars_8h_source_l00033}{}\hyperlink{structPostorder__list}{00033} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{
+00034                  \textcolor{keywordtype}{int}  type;
+00035                  \textcolor{keywordtype}{int}  weight;
+00036                  \textcolor{keywordtype}{int}  father;
+00037                  \textcolor{keywordtype}{int}  sons;
+00038                  \textcolor{keywordtype}{int}  leftmostleaf;
+00039                \} \hyperlink{structPostorder__list}{Postorder\_list};
+00040 
+\hypertarget{dist__vars_8h_source_l00041}{}\hyperlink{structTree}{00041} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{
+00042                  \hyperlink{structPostorder__list}{Postorder\_list} *postorder\_list;
+00043                  \textcolor{keywordtype}{int}            *keyroots;
+00044                \} \hyperlink{structTree}{Tree};
+00045 
+\hypertarget{dist__vars_8h_source_l00046}{}\hyperlink{structswString}{00046} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{
+00047                  \textcolor{keywordtype}{int}    type;
+00048                  \textcolor{keywordtype}{int}    sign;
+00049                  \textcolor{keywordtype}{float}  weight;
+00050                \} \hyperlink{structswString}{swString};
+00051 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

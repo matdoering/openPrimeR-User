@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*      This program is free software; you can redistribute it and/or modify  */
+/*       it under the terms of the GNU General Public License as published by */
+/*       the Free Software Foundation; either version 2 of the License, or    */
+/*       (at your option) any later version.                                  */
+
+/*       This program is distributed in the hope that it will be useful, but  */
+/*       WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU    */
+/*       General Public License for more details.                             */
+
+/*       You should have received a copy of the GNU General Public License    */
+/*       along with this program; if not, write to the Free Software          */
+/*       Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 */
+/*       USA                                                                  */
+
+/*       Marine Dumousseau                                                    */
+/*       EMBL-EBI, neurobiology computational group,                          */
+/*       Cambridge, UK. e-mail: marine@ebi.ac.uk                   */
+-->
+
+<!--/******************************************************************************/
+    /* contains the parameters for DNA/DNA 2_hydroxyadenine pairs of Sugimoto et al.      */
+    /* (2001). Nucleic acids research 29 : 3289-3296                              */
+    /******************************************************************************/-->
+  		
+  	<data type="modified_nucleotides">
+  		<modified sequence="TAA/AA*T">
+  			<enthalpy>26500.0</enthalpy>
+  			<entropy>71.0</entropy>
+  		</modified>
+  		<modified sequence="TGA/AA*T">
+  			<enthalpy>21000.0</enthalpy>
+  			<entropy>61.0</entropy>
+  		</modified>
+  		<modified sequence="TCA/AA*T">
+  			<enthalpy>9000.0</enthalpy>
+  			<entropy>27.0</entropy>
+  		</modified>
+  		<modified sequence="TTA/AA*T">
+  			<enthalpy>14000.0</enthalpy>
+  			<entropy>38.0</entropy>
+  		</modified>
+  		<modified sequence="GAC/CA*G">
+  			<enthalpy>70800.0</enthalpy>
+  			<entropy>203.0</entropy>
+  		</modified>
+  		<modified sequence="GGC/CA*G">
+  			<enthalpy>25600.0</enthalpy>
+  			<entropy>76.0</entropy>
+  		</modified>
+  		<modified sequence="GCC/CA*G">
+  			<enthalpy>19000.0</enthalpy>
+  			<entropy>54.0</entropy>
+  		</modified>
+  		<modified sequence="GTC/CA*G">
+  			<enthalpy>9000.0</enthalpy>
+  			<entropy>29.0</entropy>
+  		</modified>  		
+  		<modified sequence="CTA*A/AT" sens="5">
+  			<enthalpy>6.0</enthalpy>
+  			<entropy>18.0</entropy>
+  		</modified>				
+  		<modified sequence="TGA*C/AG" sens="5">
+  			<enthalpy>76600.0</enthalpy>
+  			<entropy>227.0</entropy>
+  		</modified>
+  		<modified sequence="CTA*A/GT" sens="5">
+  			<enthalpy>48.3</enthalpy>
+  			<entropy>144.0</entropy>
+  		</modified>	
+  		<modified sequence="TGA*C/GG" sens="5">
+  			<enthalpy>21000.0</enthalpy>
+  			<entropy>63.0</entropy>
+  		</modified>
+  		<modified sequence="CTA*A/CT" sens="5">
+  			<enthalpy>15600.0</enthalpy>
+  			<entropy>45.0</entropy>
+  		</modified>	
+  		<modified sequence="TGA*C/CG" sens="5">
+  			<enthalpy>37000.0</enthalpy>
+  			<entropy>110.0</entropy>
+  		</modified>
+  		<modified sequence="CTA*A/TT" sens="5">
+  			<enthalpy>-4000.0</enthalpy>
+  			<entropy>-13.0</entropy>
+  		</modified>
+  		<modified sequence="TGA*C/TG" sens="5">
+  			<enthalpy>15000.0</enthalpy>
+  			<entropy>47.0</entropy>
+  		</modified>
+  	</data>

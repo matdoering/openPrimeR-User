@@ -1,0 +1,11 @@
+Special notes for Microsoft Windows:
+
+(See the generic README file as well.)
+
+There are two environment variables that affect the OligoArrayAux software.  They should be set automatically under Windows NT/2000/XP, but Windows 95/98/ME users may need to set them manually.
+
+The first is the UNAFOLDDAT variable.  This variable contains the path to OligoArrayAux's energy rules.  If the software is installed in the default location of C:\Program Files\OligoArrayAux, the rules will be found automatically.  However, if you install the software to a different drive or directory, you will need to ensure the UNAFOLDDAT variable is set correctly.  The data files are found in OligoArrayAux\share\oligoarrayaux, where OligoArrayAux is the directory in which you installed the software.
+
+The second variable is the PATH.  It is desirable to have the programs and scripts associated with OligoArrayAux in the system path; in fact, it is required if you want to use the software with OligoArray.  You should ensure that the OligoArrayAux/bin directory is in your PATH.
+
+Note that there are man pages for each program installed in OligoArrayAux/man/man1, although reading man pages is often difficult with Windows.  The same documentation is also available in HTML format at http://dinamelt.bioinfo.rpi.edu/unafold/.

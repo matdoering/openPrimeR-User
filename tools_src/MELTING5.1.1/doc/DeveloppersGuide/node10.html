@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How to add new nucleic acids</TITLE>
+<META NAME="description" CONTENT="How to add new nucleic acids">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="DeveloppersGuide.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html168"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html162"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html170"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node11.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html169"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html163"
+  HREF="node9.html">How to create a</A>
+ &nbsp; <B>  <A NAME="tex2html171"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">
+How to add new nucleic acids</A>
+</H1>
+
+<P>
+<SPAN  CLASS="textbf">1)</SPAN> Add the name to the new nucleic acid in the SpecificAcidNames enum in the melting.sequences
+package :
+
+<P>
+<PRE>
+public enum SpecificAcidNames {
+
+	inosine, lockedNucleicAcid, hydroxyadenine, azobenzene, 
+	newNucleicAcidName
+}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">2)</SPAN> Register the new nucleic acid syntax in the ArrayList <SPAN  CLASS="textit">existingNucleicAcids</SPAN>
+of BasePair in the melting.sequences package. You just have to add the following line
+into the method <SPAN  CLASS="textit">public static void initialiseNucleicAcidList()</SPAN> of BasePair :
+
+<P>
+<PRE>
+/**
+* initialises the ArrayList existingNucleicAcids of the 
+* BasePair class.
+*/
+	public static void initialiseNucleicAcidList(){
+		[...] 
+		
+		// You have to choose a syntax (String representation) 
+		// of the new nucleic acid in the String sequence.
+		// It is this syntax which will be recognized by the 
+		// program when it analyzes the sequences.
+		existingNucleicAcids.add("newAcid-syntax");
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">3)</SPAN> Create a relationship between the nucleic acid syntax in the ArrayList 
+<SPAN  CLASS="textit">existingNucleicAcids</SPAN> of BasePair and the
+nucleic acid name registered in the SpecificAcidNames enum. You have to add
+the following line into the method <SPAN  CLASS="textit">public static void initialiseModifiedAcidHashmap()</SPAN>
+of NucleotidSequences in the melting.sequences package :
+
+<P>
+<PRE>
+/**
+* initialises the HasMap modifiedAcidNames of the 
+* NucleotiSequences class.
+*/
+	public static void initialiseModifiedAcidHashmap(){
+		[...]
+		
+		modifiedAcidNames.put("newAcid-syntax", 
+		    SpecificAcidNames.newNucleicAcidName);
+	}
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">4)</SPAN> Create a new class to manage the computation of the new nucleic acid as it is
+explained in the section <SPAN  CLASS="textit">How to add new thermodynamic model</SPAN>. (a new nucleic
+acid is considered as a new structure in the computation of the enthalpy and entropy of
+the Crick's pair containing the new nucleic acid.)
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html168"
+  HREF="DeveloppersGuide.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html162"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html170"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node11.html">How to add new</A>
+<B> Up:</B> <A NAME="tex2html169"
+  HREF="DeveloppersGuide.html">MELTING - development guide</A>
+<B> Previous:</B> <A NAME="tex2html163"
+  HREF="node9.html">How to create a</A>
+ &nbsp; <B>  <A NAME="tex2html171"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Thermodynamic model for single bulge loop computation</TITLE>
+<META NAME="description" CONTENT="Thermodynamic model for single bulge loop computation">
+<META NAME="keywords" CONTENT="DeveloppersGuide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="DeveloppersGuide.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html138"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html134"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html128"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html136"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html139"
+  HREF="node8.html">Thermodynamic model for inosine</A>
+<B> Up:</B> <A NAME="tex2html135"
+  HREF="node5.html">How to add new</A>
+<B> Previous:</B> <A NAME="tex2html129"
+  HREF="node6.html">Thermodynamic model for Crick's</A>
+ &nbsp; <B>  <A NAME="tex2html137"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00050200000000000000">
+Thermodynamic model for single bulge loop computation</A>
+</H3>
+
+<P>
+If it is possible, you directly can create a new class which extends the GlobalSingleBuleLoop class 
+(melting.patternModels.singleBulge).
+<BR>
+<BR>
+The GlobalSingleBuleLoop class already implements the following public functions of the PatternComputationMethod interface.: 
+<SPAN  CLASS="textit">ThermoResult computeThermodynamics(NucleotidSequences sequences,int pos1, int pos2, ThermoResult result)</SPAN>,
+and <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN>. 
+<BR>
+<BR>
+A GlobalSingleBuleLoop can compute the enthalpy and entropy of a single bulge loop by adding
+the thermodynamic parameters for the trinucleotide containing the single bulge loop. 
+The implemented function <SPAN  CLASS="textit">isMissingParameters(NucleotidSequences sequences, int pos1, int pos2)</SPAN> 
+can determine if a thermodynamic parameter for the trinucleotide containing the single bulge loop is missing. 
+<BR>
+<BR>
+Finally, the implemented function <SPAN  CLASS="textit">int[] correctPositions(int pos1, int pos2, int duplexLength)</SPAN> is necessary
+to take into account the adjacent base pairs of the single bulge loop.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Computational Neurobiology
+2009-08-24
+</ADDRESS>
+</BODY>
+</HTML>
