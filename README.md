@@ -140,7 +140,7 @@ See the [LICENSE](LICENSE.txt) file for license rights and limitations (GNU Gene
 Take a look at the [CHANGELOG](CHANGELOG.md) to view recent changes to the project.
 
 ## Requirements for the R package
-- R >= version 3.1.0 
+- R >= version 3.4.0 
 - OS: Linux, MacOS, Windows
 - Third-party software: MAFFT, oligoarrayaux, MELTING, phantomjs, selenium for python, ViennaRNA
 
