@@ -68,7 +68,7 @@ in case of CRAN packages such as *gtable* or. For Bioconductor packages, such as
 
 > biocLite('XVector')
 
-fater loading *biocLite*. After this, you restart the installation script. Once the installation is finished, a browser will open the tool.
+after loading *biocLite*. After this, you restart the installation script. Once the installation is finished, a browser will open the tool.
 Again, please note the console output here for the case that there were problems with installing the third-party tools.
 
 ### Starting the tool

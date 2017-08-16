@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y libfontconfig1 libxml2-dev default-jre 
 #    && rm -rf /var/lib/apt/lists/*
 RUN pip install selenium
 # switch to root for permissions to create folders
-USER root
+#USER root # markus doesn't use this?
 # set to user to shiny (the user that starts the server) such that dependencies are installed in the right folder (rocker uses root user by default ..)
 #USER shiny
 WORKDIR /srv/
