@@ -1,0 +1,16 @@
+export DOTFILESPATH=/mpietc/dotfiles
+AUTOPATH=~/.autopath.bash.`uname -s`
+if [ -f $AUTOPATH ]; then source $AUTOPATH; fi
+
+VISUAL=jove
+EDITOR=jove
+COMMAND_ORIENTED_HISTORY=true
+
+unset XFILESEARCHPATH
+
+if [ -f ~/.bashrc_private ] ; then source ~/.bashrc_private ; fi
+
+PS1="[\W]\$ \[\e]2;[\d \t]  [\w]\a\]"
+
+export UNAFOLDDAT=/srv/primer_design/tools/oligoarrayaux/share/oligoarrayaux/
+export PATH=$PATH:/srv/primer_design/tools/oligoarrayaux/bin/:/srv/primer_design/tools/MAFFT/bin/:/srv/primer_design/tools/ViennaRNA/bin/:/srv/primer_design/tools/MELTING/executable/:/srv/primer_design/tools/phantomjs/bin/
