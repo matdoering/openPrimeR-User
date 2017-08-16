@@ -23,7 +23,7 @@ if [ $existing -ne 0 ]; then
 fi
 
 # execute docker 
-docker run -d --name openPrimeR --rm -p 3838:3838 -v /tmp/logs/:/var/log/shiny-server/ mdoering88/primer_design;
+docker run -d --name openPrimeR --rm -p 3838:3838 -v /tmp/logs/:/var/log/shiny-server/ mdoering88/openprimer;
 server_location="http://localhost:3838";
 sleep 1; # sleep a second to wait for docker to load before we open browser
 if [ $OS = "OSX" ]; then
