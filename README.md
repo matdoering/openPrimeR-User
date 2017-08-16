@@ -1,29 +1,31 @@
 # openPrimeR
 ## Synopsis
 
-openPrimeR is a web-based tool for designing, evaluating, and comparing primers for multiplex polymerase chain reaction (PCR). When designing primers, the tool selects the minimal set of primers that provides the maximal coverage of template sequences. Designed primers are of high quality as several molecular properties can be considered. Moreover, users can specify the required binding conditions in detail: template-specific binding regions can be defined and the maximal number of allowed mismatches for primer binding can be selected. Moreover, hybridization and elongation efficiencies of individual primer binding events are considered to determine which templates can actually be amplified. The tool enables the comparison of the properties (e.g. binding regions and coverage) of existing primer sets. 
-
-## Motivation
-
-Existing approaches for multiplex primer design did not fulfill our requirements: many tools are not very customizable (allowed regions, primer properties, mismatch binding, primer directionality), do not optimize the intended target function (primer set is not always minimized, MPPrimer), are not user friendly (DECIPHER), or are not interpretable (no evaluation/comparison of primers). 
+openPrimeR is an R package providing methods for designing, evaluating,and
+comparing primer sets for multiplex polymerase chain reaction (PCR). The package provides a primer design
+function that generates novel primer setes by solving a
+set cover problem such that the number of covered template sequences is
+maximized with the smallest possible set of primers. Moreover, existing primer sets can be evaluated
+according to their coverage and their fulfillment of constraints on the
+PCR-relevant physicochemical properties. For PCR tasks for which multiple
+possible primer sets exist, openPrimeR can facilitate the selection of the
+most suitable set by performing comparative analyses. The R package includes a Shiny application that
+provides a comprehensive and intuitive user interface for the core functionalites of the package.
 
 ## Using openPrimeR
 
-We provide two distributions for openPrimeR. The first way of distribution is the openPrimeR R package with the Shiny app, which can be retrieved via GitHub. 
-The second type of distribution is the Shiny app as a self-contained Docker container. The openPrimeR Docker image contains all of the dependencies of the tool, which makes it easily usable on any type of system, independent of the installed operating system, R distribution, etc. We recommend that you use the Docker image if you belong to the following groups of users:
+We provide two distributions for openPrimeR. The R package (including the Shiny app) can be retrieved using this GitHub repository. Additionally, we provide a self-contained Docker image for the Shiny application. The openPrimeR Docker image contains all of the dependencies of the tool, which makes it easily usable on any type of system, independent of the installed operating system, R distribution, etc. We recommend that you use the Docker image if you belong to the following groups of users:
 
 1. You do not have any experience with R whatsoever and you do not intend to use the functionalities of the R package.
 2. You only want to use the openPrimeR frontend in terms of the Shiny app.
 3. You do not want to invest time in installing the package with all of its dependencies.
 
-## Usage of the tool from GitHub
+## Installation from GitHuB
 
 ### Introduction to GitHub
 In a console, enter
 
->**git clone https://github.molgen.mpg.de/mdoering/primer_design**
-
-and then enter your username and password.
+>**git clone https://github.com/matdoering/openPrimeR-User**
 
 To update your local version of the tool to the curreent GitHub version at a later point in time, just run
 
