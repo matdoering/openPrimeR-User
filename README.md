@@ -135,10 +135,6 @@ openPrimeR is being developed at the Max Planck Institute for Informatics and th
 
 See the [LICENSE](LICENSE.txt) file for license rights and limitations (GNU General Public License, Version 2.0).
 
-## Changelog
-
-Take a look at the [CHANGELOG](src/openPrimeR/NEWS) to view recent changes to the project.
-
 ## Requirements for the R package
 - R >= version 3.4.0 
 - OS: Linux, MacOS, Windows
