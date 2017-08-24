@@ -52,68 +52,60 @@ if (length(cmd.params) == 0) {
     start.after.install <- as.logical(cmd.params[1])
     to.install.tools <- as.logical(cmd.params[2])
 }
-base.path <- file.path(path, "..") # the primer_design directory
+base.path <- file.path(path, "..") # the primer_design directory (base)
 path <- file.path(path, "openPrimeR") # path to openPrimeR package
 #print("###")
 #print("PATH")
 #print(path)
 #print("###")
-source(file.path(path, "inst", "shiny", "shiny_server", "extra_install_helper.R"))
-my_deps <- get_deps(path)
-tool.data.folder <- file.path(path, "inst", "extdata")
-# we need roxygen for devtools ...
-# set CRAN mirror for 'available.packges' command:
-CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", tool.data.folder = tool.data.folder)
-CRAN.pkgs <- available.packages()
-# install all openPrimeR R package dependencies
-for (i in seq_along(my_deps)) {
-	dep <- my_deps[i]
-	# dependencies <- c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances") # too many ...
-	dependencies <- TRUE
-	USED.MIRROR <- pkgTest(dep, load_namespace_only = TRUE, 
-						   dependencies = dependencies,
-						   repository = CRAN.mirror, CRAN.pkgs = CRAN.pkgs)
-}
-# Update packages that were available already but are outdated:
-update.status <- update.required.packages(my_deps, CRAN.mirror)
-# install openPrimeR from source:
-install.ok <- try(install.packages(path, repos = NULL, type="source", dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")), silent = TRUE)
-if (class(install.ok) == "try-error") {
-	# Installation stopped due to missing dependencies: let devtools do the job
-	install.ok <- try(devtools::install(path, dependencies = TRUE, quick = TRUE, upgrade = FALSE))
-	if (class(install.ok) == "try-error") {
-		stop("Installation of openPrimeR failed. Please install missing dependencies manually and restart the installation procedure thereafter.")
-	}
-} else {
-    #library("openPrimeR") # load the pkg, this is useless
-}
-if (to.install.tools) { # don't install tools for docker in one script call -> debug if there's an error
-    # need to load current pkg version from source such that paths relate to the local install directory of the tool rather than system install dir
-    print("Loading pkg from path:")
-    print(path)
-    # removing the variables doesn't help ...
-    #rm(list = setdiff(ls(), "path")) # remove everything from environment to prevent error
-    load.ok <- try(devtools::load_all(path, export_all = FALSE), silent = FALSE)
-    if (class(load.ok) == "try-error") {
-        # try to continue here: docker complains for some reason at the moment ..
-        warning("Could not load openPrimeR using devtools: ",
-             attr(load.ok, "condition"))
-        SHINY.PATH <- file.path(path, "inst", "shiny") # set shiny path for install_tools script necessary now
-    } else {
-        SHINY.PATH <- system.file("shiny", package = "openPrimeR")
+source(file.path(base.path, "src", "extra_install_helper.R"))
+# need to install openPrimeR backend and frontend packages:
+pkg.deps <- c("openPrimeR", "openPrimeRui")
+for (i in seq_along(pkg.deps)) {
+    path <- file.path(base.path, pkg.deps[i])
+    print(paste0("Installing deps for package: ", pkg.deps[i]))
+    my_deps <- get_deps(path)
+    tool.data.folder <- file.path(path, "inst", "extdata")
+    # we need roxygen for devtools ...
+    # set CRAN mirror for 'available.packges' command:
+    CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", tool.data.folder = tool.data.folder)
+    CRAN.pkgs <- available.packages()
+    # install all R package dependencies
+    for (i in seq_along(my_deps)) {
+        dep <- my_deps[i]
+        dependencies <- TRUE
+        USED.MIRROR <- pkgTest(dep, load_namespace_only = TRUE, 
+                               dependencies = dependencies,
+                               repository = CRAN.mirror, CRAN.pkgs = CRAN.pkgs)
     }
-    install.script <- file.path(SHINY.PATH, "shiny_server", "extra_install_tools.R")
+    # Update packages that were available already but are outdated:
+    update.status <- update.required.packages(my_deps, CRAN.mirror)
+    # install pkg from source:
+    install.ok <- try(install.packages(path, repos = NULL, type="source", dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")), silent = TRUE)
+    if (class(install.ok) == "try-error") {
+        # Installation stopped due to missing dependencies: let devtools do the job
+        install.ok <- try(devtools::install(path, dependencies = TRUE, quick = TRUE, upgrade = FALSE))
+        if (class(install.ok) == "try-error") {
+            stop("Installation of openPrimeR failed. Please install missing dependencies manually and restart the installation procedure thereafter.")
+        }
+    } else {
+        #library("openPrimeR") # load the pkg, this is useless
+    }
+}
+if (to.install.tools) {
+    # installt tools
+    install.script <- file.path(base.path, "src", "extra_install_tools.R")
     if (install.script == "") {
         stop("There was an error during the installation procedure. ",
-            "Install script could not be located, probably since 'devtools' couldn't load the package.")
+            "Install script could not be located!")
     }
     source(install.script)
-    # start the shiny app:
     # add icon:
     icon.status <- create_tool_icon(base.path)
     if (start.after.install) {
+        # start the shiny app:
         message("Succesfully installed openPrimeR! Starting the app ...")
-        openPrimeR::startApp()
+        openPrimeRui::startApp()
     } else {
         message("Succesfully installed openPrimeR!")
     }

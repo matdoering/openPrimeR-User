@@ -21,10 +21,4 @@ RUN Rscript primer_design/src/install.R FALSE TRUE
 #update shiny server conf and configure it to run the primer design tool in single app mode
 ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
 COPY .docker_bashrc /home/shiny/.bashrc
-# modify the shiny user (defined in shiny-server.conf) bashrc to have the modified path we set when running the shiny server
-###########
-# change owner of primer_design folder in order to be able to write there with the shiny user
-#RUN chown -R shiny:shiny primer_design/ # unnecessary?
-######
 WORKDIR /srv/primer_design
-#USER shiny # keep running as root, otherwise we have problem with bookmark_state_dir

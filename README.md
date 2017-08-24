@@ -20,16 +20,18 @@ We provide two distributions for openPrimeR. The R package (including the Shiny 
 2. You only want to use the openPrimeR frontend in terms of the Shiny app.
 3. You do not want to invest time in installing the package with all of its dependencies.
 
-## Installation from GitHuB
+## Installation from GitHub
 
 ### Introduction to GitHub
 In a console, enter
 
 >**git clone https://github.com/matdoering/openPrimeR-User**
+>**git submodule update --init --recursive**
 
 To update your local version of the tool to the curreent GitHub version at a later point in time, just run
 
 >**git pull origin master**
+>**git submodule update**
 
 in the project's base folder. 
 

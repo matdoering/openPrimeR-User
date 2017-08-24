@@ -1,3 +1,6 @@
 [submodule "src/openPrimeR"]
 	path = src/openPrimeR
 	url = https://github.com/matdoering/openPrimeR/
+[submodule "src/openPrimeRui"]
+	path = src/openPrimeRui
+	url = https://github.com/matdoering/openPrimeRui
