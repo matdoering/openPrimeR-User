@@ -62,7 +62,7 @@ source(file.path(base.path, "src", "extra_install_helper.R"))
 # need to install openPrimeR backend and frontend packages:
 pkg.deps <- c("openPrimeR", "openPrimeRui")
 for (i in seq_along(pkg.deps)) {
-    path <- file.path(base.path, pkg.deps[i])
+    path <- file.path(base.path, "src", pkg.deps[i])
     print(paste0("Installing deps for package: ", pkg.deps[i]))
     my_deps <- get_deps(path)
     tool.data.folder <- file.path(path, "inst", "extdata")
@@ -88,9 +88,7 @@ for (i in seq_along(pkg.deps)) {
         if (class(install.ok) == "try-error") {
             stop("Installation of openPrimeR failed. Please install missing dependencies manually and restart the installation procedure thereafter.")
         }
-    } else {
-        #library("openPrimeR") # load the pkg, this is useless
-    }
+    } 
 }
 if (to.install.tools) {
     # installt tools

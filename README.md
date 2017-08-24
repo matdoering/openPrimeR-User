@@ -25,12 +25,12 @@ We provide two distributions for openPrimeR. The R package (including the Shiny 
 ### Introduction to GitHub
 In a console, enter
 
->**git clone https://github.com/matdoering/openPrimeR-User**
+>**git clone https://github.com/matdoering/openPrimeR-User && **
 >**git submodule update --init --recursive**
 
 To update your local version of the tool to the curreent GitHub version at a later point in time, just run
 
->**git pull origin master**
+>**git pull origin master && **
 >**git submodule update**
 
 in the project's base folder. 
