@@ -292,7 +292,7 @@ install.RAxML <- function(RAXML.INSTALL.PATH, RAXML.SRC, tool.src.folder) {
     res2 <- system(cpy.call)
     return(res1 == 0 && res2 == 0)
 }
-install.viennaRNA <- function(VIENNA.PATH, VIENNA.SRC, VIENNA.SRC.WIN, tool.src.folder, VIENNA.LOCATION) {
+install.viennaRNA <- function(VIENNA.PATH, VIENNA.SRC, VIENNA.SRC.WIN, tool.src.folder, VIENNA.LOCATION, tool.folder) {
     message("Installing viennaRNA.")
     is.win <- get.OS() == "win"
     if (is.win) {
@@ -386,7 +386,7 @@ install.melt <- function(MELT.PATH, MELT.SRC, tool.src.folder) {
     return(TRUE)
 }
 install.oligoArrayAux <- function(OLIGOARRAY.PATH, OLIGOARRAY.INSTALL.PATH,
-                        OLIGOARRAY.SRC, OLIGOARRAY.SRC.WIN, tool.src.folder) {
+                        OLIGOARRAY.SRC, OLIGOARRAY.SRC.WIN, tool.src.folder, tool.folder) {
     is.win <- get.OS() == "win"
     if (is.win) {
         OLIGOARRAY.SRC <- OLIGOARRAY.SRC.WIN
@@ -584,6 +584,73 @@ install.MAFFT <- function(MAFFT.INSTALL.PATH, MAFFT.SRC, MAFFT.SRC.WIN, tool.src
 }
 install.tools <- function(AVAILABLE.TOOLS = NULL) {
     # install third-party tools
+    #################3
+    # Define all tool locations: TODO (ugly)
+    # important: if we don't use devtools, then the path MAY be set to the R library path instead of the local path -> tools/ won't be found!
+# avoid using system.file!
+    message("Base dir is: ", base.path)
+    tool.folder <- file.path(base.path, "tools")
+    tool.src.folder <- file.path(base.path, "tools_src")
+    TOOL.SOURCE.FILES <- list.files(tool.src.folder, pattern = "\\.tar", full.names = TRUE)
+    # MELT
+    MELT.PATH <- file.path(tool.folder, "MELTING")
+    MELT.SRC <- TOOL.SOURCE.FILES[grep("MELTING", TOOL.SOURCE.FILES)[1]]
+    #print("MELT")
+    #print(MELT.SRC)
+    MELT.LOCATION <- file.path(MELT.PATH, "executable", "melting-batch")
+    MELT.TANDEM.LOCATION <- file.path(MELT.PATH, "Data", "AllawiSantaluciaPeyret1997_1998_1999tanmm.xml")  # original tandem mismatch parameters
+    MELT.TANDEM.LOCATION.MOD <- file.path(MELT.PATH, "Data", "AllawiSantaluciaPeyret1997_1998_1999tanmm_mod.xml")  # modified tandem mismatch parameters (assume mean)
+    # VIENNARNA
+    VIENNA.PATH <- file.path(tool.folder, "ViennaRNA")
+    VIENNA.SRC <- TOOL.SOURCE.FILES[grep("ViennaRNA", TOOL.SOURCE.FILES)[1]]
+    VIENNA.SRC.WIN <- list.files(tool.src.folder, full.names = TRUE)
+    VIENNA.SRC.WIN <- VIENNA.SRC.WIN[grep("ViennaRNAWin", VIENNA.SRC.WIN)[1]]
+    VIENNA.LOCATION <- file.path(VIENNA.PATH, "bin", "RNAfold")
+    if (Sys.info()["sysname"] == "Windows") {
+        VIENNA.LOCATION <- VIENNA.PATH
+    }
+    VIENNA.LOCATION.PARAM <- file.path(VIENNA.PATH, "share", "ViennaRNA")
+    if (Sys.info()["sysname"] == "Windows") {
+        VIENNA.LOCATION.PARAM <- file.path(VIENNA.PATH, "Misc")
+    }
+    # OLIGOARRAYAUX
+    OLIGOARRAY.INSTALL.PATH <- file.path(tool.folder, "oligoarrayaux")
+    OLIGOARRAY.PATH <- file.path(OLIGOARRAY.INSTALL.PATH, "bin")
+    OLIGOARRAY.SRC <- TOOL.SOURCE.FILES[grep("oligoarrayaux", TOOL.SOURCE.FILES)[1]]
+    OLIGOARRAY.SRC.WIN <- list.files(tool.src.folder, full.names = TRUE)
+    OLIGOARRAY.SRC.WIN <- OLIGOARRAY.SRC.WIN[grep("OligoArrayAuxWin",  OLIGOARRAY.SRC.WIN)[1]]
+    # MAFFT:
+    MAFFT.INSTALL.PATH <- file.path(tool.folder, "MAFFT")
+    MAFFT.PATH <- file.path(MAFFT.INSTALL.PATH, "bin", "mafft")
+    if (Sys.info()["sysname"] == "Windows") {
+        MAFFT.PATH <- file.path(MAFFT.INSTALL.PATH, "ms", "bin")
+    }
+    MAFFT.SRC <- TOOL.SOURCE.FILES[grep("mafft", TOOL.SOURCE.FILES)[1]]
+    MAFFT.SRC.WIN <- list.files(tool.src.folder, pattern = "\\.zip", full.names = TRUE)
+    MAFFT.SRC.WIN <- MAFFT.SRC.WIN[grep("mafft", MAFFT.SRC.WIN)[1]]
+    # PANDOC:
+    PANDOC.INSTALL.PATH <- file.path(tool.folder, "Pandoc")
+    PANDOC.SRC.WIN <- file.path(tool.src.folder, "pandocWin")
+    PANDOC.SRC.MAC <- list.files(tool.src.folder, pattern = "\\.pkg", full.names = TRUE)
+    PANDOC.SRC.MAC <- PANDOC.SRC.MAC[grep("pandoc",PANDOC.SRC.MAC)[1]]
+    PANDOC.SRC <- list.files(tool.src.folder, pattern = "\\.deb", full.names = TRUE)
+    PANDOC.SRC <- PANDOC.SRC[grep("pandoc",PANDOC.SRC)[1]]
+    if (Sys.info()["sysname"] == "Darwin") {
+        # mac
+        PHANTOMJS.LOCATION <- file.path(tool.src.folder, "phantomjs-2.1.1-macosx")
+    } else if (Sys.info()["sysname"] == "Windows") {
+        PHANTOMJS.LOCATION <- file.path(tool.src.folder, "phantomjs-2.1.1-windows")
+    } else {
+        if (.Machine$sizeof.pointer == 8) {
+            # 64 bit
+            PHANTOMJS.LOCATION <- file.path(tool.src.folder, "phantomjs-2.1.1-linux-x86_64")
+        } else {
+            # 32 bit
+            PHANTOMJS.LOCATION <- file.path(tool.src.folder, "phantomjs-2.1.1-linux-i686")
+        }
+    }
+
+    ##########################
     if (length(AVAILABLE.TOOLS) == 0) {
         message("Checking tools for installation status ...")
         AVAILABLE.TOOLS <- openPrimeR:::check.tool.installation(frontend = TRUE)
@@ -614,7 +681,7 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
             if (file.exists(VIENNA.LOCATION)) {
                 AVAILABLE.TOOLS["ViennaRNA"] <- FALSE
                 warning("ViennaRNA is installed, but path isn't set correctly or checks failed (UNAFOLDDAT set?).")
-            } else if (install.viennaRNA(VIENNA.PATH, VIENNA.SRC, VIENNA.SRC.WIN, tool.src.folder, VIENNA.LOCATION)) {
+            } else if (install.viennaRNA(VIENNA.PATH, VIENNA.SRC, VIENNA.SRC.WIN, tool.src.folder, VIENNA.LOCATION, tool.folder)) {
                 AVAILABLE.TOOLS["ViennaRNA"] <- TRUE
                 message("-> Successfully installed ViennaRNA.")
             } else {
@@ -627,7 +694,7 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
                 warning("Tool is installed but not in the path.")
                 AVAILABLE.TOOLS["OligoArrayAux"] <- TRUE
             } else if (install.oligoArrayAux(OLIGOARRAY.PATH, OLIGOARRAY.INSTALL.PATH, 
-                     OLIGOARRAY.SRC, OLIGOARRAY.SRC.WIN, tool.src.folder)) {
+                     OLIGOARRAY.SRC, OLIGOARRAY.SRC.WIN, tool.src.folder, tool.folder)) {
                 message("Installation of oligoarrayaux successful!")
                 AVAILABLE.TOOLS["OligoArrayAux"] <- TRUE
             } else {
@@ -691,7 +758,7 @@ create_tool_icon <- function(base.path) {
 	}
     message("Creating desktop icon ...")
     icon.loc <- system.file("shiny", "www", "images", 
-                    "logo.png", package = "openPrimeR")
+                    "logo.png", package = "openPrimeRui")
     exec.loc <- file.path(normalizePath(base.path), "start.sh")
     if (!file.exists(icon.loc)) {
         warning(paste("Icon not found at:", icon.loc))
@@ -701,6 +768,7 @@ create_tool_icon <- function(base.path) {
         warning(paste("Start script not found at:", exec.loc))
         return()
     }
+    # define the location of the icon on disk
     link.loc <- file.path(base.path, "openPrimeR")
     code <- paste(
         "[Desktop Entry]",

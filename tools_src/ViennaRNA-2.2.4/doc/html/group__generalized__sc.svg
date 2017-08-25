@@ -23,8 +23,8 @@
 </g>
 <!-- Node1&#45;&gt;Node0 -->
 <g id="edge1" class="edge"><title>Node1&#45;&gt;Node0</title>
-<path fill="none" stroke="black" d="M98.4172,-10C106.635,-10 115.229,-10 123.753,-10"/>
-<polygon fill="black" stroke="black" points="98.2416,-6.5001 88.2416,-10 98.2416,-13.5001 98.2416,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M98.4172,-10C106.635,-10 115.229,-10 123.753,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="98.2416,-6.5001 88.2416,-10 98.2416,-13.5001 98.2416,-6.5001"/>
 </g>
 </g>
 </svg>

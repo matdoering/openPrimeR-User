@@ -37,7 +37,6 @@ var dir_b65dce601f6c2aa1a9f53e1dbd97d018 =
     [ "inverse.h", "inverse_8h.html", "inverse_8h" ],
     [ "Lfold.h", "Lfold_8h.html", "Lfold_8h" ],
     [ "ligand.h", "ligand_8h.html", "ligand_8h" ],
-    [ "ligand_binding.h", "ligand__binding_8h_source.html", null ],
     [ "list.h", "list_8h_source.html", null ],
     [ "loop_energies.h", "loop__energies_8h.html", null ],
     [ "LPfold.h", "LPfold_8h.html", "LPfold_8h" ],

@@ -96,5 +96,5 @@ In a typical Unix environment you would compile this program using\+: \begin{Dox
  and link using \begin{DoxyVerb}cc ${OPENMP_CFLAGS} -o example -L${lpath} -lRNA -lm
 \end{DoxyVerb}
  where {\itshape \$\{hpath\}} and {\itshape \$\{lpath\}} point to the location of the header files and library, respectively. \begin{DoxyNote}{Note}
-As default, the R\+N\+Alib is compiled with build-\/in {\itshape Open\+M\+P} multithreading support. Thus, when linking your own object files to the library you have to pass the compiler specific {\itshape \$\{O\+P\+E\+N\+M\+P\+\_\+\+C\+F\+L\+A\+G\+S\}} (e.\+g. \textquotesingle{}-\/fopenmp\textquotesingle{} for {\bfseries gcc}) even if your code does not use openmp specific code. However, in that case the {\itshape Open\+M\+P} flags may be ommited when compiling example.\+c 
+As default, the R\+N\+Alib is compiled with build-\/in {\itshape Open\+M\+P} multithreading support. Thus, when linking your own object files to the library you have to pass the compiler specific {\itshape \$\{O\+P\+E\+N\+M\+P\+\_\+\+C\+F\+L\+A\+G\+S\}} (e.\+g. '-\/fopenmp' for {\bfseries gcc}) even if your code does not use openmp specific code. However, in that case the {\itshape Open\+M\+P} flags may be ommited when compiling example.\+c 
 \end{DoxyNote}

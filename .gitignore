@@ -3,7 +3,7 @@ results/
 tmp/
 *.swp
 other/
-tools/
-tools_src/
+^tools$
+^tools_src$
 src/openPrimeR/man/
 src/analyses/

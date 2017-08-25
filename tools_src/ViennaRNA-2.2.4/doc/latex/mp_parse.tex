@@ -1,8 +1,8 @@
 \subsection*{Representations of Secondary Structures}
 
-The standard representation of a secondary structure is the {\itshape bracket notation}, where matching brackets symbolize base pairs and unpaired bases are shown as dots. Alternatively, one may use two types of node labels, \textquotesingle{}P\textquotesingle{} for paired and \textquotesingle{}U\textquotesingle{} for unpaired; a dot is then replaced by \textquotesingle{}(U)\textquotesingle{}, and each closed bracket is assigned an additional identifier \textquotesingle{}P\textquotesingle{}. We call this the expanded notation. In \cite{fontana:1993b} a condensed representation of the secondary structure is proposed, the so-\/called homeomorphically irreducible tree (H\+I\+T) representation. Here a stack is represented as a single pair of matching brackets labeled \textquotesingle{}P\textquotesingle{} and weighted by the number of base pairs. Correspondingly, a contiguous strain of unpaired bases is shown as one pair of matching brackets labeled \textquotesingle{}U\textquotesingle{} and weighted by its length. Generally any string consisting of matching brackets and identifiers is equivalent to a plane tree with as many different types of nodes as there are identifiers.
+The standard representation of a secondary structure is the {\itshape bracket notation}, where matching brackets symbolize base pairs and unpaired bases are shown as dots. Alternatively, one may use two types of node labels, 'P' for paired and 'U' for unpaired; a dot is then replaced by '(U)', and each closed bracket is assigned an additional identifier 'P'. We call this the expanded notation. In \cite{fontana:1993b} a condensed representation of the secondary structure is proposed, the so-\/called homeomorphically irreducible tree (H\+I\+T) representation. Here a stack is represented as a single pair of matching brackets labeled 'P' and weighted by the number of base pairs. Correspondingly, a contiguous strain of unpaired bases is shown as one pair of matching brackets labeled 'U' and weighted by its length. Generally any string consisting of matching brackets and identifiers is equivalent to a plane tree with as many different types of nodes as there are identifiers.
 
-Bruce Shapiro proposed a coarse grained representation \cite{shapiro:1988}, which, does not retain the full information of the secondary structure. He represents the different structure elements by single matching brackets and labels them as \textquotesingle{}H\textquotesingle{} (hairpin loop), \textquotesingle{}I\textquotesingle{} (interior loop), \textquotesingle{}B\textquotesingle{} (bulge), \textquotesingle{}M\textquotesingle{} (multi-\/loop), and \textquotesingle{}S\textquotesingle{} (stack). We extend his alphabet by an extra letter for external elements \textquotesingle{}E\textquotesingle{}. Again these identifiers may be followed by a weight corresponding to the number of unpaired bases or base pairs in the structure element. All tree representations (except for the dot-\/bracket form) can be encapsulated into a virtual root (labeled \textquotesingle{}R\textquotesingle{}), see the example below.
+Bruce Shapiro proposed a coarse grained representation \cite{shapiro:1988}, which, does not retain the full information of the secondary structure. He represents the different structure elements by single matching brackets and labels them as 'H' (hairpin loop), 'I' (interior loop), 'B' (bulge), 'M' (multi-\/loop), and 'S' (stack). We extend his alphabet by an extra letter for external elements 'E'. Again these identifiers may be followed by a weight corresponding to the number of unpaired bases or base pairs in the structure element. All tree representations (except for the dot-\/bracket form) can be encapsulated into a virtual root (labeled 'R'), see the example below.
 
 The following example illustrates the different linear tree representations used by the package. All lines show the same secondary structure.
 
@@ -16,7 +16,7 @@ d) ((((((((H3)S3)((H2)S2)M4)S2)B1)S2)E2)R)
 \end{DoxyVerb}
 
 
-Above\+: \hyperlink{structTree}{Tree} representations of secondary structures. a) Full structure\+: the first line shows the more convenient condensed notation which is used by our programs; the second line shows the rather clumsy expanded notation for completeness, b) H\+I\+T structure, c) different versions of coarse grained structures\+: the second line is exactly Shapiro\textquotesingle{}s representation, the first line is obtained by neglecting the stems. Since each loop is closed by a unique stem, these two lines are equivalent. The third line is an extension taking into account also the external digits. d) weighted coarse structure, this time including the virtual root.
+Above\+: \hyperlink{structTree}{Tree} representations of secondary structures. a) Full structure\+: the first line shows the more convenient condensed notation which is used by our programs; the second line shows the rather clumsy expanded notation for completeness, b) H\+I\+T structure, c) different versions of coarse grained structures\+: the second line is exactly Shapiro's representation, the first line is obtained by neglecting the stems. Since each loop is closed by a unique stem, these two lines are equivalent. The third line is an extension taking into account also the external digits. d) weighted coarse structure, this time including the virtual root.
 
 For the output of aligned structures from string editing, different representations are needed, where we put the label on both sides. The above examples for tree representations would then look like\+:
 
@@ -29,7 +29,7 @@ d) (R(E2(S2(B1(S2(M4(S3(H3)S3)((H2)S2)M4)S2)B1)S2)E2)R)
 \end{DoxyVerb}
 
 
-Aligned structures additionally contain the gap character \textquotesingle{}\+\_\+\textquotesingle{}.
+Aligned structures additionally contain the gap character '\+\_\+'.
 
 \subsection*{Parsing and Coarse Graining of Structures}
 
@@ -45,15 +45,15 @@ Several functions are provided for parsing structures and converting to differen
 
 \begin{DoxyVerb}char *b2C (const char *structure)
 \end{DoxyVerb}
- Converts the full structure from bracket notation to the a coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers.
+ Converts the full structure from bracket notation to the a coarse grained notation using the 'H' 'B' 'I' 'M' and 'R' identifiers.
 
 \begin{DoxyVerb}char *b2Shapiro (const char *structure)
 \end{DoxyVerb}
- Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the \textquotesingle{}H\textquotesingle{} \textquotesingle{}B\textquotesingle{} \textquotesingle{}I\textquotesingle{} \textquotesingle{}M\textquotesingle{} \textquotesingle{}S\textquotesingle{} \textquotesingle{}E\textquotesingle{} and \textquotesingle{}R\textquotesingle{} identifiers.
+ Converts the full structure from bracket notation to the {\itshape weighted} coarse grained notation using the 'H' 'B' 'I' 'M' 'S' 'E' and 'R' identifiers.
 
 \begin{DoxyVerb}char  *expand_Shapiro (const char *coarse);
 \end{DoxyVerb}
- Inserts missing \textquotesingle{}S\textquotesingle{} identifiers in unweighted coarse grained structures as obtained from \hyperlink{group__struct__utils_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}.
+ Inserts missing 'S' identifiers in unweighted coarse grained structures as obtained from \hyperlink{group__struct__utils_ga9c80d92391f2833549a8b6dac92233f0}{b2\+C()}.
 
 \begin{DoxyVerb}char *add_root (const char *structure)
 \end{DoxyVerb}
@@ -61,7 +61,7 @@ Several functions are provided for parsing structures and converting to differen
 
 \begin{DoxyVerb}char  *unexpand_Full (const char *ffull)
 \end{DoxyVerb}
- Restores the bracket notation from an expanded full or H\+I\+T tree, that is any tree using only identifiers \textquotesingle{}U\textquotesingle{} \textquotesingle{}P\textquotesingle{} and \textquotesingle{}R\textquotesingle{}.
+ Restores the bracket notation from an expanded full or H\+I\+T tree, that is any tree using only identifiers 'U' 'P' and 'R'.
 
 \begin{DoxyVerb}char  *unweight (const char *wcoarse)
 \end{DoxyVerb}
@@ -114,7 +114,7 @@ Two cost matrices are provided for coarse grained structures\+:
 \end{DoxyVerb}
 
 
-The lower matrix uses the costs given in \cite{shapiro:1990}. All distance functions use the following global variables\+:
+The lower matrix uses the costs given in {\bfseries [shapiro\+:1990.]} All distance functions use the following global variables\+:
 
 \begin{DoxyVerb}int  cost_matrix;
 \end{DoxyVerb}
@@ -135,7 +135,7 @@ The lower matrix uses the costs given in \cite{shapiro:1990}. All distance funct
 
 \begin{DoxyVerb}Tree   *make_tree (char *struc)
 \end{DoxyVerb}
- Constructs a \hyperlink{structTree}{Tree} ( essentially the postorder list ) of the structure \textquotesingle{}struc\textquotesingle{}, for use in \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}.
+ Constructs a \hyperlink{structTree}{Tree} ( essentially the postorder list ) of the structure 'struc', for use in \hyperlink{treedist_8h_a3b21f1925f7071f46d93431a835217bb}{tree\+\_\+edit\+\_\+distance()}.
 
 \begin{DoxyVerb}float   tree_edit_distance (Tree *T1,
                             Tree *T2) 

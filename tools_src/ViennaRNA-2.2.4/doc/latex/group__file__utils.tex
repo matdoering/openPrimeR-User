@@ -1,5 +1,6 @@
-\hypertarget{group__file__utils}{}\section{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}
+\hypertarget{group__file__utils}{\section{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}
 \label{group__file__utils}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
+}
 Collaboration diagram for Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments\+:
 \nopagebreak
 \begin{figure}[H]
@@ -36,7 +37,7 @@ int \hyperlink{group__file__utils_ga646ebf45450a69a7f2533f9ecd283a32}{vrna\+\_\+
 \begin{DoxyCompactList}\small\item\em Read constraints from an input file. \end{DoxyCompactList}\item 
 unsigned int \hyperlink{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}{read\+\_\+record} (char $\ast$$\ast$header, char $\ast$$\ast$sequence, char $\ast$$\ast$$\ast$rest, unsigned int options)
 \begin{DoxyCompactList}\small\item\em Get a data record from stdin. \end{DoxyCompactList}\item 
-\hypertarget{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}{}float $\ast$$\ast$ \hyperlink{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}{readribosum} (char $\ast$name)\label{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}
+\hypertarget{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}{float $\ast$$\ast$ \hyperlink{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}{readribosum} (char $\ast$name)}\label{group__file__utils_ga5e125c9586fcd4e2e1559fe76f7289cc}
 
 \begin{DoxyCompactList}\small\item\em Read a Ribo\+Sum or other user-\/defined Scoring Matrix and Store into global Memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -45,7 +46,7 @@ unsigned int \hyperlink{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}{r
 
 
 \subsection{Function Documentation}
-\hypertarget{group__file__utils_gaaface7db12fadc3d271641c4515ab6e4}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+helixlist@{vrna\+\_\+file\+\_\+helixlist}}
+\hypertarget{group__file__utils_gaaface7db12fadc3d271641c4515ab6e4}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+helixlist@{vrna\+\_\+file\+\_\+helixlist}}
 \index{vrna\+\_\+file\+\_\+helixlist@{vrna\+\_\+file\+\_\+helixlist}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+helixlist}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+file\+\_\+helixlist (
 \begin{DoxyParamCaption}
@@ -54,7 +55,7 @@ unsigned int \hyperlink{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}{r
 \item[{float}]{energy, }
 \item[{F\+I\+L\+E $\ast$}]{file}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_gaaface7db12fadc3d271641c4515ab6e4}
+)}}\label{group__file__utils_gaaface7db12fadc3d271641c4515ab6e4}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -69,10 +70,10 @@ Print a secondary structure as helix list.
 \hline
 {\em db} & The structure in dot-\/bracket format \\
 \hline
-{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == N\+U\+L\+L) ) \\
+{\em file} & The file handle used to print to (print defaults to 'stdout' if(file == N\+U\+L\+L) ) \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_gab69682373ccca1e0e28cc967eec07745}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+connect@{vrna\+\_\+file\+\_\+connect}}
+\hypertarget{group__file__utils_gab69682373ccca1e0e28cc967eec07745}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+connect@{vrna\+\_\+file\+\_\+connect}}
 \index{vrna\+\_\+file\+\_\+connect@{vrna\+\_\+file\+\_\+connect}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+connect}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+file\+\_\+connect (
 \begin{DoxyParamCaption}
@@ -82,7 +83,7 @@ Print a secondary structure as helix list.
 \item[{const char $\ast$}]{identifier, }
 \item[{F\+I\+L\+E $\ast$}]{file}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_gab69682373ccca1e0e28cc967eec07745}
+)}}\label{group__file__utils_gab69682373ccca1e0e28cc967eec07745}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -115,10 +116,10 @@ Connect table file format looks like this\+: \begin{DoxyVerb}300  ENERGY = 7.0  
 \hline
 {\em identifier} & An optional identifier for the sequence \\
 \hline
-{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == N\+U\+L\+L) ) \\
+{\em file} & The file handle used to print to (print defaults to 'stdout' if(file == N\+U\+L\+L) ) \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_ga9b462e6f202594af5d3fa56e280d633f}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+bpseq@{vrna\+\_\+file\+\_\+bpseq}}
+\hypertarget{group__file__utils_ga9b462e6f202594af5d3fa56e280d633f}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+bpseq@{vrna\+\_\+file\+\_\+bpseq}}
 \index{vrna\+\_\+file\+\_\+bpseq@{vrna\+\_\+file\+\_\+bpseq}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+bpseq}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+file\+\_\+bpseq (
 \begin{DoxyParamCaption}
@@ -126,7 +127,7 @@ Connect table file format looks like this\+: \begin{DoxyVerb}300  ENERGY = 7.0  
 \item[{const char $\ast$}]{db, }
 \item[{F\+I\+L\+E $\ast$}]{file}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_ga9b462e6f202594af5d3fa56e280d633f}
+)}}\label{group__file__utils_ga9b462e6f202594af5d3fa56e280d633f}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -141,10 +142,10 @@ Print a secondary structure in bpseq format.
 \hline
 {\em db} & The structure in dot-\/bracket format \\
 \hline
-{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == N\+U\+L\+L) ) \\
+{\em file} & The file handle used to print to (print defaults to 'stdout' if(file == N\+U\+L\+L) ) \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+json@{vrna\+\_\+file\+\_\+json}}
+\hypertarget{group__file__utils_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+json@{vrna\+\_\+file\+\_\+json}}
 \index{vrna\+\_\+file\+\_\+json@{vrna\+\_\+file\+\_\+json}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+json}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+file\+\_\+json (
 \begin{DoxyParamCaption}
@@ -154,7 +155,7 @@ Print a secondary structure in bpseq format.
 \item[{const char $\ast$}]{identifier, }
 \item[{F\+I\+L\+E $\ast$}]{file}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}
+)}}\label{group__file__utils_ga31f4a6c2ea1495a6e4f9eb45a9f6193d}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -173,10 +174,10 @@ Print a secondary structure in jsonformat.
 \hline
 {\em identifier} & An identifier for the sequence \\
 \hline
-{\em file} & The file handle used to print to (print defaults to \textquotesingle{}stdout\textquotesingle{} if(file == N\+U\+L\+L) ) \\
+{\em file} & The file handle used to print to (print defaults to 'stdout' if(file == N\+U\+L\+L) ) \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record@{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}}
+\hypertarget{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record@{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}}
 \index{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record@{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record (
 \begin{DoxyParamCaption}
@@ -186,7 +187,7 @@ Print a secondary structure in jsonformat.
 \item[{F\+I\+L\+E $\ast$}]{file, }
 \item[{unsigned int}]{options}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}
+)}}\label{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -196,10 +197,10 @@ Print a secondary structure in jsonformat.
 Get a (fasta) data set from a file or stdin. 
 
 This function may be used to obtain complete datasets from a filehandle or stdin. A dataset is always defined to contain at least a sequence. If data starts with a fasta header, i.\+e. a line like \begin{DoxyVerb}>some header info \end{DoxyVerb}
- then \hyperlink{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()} will assume that the sequence that follows the header may span over several lines. To disable this behavior and to assign a single line to the argument \textquotesingle{}sequence\textquotesingle{} one can pass \hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+S\+P\+A\+N} in the \textquotesingle{}options\textquotesingle{} argument. If no fasta header is read in the beginning of a data block, a sequence must not span over multiple lines!~\newline
+ then \hyperlink{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()} will assume that the sequence that follows the header may span over several lines. To disable this behavior and to assign a single line to the argument 'sequence' one can pass \hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+S\+P\+A\+N} in the 'options' argument. If no fasta header is read in the beginning of a data block, a sequence must not span over multiple lines!~\newline
  Unless the options \hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+S\+K\+I\+P\+\_\+\+C\+O\+M\+M\+E\+N\+T\+S} or \hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+S\+K\+I\+P\+\_\+\+B\+L\+A\+N\+K\+\_\+\+L\+I\+N\+E\+S} are passed, a sequence may be interrupted by lines starting with a comment character or empty lines.~\newline
  A sequence is regarded as completely read if it was either assumed to not span over multiple lines, a secondary structure or structure constraint follows the sequence on the next line, or a new header marks the beginning of a new sequence...~\newline
- All lines following the sequence (this includes comments) that do not initiate a new dataset according to the above definition are available through the line-\/array \textquotesingle{}rest\textquotesingle{}. Here one can usually find the structure constraint or other information belonging to the current dataset. Filling of \textquotesingle{}rest\textquotesingle{} may be prevented by passing \hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+R\+E\+S\+T} to the options argument.~\newline
+ All lines following the sequence (this includes comments) that do not initiate a new dataset according to the above definition are available through the line-\/array 'rest'. Here one can usually find the structure constraint or other information belonging to the current dataset. Filling of 'rest' may be prevented by passing \hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+R\+E\+S\+T} to the options argument.~\newline
  \begin{DoxyNote}{Note}
 This function will exit any program with an error message if no sequence could be read! 
 
@@ -247,7 +248,7 @@ Do not forget to free the memory occupied by header, sequence and rest!
 \begin{DoxyReturn}{Returns}
 A flag with information about what the function actually did read 
 \end{DoxyReturn}
-\hypertarget{group__file__utils_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint@{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}}
+\hypertarget{group__file__utils_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint@{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}}
 \index{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint@{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+extract\+\_\+record\+\_\+rest\+\_\+constraint (
 \begin{DoxyParamCaption}
@@ -255,7 +256,7 @@ A flag with information about what the function actually did read
 \item[{const char $\ast$$\ast$}]{lines, }
 \item[{unsigned int}]{option}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}
+)}}\label{group__file__utils_ga55a9ae6dfeecc1b3f0c2acf6fa796c15}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -265,7 +266,7 @@ A flag with information about what the function actually did read
 Extract a hard constraint encoded as pseudo dot-\/bracket string. 
 
 \begin{DoxyPrecond}{Precondition}
-The argument \textquotesingle{}lines\textquotesingle{} has to be a 2-\/dimensional character array as obtained by \hyperlink{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()} 
+The argument 'lines' has to be a 2-\/dimensional character array as obtained by \hyperlink{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()} 
 \end{DoxyPrecond}
 \begin{DoxySeeAlso}{See also}
 \hyperlink{group__file__utils_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}, \hyperlink{group__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+P\+E}, \hyperlink{group__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+O\+T}, \hyperlink{group__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+X} \hyperlink{group__constraints_gad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+C\+K}, \hyperlink{group__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+C\+K}
@@ -279,7 +280,7 @@ The argument \textquotesingle{}lines\textquotesingle{} has to be a 2-\/dimension
 {\em option} & The option flags that define the behavior and recognition pattern of this function \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_ga646ebf45450a69a7f2533f9ecd283a32}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read@{vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read}}
+\hypertarget{group__file__utils_ga646ebf45450a69a7f2533f9ecd283a32}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read@{vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read}}
 \index{vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read@{vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int vrna\+\_\+file\+\_\+\+S\+H\+A\+P\+E\+\_\+read (
 \begin{DoxyParamCaption}
@@ -289,7 +290,7 @@ The argument \textquotesingle{}lines\textquotesingle{} has to be a 2-\/dimension
 \item[{char $\ast$}]{sequence, }
 \item[{double $\ast$}]{values}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_ga646ebf45450a69a7f2533f9ecd283a32}
+)}}\label{group__file__utils_ga646ebf45450a69a7f2533f9ecd283a32}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -313,7 +314,7 @@ This function parses the informations from a given file and stores the result in
 {\em values} & Pointer to an array used for storing the values obtained from the S\+H\+A\+P\+E reactivity file \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__file__utils_gae33323c53765ecbbc410d9de2d495432}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+constraints\+\_\+read@{vrna\+\_\+file\+\_\+constraints\+\_\+read}}
+\hypertarget{group__file__utils_gae33323c53765ecbbc410d9de2d495432}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!vrna\+\_\+file\+\_\+constraints\+\_\+read@{vrna\+\_\+file\+\_\+constraints\+\_\+read}}
 \index{vrna\+\_\+file\+\_\+constraints\+\_\+read@{vrna\+\_\+file\+\_\+constraints\+\_\+read}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{vrna\+\_\+file\+\_\+constraints\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+plist\+\_\+t}$\ast$ vrna\+\_\+file\+\_\+constraints\+\_\+read (
 \begin{DoxyParamCaption}
@@ -321,7 +322,7 @@ This function parses the informations from a given file and stores the result in
 \item[{unsigned int}]{length, }
 \item[{unsigned int}]{options}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_gae33323c53765ecbbc410d9de2d495432}
+)}}\label{group__file__utils_gae33323c53765ecbbc410d9de2d495432}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}
@@ -335,7 +336,7 @@ This function reads constraint definitions from a file and converts them into an
 \item plist.\+i == plist.\+j $ \rightarrow $ single nucleotide constraint
 \item plist.\+i != plist.\+j $ \rightarrow $ base pair constraint
 \item plist.\+i == 0 $ \rightarrow $ End of list 
-\end{DoxyItemize}\hypertarget{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}{}\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!read\+\_\+record@{read\+\_\+record}}
+\end{DoxyItemize}\hypertarget{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}{\index{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}!read\+\_\+record@{read\+\_\+record}}
 \index{read\+\_\+record@{read\+\_\+record}!Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments@{Functions to Read/\+Write several File Formats for R\+N\+A Sequences, Structures, and Alignments}}
 \subsubsection[{read\+\_\+record}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int read\+\_\+record (
 \begin{DoxyParamCaption}
@@ -344,7 +345,7 @@ This function reads constraint definitions from a file and converts them into an
 \item[{char $\ast$$\ast$$\ast$}]{rest, }
 \item[{unsigned int}]{options}
 \end{DoxyParamCaption}
-)}\label{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}
+)}}\label{group__file__utils_gafd194a69af9d92b5b0412a7627ac1595}
 
 
 {\ttfamily \#include $<$\hyperlink{file__formats_8h}{Vienna\+R\+N\+A/file\+\_\+formats.\+h}$>$}

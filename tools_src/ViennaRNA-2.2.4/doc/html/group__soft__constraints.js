@@ -24,7 +24,7 @@ var group__soft__constraints =
     [ "VRNA_MINIMIZER_VECTOR_BFGS", "group__soft__constraints.html#ga9be8a702cddf58235571ace11cc41b22", null ],
     [ "VRNA_MINIMIZER_VECTOR_BFGS2", "group__soft__constraints.html#ga7b0a65c6c92fa1d8012383ba9d3dcb4f", null ],
     [ "VRNA_MINIMIZER_STEEPEST_DESCENT", "group__soft__constraints.html#ga9ecd2144c2ebed7533233da3986521b0", null ],
-    [ "progress_callback", "group__soft__constraints.html#gaa715397c7afd2d2955c315512a3d571a", null ],
+    [ "progress_callback", "group__soft__constraints.html#gafd57325a0fa4307cd72f933107f9d493", null ],
     [ "vrna_sc_init", "group__soft__constraints.html#ga9d977a1681356778cc66dceafbe5b032", null ],
     [ "vrna_sc_add_bp", "group__soft__constraints.html#ga86049d4bb0ea8674cae9b6177156b184", null ],
     [ "vrna_sc_add_up", "group__soft__constraints.html#ga30f30c8eff9676775a3e831d972b5284", null ],

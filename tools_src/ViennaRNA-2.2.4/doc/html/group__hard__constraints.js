@@ -19,7 +19,7 @@ var group__hard__constraints =
     [ "VRNA_CONSTRAINT_CONTEXT_MB_LOOP", "group__hard__constraints.html#ga456ecd2ff00056bb64da8dd4f61bbfc5", null ],
     [ "VRNA_CONSTRAINT_CONTEXT_MB_LOOP_ENC", "group__hard__constraints.html#ga02a3d703ddbcfce393e4bbfcb9db7077", null ],
     [ "VRNA_CONSTRAINT_CONTEXT_ALL_LOOPS", "group__hard__constraints.html#ga886d9127c49bb982a4b67cd7581e8a5a", null ],
-    [ "vrna_callback_hc_evaluate", "group__hard__constraints.html#ga16eb71ac9a7a35369be2eaa9d8f8dfa0", null ],
+    [ "vrna_callback_hc_evaluate", "group__hard__constraints.html#gabe10e2b9d2498874bdfe0e0a4dffc246", null ],
     [ "vrna_hc_init", "group__hard__constraints.html#ga36ff456c43bf920629cee5a236e4f0ff", null ],
     [ "vrna_hc_add_up", "group__hard__constraints.html#gaeb352e3e6ccd2b567bafa451365bb545", null ],
     [ "vrna_hc_add_bp", "group__hard__constraints.html#gac49305fc5c7d8653c5fbd2de1e1615e2", null ],

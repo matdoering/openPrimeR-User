@@ -49,8 +49,8 @@ var group__fold__compound =
     [ "VRNA_OPTION_PF", "group__fold__compound.html#gabfbadcddda3e74ce7f49035ef8f058f7", null ],
     [ "VRNA_OPTION_EVAL_ONLY", "group__fold__compound.html#ga61469c423131552c8483229f8b6c7e0e", null ],
     [ "vrna_fold_compound_t", "group__fold__compound.html#ga1b0cef17fd40466cef5968eaeeff6166", null ],
-    [ "vrna_callback_free_auxdata", "group__fold__compound.html#ga3ae51bfd5fc3236652d1de4e3274b49b", null ],
-    [ "vrna_callback_recursion_status", "group__fold__compound.html#ga43ebc52e8a1bf40676e4baee89b29072", null ],
+    [ "vrna_callback_free_auxdata", "group__fold__compound.html#ga75aaf7b809290de808e545877a9e20f7", null ],
+    [ "vrna_callback_recursion_status", "group__fold__compound.html#ga9fafb3f0217e27339bb9faf61a03e723", null ],
     [ "vrna_fc_type_e", "group__fold__compound.html#ga01a4ff86fa71deaaa5d1abbd95a1447d", [
       [ "VRNA_VC_TYPE_SINGLE", "group__fold__compound.html#gga01a4ff86fa71deaaa5d1abbd95a1447da1608d3aa78905fc39e0d25a624ac9512", null ],
       [ "VRNA_VC_TYPE_ALIGNMENT", "group__fold__compound.html#gga01a4ff86fa71deaaa5d1abbd95a1447da056345f1bcfe7cd595d1fd437c05246d", null ]

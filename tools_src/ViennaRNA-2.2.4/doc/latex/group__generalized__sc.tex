@@ -1,5 +1,6 @@
-\hypertarget{group__generalized__sc}{}\section{Generalized Soft Constraints}
+\hypertarget{group__generalized__sc}{\section{Generalized Soft Constraints}
 \label{group__generalized__sc}\index{Generalized Soft Constraints@{Generalized Soft Constraints}}
+}
 Collaboration diagram for Generalized Soft Constraints\+:
 \nopagebreak
 \begin{figure}[H]
@@ -11,29 +12,29 @@ Collaboration diagram for Generalized Soft Constraints\+:
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}{}\#define \hyperlink{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+H\+P}~1\label{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}
+\hypertarget{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}{\#define \hyperlink{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+H\+P}~1}\label{group__generalized__sc_ga8bd41ebc8039378d242e4e8c273716a5}
 
 \begin{DoxyCompactList}\small\item\em Generalized constraint folding flag indicating hairpin loop decomposition step. \end{DoxyCompactList}\item 
-\hypertarget{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}{}\#define \hyperlink{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+I\+L}~2\label{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}
+\hypertarget{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}{\#define \hyperlink{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+I\+L}~2}\label{group__generalized__sc_gaeab04f34d7730cff2d651d782f95d857}
 
 \begin{DoxyCompactList}\small\item\em Generalized constraint folding flag indicating interior loop decomposition step. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef int( \hyperlink{group__generalized__sc_gaf38062858ac25fd5e240c2c3b0b0b780}{vrna\+\_\+callback\+\_\+sc\+\_\+energy}) (int i, int j, int k, int l, char d, void $\ast$data)
+typedef int( \hyperlink{group__generalized__sc_ga2f3d2d2333e5a616e0f5cd4823780c0c}{vrna\+\_\+callback\+\_\+sc\+\_\+energy} )(int i, int j, int k, int l, char d, void $\ast$data)
 \begin{DoxyCompactList}\small\item\em Callback to retrieve pseudo energy contribution for soft constraint feature. \end{DoxyCompactList}\item 
-typedef \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}( \hyperlink{group__generalized__sc_ga2eade8745c163a553763be4cfe2a679b}{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}) (int i, int j, int k, int l, char d, void $\ast$data)
+typedef \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}( \hyperlink{group__generalized__sc_ga28d5138cc47eb7a5116c87518fd076a9}{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy} )(int i, int j, int k, int l, char d, void $\ast$data)
 \begin{DoxyCompactList}\small\item\em Callback to retrieve pseudo energy contribution as Boltzmann Factors for soft constraint feature. \end{DoxyCompactList}\item 
-typedef \hyperlink{group__data__structures_gac8c5669d3fb813cacf506489689305ce}{vrna\+\_\+basepair\+\_\+t} $\ast$( \hyperlink{group__generalized__sc_gaa216f513c3b0bd6fe5807dd0c53a8e5a}{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}) (int i, int j, int k, int l, char d, void $\ast$data)
+typedef \hyperlink{group__data__structures_gac8c5669d3fb813cacf506489689305ce}{vrna\+\_\+basepair\+\_\+t} $\ast$( \hyperlink{group__generalized__sc_ga1157aec50aa078464b868b5d2245ebf5}{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack} )(int i, int j, int k, int l, char d, void $\ast$data)
 \begin{DoxyCompactList}\small\item\em Callback to retrieve auxiliary base pairs for soft constraint feature. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}{vrna\+\_\+sc\+\_\+add\+\_\+f} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_gaf38062858ac25fd5e240c2c3b0b0b780}{vrna\+\_\+callback\+\_\+sc\+\_\+energy} $\ast$f)
+void \hyperlink{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}{vrna\+\_\+sc\+\_\+add\+\_\+f} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_ga2f3d2d2333e5a616e0f5cd4823780c0c}{vrna\+\_\+callback\+\_\+sc\+\_\+energy} $\ast$f)
 \begin{DoxyCompactList}\small\item\em Bind a function pointer for generalized soft constraint feature (M\+F\+E version) \end{DoxyCompactList}\item 
-void \hyperlink{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}{vrna\+\_\+sc\+\_\+add\+\_\+bt} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_gaa216f513c3b0bd6fe5807dd0c53a8e5a}{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack} $\ast$f)
+void \hyperlink{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}{vrna\+\_\+sc\+\_\+add\+\_\+bt} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_ga1157aec50aa078464b868b5d2245ebf5}{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack} $\ast$f)
 \begin{DoxyCompactList}\small\item\em Bind a backtracking function pointer for generalized soft constraint feature. \end{DoxyCompactList}\item 
-void \hyperlink{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_ga2eade8745c163a553763be4cfe2a679b}{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy} $\ast$exp\+\_\+f)
+void \hyperlink{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__generalized__sc_ga28d5138cc47eb7a5116c87518fd076a9}{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy} $\ast$exp\+\_\+f)
 \begin{DoxyCompactList}\small\item\em Bind a function pointer for generalized soft constraint feature (P\+F version) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,9 +46,9 @@ int \hyperlink{group__generalized__sc_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}{vrna\+
 
 
 \subsection{Typedef Documentation}
-\hypertarget{group__generalized__sc_gaf38062858ac25fd5e240c2c3b0b0b780}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+energy}}
+\hypertarget{group__generalized__sc_ga2f3d2d2333e5a616e0f5cd4823780c0c}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+energy}}
 \index{vrna\+\_\+callback\+\_\+sc\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+energy}!Generalized Soft Constraints@{Generalized Soft Constraints}}
-\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+energy}]{\setlength{\rightskip}{0pt plus 5cm}typedef int( vrna\+\_\+callback\+\_\+sc\+\_\+energy) (int i, int j, int k, int l, char d, void $\ast$data)}\label{group__generalized__sc_gaf38062858ac25fd5e240c2c3b0b0b780}
+\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+energy}]{\setlength{\rightskip}{0pt plus 5cm}typedef int( vrna\+\_\+callback\+\_\+sc\+\_\+energy)(int i, int j, int k, int l, char d, void $\ast$data)}}\label{group__generalized__sc_ga2f3d2d2333e5a616e0f5cd4823780c0c}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -58,9 +59,9 @@ Callback to retrieve pseudo energy contribution for soft constraint feature.
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & Left (5\textquotesingle{}) delimiter position of substructure \\
+{\em i} & Left (5') delimiter position of substructure \\
 \hline
-{\em j} & Right (3\textquotesingle{}) delimiter position of substructure \\
+{\em j} & Right (3') delimiter position of substructure \\
 \hline
 {\em k} & \\
 \hline
@@ -74,9 +75,9 @@ Callback to retrieve pseudo energy contribution for soft constraint feature.
 \begin{DoxyReturn}{Returns}
 Pseudo energy contribution in deka-\/kalories per mol 
 \end{DoxyReturn}
-\hypertarget{group__generalized__sc_ga2eade8745c163a553763be4cfe2a679b}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}}
+\hypertarget{group__generalized__sc_ga28d5138cc47eb7a5116c87518fd076a9}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}}
 \index{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy@{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}!Generalized Soft Constraints@{Generalized Soft Constraints}}
-\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}( vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy) (int i, int j, int k, int l, char d, void $\ast$data)}\label{group__generalized__sc_ga2eade8745c163a553763be4cfe2a679b}
+\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}( vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy)(int i, int j, int k, int l, char d, void $\ast$data)}}\label{group__generalized__sc_ga28d5138cc47eb7a5116c87518fd076a9}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -87,9 +88,9 @@ Callback to retrieve pseudo energy contribution as Boltzmann Factors for soft co
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & Left (5\textquotesingle{}) delimiter position of substructure \\
+{\em i} & Left (5') delimiter position of substructure \\
 \hline
-{\em j} & Right (3\textquotesingle{}) delimiter position of substructure \\
+{\em j} & Right (3') delimiter position of substructure \\
 \hline
 {\em k} & \\
 \hline
@@ -103,9 +104,9 @@ Callback to retrieve pseudo energy contribution as Boltzmann Factors for soft co
 \begin{DoxyReturn}{Returns}
 Pseudo energy contribution in deka-\/kalories per mol 
 \end{DoxyReturn}
-\hypertarget{group__generalized__sc_gaa216f513c3b0bd6fe5807dd0c53a8e5a}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+backtrack@{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}}
+\hypertarget{group__generalized__sc_ga1157aec50aa078464b868b5d2245ebf5}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+callback\+\_\+sc\+\_\+backtrack@{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}}
 \index{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack@{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}!Generalized Soft Constraints@{Generalized Soft Constraints}}
-\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf vrna\+\_\+basepair\+\_\+t}$\ast$( vrna\+\_\+callback\+\_\+sc\+\_\+backtrack) (int i, int j, int k, int l, char d, void $\ast$data)}\label{group__generalized__sc_gaa216f513c3b0bd6fe5807dd0c53a8e5a}
+\subsubsection[{vrna\+\_\+callback\+\_\+sc\+\_\+backtrack}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf vrna\+\_\+basepair\+\_\+t}$\ast$( vrna\+\_\+callback\+\_\+sc\+\_\+backtrack)(int i, int j, int k, int l, char d, void $\ast$data)}}\label{group__generalized__sc_ga1157aec50aa078464b868b5d2245ebf5}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -116,9 +117,9 @@ Callback to retrieve auxiliary base pairs for soft constraint feature.
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & Left (5\textquotesingle{}) delimiter position of substructure \\
+{\em i} & Left (5') delimiter position of substructure \\
 \hline
-{\em j} & Right (3\textquotesingle{}) delimiter position of substructure \\
+{\em j} & Right (3') delimiter position of substructure \\
 \hline
 {\em k} & \\
 \hline
@@ -135,14 +136,14 @@ List of additional base pairs
 
 
 \subsection{Function Documentation}
-\hypertarget{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+f}}
+\hypertarget{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+f}}
 \index{vrna\+\_\+sc\+\_\+add\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+f}!Generalized Soft Constraints@{Generalized Soft Constraints}}
 \subsubsection[{vrna\+\_\+sc\+\_\+add\+\_\+f}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+sc\+\_\+add\+\_\+f (
 \begin{DoxyParamCaption}
 \item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
 \item[{{\bf vrna\+\_\+callback\+\_\+sc\+\_\+energy} $\ast$}]{f}
 \end{DoxyParamCaption}
-)}\label{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}
+)}}\label{group__generalized__sc_ga8c7d907ec0125cd61c04e0908010a4e9}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -159,17 +160,17 @@ This function allows to easily bind a function pointer and corresponding data st
 \hline
 {\em f} & A pointer to the function that evaluates the generalized soft constraint feature \\
 \hline
-{\em data} & A pointer to the data structure that holds required data for function \textquotesingle{}f\textquotesingle{} \\
+{\em data} & A pointer to the data structure that holds required data for function 'f' \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+bt@{vrna\+\_\+sc\+\_\+add\+\_\+bt}}
+\hypertarget{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+bt@{vrna\+\_\+sc\+\_\+add\+\_\+bt}}
 \index{vrna\+\_\+sc\+\_\+add\+\_\+bt@{vrna\+\_\+sc\+\_\+add\+\_\+bt}!Generalized Soft Constraints@{Generalized Soft Constraints}}
 \subsubsection[{vrna\+\_\+sc\+\_\+add\+\_\+bt}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+sc\+\_\+add\+\_\+bt (
 \begin{DoxyParamCaption}
 \item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
 \item[{{\bf vrna\+\_\+callback\+\_\+sc\+\_\+backtrack} $\ast$}]{f}
 \end{DoxyParamCaption}
-)}\label{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}
+)}}\label{group__generalized__sc_gabde7d07a79bb9a8f4721aee247b674ea}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -178,7 +179,7 @@ This function allows to easily bind a function pointer and corresponding data st
 
 Bind a backtracking function pointer for generalized soft constraint feature. 
 
-This function allows to easily bind a function pointer to the soft constraint part \hyperlink{group__constraints_ga75401ce219ef8dbcceb672db82d434c6}{vrna\+\_\+sc\+\_\+t} of the \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}. The provided function should be used for backtracking purposes in loop regions that were altered via the generalized soft constraint feature. It has to return an array of \hyperlink{group__data__structures_gac8c5669d3fb813cacf506489689305ce}{vrna\+\_\+basepair\+\_\+t} data structures, were the last element in the list is indicated by a value of -\/1 in it\textquotesingle{}s i position.
+This function allows to easily bind a function pointer to the soft constraint part \hyperlink{group__constraints_ga75401ce219ef8dbcceb672db82d434c6}{vrna\+\_\+sc\+\_\+t} of the \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}. The provided function should be used for backtracking purposes in loop regions that were altered via the generalized soft constraint feature. It has to return an array of \hyperlink{group__data__structures_gac8c5669d3fb813cacf506489689305ce}{vrna\+\_\+basepair\+\_\+t} data structures, were the last element in the list is indicated by a value of -\/1 in it's i position.
 
 
 \begin{DoxyParams}{Parameters}
@@ -187,14 +188,14 @@ This function allows to easily bind a function pointer to the soft constraint pa
 {\em f} & A pointer to the function that returns additional base pairs \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f}}
+\hypertarget{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f}}
 \index{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f@{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f}!Generalized Soft Constraints@{Generalized Soft Constraints}}
 \subsubsection[{vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f}]{\setlength{\rightskip}{0pt plus 5cm}void vrna\+\_\+sc\+\_\+add\+\_\+exp\+\_\+f (
 \begin{DoxyParamCaption}
 \item[{{\bf vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc, }
 \item[{{\bf vrna\+\_\+callback\+\_\+sc\+\_\+exp\+\_\+energy} $\ast$}]{exp\+\_\+f}
 \end{DoxyParamCaption}
-)}\label{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}
+)}}\label{group__generalized__sc_ga87e382b5d0c9b7d9ce1b79c0473ff700}
 
 
 {\ttfamily \#include $<$\hyperlink{constraints_8h}{Vienna\+R\+N\+A/constraints.\+h}$>$}
@@ -211,10 +212,10 @@ This function allows to easily bind a function pointer and corresponding data st
 \hline
 {\em exp\+\_\+f} & A pointer to the function that evaluates the generalized soft constraint feature \\
 \hline
-{\em data} & A pointer to the data structure that holds required data for function \textquotesingle{}f\textquotesingle{} \\
+{\em data} & A pointer to the data structure that holds required data for function 'f' \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__generalized__sc_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}{}\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif@{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}}
+\hypertarget{group__generalized__sc_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}{\index{Generalized Soft Constraints@{Generalized Soft Constraints}!vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif@{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}}
 \index{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif@{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}!Generalized Soft Constraints@{Generalized Soft Constraints}}
 \subsubsection[{vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif}]{\setlength{\rightskip}{0pt plus 5cm}int vrna\+\_\+sc\+\_\+add\+\_\+hi\+\_\+motif (
 \begin{DoxyParamCaption}
@@ -224,7 +225,7 @@ This function allows to easily bind a function pointer and corresponding data st
 \item[{{\bf F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+B\+L}}]{energy, }
 \item[{unsigned int}]{options}
 \end{DoxyParamCaption}
-)}\label{group__generalized__sc_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}
+)}}\label{group__generalized__sc_gaa6ff0113a3a76dc0b8d62961f4e1dfa0}
 
 
 {\ttfamily \#include $<$\hyperlink{ligand_8h}{Vienna\+R\+N\+A/ligand.\+h}$>$}
@@ -247,9 +248,9 @@ Here is an example that adds a theophylline binding motif. Free energy contribut
 \begin{DoxyParams}{Parameters}
 {\em vc} & The \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} the motif is applied to \\
 \hline
-{\em seq} & The sequence motif (may be interspaced by \textquotesingle{}\&\textquotesingle{} character \\
+{\em seq} & The sequence motif (may be interspaced by '\&' character \\
 \hline
-{\em structure} & The structure motif (may be interspaced by \textquotesingle{}\&\textquotesingle{} character \\
+{\em structure} & The structure motif (may be interspaced by '\&' character \\
 \hline
 {\em energy} & The free energy of the motif (e.\+g. binding free energy) \\
 \hline

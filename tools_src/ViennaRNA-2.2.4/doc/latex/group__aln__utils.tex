@@ -1,5 +1,6 @@
-\hypertarget{group__aln__utils}{}\section{Various utilities for Sequence Alignments, and Comparative Structure Prediction}
+\hypertarget{group__aln__utils}{\section{Various utilities for Sequence Alignments, and Comparative Structure Prediction}
 \label{group__aln__utils}\index{Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}}
+}
 Collaboration diagram for Various utilities for Sequence Alignments, and Comparative Structure Prediction\+:
 \nopagebreak
 \begin{figure}[H]
@@ -21,7 +22,7 @@ struct \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{}typedef struct \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s} \hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}\label{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}
+\hypertarget{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{typedef struct \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s} \hyperlink{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}{vrna\+\_\+pinfo\+\_\+t}}\label{group__aln__utils_ga6660dfca23debee7306e0cd53341263f}
 
 \begin{DoxyCompactList}\small\item\em Typename for the base pair info repesenting data structure \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s}. \end{DoxyCompactList}\item 
 typedef struct \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pinfo\+\_\+s} \hyperlink{group__aln__utils_ga7b61662a793ad0aa1ea38efc3a5baacc}{pair\+\_\+info}
@@ -44,40 +45,40 @@ A base pair info structure.
 
 For each base pair (i,j) with i,j in \mbox{[}0, n-\/1\mbox{]} the structure lists\+:
 \begin{DoxyItemize}
-\item its probability \textquotesingle{}p\textquotesingle{}
-\item an entropy-\/like measure for its well-\/definedness \textquotesingle{}ent\textquotesingle{}
-\item the frequency of each type of pair in \textquotesingle{}bp\mbox{[}\mbox{]}\textquotesingle{}
+\item its probability 'p'
+\item an entropy-\/like measure for its well-\/definedness 'ent'
+\item the frequency of each type of pair in 'bp\mbox{[}\mbox{]}'
 \begin{DoxyItemize}
-\item \textquotesingle{}bp\mbox{[}0\mbox{]}\textquotesingle{} contains the number of non-\/compatible sequences
-\item \textquotesingle{}bp\mbox{[}1\mbox{]}\textquotesingle{} the number of C\+G pairs, etc. 
+\item 'bp\mbox{[}0\mbox{]}' contains the number of non-\/compatible sequences
+\item 'bp\mbox{[}1\mbox{]}' the number of C\+G pairs, etc. 
 \end{DoxyItemize}
 \end{DoxyItemize}\subsubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}{}unsigned \hyperlink{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}{i}\label{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}
+\hypertarget{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}{unsigned \hyperlink{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}{i}}\label{group__aln__utils_ab91db0a87ef8402dc151795ba5a64c6f}
 
 \begin{DoxyCompactList}\small\item\em nucleotide position i \end{DoxyCompactList}\item 
-\hypertarget{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}{}unsigned \hyperlink{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}{j}\label{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}
+\hypertarget{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}{unsigned \hyperlink{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}{j}}\label{group__aln__utils_a4142e38d6ba127acccdf680300a88e1f}
 
 \begin{DoxyCompactList}\small\item\em nucleotide position j \end{DoxyCompactList}\item 
-\hypertarget{group__aln__utils_a71990eae41fa100db8b557e4512ec281}{}float \hyperlink{group__aln__utils_a71990eae41fa100db8b557e4512ec281}{p}\label{group__aln__utils_a71990eae41fa100db8b557e4512ec281}
+\hypertarget{group__aln__utils_a71990eae41fa100db8b557e4512ec281}{float \hyperlink{group__aln__utils_a71990eae41fa100db8b557e4512ec281}{p}}\label{group__aln__utils_a71990eae41fa100db8b557e4512ec281}
 
 \begin{DoxyCompactList}\small\item\em Probability. \end{DoxyCompactList}\item 
-\hypertarget{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}{}float \hyperlink{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}{ent}\label{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}
+\hypertarget{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}{float \hyperlink{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}{ent}}\label{group__aln__utils_a5ab2a63f3da8e12c6d54d8e9dd9e3e73}
 
 \begin{DoxyCompactList}\small\item\em Pseudo entropy for $ p(i,j) = S_i + S_j - p_ij*ln(p_ij) $. \end{DoxyCompactList}\item 
-\hypertarget{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}{}short \hyperlink{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}{bp} \mbox{[}8\mbox{]}\label{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}
+\hypertarget{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}{short \hyperlink{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}{bp} \mbox{[}8\mbox{]}}\label{group__aln__utils_aa5feac5559b36dcd7cb38111c45d444d}
 
 \begin{DoxyCompactList}\small\item\em Frequencies of pair\+\_\+types. \end{DoxyCompactList}\item 
-\hypertarget{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}{}char \hyperlink{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}{comp}\label{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}
+\hypertarget{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}{char \hyperlink{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}{comp}}\label{group__aln__utils_a0720ae74ce53802a759ee9f98e9c8c43}
 
 \begin{DoxyCompactList}\small\item\em 1 iff pair is in mfe structure \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Typedef Documentation}
-\hypertarget{group__aln__utils_ga7b61662a793ad0aa1ea38efc3a5baacc}{}\index{Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}!pair\+\_\+info@{pair\+\_\+info}}
+\hypertarget{group__aln__utils_ga7b61662a793ad0aa1ea38efc3a5baacc}{\index{Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}!pair\+\_\+info@{pair\+\_\+info}}
 \index{pair\+\_\+info@{pair\+\_\+info}!Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}}
-\subsubsection[{pair\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf vrna\+\_\+pinfo\+\_\+s} {\bf pair\+\_\+info}}\label{group__aln__utils_ga7b61662a793ad0aa1ea38efc3a5baacc}
+\subsubsection[{pair\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf vrna\+\_\+pinfo\+\_\+s} {\bf pair\+\_\+info}}}\label{group__aln__utils_ga7b61662a793ad0aa1ea38efc3a5baacc}
 
 
 {\ttfamily \#include $<$\hyperlink{aln__util_8h}{Vienna\+R\+N\+A/aln\+\_\+util.\+h}$>$}
@@ -91,7 +92,7 @@ Old typename of \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pin
 
 
 \subsection{Function Documentation}
-\hypertarget{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}{}\index{Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}!vrna\+\_\+aln\+\_\+pinfo@{vrna\+\_\+aln\+\_\+pinfo}}
+\hypertarget{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}{\index{Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}!vrna\+\_\+aln\+\_\+pinfo@{vrna\+\_\+aln\+\_\+pinfo}}
 \index{vrna\+\_\+aln\+\_\+pinfo@{vrna\+\_\+aln\+\_\+pinfo}!Various utilities for Sequence Alignments, and Comparative Structure Prediction@{Various utilities for Sequence Alignments, and Comparative Structure Prediction}}
 \subsubsection[{vrna\+\_\+aln\+\_\+pinfo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vrna\+\_\+pinfo\+\_\+t}$\ast$ vrna\+\_\+aln\+\_\+pinfo (
 \begin{DoxyParamCaption}
@@ -99,7 +100,7 @@ Old typename of \hyperlink{group__aln__utils_structvrna__pinfo__s}{vrna\+\_\+pin
 \item[{const char $\ast$}]{structure, }
 \item[{double}]{threshold}
 \end{DoxyParamCaption}
-)}\label{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}
+)}}\label{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}
 
 
 {\ttfamily \#include $<$\hyperlink{aln__util_8h}{Vienna\+R\+N\+A/aln\+\_\+util.\+h}$>$}
