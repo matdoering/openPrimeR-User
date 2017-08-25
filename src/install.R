@@ -53,22 +53,22 @@ if (length(cmd.params) == 0) {
     to.install.tools <- as.logical(cmd.params[2])
 }
 base.path <- file.path(path, "..") # the primer_design directory (base)
-path <- file.path(path, "openPrimeR") # path to openPrimeR package
-#print("###")
-#print("PATH")
-#print(path)
-#print("###")
 source(file.path(base.path, "src", "extra_install_helper.R"))
+# load country dists:
+load(file.path(base.path, "src", "country_dists.Rdata")) # 'country.dists' var available
+if (!exists("country.dists")) {
+    stop("Can't determine fastest mirror without 'country.dists.Rdata'")
+}
 # need to install openPrimeR backend and frontend packages:
 pkg.deps <- c("openPrimeR", "openPrimeRui")
 for (i in seq_along(pkg.deps)) {
     path <- file.path(base.path, "src", pkg.deps[i])
     print(paste0("Installing deps for package: ", pkg.deps[i]))
     my_deps <- get_deps(path)
-    tool.data.folder <- file.path(path, "inst", "extdata")
+    #tool.data.folder <- file.path(path, "inst", "extdata")
     # we need roxygen for devtools ...
     # set CRAN mirror for 'available.packges' command:
-    CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", tool.data.folder = tool.data.folder)
+    CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", country.dists)
     CRAN.pkgs <- available.packages()
     # install all R package dependencies
     for (i in seq_along(my_deps)) {

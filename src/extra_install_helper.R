@@ -9,12 +9,8 @@ code.to.country <- function(code, countries) {
     return(countries[idx, "CountryShort"])
 }
 
-get.close.countries <- function(country.code, K = NULL, tool.data.folder = NULL) {
+get.close.countries <- function(country.code, K = NULL, country.dists = NULL) {
     # get the K closest country codes load country dists
-	if (length(tool.data.folder) == 0) {
-		tool.data.folder <- app.data.folder # use global var
-	} 
-	load(file.path(tool.data.folder, "country_dists.Rdata"))
     m <- match(country.code, rownames(country.dists))
     if (is.na(m)) {
         return(NULL)
@@ -39,7 +35,7 @@ set.CRAN.repository <- function(rep) {
         return(NULL)
     }
 }
-cranometer <- function(ms = getCRANmirrors(all = FALSE, local.only = FALSE), country = tolower(myip()[3]), tool.data.folder = NULL) {
+cranometer <- function(ms = getCRANmirrors(all = FALSE, local.only = FALSE), country = tolower(myip()[3]), country.dists = NULL) {
     options(timeout = 2)
     dest = tempfile()
 	# remove https mirror so we don't consider duplicates and don't have a problem if not supported by user machine
@@ -50,7 +46,7 @@ cranometer <- function(ms = getCRANmirrors(all = FALSE, local.only = FALSE), cou
         ms <- ms[idx, ]
     } else {
         # choose a close country that is contained
-        countries <- get.close.countries(country, tool.data.folder = tool.data.folder)
+        countries <- get.close.countries(country, country.dists = country.dists)
         if (length(countries) == 0) {
             # no country found
             return(NULL)
@@ -142,9 +138,9 @@ check.libPaths <- function() {
         .libPaths(libPath)  # add new personal library to libpaths
     }
 }
-select.mirror <- function(x = NULL, tool.data.folder= NULL) {
+select.mirror <- function(x = NULL, country.dists = NULL) {
     # x: pkg name to be installed
-    mirror.speeds <- try(cranometer(tool.data.folder = tool.data.folder))
+    mirror.speeds <- try(cranometer(country.dists = country.dists))
     if (length(mirror.speeds) == 0 || class(mirror.speeds) == "try-error") {
         # no internet connection -> continue
         return(NULL)
@@ -177,13 +173,13 @@ select.mirror <- function(x = NULL, tool.data.folder= NULL) {
     }
     return(mirror.speeds$URL[sel])
 }
-set.CRAN.mirror <- function(DEFAULT.MIRROR, x, tool.data.folder = NULL) {
+set.CRAN.mirror <- function(DEFAULT.MIRROR, x, country.dists) {
     # choose a mirror if necessary DEFAULT.MIRROR: repository to use, if NULL
     # determine fastest x: pkg name
     used.repository <- NULL  # selected repo
 	if (getOption("repos")["CRAN"] == "@CRAN@") {
 		message("Selecting the fastest CRAN mirror ...")
-		used.repository <- try(select.mirror(x, tool.data.folder = tool.data.folder))
+		used.repository <- try(select.mirror(x, country.dists))
 		if (length(used.repository) == 0 || class(used.repository) == "try-error" && !interactive) {
             used.repository <- DEFAULT.MIRROR  # go to default
 			set.CRAN.repository(used.repository)
