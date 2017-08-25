@@ -1,7 +1,0 @@
-<map id="Predicting Consensus Structures from Alignment(s)" name="Predicting Consensus Structures from Alignment(s)">
-<area shape="rect" id="node2" href="$group__consensus__pf__fold.html" title="Partition Function\l and Base Pair Probabilities\l for Sequence Alignment(s)" alt="" coords="473,5,656,61"/>
-<area shape="rect" id="node3" href="$group__local__consensus__fold.html" title="Local MFE consensus\l structures for Sequence\l Alignments" alt="" coords="482,85,647,141"/>
-<area shape="rect" id="node5" href="$group__consensus__stochbt.html" title="Stochastic Backtracking\l of Consensus Structures\l from Sequence Alignment(s)" alt="" coords="469,165,660,221"/>
-<area shape="rect" id="node6" href="$group__consensus__mfe__fold.html" title="MFE Consensus Structures\l for Sequence Alignment(s)" alt="" coords="473,245,657,286"/>
-<area shape="rect" id="node4" href="$group__folding__routines.html" title="This module contains all functions related to thermodynamic folding of RNAs. " alt="" coords="5,133,180,174"/>
-</map>
