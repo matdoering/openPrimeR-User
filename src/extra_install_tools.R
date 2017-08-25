@@ -1,8 +1,7 @@
+###########
 # Checks and installs all required stand-alone tools
-#if (!exists("SHINY.PATH")) {
-    #SHINY.PATH <- system.file("shiny", package = "openPrimeRui")
-#}
-#source("extra_set_paths.R")) # load paths for tool installation
+##########
+# important: if we don't use devtools, then the path MAY be set to the R library path instead of the local path -> tools/ won't be found!
 if (!exists("base.path")) {
     stop("Base path wasn't set before calling install.tools()")
 }
