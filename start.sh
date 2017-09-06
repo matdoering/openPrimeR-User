@@ -8,6 +8,6 @@ else
     exit
 fi
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P);
-export PATH=$PATH:"$dir/tools/oligoarrayaux/bin/:$dir/tools/MAFFT/bin/:$dir/tools/viennaRNA/bin/:$dir/tools/MELTING/executable/:$dir/tools/phantomjs/bin/:$dir/tools/Pandoc/";
+export PATH=$PATH:"$dir/tools/oligoarrayaux/bin/:$dir/tools/MAFFT/bin/:$dir/tools/ViennaRNA/bin/:$dir/tools/MELTING/executable/:$dir/tools/phantomjs/bin/:$dir/tools/Pandoc/";
 export UNAFOLDDAT="$dir/tools/oligoarrayaux/share/oligoarrayaux/";
 env  LC_CTYPE="${LC_ALL:-${LC_CTYPE:-$LANG}}" PATH="$PATH" USER="$USER" UNAFOLDDAT="$UNAFOLDDAT" PWD="$dir" "$dir/src/start.R";

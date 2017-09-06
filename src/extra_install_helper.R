@@ -289,7 +289,6 @@ install.RAxML <- function(RAXML.INSTALL.PATH, RAXML.SRC, tool.src.folder) {
     return(res1 == 0 && res2 == 0)
 }
 install.viennaRNA <- function(VIENNA.PATH, VIENNA.SRC, VIENNA.SRC.WIN, tool.src.folder, VIENNA.LOCATION, tool.folder) {
-    message("Installing viennaRNA.")
     is.win <- get.OS() == "win"
     if (is.win) {
         VIENNA.SRC <- VIENNA.SRC.WIN
@@ -555,15 +554,15 @@ install.MAFFT <- function(MAFFT.INSTALL.PATH, MAFFT.SRC, MAFFT.SRC.WIN, tool.src
 		dir.copy(file.path(temp_dir, "mafft-win"), MAFFT.INSTALL.PATH, overwrite = TRUE)
 		return(TRUE)
 	}
-    first.line <- paste("PREFIX = ", MAFFT.INSTALL.PATH, sep = "")
     untar(MAFFT.SRC, exdir = tool.src.folder, compressed = "gzip")
     d <- list.dirs(tool.src.folder, recursive = FALSE)
     src.dir <- d[grep("mafft", d)[1]]
     src.folder <- file.path(src.dir, "core")
     makefile.loc <- file.path(src.folder, "Makefile")
     tmp.loc <- file.path(tempdir(), "Makefile")
-    # cmd <- paste('sed -i '1s#.*#', first.line, ''# ', makefile.loc, sep = '') need
-    # to use sed -e for mac os, not sed -i ... (posix compatibility)
+    # set local installation path for mafft by modifying the makefile
+    first.line <- paste("PREFIX = ", MAFFT.INSTALL.PATH, sep = "")
+    # NB: use sed -e for mac os, not sed -i ... (posix compatibility)
     cmd <- paste("sed -e \"1s#.*#", first.line, "\"# ", makefile.loc, " > ", tmp.loc, 
         " && mv ", tmp.loc, " ", makefile.loc, sep = "")
     ret <- system(cmd)
@@ -571,6 +570,7 @@ install.MAFFT <- function(MAFFT.INSTALL.PATH, MAFFT.SRC, MAFFT.SRC.WIN, tool.src
         warning("sed command for MAFFT didn't work. Failed installation!")
         return(FALSE)
     }
+    # perform the build in the source directory:
     prievo.dir <- getwd()
     setwd(src.folder)
     make.cmd <- "make clean && make && make install"
