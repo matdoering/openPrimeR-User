@@ -586,7 +586,10 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
 # avoid using system.file!
     message("Base dir is: ", base.path)
     # use absolute tool folder here (e.g. required for MAFFT prefix)
-    tool.folder <- normalizePath(file.path(base.path, "tools"))
+    tool.folder <- file.path(normalizePath(base.path), "tools")
+    message("Tool folder is: ", tool.folder)
+    # ensure that tool folder exists
+    suppressWarnings(dir.create(tool.folder))
     tool.src.folder <- file.path(base.path, "tools_src")
     TOOL.SOURCE.FILES <- list.files(tool.src.folder, pattern = "\\.tar", full.names = TRUE)
     # MELT
