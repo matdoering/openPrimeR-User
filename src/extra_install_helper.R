@@ -585,7 +585,8 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
     # important: if we don't use devtools, then the path MAY be set to the R library path instead of the local path -> tools/ won't be found!
 # avoid using system.file!
     message("Base dir is: ", base.path)
-    tool.folder <- file.path(base.path, "tools")
+    # use absolute tool folder here (e.g. required for MAFFT prefix)
+    tool.folder <- normalizePath(file.path(base.path, "tools"))
     tool.src.folder <- file.path(base.path, "tools_src")
     TOOL.SOURCE.FILES <- list.files(tool.src.folder, pattern = "\\.tar", full.names = TRUE)
     # MELT
