@@ -11,7 +11,7 @@ MAINTAINER Matthias Doering <mdoering@mpi-inf.mpg.de>
 # pandoc (rmarkdown reports) requires latex for PDF output
 # libmysqlclient-dev: required for RMySQL pkg
 RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y libfontconfig1 libxml2-dev default-jre libssl-dev/unstable libv8-dev libgsl2 python-pip pandoc texlive texlive-latex-extra libmysqlclient-dev
+RUN apt-get update && apt-get install -y libfontconfig1 libxml2-dev default-jre libssl-dev/unstable libv8-dev libgslcblas0 python-pip pandoc texlive texlive-latex-extra libmysqlclient-dev
 #    && rm -rf /var/lib/apt/lists/*
 RUN pip install selenium
 WORKDIR /srv/
