@@ -1,10 +1,5 @@
 get_train_indices_new <- function(feature.matrix, seed = 12345) {
     set.seed(seed = seed)
-    # new function: don't sample (we have cross-term in the model to correct for bias); also: use validation set
-    ########
-    # bias: more observations from openPrimeR set -> full model will be 'overtrained' for openPrimeR distribution!??!?!
-    # controlling for equal distribution of "Run": from 300 (equal distribution of DeltaG) to 168 samples??
-    #######
     set.percentages <- c("validation" = 0.25, "training" = 0.5, "test" = 0.25)
     set.sizes <- set.percentages * nrow(feature.matrix)
     names(set.sizes) <- names(set.percentages)
