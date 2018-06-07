@@ -292,15 +292,17 @@ plot_scatter_deltaG_pos <- function(feature.matrix, cur.out.folder) {
     plot.matrix$Run[plot.matrix$Run == "Tiller2008_1st"] <- "Set2"
     p2 <- ggplot(plot.matrix, aes(x = Position_3terminus, y = annealing_DeltaG,
                                 colour = Experimental_Coverage)) +
-        geom_point(aes(shape=Run), alpha = 0.65) + # + facet_grid(. ~ Run) + 
+        geom_point(aes(shape=Run), alpha = 0.65, size = 2.5) + # + facet_grid(. ~ Run) + 
         geom_vline(xintercept = 6, color = "black", linetype = "dotted", alpha = 0.5) + 
         geom_hline(yintercept = -5, color = "black", linetype = "dotted", alpha = 0.75) +
-        xlab("Mismatch position closest to the primer 3' terminus") + ylab(expression(paste(Delta, "G"))) + 
+        xlab("Mismatch position closest to the primer 3' terminus") + ylab(expression(paste("Annealing ", Delta, "G [kcal/mol]"))) + 
         scale_colour_discrete(name = "Amplification Status") + 
-        scale_shape_discrete(name = "Primer Set")
-    ggsave(file.path(cur.out.folder, "feature_scatter.png"))
-    ggsave(file.path(cur.out.folder, "feature_scatter.pdf"))
-
+        scale_shape_discrete(name = "Primer Set") + 
+        theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
+        legend.text=element_text(size = 12),
+        legend.title = element_text(size=15))
+    ggsave(file.path(cur.out.folder, "feature_scatter.png"), p2)
+    ggsave(file.path(cur.out.folder, "feature_scatter.pdf"), p2)
 }
 
 plot_comparison <- function(test.matrix, all.preds, cutoffs, TMM.model) {
