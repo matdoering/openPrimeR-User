@@ -14,11 +14,15 @@ library(plyr)
 library(ROCR) # for roc analysis
 cur.out.folder <- file.path("results")
 dir.create(cur.out.folder)
+# rename feature.matrix Runs:
+feature.matrix$Run[feature.matrix$Run == "openPrimeR2017"] <- "Set1"
+feature.matrix$Run[feature.matrix$Run == "Tiller2008_1st"] <- "Set2"
 ##########
 # Statistical Analysis of Data set
 ###########
 # Create scatter plot of DeltaG vs terminal mismatch position
 plot_scatter_deltaG_pos(feature.matrix, cur.out.folder)
+plot_rate_of_amplification(feature.matrix, cur.out.folder)
 # Create table providing data set overview
 data.overview <- ddply(feature.matrix, "Run", summarize, DeltaGRange = iqr(annealing_DeltaG),
     MismatchRange = iqr(Position_3terminusLocal), NbrMismatchesRange = iqr(Number_of_mismatches_hexamer), GC_Clamp = iqr(gc_clamp_fw), Folding = iqr(Structure_deltaG_fw), SelfDimer = iqr(Self_Dimer_DeltaG), AmplifiedCount = length(which(Experimental_Coverage == "Amplified")), 
@@ -62,14 +66,8 @@ write.csv(basic.stats, file.path(cur.out.folder, "stats_amplified_vs_unamplified
 # Heatmap for experimental data
 plot.heatmap.exp(feature.matrix, cur.out.folder)
 # Heatmap for predicted amplification status using TMM
-tiller.df <- read_primers(system.file("inst", "extdata", "IMGT_data",
-                          "primers", "IGHV", "Tiller2008_1st.fasta", package = "openPrimeR")) 
-open.df <- read_primers(system.file("inst", "extdata", "IMGT_data",
-             "primers", "IGHV", "openPrimeR2017.fasta", package = "openPrimeR"))
-data(Ippolito) # load template.df
-# evaluate both primer sets
-tiller.df <- check_constraints(tiller.df, template.df, settings, c("primer_coverage"))
-open.df <- check_constraints(open.df, template.df, settings, c("primer_coverage"))
+tiller.df <- primer.data[[1]]$Primers # from data(RefCoverage)
+open.df <- primer.data[[2]]$Primers # from data(RefCoverage)
 primer.df <- rbind(data.frame(open.df), data.frame(tiller.df))
 sel <- which(template.df$ID %in% feature.matrix$Template)
 plot.heatmap.pred(template.df, primer.df, sel, cur.out.folder)
@@ -121,8 +119,10 @@ for (i in seq_along(formulas)) {
 #########
 # Define validation, training, and test data sets
 #########
-set.indices <- get_train_indices_new(feature.matrix, seed = 127351) # fixed seed for reproducibility
+seed <- 164 # fixed seed for reproducibility 
+set.indices <- get_train_indices_new(feature.matrix, seed = seed)
 validation.matrix <- feature.matrix[set.indices$validation,]
+validation.model <- glm(stat.formula.2, family = "binomial", data = validation.matrix)
 train.matrix <- feature.matrix[set.indices$train,]
 test.matrix <- feature.matrix[set.indices$test, ]
 # Create table with number of observations per data set:
@@ -142,10 +142,9 @@ write.csv(set.dist.table, file.path(cur.out.folder, "data_set_distribution.csv")
 # Model development for TMM
 #########
 # a) Select features for logistic regression models using the validation set and backward selection from full set of LR2 features
-validation.model <- glm(stat.formula.2, family = "binomial", data = validation.matrix)
 sink(file.path(cur.out.folder, paste0("backward_stepwise_selection.txt")))
 model.step <- stepAIC(validation.model, direction = "backward")
-sink(NULL)
+sink()
 sel.formula <- formula(model.step) # Experimental_Coverage ~ annealing_DeltaG + Position_3terminusLocal + annealing_DeltaG:Position_3terminusLocal
 sink(file.path(cur.out.folder, paste0("feature_significance_TMM.txt")))
 print(summary(model.step))

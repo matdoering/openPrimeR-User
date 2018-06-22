@@ -30,7 +30,7 @@ train_model_new <- function(data, data.ident, train.idx, ctrl, formula, type = "
     model <- NULL
     if (type == "CV") {
         print(data.ident)
-        model <- train(Experimental_Coverage ~ annealing_DeltaG + log(Position_3terminus, 2), data = data, method = "glm", family="binomial", trControl = ctrl, subset = train.idx)
+        model <- train(Experimental_Coverage ~ annealing_DeltaG + Position_3terminusLocal, data = data, method = "glm", family="binomial", trControl = ctrl, subset = train.idx)
     }
     return(model)
 }
@@ -288,9 +288,13 @@ store_views_to_disk <- function(views, f, cvg.model, out.folder, plot.matrix = N
 plot_scatter_deltaG_pos <- function(feature.matrix, cur.out.folder) {
     library(ggplot2)
     plot.matrix <- feature.matrix
-    plot.matrix$Run[plot.matrix$Run == "openPrimeR2017"] <- "Set1"
-    plot.matrix$Run[plot.matrix$Run == "Tiller2008_1st"] <- "Set2"
-    p2 <- ggplot(plot.matrix, aes(x = Position_3terminus, y = annealing_DeltaG,
+    # NB: Position_3terminus of NA means no mismatches -> should still be plotted. store as max primer length + 1 and then change tick label!
+    no.mm.idx <- which(is.na(plot.matrix$Position_3terminus))
+    x.ticks <- c(seq(1, max(plot.matrix$Position_3terminus, na.rm = TRUE), 5), max(plot.matrix$primer_length_fw) + 1)
+    x.labels <- x.ticks
+    x.labels[length(x.labels)] <- "None"
+    plot.matrix$Position_3terminus[no.mm.idx] <- max(plot.matrix$primer_length_fw) + 1
+    p1 <- ggplot(plot.matrix, aes(x = Position_3terminus, y = annealing_DeltaG,
                                 colour = Experimental_Coverage)) +
         geom_point(aes(shape=Run), alpha = 0.65, size = 2.5) + # + facet_grid(. ~ Run) + 
         geom_vline(xintercept = 6, color = "black", linetype = "dotted", alpha = 0.5) + 
@@ -298,13 +302,89 @@ plot_scatter_deltaG_pos <- function(feature.matrix, cur.out.folder) {
         xlab("Mismatch position closest to the primer 3' terminus") + ylab(expression(paste("Annealing ", Delta, "G [kcal/mol]"))) + 
         scale_colour_discrete(name = "Amplification Status") + 
         scale_shape_discrete(name = "Primer Set") + 
+        scale_x_continuous(breaks = x.ticks, labels = x.labels) + 
         theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
         legend.text=element_text(size = 12),
         legend.title = element_text(size=15))
-    ggsave(file.path(cur.out.folder, "feature_scatter.png"), p2)
-    ggsave(file.path(cur.out.folder, "feature_scatter.pdf"), p2)
+    ggsave(file.path(cur.out.folder, "feature_scatter.png"), p1)
+    ggsave(file.path(cur.out.folder, "feature_scatter.pdf"), p1)
+    #####
+    # only plot 3' hexamer posis
+    my.plot.matrix <- plot.matrix
+    my.plot.matrix <- my.plot.matrix[my.plot.matrix$Number_of_mismatches_hexamer != 0,]
+    p11 <- ggplot(my.plot.matrix, aes(x = Position_3terminusLocal, y = annealing_DeltaG,
+                                colour = Experimental_Coverage)) +
+        geom_point(aes(shape=Run), alpha = 0.65, size = 2.5) + 
+        facet_grid(. ~ Number_of_mismatches_hexamer) + 
+        geom_hline(yintercept = -5, color = "black", linetype = "dotted", alpha = 0.75) +
+        xlab("Mismatch position in 3' hexamer") + ylab(expression(paste("Annealing ", Delta, "G [kcal/mol]"))) + 
+        scale_colour_discrete(name = "Amplification Status") + 
+        scale_shape_discrete(name = "Primer Set") + 
+        scale_x_continuous(breaks = x.ticks, labels = x.labels) + 
+        theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
+        legend.text=element_text(size = 12),
+        legend.title = element_text(size=15)) +
+        ggtitle("Amplification stratified by number of 3' hexamer mismatches")
+    ggsave(file.path(cur.out.folder, "feature_scatter_hexamer.png"), p11)
+    ggsave(file.path(cur.out.folder, "feature_scatter_hexamer.pdf"), p11)
+    # store whether mismatch in 3' hexamer occurred
+    plot.matrix$has3PrimeMismatch <- ifelse(plot.matrix$Number_of_mismatches_hexamer != 0, "3' Mismatch", "No 3' Mismatch")
+    p2 <- ggplot(plot.matrix, aes(x = Number_of_mismatches, y = annealing_DeltaG,
+                                colour = Experimental_Coverage)) +
+        geom_point(aes(shape = has3PrimeMismatch), alpha = 0.65, size = 2.5) + # + facet_grid(. ~ Run) + 
+        geom_hline(yintercept = -5, color = "black", linetype = "dotted", alpha = 0.75) +
+        xlab("Number of mismatches") + ylab(expression(paste("Annealing ", Delta, "G [kcal/mol]"))) + 
+        scale_x_continuous(limits = c(0, max(plot.matrix$Number_of_mismatches+1))) + 
+        scale_colour_discrete(name = "Amplification Status") + 
+        scale_shape_discrete(name = "3' Mismatch") + 
+        theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
+        legend.text=element_text(size = 12),
+        legend.title = element_text(size=15))
+    ggsave(file.path(cur.out.folder, "feature_scatter_nbrMM.png"), p2)
+    ggsave(file.path(cur.out.folder, "feature_scatter_nbrMM.pdf"), p2)
 }
 
+plot_rate_of_amplification <- function(feature.matrix, cur.out.folder) {
+    library(ggplot2)
+    library(scales)
+    plot.matrix <- feature.matrix
+    # NB: Position_3terminus of NA means no mismatches -> should still be plotted. store as max primer length + 1 and then change tick label!
+    no.mm.idx <- which(is.na(plot.matrix$Position_3terminus))
+    x.ticks <- c(seq(1, max(plot.matrix$Position_3terminus, na.rm = TRUE), 5), max(plot.matrix$primer_length_fw) + 1)
+    x.labels <- x.ticks
+    x.labels[length(x.labels)] <- "None"
+    plot.matrix$RateOfAmplification <- 
+    plot.matrix$Position_3terminus[no.mm.idx] <- max(plot.matrix$primer_length_fw) + 1
+    my.plot.matrix <- ddply(plot.matrix, .(Position_3terminus), summarize, RateOfAmplification = length(which(Experimental_Coverage == "Amplified"))/length(Experimental_Coverage))
+   p1 <- ggplot(my.plot.matrix)  + 
+        geom_line(aes(x = Position_3terminus, y = RateOfAmplification)) + 
+        xlab("Mismatch position closest to the primer 3' terminus") + ylab("Rate of Amplification") + 
+        scale_x_continuous(breaks = x.ticks, labels = x.labels) + 
+        theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
+        legend.text=element_text(size = 12),
+        legend.title = element_text(size=15)) + 
+ scale_y_continuous(labels=scales::percent)
+
+    ggsave(file.path(cur.out.folder, "rate_of_amplification_mismatchPos.png"), p1)
+    ggsave(file.path(cur.out.folder, "rate_of_amplification_mismatchPos.pdf"), p1)
+    ###
+    my.plot.matrix <- ddply(plot.matrix, .(Number_of_mismatches), summarize, DeltaG = iqr(annealing_DeltaG), MismatchPos = iqr(Position_3terminusLocal),
+    RateOfAmplification = length(which(Experimental_Coverage == "Amplified"))/length(Experimental_Coverage))
+    p2 <- ggplot(my.plot.matrix, aes(x = Number_of_mismatches, y = RateOfAmplification))  + 
+        geom_line() + 
+        geom_point() + 
+        xlab("Number of mismatches") + ylab("Rate of Amplification") + 
+        scale_x_continuous(breaks = x.ticks, labels = x.labels) + 
+        theme(axis.text=element_text(size=15), axis.title = element_text(size=15),
+        legend.text=element_text(size = 12),
+        legend.title = element_text(size=15)) + 
+        scale_x_continuous(breaks = unique(my.plot.matrix$Number_of_mismatches)) + 
+ scale_y_continuous(labels=scales::percent)
+    ggsave(file.path(cur.out.folder, "rate_of_amplification_mismatchNbr.png"), p2)
+    ggsave(file.path(cur.out.folder, "rate_of_amplification_mismatchNbr.pdf"), p2)
+    my.plot.matrix$RateOfAmplification <- paste0(round(my.plot.matrix$RateOfAmplification  * 100, 2), "%")
+    write.csv(my.plot.matrix, file.path(cur.out.folder, "rate_of_amplification_mismatchNbr.csv"))
+}
 plot_comparison <- function(test.matrix, all.preds, cutoffs, TMM.model) {
     # Determine coverage for every number of maximal mismatches allowed
     library(caret)
