@@ -12,8 +12,8 @@ MAINTAINER Matthias Doering <mdoering@mpi-inf.mpg.de>
 # libmysqlclient-dev: required for RMySQL pkg
 RUN rm -rf /var/lib/apt/lists/*
 # changes: libssl-dev/unstable to libssl-dev because unstable not found (maybe need to change sources?)
-# libmysqlclient-dev -> default-libmysqlclient-dev
-RUN apt-get update && apt-get install -y libfontconfig1 libxml2-dev default-jre libssl-dev libv8-dev libgslcblas0 python-pip pandoc texlive texlive-latex-extra defeault-libmysqlclient-dev
+# libmysqlclient-dev -> default-libmysqlclient-dev, libgslcblas0 -> libgsl0-dev
+RUN apt-get update && apt-get install -y libfontconfig1 libxml2-dev default-jre libssl-dev libv8-dev libgsl0-dev python-pip pandoc texlive texlive-latex-extra default-libmysqlclient-dev
 #    && rm -rf /var/lib/apt/lists/*
 RUN pip install selenium
 WORKDIR /srv/
