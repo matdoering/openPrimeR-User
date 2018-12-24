@@ -5,6 +5,7 @@
 ###############
 # Load data and functions
 ###########
+data(Ippolito) # IGHV templates
 source("load_functions.R") # functions for doing the analyses
 devtools::load_all(file.path("..", "openPrimeR")) # load all functions from openPrimeR
 data(RefCoverage) # data with amplification status ('feature.matrix')
@@ -142,10 +143,27 @@ write.csv(set.dist.table, file.path(cur.out.folder, "data_set_distribution.csv")
 # Model development for TMM
 #########
 # a) Select features for logistic regression models using the validation set and backward selection from full set of LR2 features
+# UPDATE: 2018-12-24: use of leaps rather than stepAIC (exact subset selection)
+library(bestglm)
 sink(file.path(cur.out.folder, paste0("backward_stepwise_selection.txt")))
-model.step <- stepAIC(validation.model, direction = "backward")
+#model.step <- stepAIC(validation.model, direction = "backward")
+#sel.formula <- formula(model.step) # Experimental_Coverage ~ annealing_DeltaG + Position_3terminusLocal + annealing_DeltaG:Position_3terminusLocal
+# prepare data: y label
+features <- c("Mismatch_pos_1", "Mismatch_pos_2", "Mismatch_pos_3",
+              "Mismatch_pos_4", "Mismatch_pos_5", "Mismatch_pos_6",
+               "annealing_DeltaG", "Position_3terminusLocal", 
+               "Number_of_mismatches_hexamer")
+validation.matrix.mod <- validation.matrix[,features]
+validation.matrix.mod[, "annealing_DeltaG:Position_3terminusLocal"] <- validation.matrix.mod$annealing_DeltaG * validation.matrix.mod$Position_3terminusLocal
+validation.matrix.mod$y <- validation.matrix$Experimental_Coverage
+# add crossTerm
+model.step <- bestglm(Xy = validation.matrix.mod,
+            family = binomial,          
+            IC = "AIC",                
+            method = "exhaustive")
 sink()
-sel.formula <- formula(model.step) # Experimental_Coverage ~ annealing_DeltaG + Position_3terminusLocal + annealing_DeltaG:Position_3terminusLocal
+model.terms <- gsub("`", "", attr(model.step$BestModel$terms, "term.labels"))
+sel.formula <- as.formula(paste0("Experimental_Coverage ~", paste0(model.terms, collapse = "+")))
 sink(file.path(cur.out.folder, paste0("feature_significance_TMM.txt")))
 print(summary(model.step))
 sink(NULL)
@@ -180,6 +198,19 @@ auc.preds <- list(pr.TMM, pr.DE, pr.FE)
 names(auc.preds) <- c("TMM", "DE", "FE")
 auc.result <- as.data.frame(get.AUCs(auc.preds))
 write.csv(auc.result, file.path(cur.out.folder, "model_AUCs.csv"))
+#######################
+# Determine significance of ROC curves
+#######################
+# DeltaG vs TMM
+test.result.G.vs.TMM <- wilcox.test(test.matrix$annealing_DeltaG, p, paired = TRUE)
+# TMM vs DECIPHER
+test.result.TMM.vs.DE <- wilcox.test(test.matrix$primer_efficiency, p, paired = TRUE)
+########
+library(pROC)
+roc.deltaG <- roc(test.matrix$Experimental_Coverage, -test.matrix$annealing_DeltaG, levels = c("Unamplified", "Amplified"))
+roc.TMM <- roc(test.matrix$Experimental_Coverage, p, levels = c("Unamplified", "Amplified"))
+roc.DE <- roc(test.matrix$Experimental_Coverage, test.matrix$primer_efficiency, levels = c("Unamplified", "Amplified"))
+roc.difference <- roc.test(roc.TMM, roc.DE)
 ######################
 # Classifiers Creation via Cutoff Optimization
 ####################
