@@ -1,6 +1,0 @@
-<map id="Predicting Locally stable structures of large sequences" name="Predicting Locally stable structures of large sequences">
-<area shape="rect" id="node1" href="$group__local__mfe__fold.html" title="Local MFE structure\l Prediction and Z&#45;scores" alt="" coords="415,5,579,47"/>
-<area shape="rect" id="node3" href="$group__local__consensus__fold.html" title="Local MFE consensus\l structures for Sequence\l Alignments" alt="" coords="415,70,580,126"/>
-<area shape="rect" id="node5" href="$group__local__pf__fold.html" title="Partition functions\l for locally stable\l secondary structures" alt="" coords="423,150,571,206"/>
-<area shape="rect" id="node4" href="$group__folding__routines.html" title="This module contains all functions related to thermodynamic folding of RNAs. " alt="" coords="5,77,180,119"/>
-</map>
