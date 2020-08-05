@@ -20,16 +20,18 @@ We provide two distributions for openPrimeR. The R package (including the Shiny 
 2. You only want to use the openPrimeR frontend in terms of the Shiny app.
 3. You do not want to invest time in installing the package with all of its dependencies.
 
-## Installation from GitHuB
+## Installation from GitHub
 
 ### Introduction to GitHub
 In a console, enter
 
->**git clone https://github.com/matdoering/openPrimeR-User**
+>**git clone https://github.com/matdoering/openPrimeR-User && **
+>**git submodule update --init --recursive**
 
 To update your local version of the tool to the curreent GitHub version at a later point in time, just run
 
->**git pull origin master**
+>**git pull origin master && **
+>**git submodule update**
 
 in the project's base folder. 
 
@@ -87,7 +89,7 @@ located in the project's base folder.
 
 ## Usage with Docker
 
-Our docker image is available at [dockerhub](https://hub.docker.com/r/mdoering88/primer_design/). In order to use the docker image, you need to [install docker](https://www.docker.com/) on your system and activate the docker daemon. 
+Our docker image is available at [dockerhub](https://hub.docker.com/r/mdoering88/openprimer/). In order to use the docker image, you need to [install docker](https://www.docker.com/) on your system and activate the docker daemon. 
 
 ### Short instructions
 
@@ -105,19 +107,19 @@ This procedure will
 
 After logging in with your docker account, in a console, enter 
 
->**docker pull mdoering88/primer_design**
+>**docker pull mdoering88/openprimer**
 
 to retrieve the latest docker image of the tool. Since the image is quite large the download (~4 GB) may take some time, especially if your internet connection is not very fast.
 
 To run the image, enter
 
->**docker run -p 3838:3838 --rm mdoering88/primer_design**
+>**docker run -p 3838:3838 --rm mdoering88/openprimer**
 
 After this, the tool is available by accessing **localhost:3838** in your web browser.
 
 In case you want to have more control of the image you are running or you want to study the output of the tool, you can execute
 
->**docker run --rm -p 3838:3838 -v /tmp/logs/:/var/log/shiny-server/ mdoering88/primer_design:0.99.0**
+>**docker run --rm -p 3838:3838 -v /tmp/logs/:/var/log/shiny-server/ mdoering88/openprimer:latest**
 
 With this call, the tool's log file is stored in the */tmp/logs/* folder on your system with a filename starting with *shiny-shiny*). During the session, you can use 
 
@@ -125,7 +127,7 @@ With this call, the tool's log file is stored in the */tmp/logs/* folder on your
 
 to retrieve the current status messages. 
 
-Moreover, in the above call to Docker, we have specified a tag, namely *:0.99.0*, which means that we have started version *0.99.0* of the tool of the tool. In case that no tag is provided, the latest available Docker image is used.
+Moreover, in the above call to Docker, we have specified a tag, namely *:latest*, which means that we have started the most recent version of the tool. In case that no tag is provided, the latest available Docker image is used.
 
 ## Contributors
 
@@ -134,10 +136,6 @@ openPrimeR is being developed at the Max Planck Institute for Informatics and th
 ## License
 
 See the [LICENSE](LICENSE.txt) file for license rights and limitations (GNU General Public License, Version 2.0).
-
-## Changelog
-
-Take a look at the [CHANGELOG](CHANGELOG.md) to view recent changes to the project.
 
 ## Requirements for the R package
 - R >= version 3.4.0 

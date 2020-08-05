@@ -30,56 +30,22 @@ if (class(path) == "try-error") { # for non-Rscript calls
 if (class(path) == "try-error") { # other cases
     path <- getwd() # assume we're in the right directory ('src')
 } 
-path <- file.path(path, "openPrimeR") # path to openPrimeR package
-source(file.path(path, "inst", "shiny", "shiny_server", "extra_install_helper.R"))
-# make sure that openPrimeR has been installed.
-if (!requireNamespace("openPrimeR", quietly = TRUE)) { # don' attach here!!
-    warning("Could not load the openPrimeR package. ",
-	"Please run the install script first to install openPrimeR if you haven't done so yet. ",
-	"Trying to fix the problem now, assuming you already ran the installation script ...")
-}
+openPrimeR.path <- file.path(path, "openPrimeR") # path to openPrimeR package
+openPrimeR.ui.path <- file.path(path, "openPrimeRui") # path to openPrimeR frontend
+#source(file.path(path, "inst", "shiny", "shiny_server", "extra_install_helper.R"))
 # load current pkg version from source (no library call here such that changes to the source are directly reflected in the tool).
-test <- suppressWarnings(try(devtools::load_all(path, export_all = FALSE), silent = TRUE))
-if (class(test) == "try-error") {
-    print(attr(test, "condition"))
-    message("openPrimeR is installed, but couldn't be loaded by devtools.\n",
-            "Maybe the package sources are invalid?\n",
-            "Have you tried updating your sources?\n", 
-            "Meanwhile, trying to reinstall all dependencies to see if this helps to fix the problem ...")
-    Sys.sleep(2)
-	# tool is installed but doesn't load -> dependencies might be missing ...
-	source(file.path(path, "inst", "shiny", "shiny_server", "extra_install_helper.R"))
-	tool.data.folder <- file.path(path, "inst", "extdata")
-	# set CRAN mirror for 'available.packges' command:
-	CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", tool.data.folder = tool.data.folder)
-	CRAN.pkgs <- available.packages()
-	required.pkgs <- get_deps(path)
-	#installed.pkgs <- installed.packages()
-	#missing.pkgs <- intersect(required.pkgs, installed.pkgs[, "Package"])
-	for (i in seq_along(required.pkgs)) {
-		dep <- required.pkgs[i]
-		message("######")
-		message("Installing: ", dep)
-		message("######")
-		# use force_install to update all re-install/update all dependencies
-		USED.MIRROR <- pkgTest(dep, load_namespace_only = TRUE, 
-						   dependencies = TRUE,
-						   repository = CRAN.mirror, CRAN.pkgs = CRAN.pkgs, force_install = TRUE)
-	}
-	# try again to load the package
-	message("Reloading openPrimeR ...")
-	test <- try(devtools::load_all(path, export_all = FALSE))
-	if (class(test) == "try-error") {
-		stop("Could not load openPrimeR. Please try reinstalling the tool.")
-	} else {
-		message("Successfully updated the dependencies!")
-	}
-}
+devtools::load_all(openPrimeR.path, export_all = FALSE)
+devtools::load_all(openPrimeR.ui.path, export_all = FALSE)
+#if (class(test) == "try-error") {
+    #print(attr(test, "condition"))
+    #message("openPrimeR couldn't be loaded by devtools.\n",
+            #"Check your package dependencies.")
+#}
+#requireNamespace("openPrimeR", quietly = TRUE)
 # don't install tools, some users might be happy with what they have or have problems with installing ...
 message("Starting the app ...")
 # start the shiny app:
-openPrimeR::startApp()
-
+openPrimeRui::startApp()
 #####################################3
 ###################
 # useful comands:
