@@ -546,6 +546,8 @@ install.pandoc.from.src <- function(PANDOC.INSTALL.PATH, PANDOC.SRC, PANDOC.SRC.
 }
 install.MAFFT <- function(MAFFT.INSTALL.PATH, MAFFT.SRC, MAFFT.SRC.WIN, tool.src.folder) {
     # modify MAFFT Makefile for local installation
+    print(MAFFT.SRC)
+    print(tool.src.folder)
 	is.win <- get.OS() == "win"
 	if (is.win) {
 		MAFFT.SRC <- MAFFT.SRC.WIN
@@ -591,7 +593,10 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
     # ensure that tool folder exists
     suppressWarnings(dir.create(tool.folder))
     tool.src.folder <- file.path(base.path, "tools_src")
+    message("Tool src folder is: ", tool.src.folder)
+
     TOOL.SOURCE.FILES <- list.files(tool.src.folder, pattern = "\\.tar", full.names = TRUE)
+    print(TOOL.SOURCE.FILES)
     # MELT
     MELT.PATH <- file.path(tool.folder, "MELTING")
     MELT.SRC <- TOOL.SOURCE.FILES[grep("MELTING", TOOL.SOURCE.FILES)[1]]
@@ -654,6 +659,7 @@ install.tools <- function(AVAILABLE.TOOLS = NULL) {
     if (length(AVAILABLE.TOOLS) == 0) {
         message("Checking tools for installation status ...")
         AVAILABLE.TOOLS <- openPrimeR:::check.tool.installation(frontend = TRUE)
+        print(AVAILABLE.TOOLS)
     } else {
         # don't try to install again, if we already tried to install (AVAILABLE.TOOLS is set in this case)
         return(AVAILABLE.TOOLS)

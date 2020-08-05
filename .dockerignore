@@ -4,3 +4,5 @@ results/*
 other/*
 junk/*
 tools/*
+.dockerignore
+Dockerfile

@@ -1,11 +1,12 @@
 #!/usr/bin/env Rscript 
-
-# script for locally starting the primer design app for users
-# -> installs the tool if necesary
-######
-# some code duplication here: need to find out the directory path ...
-# -> not possible in another file, for which we would need again the path for sourcing
-#######
+###
+# installs openPrimeR and openPrimeRui, as well as additional tools
+#############
+if (!require("devtools")) {
+    return("Please install devtools")
+}
+devtools::install("src/openPrimeR", dependencies = TRUE)
+devtools::install("src/openPrimeRui", dependencies = TRUE)
 getScriptPath <- function() {
     cmd.args <- commandArgs()
     m <- regexpr("(?<=^--file=).+", cmd.args, perl = TRUE)
@@ -37,12 +38,6 @@ dir.disallowed <- grepl("[[:blank:]]", path)
 if (dir.disallowed) {
 	stop("Please move the base directory to a path without any spaces.")
 }
-message("\nNote: If the installation should stop with an error such as\n",
-		"'Error in loadNamespace(): there is no package called `pkgName`', ", 
-		"please install `pkgName` manually using `install.packages('pkgName')` for CRAN packages\n",
-		"or `source('http://bioconductor.org/biocLite.R');biocLite('pkgName')` for ",
-		"Bioconductor packages and continue the installation.\n")
-Sys.sleep(1)
 cmd.params <- commandArgs(trailingOnly=TRUE)
 # arg1: logical (start.after.install?)
 if (length(cmd.params) == 0) {
@@ -54,42 +49,7 @@ if (length(cmd.params) == 0) {
 }
 base.path <- file.path(path, "..") # the primer_design directory (base)
 source(file.path(base.path, "src", "extra_install_helper.R"))
-# load country dists:
-load(file.path(base.path, "src", "country_dists.Rdata")) # 'country.dists' var available
-if (!exists("country.dists")) {
-    stop("Can't determine fastest mirror without 'country.dists.Rdata'")
-}
-# need to install openPrimeR backend and frontend packages:
-pkg.deps <- c("openPrimeR", "openPrimeRui")
-for (i in seq_along(pkg.deps)) {
-    path <- file.path(base.path, "src", pkg.deps[i])
-    print(paste0("Installing deps for package: ", pkg.deps[i]))
-    my_deps <- get_deps(path)
-    #tool.data.folder <- file.path(path, "inst", "extdata")
-    # we need roxygen for devtools ...
-    # set CRAN mirror for 'available.packges' command:
-    CRAN.mirror <- set.CRAN.mirror("http://cran.uni-muenster.de/", "devtools", country.dists)
-    CRAN.pkgs <- available.packages()
-    # install all R package dependencies
-    for (i in seq_along(my_deps)) {
-        dep <- my_deps[i]
-        dependencies <- TRUE
-        USED.MIRROR <- pkgTest(dep, load_namespace_only = TRUE, 
-                               dependencies = dependencies,
-                               repository = CRAN.mirror, CRAN.pkgs = CRAN.pkgs)
-    }
-    # Update packages that were available already but are outdated:
-    update.status <- update.required.packages(my_deps, CRAN.mirror)
-    # install pkg from source:
-    install.ok <- try(install.packages(path, repos = NULL, type="source", dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")), silent = TRUE)
-    if (class(install.ok) == "try-error") {
-        # Installation stopped due to missing dependencies: let devtools do the job
-        install.ok <- try(devtools::install(path, dependencies = TRUE, quick = TRUE, upgrade = FALSE))
-        if (class(install.ok) == "try-error") {
-            stop("Installation of openPrimeR failed. Please install missing dependencies manually and restart the installation procedure thereafter.")
-        }
-    } 
-}
+
 if (to.install.tools) {
     # installt tools
     install.script <- file.path(base.path, "src", "extra_install_tools.R")
