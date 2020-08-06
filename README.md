@@ -22,16 +22,15 @@ We provide two distributions for openPrimeR. The R package (including the Shiny 
 
 ## Installation from GitHub
 
-### Introduction to GitHub
 In a console, enter
 
 >**git clone https://github.com/matdoering/openPrimeR-User && **
 >**git submodule update --init --recursive**
 
-To update your local version of the tool to the curreent GitHub version at a later point in time, just run
+To update your local version of the tool to the current GitHub version at a later point in time, just run
 
 >**git pull origin master && **
->**git submodule update**
+>**git submodule update --remote**
 
 in the project's base folder. 
 
@@ -41,93 +40,42 @@ In case that you have performed changes to the local files and you would like to
 
 in the project folder in order to discard all local changes.
 
-### Installing the tool: MacOS and Unix
+### Installing the tools: MacOS and Unix
 
 In a console, enter the project's base folder and execute
 
 >**./install.sh**
 
-### Installing the tool: Windows
+### Installing the tools: Windows
 
 If you are using Windows, please execute the batch script
 
 >**./install.cmd**
 
-Please ensure that you have added R into your system's path before using the script. For more information, on changing the path, please refer to the [R FAQ](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#Rcmd-is-not-found-in-my-PATH_0021).h
+Please ensure that you have added R into your system's path before using the script. For more information, on changing the path, please refer to the [R FAQ](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#Rcmd-is-not-found-in-my-PATH_0021).
 
-### Installation advice
-
-The installation command installs all of the package's dependencies, that is, other R packages as well as the third-party tools that are required by openPrimeR. 
-If there are problems during the installation, please consider the console output. For example, if you should get an error such as
-
-> there is no package called 'gtable'
-
-this can probably be fixed by running
-
-> install.packages('gtable')
-
-in case of CRAN packages such as *gtable* or. For Bioconductor packages, such as *XVector*, you can run
-
-> biocLite('XVector')
-
-after loading *biocLite*. After this, you restart the installation script. Once the installation is finished, a browser will open the tool.
-Again, please note the console output here for the case that there were problems with installing the third-party tools.
+Note that Windows installer may currently not work.
 
 ### Starting the tool
 
-If you are using Unix/MacOS, simply execute the bash script
+If successful, the install routine automatically starts the openPrimeR user interface.
 
->**./start.sh**
+After successful installation, you can work with openPrimeR like this:
 
-from the project's base folder in a console to start a browser with the app.
+```
+library(openPrimeR) # to work with the openPrimeR API
+library(openPrimeRui)
+startApp() # start the UI
+```
 
-If you are using Windows, you can run the batch file
+Note that you need to set your path according to the installation directory of the 3rd party tools beforehand, i.e.
 
->**start.cmd**
+```
+export PATH=$PATH:"$dir/tools/oligoarrayaux/bin/:$dir/tools/MAFFT/bin/:$dir/tools/ViennaRNA/bin/:$dir/tools/MELTING/executable/:$dir/tools/phantomjs/bin/:$dir/tools/pandoc/";
+export UNAFOLDDAT="$dir/tools/oligoarrayaux/share/oligoarrayaux/";
+```
 
-located in the project's base folder.
-
-## Usage with Docker
-
-Our docker image is available at [dockerhub](https://hub.docker.com/r/mdoering88/openprimer/). In order to use the docker image, you need to [install docker](https://www.docker.com/) on your system and activate the docker daemon. 
-
-### Short instructions
-
-If you are using Unix/MacOS, please open a console, enter the project's base directory and run the bash script
-
->**./start_docker.sh**
-
-This procedure will
-
-1. Download the Docker image if it isn't available yet.
-2. Run the Docker image (see details below).
-3. Start a web browser for using the app.
-
-### Detailed instructions
-
-After logging in with your docker account, in a console, enter 
-
->**docker pull mdoering88/openprimer**
-
-to retrieve the latest docker image of the tool. Since the image is quite large the download (~4 GB) may take some time, especially if your internet connection is not very fast.
-
-To run the image, enter
-
->**docker run -p 3838:3838 --rm mdoering88/openprimer**
-
-After this, the tool is available by accessing **localhost:3838** in your web browser.
-
-In case you want to have more control of the image you are running or you want to study the output of the tool, you can execute
-
->**docker run --rm -p 3838:3838 -v /tmp/logs/:/var/log/shiny-server/ mdoering88/openprimer:latest**
-
-With this call, the tool's log file is stored in the */tmp/logs/* folder on your system with a filename starting with *shiny-shiny*). During the session, you can use 
-
->**tail -f shiny-shiny-X.txt**
-
-to retrieve the current status messages. 
-
-Moreover, in the above call to Docker, we have specified a tag, namely *:latest*, which means that we have started the most recent version of the tool. In case that no tag is provided, the latest available Docker image is used.
+where `$dir` should be set to the installation directory of `openPrimeR-User`.
 
 ## Contributors
 
@@ -136,9 +84,4 @@ openPrimeR is being developed at the Max Planck Institute for Informatics and th
 ## License
 
 See the [LICENSE](LICENSE.txt) file for license rights and limitations (GNU General Public License, Version 2.0).
-
-## Requirements for the R package
-- R >= version 3.4.0 
-- OS: Linux, MacOS, Windows
-- Third-party software: MAFFT, oligoarrayaux, MELTING, phantomjs, selenium for python, ViennaRNA
 
