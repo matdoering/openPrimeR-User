@@ -11,15 +11,23 @@ RUN mkdir primer_design
 ADD . primer_design
 # install openPrimeR package to install all the dependencies of the tool
 RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")'
-RUN Rscript primer_design/src/install.R FALSE TRUE
+WORKDIR /srv/primer_design/
+RUN Rscript src/install.R FALSE TRUE
 # Make all app files readable
 # Copy the app to the image
-COPY primer_design /srv/shiny-server/
+COPY ./ /srv/shiny-server/
 RUN chmod -R +r /srv/shiny-server
 #update shiny server conf and configure it to run the primer design tool in single app mode
-#ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
+ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
 # set ENV vars via bashrc
 COPY .docker_bashrc /home/shiny/.bashrc
 EXPOSE 3838
-CMD ["/usr/bin/shiny-server.sh"]
-#WORKDIR /srv/primer_design
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+#CMD ["/usr/bin/shiny-server"] # doesnt work because jquery has to be set by my script
+#RUN chown -R shiny:shiny /srv/
+USER shiny
+SHELL ["/bin/bash", "-c"]
+WORKDIR /home/shiny/
+CMD source ~/.bashrc && R -e 'appDir <- system.file("shiny", package = "openPrimeRui"); library(openPrimeR); options("shiny.port"=3838); options(shiny.jquery.version = 1); shiny::runApp(appDir, display.mode = "normal", launch.browser = FALSE, host ="0.0.0.0")'
+
+
