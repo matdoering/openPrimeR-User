@@ -3,4 +3,4 @@
 	url = https://github.com/matdoering/openPrimeR/
 [submodule "src/openPrimeRui"]
 	path = src/openPrimeRui
-	url = git@github.com:matdoering/openPrimeRui.git
+	url = https://github.com/matdoering/openPrimeRui
