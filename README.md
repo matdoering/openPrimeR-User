@@ -20,6 +20,12 @@ We provide two distributions for openPrimeR. The R package (including the Shiny 
 2. You only want to use the openPrimeR frontend in terms of the Shiny app.
 3. You do not want to invest time in installing the package with all of its dependencies.
 
+
+## Docker Image
+
+The openPrimeR docker image is available at [Docker Hub](https://hub.docker.com/repository/docker/mdoering88/openprimer). Further information about the use of the image can be found through the provided link.
+
+
 ## Installation from GitHub
 
 In a console, enter
