@@ -30,19 +30,19 @@ The openPrimeR docker image is available at [Docker Hub](https://hub.docker.com/
 
 In a console, enter
 
->**git clone https://github.com/matdoering/openPrimeR-User && **
->**git submodule update --init --recursive**
+>git clone https://github.com/matdoering/openPrimeR-User
+>git submodule update --init --recursive**
 
 To update your local version of the tool to the current GitHub version at a later point in time, just run
 
->**git pull origin master && **
->**git submodule update --remote**
+>git pull origin master
+>git submodule update --remote
 
 in the project's base folder. 
 
 In case that you have performed changes to the local files and you would like to revert to the last GitHub version, execute
 
->**git checkout -- .**
+>git checkout -- .
 
 in the project folder in order to discard all local changes.
 
@@ -50,13 +50,13 @@ in the project folder in order to discard all local changes.
 
 In a console, enter the project's base folder and execute
 
->**./install.sh**
+>./install.sh
 
 ### Installing the tools: Windows
 
 If you are using Windows, please execute the batch script
 
->**./install.cmd**
+>./install.cmd
 
 Please ensure that you have added R into your system's path before using the script. For more information, on changing the path, please refer to the [R FAQ](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#Rcmd-is-not-found-in-my-PATH_0021).
 

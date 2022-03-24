@@ -5,6 +5,9 @@
 if (!require("devtools")) {
     return("Please install devtools")
 }
+if (length(list.files("src/openPrimeR")) == 0 || length(list.files("src/openPrimeRui")) == 0) {
+	stop("Please run 'git submodule update --init --remote' first.")
+}
 devtools::install("src/openPrimeR", dependencies = TRUE)
 devtools::install("src/openPrimeRui", dependencies = TRUE)
 getScriptPath <- function() {
